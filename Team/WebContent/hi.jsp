@@ -8,5 +8,6 @@
 </head>
 <body>
 <h1>hi</h1>
+<h2>오지수</h2>
 </body>
 </html>
