@@ -1,0 +1,197 @@
+@CHARSET "UTF-8";
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+	
+.clear{clear: both;}영역구분
+
+body{margin: 0px; padding: 0px;
+	font-size: 14px;}
+
+/* 상단 메뉴 전체 */
+.top_menu{/* border: 2px solid yellow; */
+	overflow: hidden;
+ 	position: fixed;
+  	left: 0;top: 0;
+  	width: 100%; height: 80px;
+  	z-index: 1000;
+	background-color: rgba(0,0,0,0.8);}
+
+/* 로고 */
+#logo{/* border: 1px solid red; */
+	position: absolute;
+    left: 30px;
+    top: 10px;
+}
+
+/* 가운데메뉴 */
+#main_menu{
+	/* border: 1px solid red; */
+	width: 810px;
+    height: 100px;
+    margin: auto;
+    padding: 30px 0 0 100px;
+    position: relative;
+}
+
+#main_menu a{
+	/* border: 1px solid yellow; */
+	text-decoration: none;
+	display: inline-block;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: 60px;
+	}
+
+/* 예약버튼 */
+#book{
+	width: 150px; height: 60px;
+	background-color: #400080;
+	position: absolute;
+	right: 200px;	
+	top:0px;	
+}
+
+#book a{
+	/* border:1px solid white; */
+	box-sizing: border-box;
+	width: 150px; height: 60px;
+	padding:20px 40px;
+	font-size: 20px;
+	font-weight: 600;
+	display:inline-block;
+	text-decoration: none;
+	color: #fff;
+}
+
+/* 로그인 */
+#login{
+	/* border: 1px solid blue; */
+	position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+#login a{
+	/* border: 1px solid red; */
+	font-size: 20px;
+	font-weight: 400;
+	text-decoration: none;
+	color: #fff;
+}
+
+/* 메인이미지 */
+.main_img1 {
+    /* The image used */
+    background-image: url("../images/매장내3.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main_img2 {
+    /* The image used */
+    background-image: url("../images/매장내3.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main_img3 {
+    /* The image used */
+    background-image: url("../images/매장내3.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* 푸터전체 */
+footer{
+	width: 100%;
+    position: relative;
+    background-color: #fff;
+    text-align: center;
+    padding-top: 0px;
+}
+
+/* 문의 영역 */
+.ftop{
+	text-align: center;
+    height: 80px;
+    line-height: 80px;
+    border-bottom: 1px solid #ededed;
+}
+
+.ftop a{
+	display: inline-block;
+	text-decoration: none;
+    height: 80px;
+    line-height: 80px;
+    margin-right: 40px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #666666;
+}
+
+.ftop .material-icons{
+	/* border: 1px solid red; */
+	font-size:20px;
+	color:#666666;
+}
+
+/* 푸터 가운데 메뉴영역  */
+.fmenu{
+	margin-top: 30px;
+}
+
+.fmenu a{
+	text-decoration: none;
+	display: inline-block;
+    font-size: 14px;
+    color: #666666;
+}
+
+.fmenu a:after, .fbottom span:after{
+	content: "|";
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d9d9d9;
+    font-weight: 300;
+    font-size: 12px;
+}
+.fmenu a:LAST-CHILD:after, .fbottom span:LAST-CHILD:after{
+	content:" "
+}
+
+/* 푸터 맨 아래 영역 */
+.fbottom{
+	color: #d9d9d9;
+    font-size: 13px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    font-weight: 300;
+}
+.fbottom span{
+	color: #999999;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: -1px;
+}
