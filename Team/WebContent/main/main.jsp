@@ -18,10 +18,17 @@
 <div class="clear"></div>
 
 <!-- 메인 들어가는 곳 -->
-<div class="main_img1"></div>
-<div class="main_img2"></div>
-<div class="main_img3"></div>
+<div class="main_img1" id="main1"></div>
+<a href="#main2" class="arrow">
+   <img src="../images/arrow.png">
+   <img src="../images/dot.png" class="dot">
+</a>
+<div class="main_img2" id="main2"></div>
+<div class="main_img3" id="main3"></div>
 <!-- 메인 들어가는 곳 -->
+<!-- 서브메뉴 들어가는 곳 -->
+<jsp:include page="../inc/submenu.jsp"></jsp:include>
+<!-- 서브메뉴 들어가는 곳 -->
 
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
