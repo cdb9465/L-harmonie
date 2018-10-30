@@ -7,7 +7,9 @@ body {
   margin: 0;
 }
 
-img { width: 500px; height: 300px;
+.main { margin: 100px auto; }
+
+.review_wrap img { width: 500px; height: 300px;
 	margin: auto; }
 
 button {

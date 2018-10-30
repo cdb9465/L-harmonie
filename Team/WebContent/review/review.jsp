@@ -4,12 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Review Board</title>
+<link href="../css/default.css" rel="stylesheet">
 <link href="../css/review.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/top.jsp"></jsp:include>
+<!-- 헤더파일들어가는 곳 -->
 
+<div class="clear"></div>
+
+<!-- 메인 들어가는 곳 -->
+<div class="main">
 <!-- 리뷰쓰기 영역 시작 -->
 <div class="review_write">
 <form>
@@ -126,6 +136,8 @@
 </div>
 <!-- review_wrap 끝 -->
 
+</div>
+<!-- 메인 들어가는 곳 -->
 
 <script>
 var bClick = false;
@@ -180,8 +192,10 @@ function showSlides(n) {
 		activeIndex = slideIndex;
 	}
 }
-	
 </script>
 
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
+<!-- 푸터 들어가는 곳 -->
 </body>
 </html>
