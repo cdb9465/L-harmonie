@@ -6,7 +6,7 @@
 <div class="top_menu">
 
 <!-- 로고들어가는 곳 시작 -->
-<div id="logo"><img src="../images/logo(흰색_투명).png" width="250" alt="main_logo"></div>
+<div id="logo"><a href ="../main/main.jsp"><img src="../images/logo.png"></a></div>
 <!-- 로고들어가는 곳 끝 -->
 
 <!-- 메인메뉴 -->
@@ -17,8 +17,12 @@
 	<a href="#">REVIEW</a>
 </nav>
 <!--메인메뉴 -->
+
+<!-- 예약 버튼 -->
 <div id="book"><a href=#>BOOK</a></div>
-<div id="login"><a href=#>LOGIN</a></div>
+
+<!-- 로그인 버튼 -->
+<div id="login"><a href=#><i class="material-icons" font-size="25px">lock_open</i>LOGIN</a></div>
 
 </div>
 
