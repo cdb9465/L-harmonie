@@ -16,6 +16,7 @@ article h1{
 	font-size: 45px;
 	font-weight: normal;
 	display: block;
+	color: white;
 }
 .book_nav a{
 	width: 130px;
