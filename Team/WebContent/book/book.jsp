@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 <link href="../css/book.css" rel="stylesheet">
 <link href="../css/main.css" rel="stylesheet">
-<link rel="stylsheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
