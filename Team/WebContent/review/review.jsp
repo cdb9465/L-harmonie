@@ -10,118 +10,177 @@
 </head>
 <body>
 
-<div class="review_wrap">
-
-<div class="container">
-
- <div class="review_pic">
-
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-  
- <div class="mySlides">
-  <img alt="첨부사진" src="../images/피자1.jpg">
+<!-- 리뷰쓰기 영역 시작 -->
+<div class="review_write">
+<form>
+ 
+ <div class="write_location">
+  <div class="title">지점선택</div>
+  <select name="sel_location">
+   <option value="gangnam">강남점</option>
+   <option value="seomyeon">서면점</option>
+  </select>
  </div>
- <div class="mySlides">
-  <img alt="첨부사진" src="../images/파스타2.jpg">
- </div>
- <div class="mySlides">
-  <img alt="첨부사진" src="../images/파스타5.jpg">
- </div>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-  
+ <div class="clear"></div>
+
+ <div class="write_rating">
+  <div class="title">별점</div>
+  <div class="rating">
+   <i class="fa fa-star-o"></i>
+   <i class="fa fa-star-o"></i>
+   <i class="fa fa-star-o"></i>
+   <i class="fa fa-star-o"></i>
+   <i class="fa fa-star-o"></i>
+   <span> </span>
+  </div>
+ </div> 
+ <div class="clear"></div>
+ 
+ <div class="write_content">
+  <div class="title">리뷰</div>
+  <div class="clear"></div>
+  <textarea placeholder="리뷰를 작성해주세요"></textarea>
+  <button type="submit">리뷰등록</button>
  </div>
 
+</form>
+</div>
+<!-- 리뷰쓰기 영역 끝 -->
 
 
+<!-- review_wrap 시작 -->
+<div class="review_wrap">	
+
+<!-- 사진영역 div-->
+<div class="container">	
+<!-- 썸네일 이미지 목록 -->
  <div class="row">
   <div class="column">
-   <img class="demo cursor" src="../images/피자1.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
+   <img class="demo cursor active" src="../images/피자1.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
   </div>
   <div class="column">
-   <img class="demo cursor" src="../images/파스타2.jpg" style="width:100%" onclick="currentSlide(2)" alt="">
+   <img class="demo cursor active" src="../images/파스타2.jpg" style="width:100%" onclick="currentSlide(2)" alt="">
   </div>  
   <div class="column">
-   <img class="demo cursor" src="../images/파스타5.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
+   <img class="demo cursor active" src="../images/파스타5.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
   </div>
  </div>
- 
+ <!-- 썸네일 이미지 목록 끝 --> 
+
+ <!-- 사진펼침 시작 -->
+ <div class="review_pic">
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+  <div class="mySlides">
+   <img alt="첨부사진" src="../images/피자1.jpg" onclick="currentSlide(1)">
+  </div>
+  <div class="mySlides">
+   <img alt="첨부사진" src="../images/파스타2.jpg" onclick="currentSlide(2)">
+  </div>
+  <div class="mySlides">
+   <img alt="첨부사진" src="../images/파스타5.jpg" onclick="currentSlide(3)">
+  </div>
+ </div>
+ <!-- 사진펼침 끝 -->
 </div>
+<!-- 사진영역 div 끝-->
 
 <div class="clear"></div>
-
-<!-- 
-<div class="dot-container">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
- -->
-
 <hr>
 
-<div class="rating">
- <i class="fa fa-star"></i>
- <i class="fa fa-star"></i>
- <i class="fa fa-star"></i>
- <i class="fa fa-star"></i>
- <i class="fa fa-star-o"></i>
- <span> 4.0 </span>
+<!-- 리뷰내용 영역 -->
+<div class="review_content">
+ <div class="rating">
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star-o"></i>
+  <span> 4.0 </span>
+ </div>
+
+ <div class="like">
+  <button type="button"> <i class="fa fa-heart-o"></i> <p>좋아요</p> </button>
+ </div>
+ <div class="clear"></div>
+
+ <div class="name"> <p>홍길동</p> </div>
+ <div class="date"> <p>2018.10.26 14:37:00</p> </div>
+ <div class="clear"></div>
+
+ <div class="content">
+  <p>내용<br>
+    내용<br>
+    내용<br>
+  </p>
+ </div>
 </div>
-
-<div class="like">
- <button type="button">
-  <i class="fa fa-heart-o"></i>
-  <p>좋아요</p>
- </button>
- 
-</div>
-
-<div class="clear"></div>
-
-<div class="name"> <p>글쓴이</p> </div>
-<div class="date"> <p>2018.10.26 14:37:00</p> </div>
-
-<div class="clear"></div>
-
-<div class="content">
- <p>내용<br>
-   내용<br>
-   내용<br>
-   내용<br>
- </p>
-</div>
+<!-- 리뷰내용 영역 끝 -->
 
 <hr>
-
 <div class="comment">
  <textarea placeholder="댓글"></textarea>
+ <button type="button"><p>댓글등록</p></button>
 </div>
 
 </div>
+<!-- review_wrap 끝 -->
+
 
 <script>
-var slideIndex = 1;
-showSlides(slideIndex);
+var bClick = false;
+var activeIndex = 0;
+var slideIndex = 0;
+//showSlides(slideIndex);
 
 function plusSlides(n) { showSlides(slideIndex += n); }
-function currentSlide(n) { showSlides(slideIndex = n); }
+function currentSlide(n) {	showSlides(slideIndex = n); }
 
 function showSlides(n) {
-	  var i;
-	  var slides = document.getElementsByClassName("mySlides");
-	  var dots = document.getElementsByClassName("demo");
-	  if (n > slides.length) {slideIndex = 1}
-	  if (n < 1) {slideIndex = slides.length}
-	  for (i = 0; i < slides.length; i++) {
-	      slides[i].style.display = "none";
-	  }
-	  for (i = 0; i < dots.length; i++) {
-	      dots[i].className = dots[i].className.replace(" active", "");
-	  }
-	  slides[slideIndex-1].style.display = "block";
-	  dots[slideIndex-1].className += " active";
+	var i;
+	var slides = document.getElementsByClassName("mySlides");
+	var dots = document.getElementsByClassName("demo");
+	var prev = document.getElementsByClassName("prev");
+	var next = document.getElementsByClassName("next");
+	
+	if (n > slides.length) {slideIndex = 1}
+	if (n < 1) {slideIndex = slides.length}
+
+	for (i = 0; i < slides.length; i++) {
+	    slides[i].style.display = "none";
 	}
+
+	for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" active", "");
+	}	
+	
+	if(activeIndex == slideIndex)	//사진 닫을때
+	{
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className += " active";
+		}
+
+		slides[slideIndex-1].style.display = "none";
+		prev[0].style.display = "none";
+		next[0].style.display = "none";
+		
+		activeIndex = -1;
+	}
+	else	//사진 열릴때
+	{
+		for (i = 0; i < dots.length; i++) {
+		    dots[i].className = dots[i].className.replace(" active", "");
+		}
+		
+		slides[slideIndex-1].style.display = "block";
+		dots[slideIndex-1].className += " active";
+		prev[0].style.display = "block";
+		next[0].style.display = "block";
+		
+		activeIndex = slideIndex;
+	}
+}
+	
 </script>
 
 </body>
