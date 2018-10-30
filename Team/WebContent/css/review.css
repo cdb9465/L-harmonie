@@ -1,207 +1,167 @@
 @CHARSET "UTF-8";
 * { box-sizing: border-box; 
-font-size: 14px;
-}
+font-size: 14px; }
 
 body {
   font-family: Arial;
   margin: 0;
 }
 
-img { /* border: 1px solid blue; */
-  /* vertical-align: middle; */
-	width: 500px;
-	height: 300px;
-	
-	margin: auto;
-	display: block;
-}
+.main { margin: 100px auto; }
 
-.clear { clear: both; }
+.review_wrap img { width: 500px; height: 300px;
+	margin: auto; }
 
-/* Add a pointer when hovering over the thumbnail images */
-.cursor { cursor: pointer; }
-
-.review_wrap {
-	width: 800px;
-}
-
-.review_pic {/* border: 1px solid red; */
-	margin: 0 auto;
-	width: 500px;
-}
-
-/* Position the image container (needed to position the left and right arrows) */
-.container { border: 1px solid blue;
-  position: relative;
-  min-height: 300px;
- 
-}
-
-/* Slides */
-.mySlides { /* border: 1px solid red; */
-	width: 500px;
-	height: 300px;
-	display: none;
-}
-
-/* Next & previous buttons */
-.review_pic a {/* border: 1px solid green; */
-	cursor: pointer;
-	position: absolute;
-	top: 30%;
-	padding: 16px;
-	color: white;
-	font-weight: bold;
-	font-size: 20px;
-	user-select: none;
-	-webkit-user-select: none;
-}
-
-.prev{ 
-  border-radius: 0 3px 3px 0;
-  /* display: block; */
-  /* margin-top: -50px; */
-}
-
-/* Position the "next button" to the right */
-.next { /* border: 1px solid green; */
-	border-radius: 3px 0 0 3px;
- 	right: 150px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/*  */
-.row { border: 1px solid orange;
-	width: 500px;
-	height: 70px;
-	margin: 0 auto;
-}
-
-/* Six columns side by side */
-.column { 
-  float: left;
-  width: 16.66%;
-/*   height: 70px; */
-}
-
-.column img { border: 1px solid yellow;
-	height: 70px;
-	margin: 0 auto;
-	display: block;
-}
-
-/* Add a transparency effect for thumbnail images */
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-
-/* dot */
-/* The dot/bullet/indicator container */
-.dot-container {
-    text-align: center;
-    padding: 20px;
-    background: #ddd;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-/* Add a background color to the active dot/circle */
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* 별점 모양 */
-.rating { /* border: 1px solid red; */
-	float: left;
-	width: 150px;
-	margin-top: 10px;
-	font-size: 18px/* 별 크기 */;
-	color: red/* 별 색 */;}
-
-/* 별점 점수 */
-.rating>span { color: black; }	
-
-.like { 
-	float: left;
-}
-.like>button{ border: 1px solid #969696;
+button {
+	border: 1px solid #969696;
 	border-style: outset;
 	box-sizing: border-box;
 	border-radius: 4px;
 	background: #fff;
 	width: 80px; height: 40px;
 	cursor: pointer;
-	margin-left: 10px;	
-}
-.like>button>* { /* border: 1px solid green; */ 
-	float: left;
+	margin-left: 10px; }
+
+textarea { border: 1px solid #969696;
+	border-radius: 5px;
+	width: 500px;
+	margin-left: 17px;
+	padding: 5px 10px;
+	cursor: text;
+	display: inline-block; }
 	
-	/*height: 20px;
-	vertical-align: middle;
-	 display: inline-block;
-	line-height: 20px;
-	text-align: center; */
-	/* margin-bottom: 100px; */	
+.clear { clear: both; }
+
+.cursor { cursor: pointer; }
+
+/* 별점 모양 */
+.rating { /* border: 1px solid red; */
+	float: left;
+	width: 150px;
+	font-size: 18px/* 별 크기 */;
+	color: red/* 별 색 */;}
+
+/* 별점 점수 */
+.rating>span { color: black; }
+
+/* 리뷰쓰기 */
+.review_write { border-top: 2px solid red;
+	width: 800px;
+	margin: 20px 20px; }
+
+form { margin: 0 100px; }
+
+.title { /* border: 1px solid orange; */
+	width: 100px; height: 30px;
+	margin-right: 20px;
+	float: left;
 }
-.like>button>i{ /* border: 1px solid blue; */
-	margin-top: 13px;
-	}
-.like>button>p{ /* border: 1px solid green; */
+
+.write_location { /* border: 1px solid blue; */
+	width: 500px;
+	margin-top: 10px; }
+
+.write_rating{ float:left; }
+
+.write_content { width: 800px; }
+
+.write_content>textarea {
+	overflow-y: auto;
+	height: 80px; }
+
+.review_write button { /* border: 1px solid red; */
+	vertical-align: text-bottom;
+}
+
+/* 리뷰 영역 */
+.review_wrap { border-top: 2px solid red;
+	width: 800px;
+	margin: 10px 20px; }
+
+.review_pic { width: 500px;
+	margin: 0 auto; }
+
+.review_content { margin: 0 100px; }
+
+.container {
+  position: relative;	/* < > 버튼 위치 잡기 위해 필요 */ }
+
+.mySlides { width: 500px; height: 300px;
+	display: none; }
+
+/* < > 버튼 */
+.review_pic a {
+	cursor: pointer;
+	position: absolute;
+	top: 60%;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	user-select: none;
+	-webkit-user-select: none; }
+
+.prev{ border-radius: 0 3px 3px 0;
+  display: none; }
+
+.next { border-radius: 3px 0 0 3px;
+ 	right: 150px;
+ 	display: none; }
+
+.prev:hover,
+.next:hover { background-color: rgba(0, 0, 0, 0.8); }
+
+/* 썸네일 목록 */
+.row { width: 500px; height: 70px;
+	margin: 0 auto;
+	margin-top: 10px; }
+
+.column {  width: 16.66%;	/* 최대 첨부사진 수에 맞춰 조정필요 */
+  float: left; }
+
+.column img { height: 70px;
+	margin: 0 auto; }
+
+/* 썸네일 이미지 불투명하게 */
+.demo { opacity: 0.6; }
+
+.active,
+.demo:hover { opacity: 1; }
+
+
+/* 좋아요 버튼 */
+.like>button>* { float: left; }
+
+.like>button>i{ margin-top: 13px; }
+
+.like>button>p{
 	display: inline-block;
 	line-height: 10px;
 	margin-left: 5px;
-	
 }
 
-.name { border: 1px solid green; 
-	width: 100px; height: 30px;
+/* 리뷰작성자 */
+.name {	width: 100px; height: 30px;
 	float: left; }
-.name>p { border: 1px solid blue;
 
-}
-.date { border: 1px solid orange;
-	width: 300px; height: 30px;}
-.date>p {border: 1px solid blue;}	
+/* 리뷰날짜 */
+.date {	width: 300px; height: 30px; }
 
-	
-.content { border: 1px solid black; 
-color: #323232;}
-.comment { /* border: 1px solid black; */
-	width: 800px;}
+/* 리뷰 내용 글자색 */
+.content { color: #323232; }
 
-.comment>textarea { border: 1px solid #969696;
-	border-radius: 5px;
-	width: 500px;
-	height: 30px;
-	margin-left: 17px;
-	padding: 5px 10px;
-	overflow: hidden;
-	cursor: text;
+/* 댓글 */
+.comment { width: 800px;
+	margin: 0 100px; }
+
+.comment>textarea {
+	overflow: hidden; 
+	height: 30px; }
+
+.comment button>p{ 
 	display: inline-block;
-}
-
+	line-height: 10px;
+	margin-left: 5px; }
 
 
 
