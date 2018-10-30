@@ -1,0 +1,152 @@
+@CHARSET "UTF-8";
+
+.clear{clear: both;}/*영역구분*/
+/* header */
+body{background-image:url("../images/배경1.jpg"); 
+background-size:100%;
+	margin: 0px;
+	padding: 0px; font-size: 0.75em;
+	line-height: 1.2em; color: #fff;}
+
+#wrap{
+	width: auto; text-align: center;
+	margin: 0;
+	min-height: 780px;
+	background-repeat: repeat-y;
+}
+
+header{
+	background-color:rgba(0,0,0,0.2);
+}	
+
+#logo{
+	border: 1px solid #red;
+		width: 400px; height: 70px;
+		margin: 20px;
+		float: left;
+		text-align: center;
+		
+}
+#mmenu1,#mmenu2{
+	border: 1px solid #red;
+	float: left;
+	margin-top: 50px;
+}
+
+#main_menu li{
+	border: 1px solid #red;
+}
+#main_menu a{
+	border: 1px solid #red;
+	list-style: none;
+	padding: 20px 0 0 20px;
+	margin: 50px 15px 0 50px;
+	font-size: 2.5em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #ffffff;
+	}
+	
+	.pg_wrap{font-size: 2.5em;}
+	
+	/* 푸터전체 */
+footer{
+	width: 100%;
+    position: relative;
+    background-color: #fff;
+    text-align: center;
+    padding-top: 0px;}
+
+/* 문의 영역 */
+.ftop{
+	text-align: center;
+    height: 80px;
+    line-height: 80px;
+    border-bottom: 1px solid #ededed;}
+
+.ftop a{
+	display: inline-block;
+	text-decoration: none;
+    height: 80px;
+    line-height: 80px;
+    margin-right: 40px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #666666;}
+
+.ftop .material-icons{
+	/* border: 1px solid red; */
+	font-size:20px;
+	color:#666666;
+	margin-right: 5px !important;
+}
+
+/* 푸터 가운데 메뉴영역  */
+.fmenu{
+	margin-top: 30px;}
+
+.fmenu a{
+	text-decoration: none;
+	display: inline-block;
+    font-size: 14px;
+    color: #666666;}
+
+.fmenu a:after, .fbottom span:after{
+	content: "|";
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d9d9d9;
+    font-weight: 300;
+    font-size: 12px;}
+    
+.fmenu a:LAST-CHILD:after, .fbottom span:LAST-CHILD:after{
+	content:" "}
+
+/* 푸터 맨 아래 영역 */
+.fbottom{
+	color: #d9d9d9;
+    font-size: 13px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    font-weight: 300;}
+    
+.fbottom span{
+	color: #999999;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: -1px;}
+	
+	
+/* 갤러리 영역  */
+li{list-style: none;}/*ul안에 있는 li 에 의해 .으로 순서가 나뉘어져 보이는 것을 안보이게 했다. 즉 글머리표시안함.*/
+	a{text-decoration: none; color:#000;}
+	#Gallery {
+		border :10px solid #400040;
+		width :1300px;
+		height:1100px;
+		text-align:center;
+		margin:auto;
+	}
+	#Gallery ul li{display:inline-table;
+					margin:26px;
+					
+					
+	}
+	
+	#Gallery .pic{
+		visibility:hidden; /*visibility 는 숨김여부를 묻는것이다.답을 visible이라하면 나타내기, hidden이라면 숨겨진다.*/
+		position:absolute;
+		margin:50px;
+		
+	}
+	#Gallery ul li:HOVER .pic
+	{
+		width: 300px;
+		height: :150px;
+		visibility:visible;
+		opacity:0.8;
+		float:right;
+		box-shadow:10px 10px 30px black;
+	}
+	
+	.small{width:300px; height:250px;}
