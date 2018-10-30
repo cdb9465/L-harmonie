@@ -22,7 +22,7 @@
 <div id="book"><a href=#>BOOK</a></div>
 
 <!-- 로그인 버튼 -->
-<div id="login"><a href=#><i class="material-icons" font-size="25px">lock_open</i>LOGIN</a></div>
+<div id="login"><a href=#><i class="material-icons" font-size="30px" >lock_open</i>LOGIN</a></div>
 
 </div>
 

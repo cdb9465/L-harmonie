@@ -4,6 +4,7 @@ body, html {
     height: 100%;
     margin: 0;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 	
 .clear{clear: both;}영역구분
@@ -44,8 +45,7 @@ body{margin: 0px; padding: 0px;
     color: #fff;
     font-size: 20px;
     font-weight: 400;
-    margin-right: 60px;
-	}
+    margin-right: 60px;	}
 
 /* 예약버튼 */
 #book{
@@ -64,16 +64,14 @@ body{margin: 0px; padding: 0px;
 	font-weight: 600;
 	display:inline-block;
 	text-decoration: none;
-	color: #000;
-}
+	color: #000;}
 
 /* 로그인 */
 #login{
 	/* border: 1px solid blue; */
 	position: absolute;
     right: 50px;
-    top: 30px;
-}
+    top: 30px;}
 
 #login a{
 	/* border: 1px solid red; */
@@ -90,20 +88,20 @@ body{margin: 0px; padding: 0px;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-}
+    background-size: cover;}
 
 .main_img1 {
 	/* The image used */
-	background-image: url("../images/매장내3.jpg");}
+	background-image: url("../images/store1.jpg");}
 .main_img2 {
     /* The image used */
-    background-image: url("../images/매장내4.jpg");}
+    background-image: url("../images/store2.jpg");}
 
 .main_img3 {
     /* The image used */
-    background-image: url("../images/매장내6.jpg");}
-    
+    background-image: url("../images/store3.jpg");}
+ 
+ /* 스크롤 아이콘 */   
 .arrow{
 	position: absolute;
     left: 50%;
@@ -116,8 +114,7 @@ body{margin: 0px; padding: 0px;
     left: 50%;
     top: 65px;
     margin-left: -1px;
-    animation: scroll 2s ease-in-out infinite alternate;
-}
+    animation: scroll 2s ease-in-out infinite alternate;}
 
 @keyframes scroll{
 
@@ -144,7 +141,7 @@ body{margin: 0px; padding: 0px;
 	width: 32px;
     height: auto;
     padding: 10px 0;
-    background-color: rgba(51,51,51,0.5);
+    background-color: rgba(51,51,51,0.8);
     border-radius: 20px;
     position: relative;
     top: 50%;
@@ -153,13 +150,62 @@ body{margin: 0px; padding: 0px;
 .submenu_in a{
 	display: block;
     margin: auto;
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
     position: relative;
     margin-top: 15px;
     margin-bottom: 20px;
-    background-color: #fff;
+    background-color: #fff;}
+
+/* 1:1채팅 */
+.chat{
+	display: inline-block;
+	width: 60px; height: 30px;
+	background-color: rgba(51,51,51,0.8);
+	color: #fff;
+	padding-left: 12px;
+	line-height: 30px;
+	position: fixed;
+	top: 60%; right:0;
+	cursor: pointer;}
+
+.chat-popup {
+  display: none;
+  position: fixed;
+  top: 30%;
+  right: 0px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
 }
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+
 /* 푸터전체 */
 footer{
 	width: 100%;
@@ -183,26 +229,24 @@ footer{
     margin-right: 40px;
     padding-left: 20px;
     font-size: 16px;
-    color: #666666;
-}
+    color: #666666;}
 
 .ftop .material-icons{
 	/* border: 1px solid red; */
 	font-size:20px;
 	color:#666666;
+	margin-right: 5px !important;
 }
 
 /* 푸터 가운데 메뉴영역  */
 .fmenu{
-	margin-top: 30px;
-}
+	margin-top: 30px;}
 
 .fmenu a{
 	text-decoration: none;
 	display: inline-block;
     font-size: 14px;
-    color: #666666;
-}
+    color: #666666;}
 
 .fmenu a:after, .fbottom span:after{
 	content: "|";
@@ -210,11 +254,10 @@ footer{
     padding-left: 10px;
     color: #d9d9d9;
     font-weight: 300;
-    font-size: 12px;
-}
+    font-size: 12px;}
+    
 .fmenu a:LAST-CHILD:after, .fbottom span:LAST-CHILD:after{
-	content:" "
-}
+	content:" "}
 
 /* 푸터 맨 아래 영역 */
 .fbottom{
@@ -222,11 +265,10 @@ footer{
     font-size: 13px;
     margin-top: 30px;
     padding-bottom: 30px;
-    font-weight: 300;
-}
+    font-weight: 300;}
+    
 .fbottom span{
 	color: #999999;
     font-size: 13px;
     font-weight: 300;
-    letter-spacing: -1px;
-}
+    letter-spacing: -1px;}

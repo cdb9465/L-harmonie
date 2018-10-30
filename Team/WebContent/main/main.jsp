@@ -26,9 +26,11 @@
 <div class="main_img2" id="main2"></div>
 <div class="main_img3" id="main3"></div>
 <!-- 메인 들어가는 곳 -->
+
 <!-- 서브메뉴 들어가는 곳 -->
 <jsp:include page="../inc/submenu.jsp"></jsp:include>
 <!-- 서브메뉴 들어가는 곳 -->
+
 
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>

@@ -16,8 +16,8 @@
 	</div>
 	
 	<div class="fbottom">
-		<span>서울특별시 강남구 테헤란로 123 여삼빌딩 15층 </span>
-		<span>대표전화 : 070-4758-7564</span>
+		<span>부산광역시 부산진구 동천로 109 삼한골든게이트빌딩 7층 </span>
+		<span>대표전화 : 123-456-7890</span>
 		<span>대표자 : 이정민</span>
 		<span>사업자등록번호 : 123-45-678910</span> 
 		<span>지점명 : L'harmonie </span> 
