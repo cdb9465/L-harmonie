@@ -9,33 +9,13 @@
 <link href="../css/book.css" rel="stylesheet">
 <link href="../css/main.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
-<div id="wrap">
-<header>
-<!--메인메뉴 들어가는 곳  시작-->
-<nav id="main_menu">
-<div id="mmenu1">
-	<a href="#">HOME</a>
-	<a href="#">Reservation</a>
-	<a href="#">Menu</a>
-</div>
-
-<!-- 로고들어가는 곳 시작 -->
-<div id="logo"><img src="../images/logo(흰색_투명).png" width="400" alt="main_logo"></div>
-<!-- 로고들어가는 곳 끝 -->
-
-<div id="mmenu2">
-	<a href="#">Review</a>
-	<a href="#">Search</a>
-	<a href="#">Event</a>
-</div>
-</nav>
-<!--메인메뉴 들어가는 곳 끝 -->
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/top.jsp"></jsp:include>
+<!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
-</header>
-
+<div id="wrap">
 <article>
 <h1>Reservation</h1>
 
@@ -176,9 +156,9 @@
 <div></div>
 <div></div>
 </article>
-
-<footer>
-</footer>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
+<!-- 푸터 들어가는 곳 -->
 </div>
 <script>
 var acc = document.getElementsByClassName("accordion");
