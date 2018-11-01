@@ -11,6 +11,7 @@
 </div>
 
 <!-- 1:1채팅 -->
+
 <div class="chat" onclick="openform()" id="chatbtn">CHAT</div>
 
 <div class="chat-popup" id="myform">
@@ -29,6 +30,7 @@
 function openform() {
     document.getElementById("myform").style.display = "block";
     document.getElementById("chatbtn").style.right= "325px";
+    
 }
 
 function closeform() {

@@ -7,19 +7,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/book.css" rel="stylesheet">
-<link href="../css/main.css" rel="stylesheet">
-<link rel="stylsheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link href="../css/default.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
+
+<!-- 본문 -->
 <div id="wrap">
 <article>
 <h1>Reservation</h1>
 
+<!-- 예약 네비게이션 메뉴바 -->
 <div class="book_nav">
   <a href="#" class="step2"><i class="fa fa-calendar" style="font-size:15px"></i> STEP 1 <br> 지점 및 날짜 선택</a>
   <a href="#" class="step2"><i class="fa fa-fw fa-user" style="font-size:15px"></i> STEP 2 <br> 인원 및 테이블 선택</a> 
@@ -27,20 +29,30 @@
   <a href="#" class="step2"><i class="fa fa-info-circle" style="font-size:15px"></i> STEP 4 <br> 고객 정보 입력 </a>
   <a href="#" class="step2"><i class="fa fa-check" style="font-size:15px"></i> STEP 5 <br> 확인 & 완료 </a>
 </div>
+<!-- 예약 네비게이션 메뉴바 -->
 
+<!-- 예약 폼 -->
 <form id="book_form" action="">
   <fieldset>
+  
+   <!-- 1단계(지점 ,날짜) -->
 	<div class="tab">
+	
+	<!-- 소제목 -->
 	 <div class="accordion">
 	  <p>지점 및 날짜 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
 	 </div>
+	 
+	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
 	       설명
 	   1
 	   2
 	   3
 	 </div>
+	 
+	 <!-- form부분 -->
 	 <div class="panel2">
 	 <label>지점</label>
 		<select>
@@ -50,19 +62,28 @@
 	 <label>날짜 선택</label>
 	    <input type="date">
 	 </div>
+	 <!-- form부분 -->
 	</div>
+   <!-- 1단계(지점 ,날짜) -->
 	
+   <!-- 2단계(인원, 테이블) -->
 	<div class="tab">
+	
+	<!-- 소제목 -->
 	 <div class="accordion">
 	  <p>인원 및 테이블 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
 	 </div>
+	 
+	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
 	      설명
 	   1
 	   2
 	   3
 	 </div>
+	 
+	 <!-- form부분 -->
 	 <div class="panel2">
 	 <label>인원</label>
 		<select>
@@ -72,19 +93,28 @@
 		</select><br>
 	 <label>테이블 선택</label>
 	 </div>
+	 <!-- form부분 -->
 	</div>
+	<!-- 2단계(인원, 테이블) -->
 	
+	<!-- 3단계(옵션, 요청) -->
 	<div class="tab">
+	
+	<!-- 소제목 -->
 	 <div class="accordion">
 	  <p>지점 및 날짜 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
 	 </div>
+	 
+	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
 	       설명
 	   1
 	   2
 	   3
 	 </div>
+	 
+	 <!-- form부분 -->
 	 <div class="panel2">
 	 <label>지점</label>
 		<select>
@@ -94,19 +124,28 @@
 	 <label>날짜 선택</label>
 	    <input type="date">
 	 </div>
+	 <!-- form부분 -->
 	</div>
+	<!-- 3단계(옵션, 요청) -->
 	
+	<!-- 4단계 (고객정보)-->
 	<div class="tab">
+	
+	<!-- 소제목 -->
 	 <div class="accordion">
 	  <p>지점 및 날짜 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
 	 </div>
+	 
+	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
 	       설명
 	   1
 	   2
 	   3
 	 </div>
+	 
+	 <!-- form부분 -->
 	 <div class="panel2">
 	 <label>지점</label>
 		<select>
@@ -116,19 +155,28 @@
 	 <label>날짜 선택</label>
 	    <input type="date">
 	 </div>
+	 <!-- form부분 -->
 	</div>
+	<!-- 4단계 (고객정보)-->
 	
+	<!-- 5단계 (확인, 완료)-->
 	<div class="tab">
+	
+	<!-- 소제목 -->
 	 <div class="accordion">
 	  <p>지점 및 날짜 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
 	 </div>
+	 
+	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
 	       설명
 	   1
 	   2
 	   3
 	 </div>
+	 
+	 <!-- form부분 -->
 	 <div class="panel2">
 	 <label>지점</label>
 		<select>
@@ -138,14 +186,22 @@
 	 <label>날짜 선택</label>
 	    <input type="date">
 	 </div>
+	 <!-- form부분 -->
 	</div>
- <div style="overflow:auto;">
-  <div style="float:right;">
+	<!-- 5단계 (확인, 완료)-->
+	
+  <!-- 버튼 -->
+  <div style="overflow:auto;">
+   <div style="float:right;">
     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
     <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+   </div>
   </div>
- </div>
+  <!-- 버튼 -->
+  
  </fieldset>
+ 
+ <!-- 동그라미 -->
   <div style="text-align:center;margin-top:40px;">
    <span class="step"></span>
    <span class="step"></span>
@@ -153,14 +209,18 @@
    <span class="step"></span>
    <span class="step"></span>
   </div>
+ <!-- 동그라미 -->
+ 
 </form>
-<div></div>
-<div></div>
+<!-- 예약 폼 -->
+
 </article>
+
+</div>
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
-</div>
+
 <script>
 var acc = document.getElementsByClassName("accordion");
 var i;

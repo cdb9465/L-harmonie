@@ -14,7 +14,7 @@
 	<a href="#">ABOUT US</a>
 	<a href="#">MENU</a>
 	<a href="#">NEWS</a>
-	<a href="#">REVIEW</a>
+	<a href="../review/review.jsp">REVIEW</a>
 </nav>
 <!--메인메뉴 -->
 

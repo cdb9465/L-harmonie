@@ -1,6 +1,13 @@
 @CHARSET "UTF-8";
-
+#wrap{
+	border: 1px solid blue;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 80px; 
+}	
 article {
+	border: 1px solid green;
 	width: 1000px;
 	margin-right: auto;
 	margin-left: auto;
@@ -11,11 +18,12 @@ article {
 	overflow: auto;
 	margin: 10px auto;
 }
-article h1{
+article>h1{
 	font-family: "Times New Roman";
 	font-size: 45px;
 	font-weight: normal;
 	display: block;
+	text-align: center;
 }
 .book_nav a{
 	width: 130px;
@@ -29,6 +37,7 @@ article h1{
 	line-height: 25px;
 }
 #book_form{
+	border: 1px solid red;
 	background-color: #fff;
 	color: #000;
 	width: 70%;
@@ -47,17 +56,19 @@ article h1{
 	margin-right: auto;
 	margin-left: auto;
 	transition: 0.4s;
+	text-align: center;
 }
 .fa-arrow-circle-down {
 	float: right;
 	margin-right: 20px;
 	margin-top: 13px;
 }
-.accordion p{
+.accordion>p{
 	font-size: 20px;
 	font-weight:bold;
 	display: inline-block;
 	cursor: pointer;
+	text-align: center;
 }
 .active, .accordion:hover{
     background-color: #ccc;
@@ -71,6 +82,7 @@ article h1{
     overflow: hidden;
 }
 .panel2{
+	text-align: center;
 	padding: 20px 0;
 	line-height: 50px;
 	font-size: 15px;
