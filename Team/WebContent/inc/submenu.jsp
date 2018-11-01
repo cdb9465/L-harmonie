@@ -3,9 +3,14 @@
 <div class="submenu">
 
 <div class="submenu_in">
+ <a href="#main0"></a>
  <a href="#main1"></a>
  <a href="#main2"></a>
+<<<<<<< HEAD
  <a href="#main3"></a>
+=======
+ <!-- <a href="#footer"></a> -->
+>>>>>>> branch 'master' of https://github.com/cdb9465/L-harmonie.git
 </div>
 </div>
 

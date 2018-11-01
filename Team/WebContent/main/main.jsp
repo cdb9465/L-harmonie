@@ -9,6 +9,8 @@
 <title>L'harmonie</title>
 <link href="../css/default.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -18,6 +20,7 @@
 <div class="clear"></div>
 
 <!-- 메인 들어가는 곳 -->
+<<<<<<< HEAD
 <div id="wrap">
 	<div class="main_img1" id="main1"></div>
 		<a href="#main2" class="arrow">
@@ -27,6 +30,27 @@
 	<div class="main_img2" id="main2"></div>
 	<div class="main_img3" id="main3"></div>
 </div>
+=======
+<div class="hero-image" id="main0">
+  <div class="hero-text">
+    <h1 style="font-size:50px">Flatter the senses</h1>
+    <p>오감을 즐겁게 하다</p>
+  </div>
+</div>
+<a href="#main1" class="arrow">
+   <img src="../images/arrow.png">
+   <img src="../images/dot.png" class="dot">
+</a>
+<!-- 첫번째 메인 끝 -->
+
+
+<!-- 2번째 메인 -->
+<div class="main_img1" id="main1"></div>
+
+<!-- 3번째 메인 -->
+<div class="main_img2" id="main2"></div>
+
+>>>>>>> branch 'master' of https://github.com/cdb9465/L-harmonie.git
 <!-- 메인 들어가는 곳 -->
 
 <!-- 서브메뉴 들어가는 곳 -->
