@@ -18,13 +18,15 @@
 <div class="clear"></div>
 
 <!-- 메인 들어가는 곳 -->
-<div class="main_img1" id="main1"></div>
-<a href="#main2" class="arrow">
-   <img src="../images/arrow.png">
-   <img src="../images/dot.png" class="dot">
-</a>
-<div class="main_img2" id="main2"></div>
-<div class="main_img3" id="main3"></div>
+<div id="wrap">
+	<div class="main_img1" id="main1"></div>
+		<a href="#main2" class="arrow">
+	   <img src="../images/arrow.png">
+	   <img src="../images/dot.png" class="dot">
+		</a>
+	<div class="main_img2" id="main2"></div>
+	<div class="main_img3" id="main3"></div>
+</div>
 <!-- 메인 들어가는 곳 -->
 
 <!-- 서브메뉴 들어가는 곳 -->
