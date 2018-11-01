@@ -3,10 +3,10 @@
 <div class="submenu">
 
 <div class="submenu_in">
+ <a href="#main0"></a>
  <a href="#main1"></a>
  <a href="#main2"></a>
- <a href="#main3"></a>
- <a href="#footer"></a>
+ <!-- <a href="#footer"></a> -->
 </div>
 </div>
 
