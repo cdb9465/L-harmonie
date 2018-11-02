@@ -24,10 +24,10 @@
 
 <!-- 예약 네비게이션 메뉴바 -->
 <div class="book_nav">
-  <a href="#" class="step2"><i class="fa fa-calendar" style="font-size:15px"></i> STEP 1 <br> 지점 및 날짜 선택</a>
-  <a href="#" class="step2"><i class="fa fa-fw fa-user" style="font-size:15px"></i> STEP 2 <br> 인원 및 테이블 선택</a> 
-  <a href="#" class="step2"><i class="fa fa-plus" style="font-size:15px"></i> STEP 3 <br> 옵션 및 요청 선택</a> 
-  <a href="#" class="step2"><i class="fa fa-info-circle" style="font-size:15px"></i> STEP 4 <br> 고객 정보 입력 </a>
+  <a href="#" class="step2"><i class="fa fa-fw fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</a>
+  <a href="#" class="step2"><i class="fa fa-calendar" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</a> 
+  <a href="#" class="step2"><i class="fa fa-cutlery" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</a> 
+  <a href="#" class="step2"><i class="fa fa-edit" style="font-size:15px"></i> STEP 4 <br> 요청사항 입력 </a>
   <a href="#" class="step2"><i class="fa fa-check" style="font-size:15px"></i> STEP 5 <br> 확인 & 완료 </a>
 </div>
 <!-- 예약 네비게이션 메뉴바 -->
@@ -40,10 +40,10 @@
 	<div class="tab">
 	
 	<!-- 소제목 -->
-	 <div class="accordion">
+<!-- 	 <div class="accordion">
 	  <p>지점 및 날짜 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
-	 </div>
+	 </div> -->
 	 
 	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
@@ -71,10 +71,10 @@
 	<div class="tab">
 	
 	<!-- 소제목 -->
-	 <div class="accordion">
+<!-- 	 <div class="accordion">
 	  <p>인원 및 테이블 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
-	 </div>
+	 </div> -->
 	 
 	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
@@ -102,10 +102,10 @@
 	<div class="tab">
 	
 	<!-- 소제목 -->
-	 <div class="accordion">
+<!-- 	 <div class="accordion">
 	  <p>지점 및 날짜 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
-	 </div>
+	 </div> -->
 	 
 	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
@@ -133,10 +133,10 @@
 	<div class="tab">
 	
 	<!-- 소제목 -->
-	 <div class="accordion">
+<!-- 	 <div class="accordion">
 	  <p>지점 및 날짜 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
-	 </div>
+	 </div> -->
 	 
 	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
@@ -164,10 +164,10 @@
 	<div class="tab">
 	
 	<!-- 소제목 -->
-	 <div class="accordion">
+<!-- 	 <div class="accordion">
 	  <p>지점 및 날짜 선택</p>
 	   <i class="fa fa-arrow-circle-down" style="font-size:24px"></i>
-	 </div>
+	 </div> -->
 	 
 	 <!--설명(펼쳐지는곳) -->
 	 <div class="panel1">
