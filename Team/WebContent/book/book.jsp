@@ -15,6 +15,7 @@
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
+<img src="./images/comming.jpg" alt="준비중입니다." width="100%" id="img2">
 
 <!-- 본문 -->
 <div id="wrap">
