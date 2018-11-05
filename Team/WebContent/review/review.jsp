@@ -19,8 +19,11 @@
 <div class="clear"></div>
 
 <!-- 메인 들어가는 곳 -->
+<div id="wraap">
 <div class="main">
+
 <!-- 리뷰쓰기 영역 시작 -->
+
 <div class="review_write">
 <form>
  
@@ -33,16 +36,23 @@
  </div>
  <div class="clear"></div>
 
+
  <div class="write_rating">
   <div class="title">별점</div>
-  <div class="rating">
-   <i class="fa fa-star-o"></i>
-   <i class="fa fa-star-o"></i>
-   <i class="fa fa-star-o"></i>
-   <i class="fa fa-star-o"></i>
-   <i class="fa fa-star-o"></i>
-   <span> </span>
-  </div>
+<span class="star-input">
+	<span class="input">
+    	<input type="radio" name="star-input" value="1" id="p1">
+    	<label for="p1">1</label>
+    	<input type="radio" name="star-input" value="2" id="p2">
+    	<label for="p2">2</label>
+    	<input type="radio" name="star-input" value="3" id="p3">
+    	<label for="p3">3</label>
+    	<input type="radio" name="star-input" value="4" id="p4">
+    	<label for="p4">4</label>
+    	<input type="radio" name="star-input" value="5" id="p5">
+    	<label for="p5">5</label>
+  	</span>				
+</span>
  </div> 
  <div class="clear"></div>
  
@@ -136,6 +146,7 @@
 </div>
 <!-- review_wrap 끝 -->
 
+</div>
 </div>
 <!-- 메인 들어가는 곳 -->
 
