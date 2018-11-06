@@ -61,6 +61,7 @@
   <div class="clear"></div>
   <textarea placeholder="리뷰를 작성해주세요"></textarea>
   <button type="submit">리뷰등록</button>
+  
  </div>
 
 </form>
@@ -76,13 +77,13 @@
 <!-- 썸네일 이미지 목록 -->
  <div class="row">
   <div class="column">
-   <img class="demo cursor active" src="../images/피자1.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
+   <img class="demo cursor active" src="chicken_steak.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
   </div>
   <div class="column">
-   <img class="demo cursor active" src="../images/파스타2.jpg" style="width:100%" onclick="currentSlide(2)" alt="">
+   <img class="demo cursor active" src="salmon_salade.jpg" style="width:100%" onclick="currentSlide(2)" alt="">
   </div>  
   <div class="column">
-   <img class="demo cursor active" src="../images/파스타5.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
+   <img class="demo cursor active" src="salmon_steak.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
   </div>
  </div>
  <!-- 썸네일 이미지 목록 끝 --> 
@@ -92,13 +93,13 @@
   <a class="prev" onclick="plusSlides(-1)">❮</a>
   <a class="next" onclick="plusSlides(1)">❯</a>
   <div class="mySlides">
-   <img alt="첨부사진" src="../images/피자1.jpg" onclick="currentSlide(1)">
+   <img alt="첨부사진" src="chicken_steak.jpg" onclick="currentSlide(1)">
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="../images/파스타2.jpg" onclick="currentSlide(2)">
+   <img alt="첨부사진" src="salmon_salade.jpg" onclick="currentSlide(2)">
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="../images/파스타5.jpg" onclick="currentSlide(3)">
+   <img alt="첨부사진" src="salmon_steak.jpg" onclick="currentSlide(3)">
   </div>
  </div>
  <!-- 사진펼침 끝 -->
@@ -114,14 +115,15 @@
   <i class="fa fa-star"></i>
   <i class="fa fa-star"></i>
   <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
+  <i class="fa fa-star-half-o"></i>
   <i class="fa fa-star-o"></i>
-  <span> 4.0 </span>
+  <span> 3.5 </span>
  </div>
 
  <div class="like">
-  <button type="button"> <i class="fa fa-heart-o"></i> <p>좋아요</p> </button>
+  <button type="button"> <i class="fa fa-heart-o" id=heart onclick="fa fa-heart"></i> <p>좋아요</p> </button>
  </div>
+ 
  <div class="clear"></div>
 
  <div class="name"> <p>홍길동</p> </div>
@@ -132,9 +134,199 @@
   <p>내용<br>
     내용<br>
     내용<br>
-  </p>
- </div>
+     <input type="button"value="글수정" id="udate" onclick="re_updateForm.jsp">
+     <input type="button"value="글삭제" id="ddate" onclick="re_deleteForm.jsp">
+    <br> 
+     <br>
+     </p>
 </div>
+
+
+
+
+<div class="clear"></div>
+ 
+ <div class="write_content">
+  <div class="title">리뷰</div>
+  <div class="clear"></div>
+  <textarea placeholder="리뷰를 작성해주세요"></textarea>
+  <button type="submit">리뷰등록</button>
+  
+ </div>
+
+</form>
+</div>
+<!-- 리뷰쓰기 영역 끝 -->
+
+
+<!-- review_wrap 시작 -->
+<div class="review_wrap">	
+
+<!-- 사진영역 div-->
+<div class="container">	
+<!-- 썸네일 이미지 목록 -->
+ <div class="row">
+  <div class="column">
+   <img class="demo cursor active" src="chicken_steak.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
+  </div>
+  <div class="column">
+   <img class="demo cursor active" src="salmon_salade.jpg" style="width:100%" onclick="currentSlide(2)" alt="">
+  </div>  
+  <div class="column">
+   <img class="demo cursor active" src="salmon_steak.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
+  </div>
+ </div>
+ <!-- 썸네일 이미지 목록 끝 --> 
+
+ <!-- 사진펼침 시작 -->
+ <div class="review_pic">
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+  <div class="mySlides">
+   <img alt="첨부사진" src="chicken_steak.jpg" onclick="currentSlide(1)">
+  </div>
+  <div class="mySlides">
+   <img alt="첨부사진" src="salmon_salade.jpg" onclick="currentSlide(2)">
+  </div>
+  <div class="mySlides">
+   <img alt="첨부사진" src="salmon_steak.jpg" onclick="currentSlide(3)">
+  </div>
+ </div>
+ <!-- 사진펼침 끝 -->
+</div>
+<!-- 사진영역 div 끝-->
+
+<div class="clear"></div>
+<hr>
+
+<!-- 리뷰내용 영역 -->
+<div class="review_content">
+ <div class="rating">
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star-half-o"></i>
+  <i class="fa fa-star-o"></i>
+  <span> 3.5 </span>
+ </div>
+
+ <div class="like">
+  <button type="button"> <i class="fa fa-heart-o" id=heart onclick="fa fa-heart"></i> <p>좋아요</p> </button>
+ </div>
+ 
+ <div class="clear"></div>
+
+ <div class="name"> <p>홍길동</p> </div>
+ <div class="date"> <p>2018.10.26 14:37:00</p> </div>
+ <div class="clear"></div>
+
+ <div class="content">
+  <p>내용<br>
+    내용<br>
+    내용<br>
+     <input type="button"value="글수정" id="udate" onclick="re_updateForm.jsp">
+     <input type="button"value="글삭제" id="ddate" onclick="re_deleteForm.jsp">
+    <br> 
+     <br>
+     </p>
+</div>
+
+
+
+<div class="clear"></div>
+ 
+ <div class="write_content">
+  <div class="title">리뷰</div>
+  <div class="clear"></div>
+  <textarea placeholder="리뷰를 작성해주세요"></textarea>
+  <button type="submit">리뷰등록</button>
+  
+ </div>
+
+</form>
+</div>
+<!-- 리뷰쓰기 영역 끝 -->
+
+
+<!-- review_wrap 시작 -->
+<div class="review_wrap">	
+
+<!-- 사진영역 div-->
+<div class="container">	
+<!-- 썸네일 이미지 목록 -->
+ <div class="row">
+  <div class="column">
+   <img class="demo cursor active" src="chicken_steak.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
+  </div>
+  <div class="column">
+   <img class="demo cursor active" src="salmon_salade.jpg" style="width:100%" onclick="currentSlide(2)" alt="">
+  </div>  
+  <div class="column">
+   <img class="demo cursor active" src="salmon_steak.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
+  </div>
+ </div>
+ <!-- 썸네일 이미지 목록 끝 --> 
+
+ <!-- 사진펼침 시작 -->
+ <div class="review_pic">
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+  <div class="mySlides">
+   <img alt="첨부사진" src="chicken_steak.jpg" onclick="currentSlide(1)">
+  </div>
+  <div class="mySlides">
+   <img alt="첨부사진" src="salmon_salade.jpg" onclick="currentSlide(2)">
+  </div>
+  <div class="mySlides">
+   <img alt="첨부사진" src="salmon_steak.jpg" onclick="currentSlide(3)">
+  </div>
+ </div>
+ <!-- 사진펼침 끝 -->
+</div>
+<!-- 사진영역 div 끝-->
+
+<div class="clear"></div>
+<hr>
+
+<!-- 리뷰내용 영역 -->
+<div class="review_content">
+ <div class="rating">
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star-half-o"></i>
+  <i class="fa fa-star-o"></i>
+  <span> 3.5 </span>
+ </div>
+
+ <div class="like">
+  <button type="button"> <i class="fa fa-heart-o" id=heart onclick="fa fa-heart"></i> <p>좋아요</p> </button>
+ </div>
+ 
+ <div class="clear"></div>
+
+ <div class="name"> <p>홍길동</p> </div>
+ <div class="date"> <p>2018.10.26 14:37:00</p> </div>
+ <div class="clear"></div>
+
+ <div class="content">
+  <p>내용<br>
+    내용<br>
+    내용<br>
+     <input type="button"value="글수정" id="udate" onclick="re_updateForm.jsp">
+     <input type="button"value="글삭제" id="ddate" onclick="re_deleteForm.jsp">
+    <br> 
+     <br>
+     </p>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+
 <!-- 리뷰내용 영역 끝 -->
 
 <hr>
@@ -142,7 +334,6 @@
  <textarea placeholder="댓글"></textarea>
  <button type="button"><p>댓글등록</p></button>
 </div>
-
 </div>
 <!-- review_wrap 끝 -->
 
