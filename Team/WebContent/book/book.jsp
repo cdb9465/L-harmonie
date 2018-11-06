@@ -9,6 +9,7 @@
 <link href="../css/book.css" rel="stylesheet">
 <link href="../css/default.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -20,6 +21,9 @@
 <div id="wrap">
 <article>
 <h1>Reservation</h1>
+
+
+
 
 <!-- 예약 네비게이션 메뉴바 -->
 <div class="book_nav">

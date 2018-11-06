@@ -2,15 +2,14 @@
 #wrap{
 	border: 1px solid blue;
 	width: 1000px;
-	margin-right: auto;
-	margin-left: auto;
+	margin: 0 auto;
 	padding-top: 80px; 
 }	
 article {
 	border: 1px solid green;
 	width: 1000px;
-	margin-right: auto;
-	margin-left: auto;
+	margin: 100px auto;
+	
 }
 .book_nav{
 	width: 900px;
