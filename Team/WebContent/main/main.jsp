@@ -39,7 +39,7 @@
                     $("html,body").stop().animate({
                         scrollTop: moveTop + 'px'
                     }, {
-                        duration: 100, complete: function () {
+                        duration: 800, complete: function () {
                         }
                     });
                 });
