@@ -1,0 +1,121 @@
+@CHARSET "UTF-8";
+
+#article_join{
+height: 100%;
+width: 100%;
+background-image:  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/backg1.jpg");
+background-repeat: repeat;
+background-size: 100%;
+
+}
+
+/* sec1,sec2 공통 - 센터맞춤*/
+#sec1_join,#sec2_join{ 
+		margin-left: auto;
+		margin-right: auto;
+		width: 900px;
+		
+		}
+#sec1_join{ height: 50px;
+			margin-bottom: 30px;
+			padding-top: 100px;
+}
+#sec2_join { 
+		min-height:700px;
+		padding:10px;
+		background-color:rgba(255, 255, 255, 0.4);
+		
+		 }	
+
+/* SIGN UP 표시영역 */
+h1{font-size: 3em;
+	color: #fff;
+	text-align: center;
+	/* border: 1px solid red; */
+	margin: 0;
+	 }
+
+/* 아이콘 영역 */
+.info_join {color: #1c1c1c; 
+			width:700px; 
+			margin-left:50px;
+ 			/* border: 1px solid #fff; */}
+.info_join i {padding: 20px; }
+#name_icon{padding: 20px 5px 20px 10px;margin-left: 15px;}
+#phone_icon{padding: 20px 10px 20px 20px; }
+
+/* 오류메세지영역 */
+#sec2_join p{padding: 0; margin: 0;
+			font-size: 13px;
+			margin-left: 100px;}
+
+/* 입력폼영역 */
+
+#sec2_join input[type=text], input[type=password]{
+	border:none;
+	 border-bottom:1px solid #999999;
+	font-family: "나눔스퀘어OTF";
+	width:550px;	height: 20px;
+	background-color: #eee;
+	padding: 12px 0 3px 0px; 
+	margin-left: 15px;
+	padding-left: 20px;
+	font-size:15px;
+	}
+
+#sec2_join input[type=button]:HOVER{background-color:#ed1f1f;
+									color: #242424;}
+/* 이용약관 체크 */
+input[type=checkbox]{
+	margin: 0 10px;
+}
+#access{margin:10px 55px 30px 100px ;
+		float: left;	}
+.acc_checkall{
+	margin:20px 10px 20px 0px;
+	color: #252525;
+	font-weight: bold; }
+.acc_check{	margin:8px 0px 0px 0px ;
+			color:#252525; }
+/* [필수]빨강*/
+.red_b{color: red;}	
+	
+/* 회원가입 버튼 */
+#sec2_join input[type=button]{
+	border:none;
+	background-color:#000;
+	color: #eee;
+	font-weight:bold;
+	padding: 15px;
+	margin-right:150px;
+	margin-top:110px;
+	float: right; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
