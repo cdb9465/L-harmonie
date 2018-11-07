@@ -1,13 +1,13 @@
 @CHARSET "UTF-8";
 #wrap{
 	border: 1px solid blue;
-	width: 1000px;
+	width: 1300px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-top: 80px; 
 }	
 article {
-	border: 1px solid green;
+	
 	width: 1000px;
 	margin-right: auto;
 	margin-left: auto;
@@ -37,10 +37,10 @@ article>h1{
 	line-height: 25px;
 }
 #book_form{
-	/* border: 1px solid red; */
+	border: 1px solid red;
 	background-color: #fff;
 	color: #000;
-	width: 70%;
+	width: 70%; height: 700px;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -81,12 +81,15 @@ article>h1{
     display: none;
     overflow: hidden;
 }
-.panel2{
+.panel2{border: 1px solid green;
 	text-align: center;
 	padding: 20px 0;
 	line-height: 50px;
 	font-size: 15px;
+	height: 500px;
 }
+.panel2>#datepicker { line-height: 30px; }
+
 .step {
   height: 15px;
   width: 15px;
@@ -127,3 +130,42 @@ button {
 button:hover {
   opacity: 0.8;
 }
+
+/* table */
+#table{border: 1px solid;
+  width: 500px; height: 300px;
+  position: relative; }
+ 
+#table>div{position: absolute;}
+
+#kitchen{border: 2px solid;
+  box-sizing: border-box;
+  width: 300px; height: 30px;
+  top: 2px; left: 100px;
+  padding: 2px 120px;
+  font-weight: bold;
+  font-size: 18px;}
+
+#door{border: 2px solid;
+ 	box-sizing: border-box;
+	width: 70px; height: 50px;
+	border-radius: 0 100% 0 0;
+	padding: 12px 10px;
+	font-weight: bold;
+	font-size: 18px;
+	left: 2px; bottom: 2px;}
+	  
+#table img{width: 60px; height: 60px;}
+ 
+#table img:HOVER{cursor: pointer;}
+
+#t1{ left: 100px; bottom: 2px;}
+#t2{ left: 210px; bottom: 2px;}
+#t3{ left: 320px; bottom: 2px;}
+#t4{ left: 430px; bottom: 2px;}
+#t5{ left: 380px; bottom: 100px;}
+#t6{ left: 260px; bottom: 100px;}
+#t7{ left: 140px; bottom: 100px;}
+#t8{ left: 140px; bottom: 190px;}
+#t9{ left: 260px; bottom: 190px;}
+#t10{ left: 380px; bottom: 190px;}
