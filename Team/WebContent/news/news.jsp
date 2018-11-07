@@ -19,17 +19,62 @@
 <div class="news_main">
 <h1>MYLOGO.COM</h1>
 <div class="news_row">
+<div class="news_column">
     	<div class="news_content">
-    	<img src="../images/comming.jpg" alt="준비중입니다." width="200px" height="200px">
+    	<img id="myImg" src="../images/comming.jpg" alt="준비중입니다." style="width:100%">
+    	<div id="myModal" class="modal">
+    	<span class="close">&times;</span>
+    	<img class="modal-content" id="img01">
+    	<div id="caption"></div>
+    	</div>
 		<h4>hiii</h4>
 		</div>
-</div>   	
+</div>
+<div class="news_column">
+    	<div class="news_content">
+    	<img id="myImg" src="../images/comming.jpg" alt="준비중입니다." style="width:100%">
+		<h4>hiii</h4>
+		</div>
+</div>
+<div class="news_column">
+    	<div class="news_content">
+    	<img id="myImg" src="../images/comming.jpg" alt="준비중입니다." style="width:100%">
+		<h4>hiii</h4>
+		</div>
+</div>
+<div class="news_column">
+    	<div class="news_content">
+    	<img id="myImg" src="../images/comming.jpg" alt="준비중입니다." style="width:100%">
+		<h4>hiii</h4>
+		</div>
+</div>
+</div>  
 </div>
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
 
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
 
+var span = document.getElementsByClassName("close")[0];
+var div = document.getElementsByClassName("modal")[0];
 
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+div.onclick = function() {   
+  modal.style.display = "none";
+}
+</script>
 </body>
 </html>

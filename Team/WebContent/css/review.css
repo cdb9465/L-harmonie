@@ -1,14 +1,19 @@
 @CHARSET "UTF-8";
-* { box-sizing: border-box; 
+* {
+	box-sizing: border-box; 
 font-size: 14px; }
-#wraap{
-	width:850px;
+#wraap{border: 1px solid red;
+	width:1300px;
+	height:5000px;
 	margin-right: auto;
 	margin-left: auto;
+	padding-left:100px;
 }	
 body {
+	heigh:2000px;
+	width:2000px;
   font-family: Arial;
-  margin: 70px;
+  margin: 80px;
 }
 
 .main {
@@ -155,8 +160,14 @@ form { margin: 0 100px; }
 
 /* 좋아요 버튼 */
 .like>button>* { float: left; }
+/* .on이었음 이거 고칠 수 있으면 고치자 */
+.button {
+    background: #5e5c6a;
+    color: #fff;
+}
 
-.like>button>i{ margin-top: 13px; }
+.like>button>i{ margin-top: 13px; 
+				}
 
 .like>button>p{
 	display: inline-block;
@@ -175,8 +186,11 @@ form { margin: 0 100px; }
 .content { color: #323232; }
 
 /* 댓글 */
-.comment { width: 800px;
+.comment { 
+	width: 800px;
 	margin: 0 100px; }
+
+
 
 .comment>textarea {
 	overflow: hidden; 
@@ -188,7 +202,18 @@ form { margin: 0 100px; }
 	margin-left: 5px; }
 
 
-
+#udate, #ddate{float:right;
+		display: inline-block;
+	line-height: 10px;
+	margin-right: 5px;
+	border: 1px solid #969696;
+	border-style: outset;
+	box-sizing: border-box;
+	border-radius: 4px;
+	background: #fff;
+	width: 80px; height: 40px;
+	cursor: pointer;}
+	
 
 
 
