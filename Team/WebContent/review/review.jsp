@@ -13,11 +13,11 @@
 
 </head>
 <body>
-<div id="wraap">
+
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
-
+<div id="wraap">
 <div class="clear"></div>
 
 <!-- 메인 들어가는 곳 -->
@@ -288,8 +288,15 @@
 
 </div>
 <!-- review_wrap 끝 -->
-
+<p id="numnum" style=margin-left:250px; style=margin-right:auto; style=margin-top:100px;>
+<a href="#" style=text-decoration:none;>[이전]&nbsp;</a><a href="#" style=text-decoration:none;>1&nbsp;</a>
+<a href="#" style=text-decoration:none;>2&nbsp;</a> <a href="#" style=text-decoration:none;>3&nbsp;</a>
+<a href="#" style=text-decoration:none;>4&nbsp;</a><a href="#" style=text-decoration:none;>5&nbsp;</a>
+ <a href="#"style=text-decoration:none;>6&nbsp;</a><a href="#" style=text-decoration:none;>7&nbsp;</a>
+ <a href="#" style=text-decoration:none;>8&nbsp;</a><a href="#" style=text-decoration:none;>9&nbsp;</a>
+ <a href="#" style=text-decoration:none;>10&nbsp;</a><a href="#" style=text-decoration:none;>[다음]</a></p>
 </div>
+
 <!-- 메인 들어가는 곳 -->
 
 
