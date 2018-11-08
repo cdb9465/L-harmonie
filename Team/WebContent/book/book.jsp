@@ -75,7 +75,12 @@
  <div id="datepicker"></div>
  <script>
  	$(function () {
-		$("#datepicker").datepicker();
+		$("#datepicker").datepicker({
+			showMonthAfterYear: true, //연도와 달 위치 변경
+			monthNames:['년 1월','년 2월','년 3월','년 4월','년 5월','년 6월','년 7월','년 8월','년 9월','년 10월','년 11월','년 12월'],
+			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+			dayNamesMin:['일','월','화','수','목','금','토']
+		});
 	});
  </script>
  <select>
