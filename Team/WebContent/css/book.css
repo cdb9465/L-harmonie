@@ -1,52 +1,53 @@
 @CHARSET "UTF-8";
+
+
+
 #wrap{
 	border: 1px solid blue;
-	width: 1300px;
+	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	padding-top: 80px; 
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/backg1.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;	
 }	
-article {
-	
-	width: 1000px;
-	margin: 100px auto;
-	
-}
+
+article {width: 70%; height: 100%;
+	margin: 20px auto;
+	background-color:rgba(255,255,255,0.7)}
+
 .book_nav{
-	width: 900px;
+	width: 100%;
+	height: 120px;
 	background-color: #000;
-	overflow: auto;
-	margin: 10px auto;
-}
-article>h1{
-	font-family: "Times New Roman";
-	font-size: 45px;
-	font-weight: normal;
-	display: block;
-	text-align: center;
-}
-.book_nav a{
-	width: 130px;
+	overflow: auto;}
+
+.book_nav>.steps{
+	width: 20%; height: 110px;
 	float: left;
+	margin: 0 auto;
+	color: #fff;
 	text-align: center;
-	padding: 10px;
-	color: white;
-	text-decoration: none;
-	font-size: 12px;
-	margin: 5px 10px 5px 16px;
-	line-height: 25px;
+	font-size: 16px;
+	line-height: 20px;
 }
+
+.book_nav>.steps>.step2{
+	width: 130px;
+	margin: 40px auto 0 auto;
+	padding-bottom: 2px;
+}
+
 #book_form{
 	border: 1px solid red;
-	background-color: #fff;
 	color: #000;
-	width: 70%; height: 700px;
+	width: 100%; height: 700px;
 	margin-right: auto;
 	margin-left: auto;
 }
-.tab {
-  display: none;
-}
+.tab { display: none;}
+
 .accordion {
     background-color: #eee;
     color: #444;
@@ -56,13 +57,13 @@ article>h1{
 	margin-right: auto;
 	margin-left: auto;
 	transition: 0.4s;
-	text-align: center;
-}
+	text-align: center;}
+	
 .fa-arrow-circle-down {
 	float: right;
 	margin-right: 20px;
-	margin-top: 13px;
-}
+	margin-top: 13px;}
+	
 .accordion>p{
 	font-size: 20px;
 	font-weight:bold;
@@ -74,43 +75,47 @@ article>h1{
     background-color: #ccc;
     cursor: pointer;
 }
-.panel1 {
-	padding: 15px 0;
-	width: 100%;
-    background-color: white;
-    display: none;
-    overflow: hidden;
-}
-.panel2{border: 1px solid green;
+
+.panel{border: 1px solid green;
 	text-align: center;
 	padding: 20px 0;
 	font-size: 15px;
-	height: 500px;
-}
+	width: 100%;
+	height: 500px;}
+	
+.panel>#location, .panel>#date{
+	width:50%; height: 100%;
+	float: left;
+	}
+
+.panel>#guest, .panel>#time{
+	width:50%; height: 100%;
+	float: right;}
+
+.label{border: 1px solid black;
+	margin: 10px;
+	display: inline-block;
+	font-size: }
+	
+.slot{border:1px solid;
+	border-radius: 3px;
+	width:155px; height:55px;
+	text-align: center;
+	margin: 5px auto 5px auto;
+	line-height: 55px;
+	cursor: pointer;
+	background-color: #dad2ce;
+	opacity: .4;
+	}
+	
 .panel2>#datepicker { line-height: 30px; }
 
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none; 
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
-.step.active {
-  opacity: 1;
-}
-.step.finish {
-  background-color: #333;
-}
 .step2.active {
-	background-color: #fff;
-	color: #000;
-	font-size: 13px;
-	font-weight: bold;
-}
+	background-color: #000;
+	border-bottom: 1px solid #fff;
+	display: inline-block;
+	font-size: 16px;}
+	
 .step2.finish{
 	background-color: #000;
 	color: #fff;
