@@ -1,13 +1,23 @@
 @CHARSET "UTF-8";
-* { box-sizing: border-box; 
+* {
+	box-sizing: border-box; 
 font-size: 14px; }
 
-body {
-  font-family: Arial;
-  margin: 0;
-}
 
-.main { margin: 100px auto; }
+#wraap{	border: 1px solid blue;
+	width: 1300px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 80px; 
+	padding-left:185px;}	
+
+body {
+	heigh:3000px;
+	width:2000px;
+  font-family: Arial;}
+
+.main {
+	margin: 100px auto; }
 
 .review_wrap img { width: 500px; height: 300px;
 	margin: auto; }
@@ -35,17 +45,39 @@ textarea { border: 1px solid #969696;
 .cursor { cursor: pointer; }
 
 /* 별점 모양 */
-.rating { /* border: 1px solid red; */
-	float: left;
-	width: 150px;
-	font-size: 18px/* 별 크기 */;
-	color: red/* 별 색 */;}
+
+
+
+
+.star-input>.input,
+.star-input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('../images/grade_img.png')no-repeat;}
+.star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding-right:10px;line-height:30px;}
+.star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+star-input>.input.focus{outline:1px dotted #ddd;}
+.star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input>.input>label:hover~label{background-image: none;}
+.star-input>.input>label[for="p1"]{width:30px;z-index:5;}
+.star-input>.input>label[for="p2"]{width:60px;z-index:4;}
+.star-input>.input>label[for="p3"]{width:90px;z-index:3;}
+.star-input>.input>label[for="p4"]{width:120px;z-index:2;}
+.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
+.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+
 
 /* 별점 점수 */
-.rating>span { color: black; }
+.rating>span { color: black;
+float:right; }
 
 /* 리뷰쓰기 */
-.review_write { border-top: 2px solid red;
+.review_write { 
+	border-top: 2px solid red;
+	border: 2px solid pink;
 	width: 800px;
 	margin: 20px 20px; }
 
@@ -111,6 +143,7 @@ form { margin: 0 100px; }
 .prev:hover,
 .next:hover { background-color: rgba(0, 0, 0, 0.8); }
 
+
 /* 썸네일 목록 */
 .row { width: 500px; height: 70px;
 	margin: 0 auto;
@@ -131,8 +164,14 @@ form { margin: 0 100px; }
 
 /* 좋아요 버튼 */
 .like>button>* { float: left; }
+/* .on이었음 이거 고칠 수 있으면 고치자 */
+.button {
+    background: #5e5c6a;
+    color: #fff;
+}
 
-.like>button>i{ margin-top: 13px; }
+.like>button>i{ margin-top: 13px; 
+				}
 
 .like>button>p{
 	display: inline-block;
@@ -151,8 +190,11 @@ form { margin: 0 100px; }
 .content { color: #323232; }
 
 /* 댓글 */
-.comment { width: 800px;
+.comment { 
+	width: 800px;
 	margin: 0 100px; }
+
+
 
 .comment>textarea {
 	overflow: hidden; 
@@ -164,10 +206,23 @@ form { margin: 0 100px; }
 	margin-left: 5px; }
 
 
+#udate, #ddate{float:right;
+		display: inline-block;
+	line-height: 10px;
+	margin-right: 5px;
+	border: 1px solid #969696;
+	border-style: outset;
+	box-sizing: border-box;
+	border-radius: 4px;
+	background: #fff;
+	width: 80px; height: 40px;
+	cursor: pointer;}
+	
 
 
-
-
+#numnum{
+font-size:80px;
+	}
 
 
 

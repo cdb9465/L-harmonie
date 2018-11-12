@@ -7,8 +7,8 @@ body {
     padding: 20px;
     font-family: Arial;
 }
-/* Center website */
 .news_main {
+	padding-top: 80px;
 	border: 1px solid red;
     max-width: 1000px;
     margin: auto;
@@ -19,22 +19,97 @@ h1 {
 }
 .news_row {
 	border: 1px solid green;
-    margin: 10px -16px;
+    margin: 8px -16px;
 }
-/* Add padding BETWEEN each column */
 .news_row,
-.news_row > .news_column {
+.news_row>.news_column {
     padding: 8px;
 }
-/* Create three equal columns that floats next to each other */
+.news_row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
 .news_column {
     float: left;
-    width: 33.33%;
-    display: none; /* Hide all elements by default */
+    width: 25%;
 }
-/* Content */
-.news_content {
+
+.news_content {d
 	border: 1px solid blue;
     background-color: white;
     padding: 10px;
+}
+@media screen and (max-width: 900px) {
+    .news_column {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .news_column {
+        width: 100%;
+    }
+}
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#myImg:hover {opacity: 0.7;}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+.modal-content, #caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+.close {
+    position: absolute;
+    top: 190px;
+    right: 580px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
 }
