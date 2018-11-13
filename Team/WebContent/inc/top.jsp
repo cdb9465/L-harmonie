@@ -13,7 +13,7 @@
 <nav id="main_menu">
 	<a href="#">ABOUT US</a>
 	<a href="#">MENU</a>
-	<a href="#">NEWS</a>
+	<a href="../news/news.jsp">NEWS</a>
 	<a href="../review/review.jsp">REVIEW</a>
 </nav>
 <!--메인메뉴 -->
