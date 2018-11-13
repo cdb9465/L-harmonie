@@ -50,7 +50,7 @@
 <!-- 예약 네비게이션 메뉴바 -->
 
 <!-- 예약 폼 -->
-<form id="book_form" action="">
+<form id="book_form" action="../main/main.jsp" method="post">
 
 
 <!-- 1단계(지점, 인원) -->
@@ -83,17 +83,21 @@
 <!-- form부분 -->
 <div class="panel">
  <!-- <input type="date"><br> -->	<!-- 익스 지원x -->
+ 
  <div id="date">
+ <label class="label">날짜</label>
  <div id="datepicker"></div>
  
   </div>
+  
  <div id="time">
- <div class="slot">11:00</div>
- <div class="slot">13:00</div>
- <div class="slot">17:00</div>
- <div class="slot">19:00</div>
+  <label class="label">시간</label>
+  <div class="slot">11:00</div>
+  <div class="slot">13:00</div>
+  <div class="slot">17:00</div>
+  <div class="slot">19:00</div>
  </div>
-
+ 
  </div>
 <!-- form부분 -->
 </div>
@@ -103,6 +107,7 @@
 <div class="tab">
 <!-- form부분 -->
 <div class="panel">
+<label class="label">테이블선택</label>
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
@@ -126,7 +131,18 @@
 <div class="tab">
 <!-- form부분 -->
 <div class="panel">
- <label>요청사항</label>
+
+<div class="request">
+  <label class="label">요청사항</label><br>
+  <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label>
+  <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br>
+  <input type="radio" value="true" name="alergy" checked>없습니다<br>
+  <input type="radio" value="false" name="alergy">있습니다<br>
+  <input type="text" placeholder="구체적으로" size=30><br>
+  <label>특별 요청</label>
+  <textarea cols="80" rows="10"></textarea>
+ </div> 
+ 
 </div>
 <!-- form부분 -->
 </div>
@@ -136,7 +152,38 @@
 <div class="tab">
 <!-- form부분 -->
 <div class="panel">
- <label>확인</label>
+ <label class="label">확인</label>
+ <table border="1" id="confirm">
+ <tr>
+  <td>지점</td>
+  <td>00점</td>
+ </tr>
+ <tr>
+  <td>인원</td>
+  <td>00명</td>
+  </tr>
+  <tr>
+   <td>예약날짜</td>
+   <td>2018년 12월 1일</td>
+  </tr>
+  <tr>
+   <td>예약시간</td>
+   <td>13:00시</td>
+  </tr>
+  <tr>
+   <td>예약테이블</td>
+   <td>t7번</td>
+  </tr>
+  <tr>
+   <td>알러지여부</td>
+   <td>없음</td>
+  </tr>
+  <tr>
+   <td>특별요청사항</td>
+   <td>맛있게 만들어 주세요</td>
+  </tr>
+
+ </table>
 </div>
 <!-- form부분 -->
 </div>
@@ -208,7 +255,7 @@ function showTab(n) {
 function nextPrev(n) {
 	var x = document.getElementsByClassName("tab");
 	
-	if (n == 1 && !validateForm()) return false;
+	//if (n == 1 && !validateForm()) return false;
 
 	// Hide the current tab:
 	x[currentTab].style.display = "none";

@@ -1,7 +1,5 @@
 @CHARSET "UTF-8";
 
-
-
 #wrap{
 	border: 1px solid blue;
 	width: 100%;
@@ -88,25 +86,27 @@ article {width: 70%; height: 100%;
 	float: left;
 	}
 
-.panel>#guest, .panel>#time{
+.panel>#guest, .panel>#time {
 	width:50%; height: 100%;
 	float: right;}
 
 .label{border: 1px solid black;
 	margin: 10px;
-	display: inline-block;
-	font-size: }
+	display: inline-block; }
 	
-.slot{border:1px solid;
+.slot{
 	border-radius: 3px;
 	width:155px; height:55px;
 	text-align: center;
 	margin: 5px auto 5px auto;
 	line-height: 55px;
 	cursor: pointer;
-	background-color: #dad2ce;
-	opacity: .4;
-	}
+	color: #424a52;
+	background-color: #d3e0f1; }
+	
+.slot:HOVER{
+	background-color: #424a52;
+    color: #ffffff;}
 	
 .panel2>#datepicker { line-height: 30px; }
 
@@ -132,15 +132,15 @@ button {
   cursor: pointer;
   float:right;
 }
-button:hover {
-  opacity: 0.8;
-}
+button:hover { opacity: 0.8;}
+
 button#prevBtn { float: left; }
 
 
 /* table */
 #table{border: 1px solid;
   width: 500px; height: 300px;
+  margin: 0 auto;
   position: relative; }
  
 #table>div{position: absolute;}
@@ -176,3 +176,5 @@ button#prevBtn { float: left; }
 #t8{ left: 140px; bottom: 190px;}
 #t9{ left: 260px; bottom: 190px;}
 #t10{ left: 380px; bottom: 190px;}
+
+#confirm{margin: 20px auto;}
