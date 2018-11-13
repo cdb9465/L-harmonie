@@ -170,7 +170,7 @@ form { margin: 0 100px; }
     color: #fff;
 }
 
-.like>button>i{ margin-top: 13px; 
+.like>button>img{ margin-top: 13px; 
 				}
 
 .like>button>p{
@@ -222,8 +222,10 @@ form { margin: 0 100px; }
 
 #numnum{
 font-size:80px;
-	}
 
+	}
+	
+	
 
 
 
