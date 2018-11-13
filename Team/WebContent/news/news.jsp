@@ -19,7 +19,7 @@
 <!-- 본문 -->
 <div class="wrap">
 <div class="news_main">
-<h1>MYLOGO.COM</h1>
+<h1>News & Event</h1>
 <div class="news_row">
 <div class="news_column">
     	<div class="news_content">
