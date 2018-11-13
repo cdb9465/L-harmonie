@@ -8,7 +8,7 @@
 <link href="../css/default.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<title>L'marmonie|MENU</title>
+<title>L'marmonie| MENU</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript">
         window.onload = function () {
