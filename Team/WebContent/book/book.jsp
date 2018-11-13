@@ -153,7 +153,7 @@
 <!-- form부분 -->
 <div class="panel">
  <label class="label">확인</label>
- <table border="1" id="confirm">
+ <table id="confirm">
  <tr>
   <td>지점</td>
   <td>00점</td>
@@ -191,7 +191,6 @@
 	
 <!-- 버튼 -->
 <div style="overflow:auto;">
- <!-- <div style="float:right;"> -->
  <div>
   <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
   <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
@@ -218,6 +217,9 @@
 			monthNames:['년 1월','년 2월','년 3월','년 4월','년 5월','년 6월','년 7월','년 8월','년 9월','년 10월','년 11월','년 12월'],
 			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			dayNamesMin:['일','월','화','수','목','금','토']
+		});
+		$('.ui-datepicker').css({
+			"margin":"0 auto"
 		});
 	});
  </script>
