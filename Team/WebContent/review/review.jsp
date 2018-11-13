@@ -8,6 +8,7 @@
 <title>Review Board</title>
 <link href="../css/default.css" rel="stylesheet">
 <link href="../css/review.css" rel="stylesheet" type="text/css">
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -16,10 +17,11 @@
 
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
+<div class="clear"></div>
 <!-- 헤더파일들어가는 곳 -->
 <div id="wraap">
 <div class="clear"></div>
-
+<article>
 <!-- 메인 들어가는 곳 -->
 <div class="main">
 <!-- 리뷰쓰기 영역 시작 -->
@@ -68,8 +70,16 @@
 </form>
 </div>
 <!-- 리뷰쓰기 영역 끝 -->
-
-
+<hr>
+ <div class="write_find">
+  <div class="title">*간편검색*</div>
+  <select name="sel_location">
+    <option value="gangnam">전체</option>
+   <option value="gangnam">강남점</option>
+   <option value="seomyeon">서면점</option>
+  </select>
+  
+ </div>
 <!-- review_wrap 시작 -->
 <div class="review_wrap">	
 
@@ -116,6 +126,7 @@
  
  <div class="clear"></div>
 
+
  <div class="name"> <p>홍길동</p> </div>
  <div class="date"> <p>2018.10.26 14:37:00</p> </div>
  <div class="rating">
@@ -135,9 +146,9 @@
     내용<br>
     내용<br>
  <div class="like">
-  <button type="button"> <i class="fa fa-heart-o" id=heart></i> <p>좋아요</p> </button>
+  <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart" id=heart style="color:red"></i> <p>좋아요</p> </button>
  </div>
- <input type="button"value="글수정" id="udate" onclick="re_updateForm.jsp">
+ <input type="button"value="글수정" id="udate" onclick="location='review_re.jsp'">
   <input type="button"value="글삭제" id="ddate" onclick="delete22()">
      <script type="text/javascript">
      function delete22(){
@@ -161,10 +172,24 @@
 
 <!-- 리뷰내용 영역 끝 -->
 
+
 <hr>
 <div class="comment">
  <textarea placeholder="댓글"></textarea>
- <button type="button"><p>댓글등록</p></button>
+ <button type="button" onclick="sub11()"><p>댓글등록</p></button>
+      <script type="text/javascript">
+     function sub11(){
+    	 r=confirm("등록하시겠습니까?");
+    	 if(r==true){
+    		 alert("등록되었습니다.")
+    		 location.href="review.jsp";
+    	 }
+    	 else{
+    		 alert("취소되었습니다.")
+    		 location.href="review.jsp";
+    	 }
+     }
+     </script>
 </div>
 
 </div>
@@ -172,21 +197,6 @@
 
 </div>
 <!-- 메인 들어가는 곳 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -254,7 +264,7 @@
     내용<br>
     내용<br>
  <div class="like">
-  <button type="button"> <i class="fa fa-heart-o" id=heart></i> <p>좋아요</p> </button>
+  <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart-o" id=heart></i> <p>좋아요</p> </button>
  </div>
  <input type="button"value="글수정" id="udate" onclick="re_updateForm.jsp">
   <input type="button"value="글삭제" id="ddate" onclick="delete22()">
@@ -288,7 +298,7 @@
 
 </div>
 <!-- review_wrap 끝 -->
-<p id="numnum" style=margin-left:250px; style=margin-right:auto; style=margin-top:100px;>
+<p id="numnum" style=margin-left:250px; style=margin-right:auto; style=margin-top:100px; >
 <a href="#" style=text-decoration:none;>[이전]&nbsp;</a><a href="#" style=text-decoration:none;>1&nbsp;</a>
 <a href="#" style=text-decoration:none;>2&nbsp;</a> <a href="#" style=text-decoration:none;>3&nbsp;</a>
 <a href="#" style=text-decoration:none;>4&nbsp;</a><a href="#" style=text-decoration:none;>5&nbsp;</a>
@@ -296,7 +306,7 @@
  <a href="#" style=text-decoration:none;>8&nbsp;</a><a href="#" style=text-decoration:none;>9&nbsp;</a>
  <a href="#" style=text-decoration:none;>10&nbsp;</a><a href="#" style=text-decoration:none;>[다음]</a></p>
 </div>
-
+</article>
 <!-- 메인 들어가는 곳 -->
 
 

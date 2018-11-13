@@ -2,9 +2,11 @@
 * {
     box-sizing: border-box;
 }
+.wrap {
+	background-image: url("../images/news/bg.jpg");
+}
 body {
     background-color: #e3e3e3;
-    padding: 20px;
     font-family: Arial;
 }
 .news_main {
@@ -34,7 +36,6 @@ h1 {
     float: left;
     width: 25%;
 }
-
 .news_content {d
 	border: 1px solid blue;
     background-color: white;

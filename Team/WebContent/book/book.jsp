@@ -32,25 +32,25 @@
 <!-- 예약 네비게이션 메뉴바 -->
 <div class="book_nav">
  <div class="steps">
-  <div class="step2"><i class="fa fa-fw fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</div>
+  <div class="step2" onclick="moveTab(0)"><i class="fa fa-fw fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</div>
  </div>
  <div class="steps">
-  <div class="step2"><i class="fa fa-calendar" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</div> 
+  <div class="step2" onclick="moveTab(1)"><i class="fa fa-calendar" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</div> 
  </div>
  <div class="steps">
-  <div class="step2"><i class="fa fa-cutlery" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</div>
+  <div class="step2" onclick="moveTab(2)"><i class="fa fa-cutlery" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</div>
  </div>
  <div class="steps">
-  <div class="step2"><i class="fa fa-edit" style="font-size:15px"></i> STEP 4 <br> 요청사항 입력 </div>
+  <div class="step2" onclick="moveTab(3)"><i class="fa fa-edit" style="font-size:15px"></i> STEP 4 <br> 요청사항 입력 </div>
  </div>
  <div class="steps">
-  <div class="step2"><i class="fa fa-check" style="font-size:15px"></i> STEP 5 <br> 확인 &amp; 완료 </div>
+  <div class="step2" onclick="moveTab(4)"><i class="fa fa-check" style="font-size:15px"></i> STEP 5 <br> 확인 &amp; 완료 </div>
  </div>
 </div>
 <!-- 예약 네비게이션 메뉴바 -->
 
 <!-- 예약 폼 -->
-<form id="book_form" action="">
+<form id="book_form" action="../main/main.jsp" method="post">
 
 
 <!-- 1단계(지점, 인원) -->
@@ -83,17 +83,21 @@
 <!-- form부분 -->
 <div class="panel">
  <!-- <input type="date"><br> -->	<!-- 익스 지원x -->
+ 
  <div id="date">
+ <label class="label">날짜</label>
  <div id="datepicker"></div>
  
   </div>
+  
  <div id="time">
- <div class="slot">11:00</div>
- <div class="slot">13:00</div>
- <div class="slot">17:00</div>
- <div class="slot">19:00</div>
+  <label class="label">시간</label>
+  <div class="slot">11:00</div>
+  <div class="slot">13:00</div>
+  <div class="slot">17:00</div>
+  <div class="slot">19:00</div>
  </div>
-
+ 
  </div>
 <!-- form부분 -->
 </div>
@@ -103,6 +107,7 @@
 <div class="tab">
 <!-- form부분 -->
 <div class="panel">
+<label class="label">테이블선택</label>
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
@@ -126,7 +131,18 @@
 <div class="tab">
 <!-- form부분 -->
 <div class="panel">
- <label>요청사항</label>
+
+<div class="request">
+  <label class="label">요청사항</label><br>
+  <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label>
+  <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br>
+  <input type="radio" value="true" name="alergy" checked>없습니다<br>
+  <input type="radio" value="false" name="alergy">있습니다<br>
+  <input type="text" placeholder="구체적으로" size=30><br>
+  <label>특별 요청</label>
+  <textarea cols="80" rows="10"></textarea>
+ </div> 
+ 
 </div>
 <!-- form부분 -->
 </div>
@@ -136,7 +152,38 @@
 <div class="tab">
 <!-- form부분 -->
 <div class="panel">
- <label>확인</label>
+ <label class="label">확인</label>
+ <table id="confirm">
+ <tr>
+  <td>지점</td>
+  <td>00점</td>
+ </tr>
+ <tr>
+  <td>인원</td>
+  <td>00명</td>
+  </tr>
+  <tr>
+   <td>예약날짜</td>
+   <td>2018년 12월 1일</td>
+  </tr>
+  <tr>
+   <td>예약시간</td>
+   <td>13:00시</td>
+  </tr>
+  <tr>
+   <td>예약테이블</td>
+   <td>t7번</td>
+  </tr>
+  <tr>
+   <td>알러지여부</td>
+   <td>없음</td>
+  </tr>
+  <tr>
+   <td>특별요청사항</td>
+   <td>맛있게 만들어 주세요</td>
+  </tr>
+
+ </table>
 </div>
 <!-- form부분 -->
 </div>
@@ -144,7 +191,7 @@
 	
 <!-- 버튼 -->
 <div style="overflow:auto;">
- <div style="float:right;">
+ <div>
   <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
   <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
  </div>
@@ -171,102 +218,83 @@
 			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			dayNamesMin:['일','월','화','수','목','금','토']
 		});
+		$('.ui-datepicker').css({
+			"margin":"0 auto"
+		});
 	});
  </script>
  
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
+//해당 페이지로 이동
+function moveTab(n)
+{
+	nextPrev(n-currentTab);
+}
+
 function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
+	var x = document.getElementsByClassName("tab");
+	
+	x[n].style.display = "block";
+
+	//fix the Previous/Next buttons:
+	if (n == 0) {
+	  document.getElementById("prevBtn").style.display = "none";
+	} else {
+	  document.getElementById("prevBtn").style.display = "inline";
+	}
+	if (n == (x.length - 1)) {
+	  document.getElementById("nextBtn").innerHTML = "Submit";
+	} else {
+	  document.getElementById("nextBtn").innerHTML = "Next";
+	}
+	
+	fixStepIndicator(n);
 }
 
 function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  if (currentTab >= x.length) {
-    // ... the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
-  }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
+	var x = document.getElementsByClassName("tab");
+	
+	//if (n == 1 && !validateForm()) return false;
+
+	// Hide the current tab:
+	x[currentTab].style.display = "none";
+	 
+	currentTab = currentTab + n;
+	 
+	if (currentTab >= x.length) {
+		document.getElementById("book_form").submit();
+		return false;
+	 }
+	 
+	 //display the correct tab:
+	 showTab(currentTab);
 }
 
 function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  /* if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  } */
-  return valid; // return the valid status
+	var x, y, i, valid = true;
+	x = document.getElementsByClassName("tab");
+	y = x[currentTab].getElementsByTagName("input");
+
+	for (i = 0; i < y.length; i++) {
+		if (y[i].value == "") {
+	    	// add an "invalid" class to the field:
+	    	y[i].className += " invalid";
+	    	valid = false;
+	  	}
+	}
+	return valid;
 }
 
 function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  /* var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class on the current step:
-  x[n].className += " active"; */
-  
-  var i, x = document.getElementsByClassName("step2");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class on the current step:
-  x[n].className += " active";
+	var i, x = document.getElementsByClassName("step2");
+
+	for (i = 0; i < x.length; i++) {
+		x[i].className = x[i].className.replace(" active", "");
+	}
+	x[n].className += " active";
 }
 </script>
 
