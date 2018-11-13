@@ -11,7 +11,7 @@
 
 <!-- 메인메뉴 -->
 <nav id="main_menu">
-	<a href="#">ABOUT US</a>
+	<a href="../store/aboutUs.jsp">ABOUT US</a>
 	<a href="#">MENU</a>
 	<a href="#">NEWS</a>
 	<a href="../review/review.jsp">REVIEW</a>
