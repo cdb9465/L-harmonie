@@ -130,10 +130,13 @@ button {
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
+  float:right;
 }
 button:hover {
   opacity: 0.8;
 }
+button#prevBtn { float: left; }
+
 
 /* table */
 #table{border: 1px solid;
