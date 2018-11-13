@@ -130,9 +130,12 @@ button {
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
+  float:right;
 }
-button:hover {
-  opacity: 0.8;}
+button:hover { opacity: 0.8;}
+
+button#prevBtn { float: left; }
+
 
 /* table */
 #table{border: 1px solid;
@@ -174,7 +177,4 @@ button:hover {
 #t9{ left: 260px; bottom: 190px;}
 #t10{ left: 380px; bottom: 190px;}
 
-#confirm{
-	
-	margin: 20px auto;
-}
+#confirm{margin: 20px auto;}
