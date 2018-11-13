@@ -160,16 +160,16 @@ button#prevBtn { float: left; }
  
 #table img:HOVER{cursor: pointer; }
 
-#t1{ left: 100px; bottom: 2px;}
-#t2{ left: 210px; bottom: 2px;}
-#t3{ left: 320px; bottom: 2px;}
-#t4{ left: 430px; bottom: 2px;}
-#t5{ left: 380px; bottom: 100px;}
-#t6{ left: 260px; bottom: 100px;}
-#t7{ left: 140px; bottom: 100px;}
-#t8{ left: 140px; bottom: 190px;}
-#t9{ left: 260px; bottom: 190px;}
-#t10{ left: 380px; bottom: 190px;}
+#t1{ left: 100px; bottom: 2px; }
+#t2{ left: 210px; bottom: 2px; }
+#t3{ left: 320px; bottom: 2px; }
+#t4{ left: 430px; bottom: 2px; }
+#t5{ left: 380px; bottom: 100px; }
+#t6{ left: 260px; bottom: 100px; }
+#t7{ left: 140px; bottom: 100px; }
+#t8{ left: 140px; bottom: 190px; }
+#t9{ left: 260px; bottom: 190px; }
+#t10{ left: 380px; bottom: 190px; }
 
 #confirm{margin: 20px auto;}
 

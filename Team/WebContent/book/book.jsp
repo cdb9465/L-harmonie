@@ -153,7 +153,7 @@
 <!-- form부분 -->
 <div class="panel">
  <label class="label">확인</label>
- <table border="1" id="confirm">
+ <table id="confirm">
  <tr>
   <td>지점</td>
   <td>00점</td>

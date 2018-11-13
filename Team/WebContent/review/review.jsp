@@ -8,6 +8,7 @@
 <title>Review Board</title>
 <link href="../css/default.css" rel="stylesheet">
 <link href="../css/review.css" rel="stylesheet" type="text/css">
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -16,10 +17,11 @@
 
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
+<div class="clear"></div>
 <!-- 헤더파일들어가는 곳 -->
 <div id="wraap">
 <div class="clear"></div>
-
+<article>
 <!-- 메인 들어가는 곳 -->
 <div class="main">
 <!-- 리뷰쓰기 영역 시작 -->
@@ -68,8 +70,16 @@
 </form>
 </div>
 <!-- 리뷰쓰기 영역 끝 -->
-
-
+<hr>
+ <div class="write_find">
+  <div class="title">*간편검색*</div>
+  <select name="sel_location">
+    <option value="gangnam">전체</option>
+   <option value="gangnam">강남점</option>
+   <option value="seomyeon">서면점</option>
+  </select>
+  
+ </div>
 <!-- review_wrap 시작 -->
 <div class="review_wrap">	
 
@@ -161,6 +171,7 @@
 
 
 <!-- 리뷰내용 영역 끝 -->
+
 
 <hr>
 <div class="comment">
@@ -295,7 +306,7 @@
  <a href="#" style=text-decoration:none;>8&nbsp;</a><a href="#" style=text-decoration:none;>9&nbsp;</a>
  <a href="#" style=text-decoration:none;>10&nbsp;</a><a href="#" style=text-decoration:none;>[다음]</a></p>
 </div>
-
+</article>
 <!-- 메인 들어가는 곳 -->
 
 
