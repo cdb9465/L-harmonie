@@ -1,16 +1,11 @@
 @CHARSET "UTF-8";
-.box{ 
-	width:100%; 
-	height:100%; 
-	position:relative; 
-	color:#ffffff; 
-}
+
 /* sec1 영역 전체 */
 
 #article_sec1{
 	height: 1000px;
 	border: 1px solid red;
-	background-image: url("../images/menu/menu_bg3.jpg");
+	background-image: url("../images/menu/menu_bg.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-attachment: scroll;
@@ -42,7 +37,7 @@
 	background-size: 100%;
 }
 #mmenu_img{
-	/*background-color:rgba(255,255,255,0.3);*/
+	
 	width: 1000px; 
 	margin :auto;
 	margin-top:180px;
@@ -53,19 +48,19 @@
 	height: 1600px;
 	color:  #fff;
 	border: 1px solid red;
-	background-image: url("../images/배경2.jpg");
+	background-image: url("../images/menu/menu_bg2.jpg");
 	background-repeat: no-repeat;
-	background-size: 1900px 100%;
+	background-size: 100%;
 	padding-top: 100px;
 }
-/* Style the tab */
+
 .tab {
+	margin-left: 50px;
     overflow: hidden;
     border: 1px solid #ccc;
    /*  background-color: #f1f1f1; */ 
 }
 
-/* Style the buttons inside the tab */
 .tab button {
     background-color: inherit;
     float: left;
@@ -74,8 +69,7 @@
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-    font-size: 17px;
-    
+    font-size: 17px; 
 }
 
 /* 텝페이지 마우스올렸을때 글자색변경 */
@@ -90,6 +84,7 @@
 
 /* 메뉴 보여주는 영역 전체*/
 .tabcontent {
+	background-color:rgba(255,255,255,0.3);
     display: none;
     padding: 6px 12px;
     border: 1px solid blue;
@@ -115,19 +110,8 @@
 	background-repeat: no-repeat;
 	margin: 40px;
 	border: 1px solid red; }
-/*스테이크사진 1번  */
-#steak1{background-image: url("../images/menu/steak/steak1.jpg");}
-#steak1 :HOVER {}
-/*스테이크2번  */
-#steak2{background-image: url("../images/menu/steak/steak2.png");}
-/*스테이크3번  */
-#steak3{background-image: url("../images/menu/steak/steak3.png");}
-/*스테이크4번  */
-#steak4{background-image: url("../images/menu/steak/steak4.png");}
-/*스테이크5번  */
-#steak5{background-image: url("../images/menu/steak/steak5.png");}
-/*스테이크6번  */
-#steak6{background-image: url("../images/menu/steak/steak6.jpg");}
+
+
 /* 메뉴이름표시  */
 #steak_ps1{
 	color:#303030;
