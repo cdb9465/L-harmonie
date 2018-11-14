@@ -54,8 +54,9 @@
 
  <div id="location">
   <label class="label">지점</label>
-  <div class="slot">서울강남점<input type="hidden" name="location" value="서울강남점"></div>
-  <div class="slot">부산서면점<input type="hidden" name="location" value="부산서면점"></div>
+  <div class="slot" >서울강남점</div>
+  <div class="slot" >부산서면점</div>
+  <input type="hidden" name="location" value="">
  </div>
  
  <div id="guest">
@@ -326,6 +327,34 @@ function fixStepIndicator(n) {
 	}
 	x[n].className += " active";
 }
+
+$(document).ready(function(){
+	
+	$('.slot').each(function(i){
+		$(this).click(function(){
+			$('.slot').css({
+			background : '#d3e0f1',
+			color : '#424a52'
+			});
+			
+			$(this).css({
+				background : '#424a52',
+				color : '#d3e0f1'
+			});
+			
+			if(i==0)
+				$('input:hidden[name=location]').val('서울강남점');
+			else if(i==1)
+				$('input:hidden[name=location]').val('부산서면점');
+		});
+	});
+	
+
+});
+// $('.slot').on('click', function(){
+// 	$('input:hidden[name=location]').val('서울강남점');
+// });
+
 </script>
 
 </body>
