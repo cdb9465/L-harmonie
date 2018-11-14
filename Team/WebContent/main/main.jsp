@@ -8,12 +8,13 @@
 
 <title>L'harmonie</title>
 <link href="../css/default.css" rel="stylesheet">
+<link href="../css/main.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript">
         window.onload = function () {
-            $(".box").each(function () {
+            $(".main_box").each(function () {
                 // 개별적으로 Wheel 이벤트 적용
                 $(this).on("mousewheel DOMMouseScroll", function (e) {
                     e.preventDefault();
@@ -56,9 +57,9 @@
 <div class="clear"></div>
 
 <!-- 메인 들어가는 곳 -->
-<div class="box" id="main0">
-  <div class="hero-text">
-    <h1 style="font-size:50px">Flatter the senses</h1>
+<div class="main_box" id="main0">
+  <div class="main_text">
+    <h1>Flatter the senses</h1>
     <p>오감을 즐겁게 하다</p>
   </div>
 
@@ -71,10 +72,10 @@
 
 
 <!-- 2번째 메인 -->
-<div class="box" id="main1"></div>
+<jsp:include page="main02.jsp"></jsp:include>
 
 <!-- 3번째 메인 -->
-<div class="box" id="main2"></div>
+<div class="main_box" id="main2"></div>
 
 <!-- 메인 들어가는 곳 -->
 

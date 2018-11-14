@@ -10,16 +10,16 @@
 <!-- 로고들어가는 곳 끝 -->
 
 <!-- 메인메뉴 -->
+
 <nav id="main_menu">
 	<a href="../store/aboutUs.jsp">ABOUT US</a>
 	<a href="../store/menu.jsp">MENU</a>
 	<a href="../news/news.jsp">NEWS</a>
 	<a href="../review/review.jsp">REVIEW</a>
 </nav>
-<!--메인메뉴 -->
 
 <!-- 예약 버튼 -->
-<div id="book"><a href="../book/book.jsp">BOOK</a></div>
+<!-- <div id="book"><a href="../book/book.jsp">BOOK</a></div> -->
 
 <!-- 로그인 버튼 -->
 <div id="login"><a href=#><i class="material-icons" font-size="30px" >lock_open</i>LOGIN</a></div>

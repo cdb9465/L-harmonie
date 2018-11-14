@@ -9,13 +9,12 @@
 </div>
 
 <!-- 1:1채팅 -->
-
-<div class="chat" onclick="openform()" id="chatbtn">CHAT</div>
+<div class="chat" onclick="openform()" id="chatbtn">문의/예약</div>
 
 <div class="chat-popup" id="myform">
   <form action="/action_page.php" class="form-container">
-    <h1>Chat</h1>
-
+	<!-- 예약 버튼 -->
+<!-- 	<div id="book"><a href="../book/book.jsp">예약</a></div> -->
     <label for="msg"><b>Message</b></label>
     <textarea placeholder="Type message.." name="msg" required></textarea>
 

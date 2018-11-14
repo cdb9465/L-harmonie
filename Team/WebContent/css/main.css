@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+
+/* 마우스 휠 기능 */
+.main_box{ 
+	width:100%; 
+	height:100%; 
+	position:relative; 
+	color:#ffffff; 
+	font-size:24pt;
+}
+
+/* 첫번째 메인 */
+#main0 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/main02.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* 메인메뉴 큰 글씨 */
+.main_text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+/* 메인이미지 */
+#main1, #main2 {
+    /* Full height */
+    height: 100%; 
+	
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+#main1 {
+	/* The image used */
+	background-image: url("../images/main01.jpg");
+	/* background-color: #FCFCFC; */}
+#main2 {
+    /* The image used */
+    background-image: url("../images/store2.jpg");}
+    
+    
+/* 메인 2 텍스트 */
+.main2_text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -180%);
+  color: white;
+}    
+    
+    
+#main02_test { border: 1px solid red;
+	width: 700px;
+	height: 500px;
+	transform: translate(0%, 57%);
+	background-color: blue;	
+}    
+
+/* #main02_test > a {
+	padding: 20px 50px;
+	color: black;
+	text-decoration: none;
+	border: 1px solid yellow;
+	background-image: url("../images/main02.jpg");
+	
+}    */ 
+
+#main_dimg01 {
+	background-image: url("../images/배경3.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	float: left;
+	width: 700px;
+	height: 500px;
+	margin: 0 50px 0 0;
+}  
+.text01 { border: 1px solid green;
+	text-decoration: none;
+	font-size: 30px;
+	padding-top: 35%;
+	margin: auto;
+	
+	width: 700px;
+	height: 500px;
+	color: white;
+	font-weight: bold;
+}  
