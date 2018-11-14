@@ -9,4 +9,20 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <resource-ref>
+   <description>lhdb</description>
+   <res-ref-name>jdbc/mysqlDB</res-ref-name>
+   <res-type>javax.sql.DataSource</res-type>
+   <res-auth>Container</res-auth>
+  </resource-ref>
+  
+   <servlet>
+	<servlet-name>BookFrontController</servlet-name>
+	<servlet-class>net.book.action.OrderFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>BookFrontController</servlet-name>
+	<url-pattern>*.bk</url-pattern>
+  </servlet-mapping>
 </web-app>
