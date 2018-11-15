@@ -1,11 +1,14 @@
+package net.book.db;
+
 import java.sql.Date;
 
 public class BookBean
 {
 	private int mem_num;
 	private int book_num;
-	private int location;
+	private String location;
 	private Date date;
+	private String time;
 	private int guest;
 	private int tablenum;
 	private String request;
@@ -16,11 +19,14 @@ public class BookBean
 	public int getBook_num() { return book_num; }
 	public void setBook_num(int book_num) { this.book_num = book_num; }
 	
-	public int getLocation() { return location; }
-	public void setLocation(int location) { this.location = location; }
+	public String getLocation() { return location; }
+	public void setLocation(String location) { this.location = location; }
 	
 	public Date getDate() { return date; }
 	public void setDate(Date date) { this.date = date; }
+	
+	public String getTime() { return time; }
+	public void setTime(String time) { this.time = time; }
 	
 	public int getGuest() { return guest; }
 	public void setGuest(int guest) { this.guest = guest; }
@@ -30,4 +36,5 @@ public class BookBean
 	
 	public String getRequest() { return request; }
 	public void setRequest(String request) { this.request = request; }
+
 }
