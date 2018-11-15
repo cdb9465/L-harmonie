@@ -1,21 +1,30 @@
 @CHARSET "UTF-8";
+.menu_article {
+	height: 100%;
+}
 
 /* sec1 영역 전체 */
 
 #article_sec1{
-	height: 1000px;
+	height: 100%;
 	border: 1px solid red;
 	background-image: url("../images/menu/menu_bg.jpg");
 	background-repeat: no-repeat;
-	background-size: 100%;
-	background-attachment: scroll;
+	background-size: cover;
+	background-attachment: scroll; /*스크롤 내려도 그림이 안 따라오게끔*/
 }
-
-.main_menu{	height: 600px;}
+.main_menu{
+	/*border: 1px solid white;*/
+	width: 1000px;
+	margin: auto;
+	margin-top: 180px;
+	padding: 10px;
+	height: 600px;
+}
 .main_menu ul{ margin-top: 30px;}	
 
 .main_menu li{list-style: none;
-		/*border: 1px solid #fff; */
+		border: 1px solid #fff;
 		margin: 15px;
 		padding: 10px;		
 		text-align: right;
@@ -36,13 +45,7 @@
 	background-image: url("../images/menu/steak/sec1_steak.jpg");
 	background-size: 100%;
 }
-#mmenu_img{
-	
-	width: 1000px; 
-	margin :auto;
-	margin-top:180px;
-	padding: 10px;
-}
+
 /* sec2 영역 전체 */
 #article_sec2{
 	height: 1600px;
@@ -51,7 +54,6 @@
 	background-image: url("../images/menu/menu_bg2.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	padding-top: 100px;
 }
 
 .tab {
