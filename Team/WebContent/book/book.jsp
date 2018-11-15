@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+7<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>L'harmonie</title>
-<link href="../css/default.css" rel="stylesheet">
-<link href="../css/book.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<link href="./css/book.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="../js/jquery-3.3.1.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<link href="../js/jquery-ui.css" rel="stylesheet">
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/jquery-ui.js"></script>
+<link href="./js/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -45,7 +45,7 @@
 <!-- 예약 네비게이션 메뉴바 -->
 
 <!-- 예약 폼 -->
-<form id="book_form" action="../book/test.jsp" method="post">
+<form id="book_form" action="../book/bookCheck.jsp" method="post">
 
 <!-- 1단계(지점, 인원) -->
 <div class="tab">
@@ -54,16 +54,18 @@
 
  <div id="location">
   <label class="label">지점</label>
-  <div class="slot">서울강남점<input type="hidden" name="location" value="서울강남점"></div>
-  <div class="slot">부산서면점<input type="hidden" name="location" value="부산서면점"></div>
+  <div class="slot" >서울강남점</div>
+  <div class="slot" >부산서면점</div>
+  <input type="hidden" name="location" value="">
  </div>
  
  <div id="guest">
   <label class="label">인원</label>
-  <div class="slot">1<input type="hidden" name="guest" value="1"></div>
-  <div class="slot">2<input type="hidden" name="guest" value="2"></div>
-  <div class="slot">3<input type="hidden" name="guest" value="3"></div>
-  <div class="slot">4<input type="hidden" name="guest" value="4"></div>
+  <div class="slot">1</div>
+  <div class="slot">2</div>
+  <div class="slot">3</div>
+  <div class="slot">4</div>
+  <input type="hidden" name="guest" value="">
  </div>
 
 </div>
@@ -86,10 +88,11 @@
   
  <div id="time">
   <label class="label">시간</label>
-  <div class="slot">11:00<input type="hidden" name="time" value="11:00"></div>
-  <div class="slot">13:00<input type="hidden" name="time" value="13:00"></div>
-  <div class="slot">17:00<input type="hidden" name="time" value="15:00"></div>
-  <div class="slot">19:00<input type="hidden" name="time" value="17:00"></div>
+  <div class="slot">11:00</div>
+  <div class="slot">13:00</div>
+  <div class="slot">17:00</div>
+  <div class="slot">19:00</div>
+  <input type="hidden" name="time" value="">
  </div>
  
  </div>
@@ -105,47 +108,19 @@
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
- <div id="t1">
- 	<img src="table2.png" onmouseover="this.src='table2_g.png'" onmouseout="this.src='table2.png'">
- 	<input type="hidden" name="tablenum" value="1">
- </div>
- <div id="t2">
- 	<img src="table2.png" onmouseover="this.src='table2_g.png'" onmouseout="this.src='table2.png'">
- 	<input type="hidden" name="tablenum" value="2">
- </div>
- <div id="t3">
- 	<img src="table2.png" onmouseover="this.src='table2_g.png'" onmouseout="this.src='table2.png'">
- 	<input type="hidden" name="tablenum" value="3">
- </div>
- <div id="t4">
- 	<img src="table2.png" onmouseover="this.src='table2_g.png'" onmouseout="this.src='table2.png'">
- 	<input type="hidden" name="tablenum" value="4">
- </div>
- <div id="t5">
- 	<img src="table4.png" onmouseover="this.src='table4_g.png'" onmouseout="this.src='table4.png'">
- 	<input type="hidden" name="tablenum" value="5">
- </div>
- <div id="t6">
- 	<img src="table4.png" onmouseover="this.src='table4_g.png'" onmouseout="this.src='table4.png'">
- 	<input type="hidden" name="tablenum" value="6">
- </div>
- <div id="t7">
- 	<img src="table4.png" onmouseover="this.src='table4_g.png'" onmouseout="this.src='table4.png'">
- 	<input type="hidden" name="tablenum" value="7">
- </div>
- <div id="t8">
- 	<img src="table4.png" onmouseover="this.src='table4_g.png'" onmouseout="this.src='table4.png'">
- 	<input type="hidden" name="tablenum" value="8">
- </div>
- <div id="t9">
- 	<img src="table4.png" onmouseover="this.src='table4_g.png'" onmouseout="this.src='table4.png'">
- 	<input type="hidden" name="tablenum" value="9">
- </div>
- <div id="t10">
- 	<img src="table4.png" onmouseover="this.src='table4_g.png'" onmouseout="this.src='table4.png'">
- 	<input type="hidden" name="tablenum" value="10">
- </div>
+ <div id="t1" class="tfor2"></div>
+ <div id="t2" class="tfor2"></div>
+ <div id="t3" class="tfor2"></div>
+ <div id="t4" class="tfor2"></div>
+ <div id="t5" class="tfor4"></div>
+ <div id="t6" class="tfor4"></div>
+ <div id="t7" class="tfor4"></div>
+ <div id="t8" class="tfor4"></div>
+ <div id="t9" class="tfor4"></div>
+ <div id="t10" class="tfor4"></div>
+ <input type="hidden" name="tablenum" value="">
 </div>
+
 </div>
 <!-- form부분 -->
 </div>
@@ -160,9 +135,9 @@
   <label class="label">요청사항</label><br>
   <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label>
   <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br>
-  <input type="radio" value="true" name="alergy" checked>없습니다<br>
-  <input type="radio" value="false" name="alergy">있습니다<br>
-  <input type="text" placeholder="구체적으로" size=30><br>
+  <input type="radio" value="false" name="alergy" checked>없습니다<br>
+  <input type="radio" value="true" name="alergy">있습니다<br>
+<!--   <input type="text" placeholder="구체적으로" size=30><br> -->
   <label>특별 요청</label>
   <textarea cols="80" rows="10" name="request"></textarea>
  </div> 
@@ -326,6 +301,127 @@ function fixStepIndicator(n) {
 	}
 	x[n].className += " active";
 }
+
+$(document).ready(function(){
+	
+	$('#location').children('.slot').each(function(i){
+		$(this).click(function(){
+			$('#location').children('.slot').css({
+				background : '#d3e0f1',
+				color : '#424a52'
+				});
+			$(this).css({
+				background : '#424a52',
+				color : '#d3e0f1'
+			});	
+				
+			if(i==0)
+				$('input:hidden[name=location]').val('서울강남점');
+			else if(i==1)
+				$('input:hidden[name=location]').val('부산서면점');
+		});
+		
+		
+		
+	});
+	
+	$('#guest').children('.slot').each(function(i){
+		$(this).click(function(){
+			$('#guest').children('.slot').css({
+				background : '#d3e0f1',
+				color : '#424a52'
+				});
+			
+			$(this).css({
+				background : '#424a52',
+				color : '#d3e0f1'
+			});	
+				
+			if(i==0)
+				$('input:hidden[name=guest]').val('1');
+			else if(i==1)
+				$('input:hidden[name=guest]').val('2');
+			else if(i==2)
+				$('input:hidden[name=guest]').val('3');
+			else if(i==3)
+				$('input:hidden[name=guest]').val('4');
+		});		
+		
+	});
+	
+	$('#time').children('.slot').each(function(i){
+		$(this).click(function(){
+			$('#time').children('.slot').css({
+				background : '#d3e0f1',
+				color : '#424a52'
+				});
+			
+			$(this).css({
+				background : '#424a52',
+				color : '#d3e0f1'
+			});	
+				
+			if(i==0)
+				$('input:hidden[name=time]').val('11:00');
+			else if(i==1)
+				$('input:hidden[name=time]').val('13:00');
+			else if(i==2)
+				$('input:hidden[name=time]').val('17:00');
+			else if(i==3)
+				$('input:hidden[name=time]').val('19:00');
+		});			
+	});
+	
+	$('#table').children('.tfor2').each(function(i){
+		$(this).click(function(){
+			$('#table').children('.tfor2').css("background-image", "url(../images/book/table2.png)");
+			
+			$(this).css("background-image", "url(../images/book/table2_g.png)");
+				
+			if(i==0)
+				$('input:hidden[name=tablenum]').val('1');
+			else if(i==1)
+				$('input:hidden[name=tablenum]').val('2');
+			else if(i==2)
+				$('input:hidden[name=tablenum]').val('3');
+			else if(i==3)
+				$('input:hidden[name=tablenum]').val('4');
+		});	
+		
+	});
+	
+	 $('#table').children('.tfor4').each(function(i){
+		$(this).click(function(){
+			$('#table').children('.tfor4').css("background-image", "url(../images/book/table4.png)");
+			
+			$(this).css("background-image", "url(../images/book/table4_g.png)");
+				
+			if(i==0)
+				$('input:hidden[name=tablenum]').val('5');
+			else if(i==1)
+				$('input:hidden[name=tablenum]').val('6');
+			else if(i==2)
+				$('input:hidden[name=tablenum]').val('7');
+			else if(i==3)
+				$('input:hidden[name=tablenum]').val('8');
+			else if(i==4)
+				$('input:hidden[name=tablenum]').val('9');
+			else if(i==5)
+				$('input:hidden[name=tablenum]').val('10');
+		});	
+			 
+	}); 
+
+	if($(':radio[name="alergy"]:checked').val() == "true")
+		//$(this).append('<input type="text" placeholder="구체적으로" size=30><br>');
+		//$('radio[name=alergy]').append('추가');
+		alert('checked');
+	
+
+});
+
+
+
 </script>
 
 </body>

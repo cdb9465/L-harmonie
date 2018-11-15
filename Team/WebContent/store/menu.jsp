@@ -10,25 +10,30 @@
 
 <title>L'marmonie| MENU</title>
     
+    
+      
+      
+      
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
+
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
 
-<article>
+<div class="clear"></div>
+
+<article class="menu_article">
 
 <div id="article_sec1">
-<div class="main_menu">
-<ul>
+<ul class="main_menu">
 	<li><a href="#">APPETIZER</a></li>
 	<li><a href="#">SALAD</a></li>
 	<li><a href="#">STEAK</a></li>
-	<li><a href="#">PASTA</a></li>
+	<li><a href="#">SALAD</a></li>
 	<li><a href="#">DESSERT</a></li>
 	<li><a href="#">BEVERAGE</a></li>
 </ul>
-</div>
 </div>
 
 
@@ -42,7 +47,7 @@
   <button class="tablinks" onclick="openMenu(event, 'Beverage')">BEVERAGE</button>
 </div>
 
-<div id="Steak" class="tabcontent">
+<div id="Appetizer" class="tabcontent">
   <ul>
   	<li><div id="steak1"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
   	<li><div id="steak2"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
@@ -56,16 +61,16 @@
 </div>
 
 <!-- 스테이크 id로 통일했으니 바꿔써주세요 -->
-<div id="Steak" class="tabcontent">
+<div id="Salad" class="tabcontent">
   <ul>
   	<li><div id="steak1"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
   	<li><div id="steak2"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
   	<li><div id="steak3"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<div class="clear"/>
+  	<div class="clear"></div>
   	<li><div id="steak4"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
   	<li><div id="steak5"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
   	<li><div id="steak6"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<div class="clear"/>
+  	<div class="clear"></div>
   	<li><div id="steak4"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
   	<li><div id="steak5"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
   	<li><div id="steak6"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
@@ -108,6 +113,8 @@ function openMenu(evt, menuName) {
 </div>
 
 </article>
+
+<div class="clear"></div>
 
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
