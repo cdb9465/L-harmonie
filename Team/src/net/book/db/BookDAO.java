@@ -2,8 +2,10 @@ package net.book.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-import com.mysql.jdbc.PreparedStatement;
+
 
 public class BookDAO {
 	//디비연결 메소드
@@ -28,9 +30,25 @@ public class BookDAO {
 			
 			//sql만들고 실행 프로그램 생성
 			String sql = "insert into book values(?,?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
 			
+			pstmt.setInt(1,bb.getMem_num());
+			pstmt.setInt(2,bb.getBook_num() );
+			pstmt.setString(3, bb.getLocation());
+			pstmt.setDate(3, bb.getDate());
+			pstmt.setString(4, bb.getTime());
+			pstmt.setInt(5,bb.getGuest());
+			pstmt.setInt(5, bb.getTablenum());
+			pstmt.setString(6,bb.getRequest());
 			
-		} catch (Exception e) {e.printStackTrace();	}
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			if(con!=null) try {con.close();} catch (SQLException ex){}
+		}
 	}
 
 }
