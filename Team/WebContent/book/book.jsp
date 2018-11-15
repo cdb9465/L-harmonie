@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+7<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>L'harmonie</title>
-<link href="../css/default.css" rel="stylesheet">
-<link href="../css/book.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<link href="./css/book.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="../js/jquery-3.3.1.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<link href="../js/jquery-ui.css" rel="stylesheet">
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/jquery-ui.js"></script>
+<link href="./js/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -45,7 +45,7 @@
 <!-- 예약 네비게이션 메뉴바 -->
 
 <!-- 예약 폼 -->
-<form id="book_form" action="../book/test.jsp" method="post">
+<form id="book_form" action="../book/bookCheck.jsp" method="post">
 
 <!-- 1단계(지점, 인원) -->
 <div class="tab">
@@ -161,9 +161,9 @@
   <label class="label">요청사항</label><br>
   <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label>
   <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br>
-  <input type="radio" value="true" name="alergy" checked>없습니다<br>
-  <input type="radio" value="false" name="alergy">있습니다<br>
-  <input type="text" placeholder="구체적으로" size=30><br>
+  <input type="radio" value="false" name="alergy" checked>없습니다<br>
+  <input type="radio" value="true" name="alergy">있습니다<br>
+<!--   <input type="text" placeholder="구체적으로" size=30><br> -->
   <label>특별 요청</label>
   <textarea cols="80" rows="10" name="request"></textarea>
  </div> 
@@ -349,11 +349,13 @@ $(document).ready(function(){
 		});
 	});
 	
+	if($(':radio[name="alergy"]:checked').val() == "true")
+		//$(this).append('<input type="text" placeholder="구체적으로" size=30><br>');
+		//$('radio[name=alergy]').append('추가');
+		alert('checked');
+	
 
 });
-// $('.slot').on('click', function(){
-// 	$('input:hidden[name=location]').val('서울강남점');
-// });
 
 </script>
 
