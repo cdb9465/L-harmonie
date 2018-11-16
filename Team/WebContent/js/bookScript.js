@@ -73,8 +73,8 @@ function fixStepIndicator(n) {
 //지점선택
 function selectLocation(n){
 	
-	var loc = document.getElementById("location");
-	var location = loc.getElementsByClassName("slot");
+	var div = document.getElementById("location");
+	var location = div.getElementsByClassName("slot");
 	
 	for(i = 0; i < location.length; i++){
 		location[i].style.background = "#d3e0f1";
@@ -83,11 +83,81 @@ function selectLocation(n){
 	
 	location[n].style.background = "#424a52";
 	location[n].style.color = "#d3e0f1"
+	
+	if(n == 0)
+		document.bf.location.value = "서울강남점";
+	else if(n == 1)
+		document.bf.location.value = "부산서면점"; 
+}
+
+//인원수선택
+function selectGuest(n){
+	
+	var div = document.getElementById("guest");
+	var guest =div.getElementsByClassName("slot");
+	
+	for(i = 0; i < guest.length; i++){
+		guest[i].style.background = "#d3e0f1";
+		guest[i].style.color = "#424a52";
+	}
+	
+	guest[n].style.background = "#424a52";
+	guest[n].style.color = "#d3e0f1"
 		
 	if(n == 0)
-		div.getElementsByTagName("input").value = "서울강남점";
+		document.bf.guest.value = "1";
 	else if(n == 1)
-		div.getElementsByTagName("input").value = "부산서면점"; 
+		document.bf.guest.value = "2";
+	else if(n == 2)
+		document.bf.guest.value = "3";
+	else if(n == 3)
+		document.bf.guest.value = "4";	
+}
+
+//시간선택
+function selectTime(n){
+	var div = document.getElementById("time");
+	var time =div.getElementsByClassName("slot");
+	
+	for(i = 0; i < time.length; i++){
+		time[i].style.background = "#d3e0f1";
+		time[i].style.color = "#424a52";
+	}
+	
+	time[n].style.background = "#424a52";
+	time[n].style.color = "#d3e0f1"
+		
+	if(n == 0)
+		document.bf.time.value = "11:00";
+	else if(n == 1)
+		document.bf.time.value = "13:00";
+	else if(n == 2)
+		document.bf.time.value = "17:00";
+	else if(n == 3)
+		document.bf.time.value = "19:00";	
+}
+
+//테이블선택
+function selectTable(n){
+	var div = document.getElementById("table");
+	var table =div.getElementsByClassName("tabl");
+	
+	for(i = 0; i < table.length; i++){
+		if(i<=3){
+			table[i].style.backgroundImage = "url('../images/book/table2.png')";
+		}
+		else
+			table[i].style.backgroundImage = "url('../images/book/table4.png')";
+	}
+	
+	if(n<=3){
+		table[n].style.backgroundImage = "url('../images/book/table2_g.png')";
+		alert("gg");
+	}
+	else{
+		table[n].style.backgroundImage = "url('../images/book/table4_g.png')";
+		alert("gg");
+	}
 }
 
 //show Request Detail input
