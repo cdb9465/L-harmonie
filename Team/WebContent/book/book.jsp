@@ -61,10 +61,10 @@
  
  <div id="guest">
   <label class="label">인원</label>
-  <div class="slot">1</div>
-  <div class="slot">2</div>
-  <div class="slot">3</div>
-  <div class="slot">4</div>
+  <div class="slot" onclick = "selectGuest(0)">1</div>
+  <div class="slot" onclick = "selectGuest(1)">2</div>
+  <div class="slot" onclick = "selectGuest(2)">3</div>
+  <div class="slot" onclick = "selectGuest(3)">4</div>
   <input type="hidden" name="guest" value="">
  </div>
 
@@ -84,10 +84,10 @@
   
  <div id="time">
   <label class="label">시간</label>
-  <div class="slot">11:00</div>
-  <div class="slot">13:00</div>
-  <div class="slot">17:00</div>
-  <div class="slot">19:00</div>
+  <div class="slot" onclick = "selectTime(0)">11:00</div>
+  <div class="slot" onclick = "selectTime(1)">13:00</div>
+  <div class="slot" onclick = "selectTime(2)">17:00</div>
+  <div class="slot" onclick = "selectTime(3)">19:00</div>
   <input type="hidden" name="time" value="">
  </div>
  
@@ -103,16 +103,16 @@
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
- <div id="t1" class="tabl tfor2"></div>
- <div id="t2" class="tabl tfor2"></div>
- <div id="t3" class="tabl tfor2"></div>
- <div id="t4" class="tabl tfor2"></div>
- <div id="t5" class="tabl tfor4"></div>
- <div id="t6" class="tabl tfor4"></div>
- <div id="t7" class="tabl tfor4"></div>
- <div id="t8" class="tabl tfor4"></div>
- <div id="t9" class="tabl tfor4"></div>
- <div id="t10" class="tabl tfor4"></div>
+ <div id="t1" class="tabl tfor2" onclick="selectTable(0)"></div>
+ <div id="t2" class="tabl tfor2" onclick="selectTable(1)"></div>
+ <div id="t3" class="tabl tfor2" onclick="selectTable(2)"></div>
+ <div id="t4" class="tabl tfor2" onclick="selectTable(3)"></div>
+ <div id="t5" class="tabl tfor4" onclick="selectTable(4)"></div>
+ <div id="t6" class="tabl tfor4" onclick="selectTable(5)"></div>
+ <div id="t7" class="tabl tfor4" onclick="selectTable(6)"></div>
+ <div id="t8" class="tabl tfor4" onclick="selectTable(7)"></div>
+ <div id="t9" class="tabl tfor4" onclick="selectTable(8)"></div>
+ <div id="t10" class="tabl tfor4" onclick="selectTable(9)"></div>
  <input type="hidden" name="tablenum" value="">
 </div>
 
@@ -225,113 +225,7 @@ $(document).ready(function(){
 			"margin":"0 auto"
 		});
 	});
-	
-	$('#guest').children('.slot').each(function(i){
-		$(this).click(function(){
-			$('#guest').children('.slot').css({
-				background : '#d3e0f1',
-				color : '#424a52'
-				});
-			
-			$(this).css({
-				background : '#424a52',
-				color : '#d3e0f1'
-			});	
-				
-			if(i==0)
-				$('input:hidden[name=guest]').val('1');
-			else if(i==1)
-				$('input:hidden[name=guest]').val('2');
-			else if(i==2)
-				$('input:hidden[name=guest]').val('3');
-			else if(i==3)
-				$('input:hidden[name=guest]').val('4');
-		});		
-		
-	});
-	
-	$('#time').children('.slot').each(function(i){
-		$(this).click(function(){
-			$('#time').children('.slot').css({
-				background : '#d3e0f1',
-				color : '#424a52'
-				});
-			
-			$(this).css({
-				background : '#424a52',
-				color : '#d3e0f1'
-			});	
-				
-			if(i==0)
-				$('input:hidden[name=time]').val('11:00');
-			else if(i==1)
-				$('input:hidden[name=time]').val('13:00');
-			else if(i==2)
-				$('input:hidden[name=time]').val('17:00');
-			else if(i==3)
-				$('input:hidden[name=time]').val('19:00');
-		});			
-	});
-	
-	$('#table').children('tabl').each(function(i){
-		$(this).click(function(){
-			
-			if(i<=0 || i<=3){
-				$(this).addClass(" tact2");
-			}else if(i<=4 || i<=9){
-				$(this).addClass(" tact4");
-			}
-			
-			if(i==0)
-				$('input:hidden[name=tablenum]').val('1');
-			else if(i==1)
-				$('input:hidden[name=tablenum]').val('2');
-			else if(i==2)
-				$('input:hidden[name=tablenum]').val('3');
-			else if(i==3)
-				$('input:hidden[name=tablenum]').val('4');
-			else if(i==4)
-				$('input:hidden[name=tablenum]').val('5');
-			else if(i==5)
-				$('input:hidden[name=tablenum]').val('6');
-			else if(i==6)
-				$('input:hidden[name=tablenum]').val('7');
-			else if(i==7)
-				$('input:hidden[name=tablenum]').val('8');
-			else if(i==8)
-				$('input:hidden[name=tablenum]').val('9');
-			else if(i==9)
-				$('input:hidden[name=tablenum]').val('10');
-		});	
-		
-	});
-	
-	 $('#table').children('.tfor4').each(function(i){
-		$(this).click(function(){
-			$('#table').children('.tfor4').css("background-image", "url(../images/book/table4.png)");
-			
-			$(this).css("background-image", "url(../images/book/table4_g.png)");
-				
-			if(i==0)
-				$('input:hidden[name=tablenum]').val('5');
-			else if(i==1)
-				$('input:hidden[name=tablenum]').val('6');
-			else if(i==2)
-				$('input:hidden[name=tablenum]').val('7');
-			else if(i==3)
-				$('input:hidden[name=tablenum]').val('8');
-			else if(i==4)
-				$('input:hidden[name=tablenum]').val('9');
-			else if(i==5)
-				$('input:hidden[name=tablenum]').val('10');
-		});	
-			 
-	}); 
-
 });
-
-
-
 </script>
 
 </body>
