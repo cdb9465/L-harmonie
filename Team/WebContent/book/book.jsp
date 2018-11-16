@@ -1,4 +1,4 @@
-7<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -45,11 +45,10 @@
 <!-- 예약 네비게이션 메뉴바 -->
 
 <!-- 예약 폼 -->
-<form id="book_form" action="../book/bookCheck.jsp" method="post">
+<form id="book_form" name="bf" action="./BookCheck.bk" method="post">
 
 <!-- 1단계(지점, 인원) -->
 <div class="tab">
-<!-- form부분 -->
 <div class="panel">
 
  <div id="location">
@@ -69,21 +68,17 @@
  </div>
 
 </div>
- <!-- form부분 -->
 </div>
 
 <!-- 1단계(지점, 인원) -->
 	
 <!-- 2단계(날짜, 시간) -->
 <div class="tab">
-<!-- form부분 -->
 <div class="panel">
- <!-- <input type="date"><br> -->	<!-- 익스 지원x -->
- 
+
  <div id="date">
- <label class="label">날짜</label>
- <div id="datepicker"><input type="hidden" name="date" id="dateval"></div>
- <!-- <input type="date" id="datepicker" name="date"> -->
+  <label class="label">날짜</label>
+  <div id="datepicker"><input type="hidden" name="date" id="dateval"></div>
  </div>
   
  <div id="time">
@@ -95,15 +90,14 @@
   <input type="hidden" name="time" value="">
  </div>
  
- </div>
-<!-- form부분 -->
+</div>
 </div>
 <!-- 2단계(날짜, 시간) -->
 	
 <!-- 3단계(테이블) -->
 <div class="tab">
-<!-- form부분 -->
 <div class="panel">
+
 <label class="label">테이블선택</label>
 <div id="table">
  <div id="door">입구</div>
@@ -122,69 +116,62 @@
 </div>
 
 </div>
-<!-- form부분 -->
 </div>
 <!-- 3단계(테이블) -->
 	
 <!-- 4단계 (요청사항)-->
 <div class="tab">
-<!-- form부분 -->
 <div class="panel">
-
-<div class="request">
+ <div class="request">
   <label class="label">요청사항</label><br>
   <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label>
   <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br>
-  <input type="radio" value="false" name="alergy" checked>없습니다<br>
-  <input type="radio" value="true" name="alergy">있습니다<br>
-<!--   <input type="text" placeholder="구체적으로" size=30><br> -->
+  <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없습니다<br>
+  <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있습니다<br>
+  <input type="text" id="detail" placeholder="구체적으로" size=30><br>
   <label>특별 요청</label>
   <textarea cols="80" rows="10" name="request"></textarea>
  </div> 
- 
 </div>
-<!-- form부분 -->
 </div>
 <!-- 4단계 (요청사항)-->
 
 <!-- 5단계 (확인 & 완료)-->
 <div class="tab">
-<!-- form부분 -->
 <div class="panel">
  <label class="label">확인</label>
- <table id="confirm">
+ <table id="confirm" border="1">
  <tr>
   <td>지점</td>
-  <td>00점</td>
+  <!-- <td>00점</td> -->
  </tr>
  <tr>
   <td>인원</td>
-  <td>00명</td>
+  <!-- <td>00명</td> -->
   </tr>
   <tr>
    <td>예약날짜</td>
-   <td>2018년 12월 1일</td>
+   <!-- <td>2018년 12월 1일</td> -->
   </tr>
   <tr>
    <td>예약시간</td>
-   <td>13:00시</td>
+   <!-- <td>13:00시</td> -->
   </tr>
   <tr>
    <td>예약테이블</td>
-   <td>t7번</td>
+   <!-- <td>t7번</td> -->
   </tr>
   <tr>
    <td>알러지여부</td>
-   <td>없음</td>
+   <!-- <td>없음</td> -->
   </tr>
   <tr>
    <td>특별요청사항</td>
-   <td>맛있게 만들어 주세요</td>
+   <!-- <td>맛있게 만들어 주세요</td> -->
   </tr>
 
  </table>
 </div>
-<!-- form부분 -->
 </div>
 <!-- 5단계 (확인 & 완료)-->
 	
@@ -257,6 +244,9 @@ function showTab(n) {
 	}
 	
 	fixStepIndicator(n);
+	
+	if(n==4)
+		confirmForm();
 }
 
 function nextPrev(n) {
@@ -300,6 +290,44 @@ function fixStepIndicator(n) {
 		x[i].className = x[i].className.replace(" active", "");
 	}
 	x[n].className += " active";
+}
+
+//show Request Detail input
+function showDetail(chk) {
+	var detail = document.getElementById("detail");
+	if(chk)
+		detail.style.display = "inline";
+	else
+		detail.style.display = "none";
+}
+
+//step5
+function confirmForm() {
+	var table, tr;
+	table = document.getElementById("confirm");
+	tr = table.getElementsByTagName("tr");
+
+	var newtd = new Array(7);
+	var textTd = new Array(7);
+	textTd[0] = document.createTextNode(document.bf.location.value);
+	textTd[1] = document.createTextNode(document.bf.guest.value);
+	textTd[2] = document.createTextNode(document.bf.date.value);
+	textTd[3] = document.createTextNode(document.bf.time.value);
+	textTd[4] = document.createTextNode(document.bf.tablenum.value);
+	if(document.bf.alergy.value == 'true')
+		textTd[5] = document.createTextNode("있음");
+	else
+		textTd[5] = document.createTextNode("없음");
+	//textTd[5] = document.createTextNode(document.bf.alergy.value);
+	textTd[6] = document.createTextNode(document.bf.request.value);
+	
+	for(i = 0; i < 7; i++)
+	{
+		newtd[i] = document.createElement("td"); 
+		tr[i].appendChild(newtd[i]);
+		newtd[i].appendChild(textTd[i]);
+	}
+	
 }
 
 $(document).ready(function(){
@@ -411,12 +439,6 @@ $(document).ready(function(){
 		});	
 			 
 	}); 
-
-	if($(':radio[name="alergy"]:checked').val() == "true")
-		//$(this).append('<input type="text" placeholder="구체적으로" size=30><br>');
-		//$('radio[name=alergy]').append('추가');
-		alert('checked');
-	
 
 });
 

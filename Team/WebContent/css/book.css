@@ -169,10 +169,7 @@ button#prevBtn { float: left; }
 .tfor2:HOVER{ background-image: url("../images/book/table2_g.png"); }
 .tfor4:HOVER { background-image: url("../images/book/table4_g.png"); }
 
-#t1{ left:
-
-
- 100px; bottom: 2px; }
+#t1{ left: 100px; bottom: 2px; }
 #t2{ left: 210px; bottom: 2px; }
 #t3{ left: 320px; bottom: 2px; }
 #t4{ left: 430px; bottom: 2px; }
@@ -182,6 +179,9 @@ button#prevBtn { float: left; }
 #t8{ left: 140px; bottom: 190px; }
 #t9{ left: 260px; bottom: 190px; }
 #t10{ left: 380px; bottom: 190px; }
+
+/* step4 request */
+#detail { display: none; }
 
 #confirm{margin: 20px auto;}
 
