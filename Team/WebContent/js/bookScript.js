@@ -85,9 +85,9 @@ function selectLocation(n){
 	location[n].style.color = "#d3e0f1"
 		
 	if(n == 0)
-		div.getElementsByTagName("input").value = "서울강남점";
+		loc.getElementsByTagName("input").value = "서울강남점";
 	else if(n == 1)
-		div.getElementsByTagName("input").value = "부산서면점"; 
+		loc.getElementsByTagName("input").value = "부산서면점"; 
 }
 
 //show Request Detail input
@@ -105,25 +105,37 @@ function confirmForm() {
 	table = document.getElementById("confirm");
 	tr = table.getElementsByTagName("tr");
 
+	//기존 td삭제
+	for(i = 0; i < 7; i++)
+	{	
+		if(tr[i].cells.length > 1)
+		{
+			var lastcol = tr[i].cells(1);
+			tr[i].removeChild(lastcol);
+		}
+	}
+	
+	//td생성
 	var newtd = new Array(7);
-	var textTd = new Array(7);
-	textTd[0] = document.createTextNode(document.bf.location.value);
-	textTd[1] = document.createTextNode(document.bf.guest.value);
-	textTd[2] = document.createTextNode(document.bf.date.value);
-	textTd[3] = document.createTextNode(document.bf.time.value);
-	textTd[4] = document.createTextNode(document.bf.tablenum.value);
-	if(document.bf.alergy.value == 'true')
-		textTd[5] = document.createTextNode("있음");
-	else
-		textTd[5] = document.createTextNode("없음");
-	//textTd[5] = document.createTextNode(document.bf.alergy.value);
-	textTd[6] = document.createTextNode(document.bf.request.value);
+	var text = new Array(7);
+	text[0] = document.createTextNode(document.bf.location.value);
+	text[1] = document.createTextNode(document.bf.guest.value);
+	text[2] = document.createTextNode(document.bf.date.value);
+	text[3] = document.createTextNode(document.bf.time.value);
+	text[4] = document.createTextNode(document.bf.tablenum.value);
+	
+	if(document.bf.alergy[1].checked)
+		text[5] = document.createTextNode("있음");
+	else if(document.bf.alergy[0].checked)
+		text[5] = document.createTextNode("없음");
+
+	text[6] = document.createTextNode(document.bf.request.value);
 	
 	for(i = 0; i < 7; i++)
 	{
 		newtd[i] = document.createElement("td"); 
 		tr[i].appendChild(newtd[i]);
-		newtd[i].appendChild(textTd[i]);
+		newtd[i].appendChild(text[i]);
 	}
 	
 }

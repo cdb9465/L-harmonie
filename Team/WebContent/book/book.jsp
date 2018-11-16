@@ -195,17 +195,27 @@
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
-
+ 
 <script>
-//datepicker 
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the crurrent tab
+
+$(document).ready(function(){
+	
+	//datepicker 
  	$(function () {
+ 		var minDate = new Date();
+ 		var maxDate = new Date() +14;
+ 		
 		$("#datepicker").datepicker({
 			showMonthAfterYear: true, //연도와 달 위치 변경
 			monthNames:['년 1월','년 2월','년 3월','년 4월','년 5월','년 6월','년 7월','년 8월','년 9월','년 10월','년 11월','년 12월'],
 			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			dayNamesMin:['일','월','화','수','목','금','토'],
 			dateFormat: 'yy-mm-dd',
- 				
+ 			minDate: minDate,
+ 			maxDate: maxDate,
+		
 			onSelect: function (dateText, inst) { //dateText:선택된날짜 inst:인스턴스
 				$('#dateval').val(dateText);				
  			}
@@ -215,13 +225,7 @@
 			"margin":"0 auto"
 		});
 	});
-</script>
- 
-<script>
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the crurrent tab
-
-$(document).ready(function(){
+	
 	$('#guest').children('.slot').each(function(i){
 		$(this).click(function(){
 			$('#guest').children('.slot').css({
