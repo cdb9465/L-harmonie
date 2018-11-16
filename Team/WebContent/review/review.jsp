@@ -25,58 +25,15 @@
 <!-- 메인 들어가는 곳 -->
 <div class="main">
 <!-- 리뷰쓰기 영역 시작 -->
-<div class="review_write">
-<form>
- 
- <div class="write_location">
-  <div class="title">지점선택</div>
-  <select name="sel_location">
-   <option value="gangnam">강남점</option>
-   <option value="seomyeon">서면점</option>
-  </select>
- </div>
- <div class="clear"></div>
 
- <div class="write_rating">
-  <div class="title">별점</div>
-<span class="star-input">
-	<span class="input">
-    	<input type="radio" name="star-input" value="1" id="p1">
-    	<label for="p1">1</label>
-    	<input type="radio" name="star-input" value="2" id="p2">
-    	<label for="p2">2</label>
-    	<input type="radio" name="star-input" value="3" id="p3">
-    	<label for="p3">3</label>
-    	<input type="radio" name="star-input" value="4" id="p4">
-    	<label for="p4">4</label>
-    	<input type="radio" name="star-input" value="5" id="p5">
-    	<label for="p5">5</label>
-    	</span>
-    	<output for="star-input"><b>0</b>점</output>	
-    				
-</span>
-<script src="../js/jquery-1.11.3.min.js"></script>
-<script src="../js/star.js"></script>
- </div> 
- <div class="clear"></div>
- 
- <div class="write_content">
-  <div class="title">리뷰</div>
-  <div class="clear"></div>
-  <textarea placeholder="리뷰를 작성해주세요"></textarea>
-  <button type="submit">리뷰등록</button>
- </div>
-
-</form>
-</div>
 <!-- 리뷰쓰기 영역 끝 -->
 <hr>
  <div class="write_find">
   <div class="title">*간편검색*</div>
   <select name="sel_location">
     <option value="gangnam">전체</option>
-   <option value="gangnam">강남점</option>
-   <option value="seomyeon">서면점</option>
+   <option value="gangnam">서울강남점</option>
+   <option value="seomyeon">부산서면점</option>
   </select>
   
  </div>
@@ -207,10 +164,10 @@
 <!-- 썸네일 이미지 목록 -->
  <div class="row">
   <div class="column">
-   <img class="demo cursor active" src="seafood.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
+   <img class="demo cursor active" src="salmon_salade.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
   </div>
   <div class="column">
-   <img class="demo cursor active" src="salmon_steak.jpg" style= "width:100%" onclick="currentSlide(2)" alt="">
+   <img class="demo cursor active" src="spaghetti.jpg" style= "width:100%" onclick="currentSlide(2)" alt="">
   </div>  
   <div class="column">
    <img class="demo cursor active" src="chicken_steak.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
@@ -223,10 +180,10 @@
   <a class="prev" onclick="plusSlides(-1)">❮</a>
   <a class="next" onclick="plusSlides(1)">❯</a>
   <div class="mySlides">
-   <img alt="첨부사진" src="seafood.jpg"  onclick="currentSlide(1)">
+   <img alt="첨부사진" src="salmon_salade.jpg"  onclick="currentSlide(1)">
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="salmon_steak.jpg" onclick="currentSlide(2)">
+   <img alt="첨부사진" src="spaghetti.jpg" onclick="currentSlide(2)">
   </div>
   <div class="mySlides">
    <img alt="첨부사진" src="chicken_steak.jpg" onclick="currentSlide(3)">
@@ -297,6 +254,126 @@
 </div>
 
 </div>
+
+
+
+
+
+<div class="review_wrap">	
+
+<!-- 사진영역 div-->
+<div class="container">	
+<!-- 썸네일 이미지 목록 -->
+ <div class="row">
+  <div class="column">
+   <img class="demo cursor active" src="salmon_salade.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
+  </div>
+  <div class="column">
+   <img class="demo cursor active" src="spaghetti.jpg" style= "width:100%" onclick="currentSlide(2)" alt="">
+  </div>  
+  <div class="column">
+   <img class="demo cursor active" src="chicken_steak.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
+  </div>
+ </div>
+ <!-- 썸네일 이미지 목록 끝 --> 
+
+ <!-- 사진펼침 시작 -->
+ <div class="review_pic">
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+  <div class="mySlides">
+   <img alt="첨부사진" src="salmon_salade.jpg"  onclick="currentSlide(1)">
+  </div>
+  <div class="mySlides">
+   <img alt="첨부사진" src="spaghetti.jpg" onclick="currentSlide(2)">
+  </div>
+  <div class="mySlides">
+   <img alt="첨부사진" src="chicken_steak.jpg" onclick="currentSlide(3)">
+  </div>
+ </div>
+ <!-- 사진펼침 끝 -->
+</div>
+<!-- 사진영역 div 끝-->
+
+<div class="clear"></div>
+<hr>
+
+<!-- 리뷰내용 영역 -->
+<div class="review_content">
+ 
+ 
+ <div class="clear"></div>
+
+ <div class="name"> <p>홍길동</p> </div>
+ <div class="date"> <p>2018.10.26 14:37:00</p> </div>
+ <div class="rating">
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star-o">4.0</i>
+ 
+ </div>
+ 
+ 
+ <div class="clear"></div>
+
+ <div class="content">
+  <p>내용<br>
+    내용<br>
+    내용<br>
+ <div class="like">
+  <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart-o" id=heart></i> <p>좋아요</p> </button>
+ </div>
+ <input type="button"value="글수정" id="udate" onclick="re_updateForm.jsp">
+  <input type="button"value="글삭제" id="ddate" onclick="delete22()">
+     <script type="text/javascript">
+     function delete22(){
+    	 r=confirm("삭제하시겠습니까?");
+    	 if(r==true){
+    		 alert("삭제 완료되었습니다.")
+    		 location.href="review.jsp";
+    	 }
+    	 else{
+    		 alert("취소되었습니다.")
+    		 location.href="review.jsp";
+    	 }
+     }
+     </script>
+    <br> 
+     <br>
+     </p>
+ </div>
+</div>
+
+
+<!-- 리뷰내용 영역 끝 -->
+
+<hr>
+<div class="comment">
+ <textarea placeholder="댓글"></textarea>
+ <button type="button"><p>댓글등록</p></button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- review_wrap 끝 -->
 <p id="numnum" style=margin-left:250px; style=margin-right:auto; style=margin-top:100px; >
 <a href="#" style=text-decoration:none;>[이전]&nbsp;</a><a href="#" style=text-decoration:none;>1&nbsp;</a>
@@ -305,9 +382,18 @@
  <a href="#"style=text-decoration:none;>6&nbsp;</a><a href="#" style=text-decoration:none;>7&nbsp;</a>
  <a href="#" style=text-decoration:none;>8&nbsp;</a><a href="#" style=text-decoration:none;>9&nbsp;</a>
  <a href="#" style=text-decoration:none;>10&nbsp;</a><a href="#" style=text-decoration:none;>[다음]</a></p>
-</div>
-</article>
+
+
 <!-- 메인 들어가는 곳 -->
+
+
+
+
+
+
+
+
+
 
 
 
@@ -372,6 +458,7 @@ function showSlides(n) {
 	}
 }
 </script>
+</article>
 </div>
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
