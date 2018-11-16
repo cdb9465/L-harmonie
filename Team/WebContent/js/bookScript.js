@@ -143,21 +143,16 @@ function selectTable(n){
 	var table =div.getElementsByClassName("tabl");
 	
 	for(i = 0; i < table.length; i++){
-		if(i<=3){
-			table[i].style.backgroundImage = "url('../images/book/table2.png')";
-		}
+		if(i<=3)
+			table[i].style.backgroundImage = "url('./images/book/table2.png')";
 		else
-			table[i].style.backgroundImage = "url('../images/book/table4.png')";
+			table[i].style.backgroundImage = "url('./images/book/table4.png')";
 	}
 	
-	if(n<=3){
-		table[n].style.backgroundImage = "url('../images/book/table2_g.png')";
-		alert("gg");
-	}
-	else{
-		table[n].style.backgroundImage = "url('../images/book/table4_g.png')";
-		alert("gg");
-	}
+	if(n<=3)
+		table[n].style.backgroundImage = "url('./images/book/table2_g.png')";
+	else
+		table[n].style.backgroundImage = "url('./images/book/table4_g.png')";
 
 }
 
