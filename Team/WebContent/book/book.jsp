@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/jquery-ui.js"></script>
+<script src="./js/bookScript.js"></script>
 <link href="./js/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
@@ -53,8 +54,8 @@
 
  <div id="location">
   <label class="label">지점</label>
-  <div class="slot" >서울강남점</div>
-  <div class="slot" >부산서면점</div>
+  <div class="slot" onclick ="selectLocation(0)">서울강남점</div>
+  <div class="slot" onclick ="selectLocation(1)">부산서면점</div>
   <input type="hidden" name="location" value="">
  </div>
  
@@ -102,16 +103,16 @@
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
- <div id="t1" class="tfor2"></div>
- <div id="t2" class="tfor2"></div>
- <div id="t3" class="tfor2"></div>
- <div id="t4" class="tfor2"></div>
- <div id="t5" class="tfor4"></div>
- <div id="t6" class="tfor4"></div>
- <div id="t7" class="tfor4"></div>
- <div id="t8" class="tfor4"></div>
- <div id="t9" class="tfor4"></div>
- <div id="t10" class="tfor4"></div>
+ <div id="t1" class="tabl tfor2"></div>
+ <div id="t2" class="tabl tfor2"></div>
+ <div id="t3" class="tabl tfor2"></div>
+ <div id="t4" class="tabl tfor2"></div>
+ <div id="t5" class="tabl tfor4"></div>
+ <div id="t6" class="tabl tfor4"></div>
+ <div id="t7" class="tabl tfor4"></div>
+ <div id="t8" class="tabl tfor4"></div>
+ <div id="t9" class="tabl tfor4"></div>
+ <div id="t10" class="tabl tfor4"></div>
  <input type="hidden" name="tablenum" value="">
 </div>
 
@@ -214,145 +215,13 @@
 			"margin":"0 auto"
 		});
 	});
- </script>
+</script>
  
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
-//해당 페이지로 이동
-function moveTab(n)
-{
-	nextPrev(n-currentTab);
-}
-
-function showTab(n) {
-	var x = document.getElementsByClassName("tab");
-	
-	x[n].style.display = "block";
-
-	//fix the Previous/Next buttons:
-	if (n == 0) {
-	  document.getElementById("prevBtn").style.display = "none";
-	} else {
-	  document.getElementById("prevBtn").style.display = "inline";
-	}
-	if (n == (x.length - 1)) {
-	  document.getElementById("nextBtn").innerHTML = "Submit";
-	} else {
-	  document.getElementById("nextBtn").innerHTML = "Next";
-	}
-	
-	fixStepIndicator(n);
-	
-	if(n==4)
-		confirmForm();
-}
-
-function nextPrev(n) {
-	var x = document.getElementsByClassName("tab");
-	
-	//if (n == 1 && !validateForm()) return false;
-
-	// Hide the current tab:
-	x[currentTab].style.display = "none";
-	 
-	currentTab = currentTab + n;
-	 
-	if (currentTab >= x.length) {
-		document.getElementById("book_form").submit();
-		return false;
-	 }
-	 
-	 //display the correct tab:
-	 showTab(currentTab);
-}
-
-function validateForm() {
-	var x, y, i, valid = true;
-	x = document.getElementsByClassName("tab");
-	y = x[currentTab].getElementsByTagName("input");
-
-	for (i = 0; i < y.length; i++) {
-		if (y[i].value == "") {
-	    	// add an "invalid" class to the field:
-	    	y[i].className += " invalid";
-	    	valid = false;
-	  	}
-	}
-	return valid;
-}
-
-function fixStepIndicator(n) {
-	var i, x = document.getElementsByClassName("step2");
-
-	for (i = 0; i < x.length; i++) {
-		x[i].className = x[i].className.replace(" active", "");
-	}
-	x[n].className += " active";
-}
-
-//show Request Detail input
-function showDetail(chk) {
-	var detail = document.getElementById("detail");
-	if(chk)
-		detail.style.display = "inline";
-	else
-		detail.style.display = "none";
-}
-
-//step5
-function confirmForm() {
-	var table, tr;
-	table = document.getElementById("confirm");
-	tr = table.getElementsByTagName("tr");
-
-	var newtd = new Array(7);
-	var textTd = new Array(7);
-	textTd[0] = document.createTextNode(document.bf.location.value);
-	textTd[1] = document.createTextNode(document.bf.guest.value);
-	textTd[2] = document.createTextNode(document.bf.date.value);
-	textTd[3] = document.createTextNode(document.bf.time.value);
-	textTd[4] = document.createTextNode(document.bf.tablenum.value);
-	if(document.bf.alergy.value == 'true')
-		textTd[5] = document.createTextNode("있음");
-	else
-		textTd[5] = document.createTextNode("없음");
-	//textTd[5] = document.createTextNode(document.bf.alergy.value);
-	textTd[6] = document.createTextNode(document.bf.request.value);
-	
-	for(i = 0; i < 7; i++)
-	{
-		newtd[i] = document.createElement("td"); 
-		tr[i].appendChild(newtd[i]);
-		newtd[i].appendChild(textTd[i]);
-	}
-	
-}
-
 $(document).ready(function(){
-	
-	$('#location').children('.slot').each(function(i){
-		$(this).click(function(){
-			$('#location').children('.slot').css({
-				background : '#d3e0f1',
-				color : '#424a52'
-				});
-			$(this).css({
-				background : '#424a52',
-				color : '#d3e0f1'
-			});	
-				
-			if(i==0)
-				$('input:hidden[name=location]').val('서울강남점');
-			else if(i==1)
-				$('input:hidden[name=location]').val('부산서면점');
-		});
-		
-		
-		
-	});
-	
 	$('#guest').children('.slot').each(function(i){
 		$(this).click(function(){
 			$('#guest').children('.slot').css({
@@ -400,12 +269,15 @@ $(document).ready(function(){
 		});			
 	});
 	
-	$('#table').children('.tfor2').each(function(i){
+	$('#table').children('tabl').each(function(i){
 		$(this).click(function(){
-			$('#table').children('.tfor2').css("background-image", "url(../images/book/table2.png)");
 			
-			$(this).css("background-image", "url(../images/book/table2_g.png)");
-				
+			if(i<=0 || i<=3){
+				$(this).addClass(" tact2");
+			}else if(i<=4 || i<=9){
+				$(this).addClass(" tact4");
+			}
+			
 			if(i==0)
 				$('input:hidden[name=tablenum]').val('1');
 			else if(i==1)
@@ -414,6 +286,18 @@ $(document).ready(function(){
 				$('input:hidden[name=tablenum]').val('3');
 			else if(i==3)
 				$('input:hidden[name=tablenum]').val('4');
+			else if(i==4)
+				$('input:hidden[name=tablenum]').val('5');
+			else if(i==5)
+				$('input:hidden[name=tablenum]').val('6');
+			else if(i==6)
+				$('input:hidden[name=tablenum]').val('7');
+			else if(i==7)
+				$('input:hidden[name=tablenum]').val('8');
+			else if(i==8)
+				$('input:hidden[name=tablenum]').val('9');
+			else if(i==9)
+				$('input:hidden[name=tablenum]').val('10');
 		});	
 		
 	});

@@ -166,8 +166,11 @@ button#prevBtn { float: left; }
 .tfor2 { background-image: url("../images/book/table2.png"); }
 .tfor4 { background-image: url("../images/book/table4.png"); }
 
-.tfor2:HOVER{ background-image: url("../images/book/table2_g.png"); }
+.tfor2:HOVER { background-image: url("../images/book/table2_g.png"); }
 .tfor4:HOVER { background-image: url("../images/book/table4_g.png"); }
+
+.tact2 { background-image: url("../images/book/table2_g.png"); }
+.tact4 { background-image: url("../images/book/table4_g.png"); }
 
 #t1{ left: 100px; bottom: 2px; }
 #t2{ left: 210px; bottom: 2px; }
