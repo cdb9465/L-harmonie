@@ -25,4 +25,22 @@
 	<servlet-name>BookFrontController</servlet-name>
 	<url-pattern>*.bk</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>NewsFrontController</servlet-name>
+	<servlet-class>net.news.action.NewsFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>NewsFrontController</servlet-name>
+	<url-pattern>*.nw</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+	<servlet-name>MenuFrontController</servlet-name>
+	<servlet-class>net.menu.action.MenuFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>MenuFrontController</servlet-name>
+	<url-pattern>*.nu</url-pattern>
+  </servlet-mapping>
 </web-app>
