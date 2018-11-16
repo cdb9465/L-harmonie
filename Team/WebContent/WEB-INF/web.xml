@@ -17,9 +17,18 @@
    <res-auth>Container</res-auth>
   </resource-ref>
   
+  <servlet>
+	<servlet-name>MainFrontController</servlet-name>
+	<servlet-class>net.main.action.MainFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>MainFrontController</servlet-name>
+	<url-pattern>*.ma</url-pattern>
+  </servlet-mapping>
+  
    <servlet>
 	<servlet-name>BookFrontController</servlet-name>
-	<servlet-class>net.book.action.OrderFrontController</servlet-class>
+	<servlet-class>net.book.action.BookFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
 	<servlet-name>BookFrontController</servlet-name>

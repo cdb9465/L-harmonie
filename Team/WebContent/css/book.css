@@ -151,14 +151,23 @@ button#prevBtn { float: left; }
  	box-sizing: border-box;
 	width: 70px; height: 50px;
 	border-radius: 0 100% 0 0;
-	padding: 12px 10px;
+	padding: 14px 8px;
 	font-weight: bold;
 	font-size: 18px;
 	left: 2px; bottom: 2px; }
 	  
-#table img{width: 60px; height: 60px; }
- 
-#table img:HOVER{cursor: pointer; }
+.tfor2, .tfor4 {
+	width: 60px; height: 60px;
+	background-repeat: no-repeat;
+	background-size: cover; }
+
+/* .tfor2, .tfor4:HOVER {cursor: pointer; } */
+	
+.tfor2 { background-image: url("../images/book/table2.png"); }
+.tfor4 { background-image: url("../images/book/table4.png"); }
+
+/* .tfor2:HOVER { background-image: url("../images/book/table2_g.png"); }
+.tfor4:HOVER { background-image: url("../images/book/table4_g.png"); } */
 
 #t1{ left: 100px; bottom: 2px; }
 #t2{ left: 210px; bottom: 2px; }
@@ -170,6 +179,9 @@ button#prevBtn { float: left; }
 #t8{ left: 140px; bottom: 190px; }
 #t9{ left: 260px; bottom: 190px; }
 #t10{ left: 380px; bottom: 190px; }
+
+/* step4 request */
+#detail { display: none; }
 
 #confirm{margin: 20px auto;}
 

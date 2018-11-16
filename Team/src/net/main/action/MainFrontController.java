@@ -1,4 +1,4 @@
-package net.book.action;
+package net.main.action;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class BookFrontController extends HttpServlet{
+public class MainFrontController extends HttpServlet{
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
 		//System.out.println("BookFrontController doProcess() method");
@@ -31,19 +31,14 @@ public class BookFrontController extends HttpServlet{
 		ActionForward forward = null;
 		Action action =  null;
 
-		//http://localhost:8080/Team/Book.bk
-		if(command.equals("/Book.bk"))
+		//http://localhost:8080/Team
+		if(command.equals("/Main.ma"))
 		{
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./book/book.jsp");			
+			forward.setPath("./main/main.jsp");
 		}
-		else if(command.equals("/BookCheck.bk"))
-		{
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./book/bookCheck.jsp");			
-		}
+
 		
 		//이동
 		if(forward!=null){
