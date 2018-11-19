@@ -103,15 +103,13 @@ function selectGuest(n){
 	
 	guest[n].style.background = "#424a52";
 	guest[n].style.color = "#d3e0f1"
+	
 		
-	if(n == 0)
-		document.bf.guest.value = "1";
-	else if(n == 1)
-		document.bf.guest.value = "2";
-	else if(n == 2)
-		document.bf.guest.value = "3";
-	else if(n == 3)
-		document.bf.guest.value = "4";	
+	for(i = 0; i < guest.length; i++){
+		if(n == i)
+			document.bf.guest.value= i+1;
+	}
+	
 }
 
 //시간선택
@@ -126,15 +124,13 @@ function selectTime(n){
 	
 	time[n].style.background = "#424a52";
 	time[n].style.color = "#d3e0f1"
+	
+	var timeArr = ["11:00","13:00","17:00","19:00"];
+	for(i=0; i<time.length; i++){
+		if(n == i)
+			document.bf.time.value = timeArr[i];
+	}
 		
-	if(n == 0)
-		document.bf.time.value = "11:00";
-	else if(n == 1)
-		document.bf.time.value = "13:00";
-	else if(n == 2)
-		document.bf.time.value = "17:00";
-	else if(n == 3)
-		document.bf.time.value = "19:00";	
 }
 
 //테이블선택
@@ -144,19 +140,24 @@ function selectTable(n){
 	
 	for(i = 0; i < table.length; i++){
 		if(i<=3){
-			table[i].style.backgroundImage = "url('../images/book/table2.png')";
+			table[i].style.backgroundImage = "url('./images/book/table2.png')";
 		}
 		else
-			table[i].style.backgroundImage = "url('../images/book/table4.png')";
+			table[i].style.backgroundImage = "url('./images/book/table4.png')";
 	}
 	
 	if(n<=3){
-		table[n].style.backgroundImage = "url('../images/book/table2_g.png')";
-		alert("gg");
+		table[n].style.backgroundImage = "url('./images/book/table2_g.png')";
+		
 	}
 	else{
-		table[n].style.backgroundImage = "url('../images/book/table4_g.png')";
-		alert("gg");
+		table[n].style.backgroundImage = "url('./images/book/table4_g.png')";
+		
+	}
+	
+	for(i = 0; i < table.length; i++){
+		if(n == i)
+			document.bf.tablenum.value= i+1;
 	}
 
 }

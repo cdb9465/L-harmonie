@@ -44,15 +44,51 @@ String req = request.getParameter("request");
 
 //날짜파싱
 DateFormat df = new SimpleDateFormat("yyyyMMdd");
-String sDate = df.format(date);
+//String sDate = df.format(date);
 %>
-지점 <%=location %><br>
-날짜 <%=date %><br>
+<div class="bookCk">
+<img src="../images/logo.png"><br>
+<h1>예약이 완료되었습니다.</h1><br>
+<h2>예약정보 </h2><br>
+<hr>
+
+<table border="1">
+ <tr>
+  <td>예약 지점</td>
+  <td><%=location %></td>
+ </tr>
+ <tr>
+  <td>예약 인원</td>
+  <td><%=guest %></td>
+ </tr>
+ <tr>
+  <td>예약 날짜</td>
+  <td><%=date %></td>
+ </tr>
+ <tr>
+  <td>예약 시간</td>
+  <td><%=time %></td>
+ </tr>
+ <tr>
+  <td>예약 테이블</td>
+  <td><%=tablenum %></td>
+  </tr>
+ <tr>
+  <td>그 외 요청사항</td>
+  <td><%=req %></td>
+ </tr>
+
+</table>
+
+</div>
+<%-- 예약 지점 :<%=location %><br>
+예약 날짜 :<%=date %><br>
 날짜2 <%=sDate %><br>
-시간 <%=time %><br>
-인원 <%=guest %><br>
-테이블 <%=tablenum %><br>
-요청 <%=req %>
+예약 시간 : <%=time %><br>
+예약 인원 : <%=guest %><br>
+예약 테이블 : <%=tablenum %><br>
+예약 요청 : <%=req %> --%> 
+
 
 
 </div>
