@@ -53,10 +53,10 @@ DateFormat df = new SimpleDateFormat("yyyyMMdd");
 <h1>예약이 완료되었습니다.</h1>
 </div>
 
-<p>예약정보> </p><br>
+<p>예약정보> </p>
 <hr>
 
-<table border="1">
+<table>
  <tr>
   <td>예약 지점</td>
   <td><%=location %></td>

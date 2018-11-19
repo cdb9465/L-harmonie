@@ -104,11 +104,7 @@ function selectGuest(n){
 	guest[n].style.background = "#424a52";
 	guest[n].style.color = "#d3e0f1"
 	
-		
-	for(i = 0; i < guest.length; i++){
-		if(n == i)
-			document.bf.guest.value= i+1;
-	}
+	document.bf.guest.value= n+1;
 	
 }
 
@@ -156,10 +152,8 @@ function selectTable(n){
 		
 	}
 	
-	for(i = 0; i < table.length; i++){
-		if(n == i)
-			document.bf.tablenum.value= i+1;
-	}
+	document.bf.tablenum.value= i+1;
+	
 
 }
 
