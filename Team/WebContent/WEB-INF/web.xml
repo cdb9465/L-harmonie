@@ -52,4 +52,13 @@
 	<servlet-name>MenuFrontController</servlet-name>
 	<url-pattern>*.nu</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+	<servlet-name>ReviewFrontController</servlet-name>
+	<servlet-class>net.review.action.ReviewFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>ReviewFrontController</servlet-name>
+	<url-pattern>*.re</url-pattern>
+  </servlet-mapping>
 </web-app>
