@@ -36,6 +36,8 @@ public class BookAction implements Action
 		BookDAO bdao = new BookDAO();
 		bdao.insertBook(bb);
 		
+		request.setAttribute("bb", "bb");
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("./BookCheck.bk");

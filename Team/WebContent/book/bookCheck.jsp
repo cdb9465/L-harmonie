@@ -1,3 +1,4 @@
+<%@page import="net.book.db.BookBean"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
@@ -34,6 +35,9 @@
 <div id="book_form">
 <%
 request.setCharacterEncoding("utf-8");
+BookBean bb = (BookBean)request.getAttribute("bb");
+
+/*
 String location = request.getParameter("location");
 //String date = request.getParameter("date");
 Date date = Date.valueOf(request.getParameter("date"));
@@ -45,6 +49,8 @@ String req = request.getParameter("request");
 //날짜파싱
 DateFormat df = new SimpleDateFormat("yyyyMMdd");
 //String sDate = df.format(date);
+*/
+
 %>
 <div class="bookCk">
 
@@ -58,28 +64,32 @@ DateFormat df = new SimpleDateFormat("yyyyMMdd");
 
 <table border="1">
  <tr>
+  <td>예약 번호</td>
+  <td><%=bb.getBook_num() %></td>
+ </tr>
+ <tr>
   <td>예약 지점</td>
-  <td><%=location %></td>
+  <td><%=bb.getLocation() %></td>
  </tr>
  <tr>
   <td>예약 인원</td>
-  <td><%=guest %></td>
+  <td><%=bb.getGuest() %></td>
  </tr>
  <tr>
   <td>예약 날짜</td>
-  <td><%=date %></td>
+  <td><%=bb.getDate() %></td>
  </tr>
  <tr>
   <td>예약 시간</td>
-  <td><%=time %></td>
+  <td><%=bb.getTime() %></td>
  </tr>
  <tr>
   <td>예약 테이블</td>
-  <td><%=tablenum %></td>
+  <td><%=bb.getTablenum() %></td>
   </tr>
  <tr>
   <td>그 외 요청사항</td>
-  <td><%=req %></td>
+  <td><%=bb.getRequest() %></td>
  </tr>
 
 </table>
