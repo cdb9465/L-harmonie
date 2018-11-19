@@ -47,9 +47,13 @@ DateFormat df = new SimpleDateFormat("yyyyMMdd");
 //String sDate = df.format(date);
 %>
 <div class="bookCk">
-<img src="../images/logo.png"><br>
-<h1>예약이 완료되었습니다.</h1><br>
-<h2>예약정보 </h2><br>
+
+<div class="chTitle">
+<img src="./images/logo.png"><br>
+<h1>예약이 완료되었습니다.</h1>
+</div>
+
+<p>예약정보> </p><br>
 <hr>
 
 <table border="1">

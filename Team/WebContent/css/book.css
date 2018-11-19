@@ -200,11 +200,15 @@ button#prevBtn { float: left; }
 	
 /* BookCheck */
 
-.bookCk{
-	border: 1px solid red;
-}
+.bookCk{border: 1px solid red;
+	padding-top: 50px;}
 
-.bookCk h1{
-	text-align: center;
-}
+.bookCk .chTitle{text-align: center;}
+
+.bookCk table{margin: 20px auto 0 auto ;}
+.bookCk td{padding: 15px 20px;}
+.bookCk th{padding: 0;}
+
+
+
 

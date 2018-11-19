@@ -205,7 +205,6 @@ $(document).ready(function(){
 	//datepicker 
  	$(function () {
  		var minDate = new Date();
- 		var maxDate = new Date() +14;
  		
 		$("#datepicker").datepicker({
 			showMonthAfterYear: true, //연도와 달 위치 변경
@@ -214,12 +213,15 @@ $(document).ready(function(){
 			dayNamesMin:['일','월','화','수','목','금','토'],
 			dateFormat: 'yy-mm-dd',
  			minDate: minDate,
- 			maxDate: maxDate,
-		
-			onSelect: function (dateText, inst) { //dateText:선택된날짜 inst:인스턴스
-				$('#dateval').val(dateText);				
+ 			maxDate: '+14d',
+ 			defaultDate: '+1d',	//초기값
+			onSelect: function (date) { //date:선택된날짜 inst:인스턴스
+				$('#dateval').val(date);				
  			}
 		});
+
+		//초기값 받아오기
+		$("#dateval").val($("#datepicker").datepicker().val());
 		
 		$('.ui-datepicker').css({
 			"margin":"0 auto"
