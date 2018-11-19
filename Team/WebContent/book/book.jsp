@@ -107,16 +107,16 @@
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
- <div id="t1" class="tabl tfor2" onclick="selectTable(0)"></div>
- <div id="t2" class="tabl tfor2" onclick="selectTable(1)"></div>
- <div id="t3" class="tabl tfor2" onclick="selectTable(2)"></div>
- <div id="t4" class="tabl tfor2" onclick="selectTable(3)"></div>
- <div id="t5" class="tabl tfor4" onclick="selectTable(4)"></div>
- <div id="t6" class="tabl tfor4" onclick="selectTable(5)"></div>
- <div id="t7" class="tabl tfor4" onclick="selectTable(6)"></div>
- <div id="t8" class="tabl tfor4" onclick="selectTable(7)"></div>
- <div id="t9" class="tabl tfor4" onclick="selectTable(8)"></div>
- <div id="t10" class="tabl tfor4" onclick="selectTable(9)"></div>
+ <div id="t1" class="tabl tfor2" onclick="selectTable(0)">1</div>
+ <div id="t2" class="tabl tfor2" onclick="selectTable(1)">2</div>
+ <div id="t3" class="tabl tfor2" onclick="selectTable(2)">3</div>
+ <div id="t4" class="tabl tfor2" onclick="selectTable(3)">4</div>
+ <div id="t5" class="tabl tfor4" onclick="selectTable(4)">5</div>
+ <div id="t6" class="tabl tfor4" onclick="selectTable(5)">6</div>
+ <div id="t7" class="tabl tfor4" onclick="selectTable(6)">7</div>
+ <div id="t8" class="tabl tfor4" onclick="selectTable(7)">8</div>
+ <div id="t9" class="tabl tfor4" onclick="selectTable(8)">9</div>
+ <div id="t10" class="tabl tfor4" onclick="selectTable(9)">10</div>
  <input type="hidden" name="tablenum" value="">
 </div>
 
