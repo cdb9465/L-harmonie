@@ -32,14 +32,16 @@ public class BookDAO {
 			String sql = "insert into book values(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1,bb.getMem_num());
-			pstmt.setInt(2,bb.getBook_num());
+			//pstmt.setInt(1,bb.getMem_num());
+			pstmt.setInt(1, 1);
+			//pstmt.setInt(1,bb.getBook_num());
+			pstmt.setInt(2, 1);
 			pstmt.setString(3, bb.getLocation());
-			pstmt.setDate(3, bb.getDate());
-			pstmt.setString(4, bb.getTime());
-			pstmt.setInt(5,bb.getGuest());
-			pstmt.setInt(5, bb.getTablenum());
-			pstmt.setString(6,bb.getRequest());
+			pstmt.setDate(4, bb.getDate());
+			pstmt.setString(5, bb.getTime());
+			pstmt.setInt(6,bb.getGuest());
+			pstmt.setInt(7, bb.getTablenum());
+			pstmt.setString(8,bb.getRequest());
 			
 			pstmt.executeUpdate();
 			

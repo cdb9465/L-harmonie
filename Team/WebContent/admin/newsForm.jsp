@@ -18,8 +18,8 @@
 <div id="wrap">
 <div class="mpbox" id="sec1_mypage"><!-- 배경들어가는 영역 -->
 <h1>뉴스 등록</h1>
-<div id="write">
-<form id="writeForm" action="./" method="post" enctype="multipart/form-data">
+<div class="write">
+<form id="newsForm" action="./" method="post" enctype="multipart/form-data">
  <table border="1">
   <tr>
    <th>제목</th>
@@ -35,7 +35,7 @@
   </tr>
   <tr>
    <td colspan="2">
-    <input type="submit" id="btnSubmit" value="글쓰기">
+    <input type="submit" id="btnSubmit" value="뉴스등록">
     <input type="reset" id="btnReset" value="다시작성">
    </td>
   </tr>

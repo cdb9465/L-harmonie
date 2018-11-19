@@ -1,4 +1,4 @@
-package net.book.action;
+package net.admin.action;
 
 import java.io.IOException;
 
@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class BookFrontController extends HttpServlet{
-	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
-		//System.out.println("BookFrontController doProcess() method");
+import net.book.action.ActionForward;
 
+public class AdminFrontController extends HttpServlet{
+
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
 		//가상주소 뽑아오기
-		//URI 주소 뽑아오기  /Team/*.bk
+		//URI 주소 뽑아오기  /Team/*.ad
 		String requestURI=request.getRequestURI();
 		//System.out.println(requestURI);
 		
@@ -27,37 +27,10 @@ public class BookFrontController extends HttpServlet{
 		String command=requestURI.substring(contextPath.length());
 		System.out.println(command);
 		
-		//가상주소 비교하기
+		//가상주소 비교하기		
 		ActionForward forward = null;
-		Action action =  null;
-
-		//http://localhost:8080/Team/Book.bk
-		if(command.equals("/Book.bk"))
-		{
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./book/book.jsp");			
-		}
-		else if(command.equals("/BookAction.bk"))
-		{
-			action = new BookAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) { e.printStackTrace(); }
-		}
-		else if(command.equals("/BookCheckAction.bk"))
-		{
-			//action = new BookCheckAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) { e.printStackTrace(); }			
-		}
-		else if(command.equals("/BookCheck.bk"))
-		{
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./book/bookCheck.jsp");
-		}
+		Action action = null;
+		
 		
 		//이동
 		if(forward!=null){
@@ -71,17 +44,18 @@ public class BookFrontController extends HttpServlet{
 			}
 		}
 	}
-
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//System.out.println("MemberFrontController doGet()메서드");
-		doProcess(request, response);
+		// TODO Auto-generated method stub
+		super.doGet(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//System.out.println("MemberFrontController doPost()메서드");
-		doProcess(request, response);
+		// TODO Auto-generated method stub
+		super.doPost(request, response);
 	}
 
+	
 }
