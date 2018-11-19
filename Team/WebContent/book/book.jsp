@@ -21,6 +21,10 @@
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
 
+<%
+//id session 없으면 -> 로그인
+%>
+
 <!-- 본문 -->
 <div id="wrap">
 <article>
@@ -46,7 +50,7 @@
 <!-- 예약 네비게이션 메뉴바 -->
 
 <!-- 예약 폼 -->
-<form id="book_form" name="bf" action="./BookCheck.bk" method="post">
+<form id="book_form" name="bf" action="./BookAction.bk" method="post">
 
 <!-- 1단계(지점, 인원) -->
 <div class="tab">

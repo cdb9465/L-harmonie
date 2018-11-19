@@ -33,7 +33,7 @@ public class BookDAO {
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1,bb.getMem_num());
-			pstmt.setInt(2,bb.getBook_num() );
+			pstmt.setInt(2,bb.getBook_num());
 			pstmt.setString(3, bb.getLocation());
 			pstmt.setDate(3, bb.getDate());
 			pstmt.setString(4, bb.getTime());
