@@ -38,6 +38,13 @@ public class BookFrontController extends HttpServlet{
 			forward.setRedirect(false);
 			forward.setPath("./book/book.jsp");			
 		}
+		else if(command.equals("/BookAction.bk"))
+		{
+			action = new BookAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) { e.printStackTrace(); }
+		}
 		else if(command.equals("/BookCheck.bk"))
 		{
 			forward = new ActionForward();
@@ -57,9 +64,6 @@ public class BookFrontController extends HttpServlet{
 			}
 		}
 	}
-
-	
-
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

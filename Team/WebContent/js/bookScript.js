@@ -151,9 +151,8 @@ function selectTable(n){
 		table[n].style.backgroundImage = "url('./images/book/table4_g.png')";
 		
 	}
-	
-	document.bf.tablenum.value= i+1;
-	
+
+	document.bf.tablenum.value= n+1;
 
 }
 

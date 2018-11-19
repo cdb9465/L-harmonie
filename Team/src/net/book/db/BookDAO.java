@@ -3,6 +3,7 @@ package net.book.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -23,23 +24,38 @@ public class BookDAO {
 	public void insertBook(BookBean bb){
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
+		ResultSet rs = null;
+		int bookNum = 0;
 		try {
 			//1,2단계 메서드 호출
 			con = getConnection();
 			
+			//예약번호 구하기
+			String sql = "select max(book_num) from book ";
+			pstmt = con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				bookNum = rs.getInt("max(book_num)")+1;//rs.getInt(1)
+			}
+			
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			
+			
+			
 			//sql만들고 실행 프로그램 생성
-			String sql = "insert into book values(?,?,?,?,?,?,?,?)";
+			sql = "insert into book values(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			
+			
 			pstmt.setInt(1,bb.getMem_num());
-			pstmt.setInt(2,bb.getBook_num() );
+			pstmt.setInt(2,bb.getBook_num());
 			pstmt.setString(3, bb.getLocation());
-			pstmt.setDate(3, bb.getDate());
-			pstmt.setString(4, bb.getTime());
-			pstmt.setInt(5,bb.getGuest());
-			pstmt.setInt(5, bb.getTablenum());
-			pstmt.setString(6,bb.getRequest());
+			pstmt.setDate(4, bb.getDate());
+			pstmt.setString(5, bb.getTime());
+			pstmt.setInt(6,bb.getGuest());
+			pstmt.setInt(7, bb.getTablenum());
+			pstmt.setString(8,bb.getRequest());
 			
 			pstmt.executeUpdate();
 			
