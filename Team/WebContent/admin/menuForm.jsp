@@ -18,8 +18,8 @@
 <div id="wrap">
 <div class="mpbox" id="sec1_mypage"><!-- 배경들어가는 영역 -->
 <h1>메뉴 등록</h1>
-<div id="write">
-<form id="writeForm" action="./" method="post" enctype="multipart/form-data">
+<div class="write">
+<form id="menuForm" action="./" method="post" enctype="multipart/form-data">
  <table border="1">
   <tr>
    <th>카테고리</th>
@@ -28,7 +28,7 @@
    	 <option value="appetizer">appetizer</option>
    	 <option value="salad">salad</option>
    	 <option value="steak">steak</option>
-   	 <option value="salad">salad</option>
+   	 <option value="pasta">pasta</option>
    	 <option value="dessert">dessert</option>
    	 <option value="beverage">beverage</option>
    	</select>   
@@ -48,7 +48,7 @@
   </tr>
   <tr>
    <td colspan="2">
-    <input type="submit" id="btnSubmit" value="글쓰기">
+    <input type="submit" id="btnSubmit" value="메뉴등록">
     <input type="reset" id="btnReset" value="다시작성">
    </td>
   </tr>

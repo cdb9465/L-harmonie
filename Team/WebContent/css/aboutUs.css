@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+/* 3구역 배경이미지 지정 */
+.main_box{
+	height:100%;
+	width:100%;
+	position:relative; 
+	color:#ffffff; 
+	font-size:24pt;}
+	
+#main0{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;}
+#main1{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback2.jpg");
+}
+#main2{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback3.jpg");}
+
+
+
+

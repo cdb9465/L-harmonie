@@ -64,8 +64,8 @@
   </div>
 
 <a href="#main1" class="arrow">
-   <img src="../images/arrow.png">
-   <img src="../images/dot.png" class="dot">
+   <img src="./images/arrow.png">
+   <img src="./images/dot.png" class="dot">
 </a>
 </div>
 <!-- 첫번째 메인 끝 -->

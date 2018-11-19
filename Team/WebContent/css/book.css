@@ -204,8 +204,12 @@ button#prevBtn { float: left; }
 	padding-top: 50px;}
 
 .bookCk .chTitle{text-align: center;}
+.bookCk p{
+	font-size: 20px;
+	display: inline-block;
+	margin-left: 50px; }
 
-.bookCk table{margin: 20px auto 0 auto ;}
+.bookCk table{margin: 20px 0 0 50px; }
 .bookCk td{padding: 15px 20px;}
 .bookCk th{padding: 0;}
 
