@@ -90,14 +90,26 @@ body{margin: 0px; padding: 0px;
 	display:inline-block;
 	position: absolute;
 }    */
-
-#login a{
+/* 로그인버튼 */
+#login input[type=button]{
 	/* border: 1px solid red; */
+	font-size: 25px;
+	font-weight: 400;
+	border:none;
+	background:rgba(0,0,0,0);
+	color: #fff;
+	
+	}
+	
+/* 원래있던 로그인 속성이 a href=""였는데 버튼으로 바꿔서 ↑걸로 --임시-- 수정해둠 -박소정
+
+ #login a{
+	border: 1px solid red;
 	font-size: 20px;
 	font-weight: 400;
 	text-decoration: none;
 	color: #fff;}
-
+ */
  /* 스크롤 아이콘 */   
 .arrow{
 	position: absolute;

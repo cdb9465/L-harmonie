@@ -52,4 +52,13 @@
 	<servlet-name>MenuFrontController</servlet-name>
 	<url-pattern>*.nu</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<servlet-class>net.member.action.MemberFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<url-pattern>*.me</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -4,8 +4,9 @@
 height: 100%;
 width: 100%;
 background-image:  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/backg1.jpg");
-background-repeat: repeat;
-background-size: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
 
 }
 
@@ -24,7 +25,8 @@ background-size: 100%;
 		min-height:700px;
 		padding:10px;
 		background-color:rgba(255, 255, 255, 0.4);
-		
+		margin-top: 80px;
+
 		 }	
 
 /* SIGN UP 표시영역 */
@@ -36,37 +38,35 @@ h1{font-size: 3em;
 	 }
 
 /* 아이콘 영역 */
-.info_join {color: #1c1c1c; 
-			width:700px; 
-			margin-left:50px;
+th {color: #1c1c1c; 
+			width:100px; 
+			padding-left: 110px;padding-right: 10px;
  			/* border: 1px solid #fff; */}
-.info_join i {padding: 20px; }
-#name_icon{padding: 20px 5px 20px 10px;margin-left: 15px;}
-#phone_icon{padding: 20px 10px 20px 20px; }
+th p{border:1px solid red;}
+td {padding: 15px 0px;}
+/* #name_icon{padding: 20px 5px 20px 10px;margin-left: 15px;}
+#phone_icon{padding: 20px 10px 20px 20px; } */
 
 /* 오류메세지영역 */
 #sec2_join p{padding: 0; margin: 0;
 			font-size: 13px;
-			margin-left: 100px;}
+			margin-left: 40px;
+			font-weight: bold;}
 
 /* 입력폼영역 */
 
-#sec2_join input[type=text], input[type=password]{
+#sec2_join input[type=text],#sec2_join input[type=password] {
 	border:none;
-	 border-bottom:1px solid #999999;
-	font-family: "나눔스퀘어OTF";
-	width:550px;	height: 20px;
+	width:550px;	height: 35px;
 	background-color: #eee;
-	padding: 12px 0 3px 0px; 
-	margin-left: 15px;
-	padding-left: 20px;
+	padding: 12px 0 3px 20px;
+	margin: 0 15px;
 	font-size:15px;
 	}
 
-#sec2_join input[type=button]:HOVER{background-color:#ed1f1f;
-									color: #242424;}
+
 /* 이용약관 체크 */
-input[type=checkbox]{
+#sec2_join input[type=checkbox]{
 	margin: 0 10px;
 }
 #access{margin:10px 55px 30px 100px ;
@@ -81,16 +81,17 @@ input[type=checkbox]{
 .red_b{color: red;}	
 	
 /* 회원가입 버튼 */
-#sec2_join input[type=button]{
+#sec2_join input[type=submit]{
 	border:none;
-	background-color:#000;
-	color: #eee;
+/* 	background-color:#000; */
+	color: #bcbcbc;
 	font-weight:bold;
 	padding: 15px;
 	margin-right:150px;
 	margin-top:110px;
 	float: right; }
-
+	
+/* #sec2_join input[type=submit]:HOVER{color: #ed1f1f;} */
 
 
 

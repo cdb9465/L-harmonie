@@ -1,30 +1,44 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
-#login_logo{height: 80px;
-			border: 1px solid; }
-			
-table{margin: 5px;}
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+
+#login_top{height: 50px;
+/* 			border: 1px solid;  */
+			font-size: 2.2em;
+			font-weight: bold;
+			padding-top: 20px;
+			text-align: center;
+			color: #231f20;
+			}
+
 /* Full-width input fields */
 input[type=text], input[type=password] {
-	font-family: "나눔스퀘어OTF";
+	font-size:15px;
     width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
+    margin: 0;
     display: inline-block;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #e1e3e4;
+    padding:15px 5px;
     background: #fff;
+    font-weight: bold;
 }
 
 /* text창 눌렀을때 */
 input[type=text]:focus, input[type=password]:focus {
     background-color: #fff;
     outline: none;
+    
 }
 
 /* Set a style for all buttons */
 button {
-	font-family: "나눔스퀘어OTF";
+
     background-color: #000;
     color: #fff;/* 버튼글자 */
     padding: 14px 20px;
@@ -35,6 +49,7 @@ button {
 
 button:hover {
     opacity:1;
+    
 }
 
 /* Extra styles for the cancel button */
@@ -56,7 +71,7 @@ button:hover {
 
 /* The Modal (background) */
 .modal {
-	font-family: "나눔스퀘어OTF";
+	font-family: 나눔스퀘어OTF, sans-serif;
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -71,11 +86,12 @@ button:hover {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fff;
+    background-color: #e1e3e4;
     margin: 10% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     width: 400px; /* Could be more or less, depending on screen size */
 	height: 400px;
-
+	border-radius: 5px;
+	
 }
 
 /* Style the horizontal ruler */
@@ -87,8 +103,8 @@ hr {
 /* The Close Button (x) */
 .close {
     position: absolute;
-    right: 35px;
-    top: 15px;
+    right: 700px;
+    top: 200px;
     font-size: 30px;
     color: #f1f1f1;
 }
@@ -102,13 +118,24 @@ hr {
 /* Clear floats */
 .clearfix/* ::after */ {
 	margin-top:20px;
+
     content: "";
     clear: both;
 }
+#login_btm{color: #231f20;
+			height: 30px;
+			margin-top: 10px;
+			text-align: right; }
+#login_btm a{color: #333; text-decoration: none;
+			padding: 5px;}
+#join{font-weight: bold;}
+.clearfix input[type=button]{border: 1px solid; 
+			background-color: rgba(0,0,0,0.8);
+			color:#fff; width:100%; height: 45px;
+			
+			 }
 
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-    .cancelbtn, .signupbtn {
-       width: 100%;
-    }
-}
+.clearfix button[type=submit]{background-color: #333;}
+
+
+
