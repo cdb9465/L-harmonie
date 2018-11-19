@@ -65,9 +65,58 @@ h1{ margin:0;
 #btnReset:HOVER{border: 2px solid #800000;}
 
 
+/* 예약조회테이블 */
 
+/* 배경 */
+#bookList{
+		background-color:rgba(255, 255, 255, 0.4);
+		height:700px; width:1300px;
+		margin: 20px auto 0 auto ;
+		position: relative;	
+		}
+		
+/* 예약기간지정 */
+.term{float: left; margin:100px 0 0 100px;}
+.term span { margin: 0 10px;} /* 조회기간 텍스트 간격주기 */
+.term .dateBox{
+	background-color:rgba(0, 0, 0, 0.1);
+	padding:4px 12px;
+	color: #000;
+	font-weight:bold;
+	border: 1px solid #000;}
+	
+/* 총 갯수 count */
+.mpcount{ font-size: 1.5em; 
+	font-weight: bold; 
+	width: 100px;
+	float: right;
+	margin:100px 120px 0 0;}
+	
+/* 예약조회 테이블 위치/사이즈 */
 
+#bookList table.bookList_tab{
+	margin:10px auto;
+	border-collapse:collapse;
+	border-top: 2.5px solid #000;
+	border-bottom: 2.5px solid #000;
+	}
 
+#bookList table th{width: 120px; 
+	padding: 20px 0; 
+	font-size: 16px;
+	background-color:rgba(0, 0, 0, 0.9);
+	color: #eee; }
+
+#bookList table th.ps{
+	width: 500px; 
+	border: none;}
+
+#bookList table tr{border-bottom: 1px solid #000;}
+
+#bookList table td{
+	text-align: center;
+	padding:5px 0;
+	border-bottom: 1px solid #000;}
 
 
 

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>L'harmonie</title>
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/book.css" rel="stylesheet">
