@@ -56,9 +56,9 @@ DateFormat df = new SimpleDateFormat("yyyyMMdd");
 
 <div class="chTitle">
 <img src="./images/logo.png"><br>
-<h1>예약이 완료되었습니다.</h1>
+<h1 id="title">예약이 완료되었습니다.</h1>
 </div>
-
+<article id="book_art">
 <p>예약정보> </p>
 <hr>
 
@@ -93,7 +93,7 @@ DateFormat df = new SimpleDateFormat("yyyyMMdd");
  </tr>
 
 </table>
-
+</article>
 </div>
 <%-- 예약 지점 :<%=location %><br>
 예약 날짜 :<%=date %><br>

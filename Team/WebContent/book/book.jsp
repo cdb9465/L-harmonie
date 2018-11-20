@@ -28,7 +28,8 @@
 
 <!-- 본문 -->
 <div id="wrap">
-<article>
+<h1 id="title">BOOK</h1>
+<article id="book_art">
 
 <!-- 예약 네비게이션 메뉴바 -->
 <div class="book_nav">

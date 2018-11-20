@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.book.action.ActionForward;
+import net.admin.action.ActionForward;
 
 public class AdminFrontController extends HttpServlet{
 
@@ -31,6 +31,30 @@ public class AdminFrontController extends HttpServlet{
 		ActionForward forward = null;
 		Action action = null;
 		
+		if(command.equals("/BookList.ad")){
+			action = new BookListAction();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}
+		}
+		else if(command.equals("/MemberList.ad")){
+			action = new MemberListAction();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}
+		}
+		else if(command.equals("/MenuAdd.ad")){
+			System.out.println("왜 안들어오게");
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/menuForm.jsp");
+		}
+		else if(command.equals("/NewsAdd.ad")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/newsForm.jsp");
+		}
+		
 		
 		//이동
 		if(forward!=null){
@@ -47,14 +71,12 @@ public class AdminFrontController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doGet(request, response);
+		doProcess(request,response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(request, response);
+		doProcess(request,response);
 	}
 
 	

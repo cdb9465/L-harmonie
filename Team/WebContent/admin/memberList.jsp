@@ -1,3 +1,5 @@
+<%@page import="net.member.db.MemberBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,24 +8,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="../css/default.css" rel="stylesheet">
-<link href="../css/adminForm.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 
 <title>L'harmonie</title>
 </head>
 <body>
-
+<%
+List memberList = (List)request.getAttribute("memberList");
+%>
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
 
 <div class="mpbox" id="sec1_mypage"><!-- 배경들어가는 영역 -->
- <h1>MEMBER LIST</h1>
+
+<!-- 서브메뉴 -->
+<jsp:include page="admin_sub.jsp"></jsp:include>
+
+ <h1 id="title">회원 목록</h1>
  
 <div id="bookList">
 
-<div class="mpcount">전체10명</div>
+<div class="mpcount">전체 <%=memberList.size() %>명</div>
 
 <div class="clear"></div>
 	
@@ -33,24 +41,22 @@
   <th>이메일</th>
   <th>이름</th>
   <th>휴대폰번호</th>
-  <th>생일</th>
  </tr>
 	
-<!-- 예약내역목록 -->
+<!-- 회원목록 -->
+<%
+for(int i=0;i<memberList.size();i++){
+	MemberBean mb = (MemberBean)memberList.get(i);
+%>
  <tr>
-  <td>1</td>
-  <td>admin@lharmonie.com</td>
-  <td>관리자</td>
-  <td>051-111-2345</td>
-  <td>11/21</td>
+  <td><%=mb.getMem_num()%></td>
+  <td><%=mb.getEmail()%></td>
+  <td><%=mb.getName()%></td>
+  <td><%=mb.getPhone()%></td>
  </tr>
- <tr>
-  <td>2</td>
-  <td>member@lharmonie.com</td>
-  <td>일인자</td>
-  <td>051-222-2347</td>
-  <td>01/26</td>
-  
+  <%
+}
+  %>
 </table>
 </div>
 </div>
