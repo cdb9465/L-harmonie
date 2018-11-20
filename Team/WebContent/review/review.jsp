@@ -1,22 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="java.util.List"%>
+    <%@page import="net.review.db.ReviewDAO"%>
+    <%@page import="net.review.db.ReviewBean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Review Board</title>
-<link href="../css/default.css" rel="stylesheet">
-<link href="../css/review.css" rel="stylesheet" type="text/css">
+<link href="./css/default.css" rel="stylesheet">
+<link href="./css/review.css" rel="stylesheet" type="text/css">
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
 
+
+<%
+String pageNum=(String)request.getAttribute("pageNum");
+List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("ReviewList");
+int pageCount=((Integer)request.getAttribute("pageCount")).intValue();
+int pageBlock=((Integer)request.getAttribute("pageBlock")).intValue();
+int startPage=((Integer)request.getAttribute("startPage")).intValue();
+int endPage=((Integer)request.getAttribute("endPage")).intValue();
+%>
+
+<%
+    for(int i=0;i<ReviewList.size();i++){
+    	ReviewBean rb=ReviewList.get(i);
+    	%>
 <!-- 헤더파일들어가는 곳 -->
-<jsp:include page="../inc/top.jsp"></jsp:include>
+<jsp:include page="./../inc/top.jsp"></jsp:include>
 <div class="clear"></div>
 <!-- 헤더파일들어가는 곳 -->
 <div id="wraap">
@@ -79,13 +95,14 @@
 
 <!-- 리뷰내용 영역 -->
 <div class="review_content">
- 
+
  
  <div class="clear"></div>
+ 
 
-
- <div class="name"> <p>홍길동</p> </div>
- <div class="date"> <p>2018.10.26 14:37:00</p> </div>
+ <div class="name"> <p><%=rb.getReview_num()%></p> </div>
+ <div class="date"> <p><%=rb.getDate() %></p> </div>
+ 
  <div class="rating">
   <i class="fa fa-star"></i>
   <i class="fa fa-star"></i>
@@ -99,9 +116,7 @@
  <div class="clear"></div>
 
  <div class="content">
-  <p>내용<br>
-    내용<br>
-    내용<br>
+  <p><%=rb.getContent()%></p><br>
  <div class="like">
   <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart" id=heart style="color:red"></i> <p>좋아요</p> </button>
  </div>
@@ -124,6 +139,9 @@
      <br>
      </p>
  </div>
+ <%
+    }
+%>
 </div>
 
 
@@ -375,34 +393,20 @@
 
 
 <!-- review_wrap 끝 -->
-<p id="numnum" style=margin-left:250px; style=margin-right:auto; style=margin-top:100px; >
-<a href="#" style=text-decoration:none;>[이전]&nbsp;</a><a href="#" style=text-decoration:none;>1&nbsp;</a>
-<a href="#" style=text-decoration:none;>2&nbsp;</a> <a href="#" style=text-decoration:none;>3&nbsp;</a>
-<a href="#" style=text-decoration:none;>4&nbsp;</a><a href="#" style=text-decoration:none;>5&nbsp;</a>
- <a href="#"style=text-decoration:none;>6&nbsp;</a><a href="#" style=text-decoration:none;>7&nbsp;</a>
- <a href="#" style=text-decoration:none;>8&nbsp;</a><a href="#" style=text-decoration:none;>9&nbsp;</a>
- <a href="#" style=text-decoration:none;>10&nbsp;</a><a href="#" style=text-decoration:none;>[다음]</a></p>
-
-
-<!-- 메인 들어가는 곳 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%
+//이전
+if(startPage > pageBlock){
+	%><a href="./ReviewList.re?pageNum=<%=startPage-pageBlock%>">[이전]</a><%
+}
+// 1~10 
+for(int i=startPage;i<=endPage;i++){
+	%><a href="./ReviewList.re?pageNum=<%=i%>">[<%=i %>]</a><%
+}
+//다음
+if(endPage < pageCount){
+	%><a href="./ReviewList.re?pageNum=<%=startPage+pageBlock%>">[다음]</a><%
+}
+%>
 
 <script>
 var bClick = false;
@@ -461,7 +465,7 @@ function showSlides(n) {
 </article>
 </div>
 <!-- 푸터 들어가는 곳 -->
-<jsp:include page="../inc/bottom.jsp"></jsp:include>
+<jsp:include page="./../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
 </body>
 </html>

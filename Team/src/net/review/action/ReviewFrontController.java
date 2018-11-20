@@ -14,16 +14,16 @@ public class ReviewFrontController extends HttpServlet {
 		String requestURI = request.getRequestURI(); 
   		String contextPath = request.getContextPath();
   		String command = requestURI.substring(contextPath.length()); 
-  		// 가상주소 비교 
+
   		ActionForward forward = null; 
   		Action action = null; 
   		if (command.equals("/ReviewAdd.re")) { 
-  			// ./admingoods/admin_goods_write.jsp 
+  		
   			forward = new ActionForward(); 
   			forward.setRedirect(false); 
   			forward.setPath("./review/modal.jsp"); 
   		}else if (command.equals("/ReviewAddAction.re")) { 
-  	  			// GoodsAddAction 
+  	  
   	  			action = new ReviewAddAction(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
@@ -31,7 +31,7 @@ public class ReviewFrontController extends HttpServlet {
   	  				e.printStackTrace(); 
   	  			}
   		}else if (command.equals("/ReviewList.re")) { 
-  			// GoodsListAction 
+  		
   			action = new ReviewAction(); 
   			try { 
  				forward = action.execute(request, response); 
@@ -41,7 +41,7 @@ public class ReviewFrontController extends HttpServlet {
   		}
   		
   			else if (command.equals("/ReviewDelete.re")) { 
-  	  			// AdminGoodsDeleteAction 
+  	  		
   	  			action = new ReviewDeleteAction(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
