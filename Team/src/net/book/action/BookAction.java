@@ -34,11 +34,12 @@ public class BookAction implements Action
 		bb.setRequest(req);
 		
 		BookDAO bdao = new BookDAO();
-		bdao.insertBook(bb);
+		String book_num = bdao.insertBook(bb);
 		
+		System.out.println();
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./BookCheckAction.bk");
+		forward.setPath("./BookCheckAction.bk?book_num="+book_num);
 		
 		return forward;
 	}

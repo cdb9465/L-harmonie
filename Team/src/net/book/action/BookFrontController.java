@@ -47,17 +47,12 @@ public class BookFrontController extends HttpServlet{
 		}
 		else if(command.equals("/BookCheckAction.bk"))
 		{
-			//action = new BookCheckAction();
+			action = new BookCheckAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) { e.printStackTrace(); }			
 		}
-		else if(command.equals("/BookCheck.bk"))
-		{
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./book/bookCheck.jsp");
-		}
+		
 		
 		//이동
 		if(forward!=null){

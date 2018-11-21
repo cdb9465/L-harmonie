@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../css/default.css" rel="stylesheet">
-<link href="../css/adminForm.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <title>Insert title here</title>
 </head>
@@ -17,9 +17,13 @@
 
 <div id="wrap">
 <div class="mpbox" id="sec1_mypage"><!-- 배경들어가는 영역 -->
-<h1>메뉴 등록</h1>
+
+<!-- 서브메뉴 -->
+<jsp:include page="admin_sub.jsp"></jsp:include>
+
+<h1 id="title">메뉴 등록</h1>
 <div class="write">
-<form id="menuForm" action="./" method="post" enctype="multipart/form-data">
+<form id="menuForm" action="./MenuAddAction.ad" method="post" enctype="multipart/form-data">
  <table border="1">
   <tr>
    <th>카테고리</th>

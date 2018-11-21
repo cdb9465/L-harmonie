@@ -2,18 +2,24 @@
 
 #wrap{
 	width: 100%;
+	height: 100%;
 	margin: 0 auto;
-	padding-top: 80px; 
+	padding-top: 100px; 
 	padding-bottom: 20px;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/backg1.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;	}	
+	background-size: cover;	}
+	
+h1#title{ margin:0;
+	padding-top:10px;
+	paddubg-bottom:10px;
+	font-size: 3em;
+	color: #ffffff;
+	text-align: center; }	
 
-article {width: 70%; height: 620px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 20px;
-	background-color:rgba(255,255,255,0.7); }
+article#book_art {width: 1300px; height: 700px;
+	margin: 20px auto;
+	background-color:rgba(255,255,255,0.4); }
 
 .book_nav{
 	width: 100%;
@@ -36,7 +42,7 @@ article {width: 70%; height: 620px;
 
 #book_form{
 	color: #000;
-	width: 100%; height: 500px;
+	width: 100%; height: 600px;
 	margin: 0 auto; }
 
 .tab { display: none; }
@@ -73,7 +79,7 @@ article {width: 70%; height: 620px;
 	padding: 20px 0;
 	font-size: 15px;
 	width: 100%;
-	height: 400px; }
+	height: 520px; }
 	
 .panel>#location, .panel>#date {
 	width:50%; height: 100%;
@@ -116,20 +122,22 @@ article {width: 70%; height: 620px;
 
 .step2:HOVER { cursor: pointer; }	
 
-button {
+/* 버튼 */
+#prevBtn, #nextBtn{
   background-color: #333;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
-  margin: 5px 5px;
+  margin: 5px 10px;
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
-  float:right; }
+  float: right;
+  width: 120px; }
 
-button:hover { opacity: 0.8; }
+#prevBtn:hover, #nextBtn:hover { opacity: 0.8; }
 
-button#prevBtn { float: left; }
+#prevBtn { float: left; }
 
 
 /* table */
@@ -199,9 +207,6 @@ button#prevBtn { float: left; }
 	
 	
 /* BookCheck */
-
-.bookCk{border: 1px solid red;
-	padding-top: 50px;}
 
 .bookCk .chTitle{text-align: center;}
 .bookCk p{
