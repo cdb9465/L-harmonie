@@ -15,7 +15,6 @@
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
 
-<div id="wrap">
 <div class="mpbox" id="sec1_mypage"><!-- 배경들어가는 영역 -->
 
 <!-- 서브메뉴 -->
@@ -43,7 +42,7 @@
    <td><input type="text" name="name"></td>
   </tr>
   <tr>
-   <th>메뉴설명</th>
+   <th>설명</th>
    <td><textarea name="content" rows="10" cols="35"></textarea></td>
   </tr>
   <tr>
@@ -63,13 +62,9 @@
 
 <div class="clear"></div>
 
-<!-- 서브메뉴 들어가는 곳 -->
-<%-- <jsp:include page="../inc/submenu.jsp"></jsp:include> --%>
-<!-- 서브메뉴 들어가는 곳 -->
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
 
-</div>
 </body>
 </html>

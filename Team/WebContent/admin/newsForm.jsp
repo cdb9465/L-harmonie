@@ -15,7 +15,6 @@
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
 
-<div id="wrap">
 <div class="mpbox" id="sec1_mypage"><!-- 배경들어가는 영역 -->
 
 <!-- 서브메뉴 -->
@@ -50,13 +49,9 @@
 
 <div class="clear"></div>
 
-<!-- 서브메뉴 들어가는 곳 -->
-<%-- <jsp:include page="../inc/submenu.jsp"></jsp:include> --%>
-<!-- 서브메뉴 들어가는 곳 -->
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
 
-</div>
 </body>
 </html>
