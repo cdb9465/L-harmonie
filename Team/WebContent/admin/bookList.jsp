@@ -26,10 +26,7 @@ $(document).ready(function(){
 			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			dayNamesMin:['일','월','화','수','목','금','토'],
 			dateFormat: 'yy-mm-dd',
- 			maxDate: '+14d',
- 			/* onSelect: function(){
- 				changeLocationSelect()
- 			} */
+ 			maxDate: '+14d'
  			
 		});
 		
@@ -47,7 +44,14 @@ function changeLocationSelect(){
 	var locationSelect = document.getElementById("selectLoc");
 	var location = locationSelect.options[locationSelect.selectedIndex].value;
 	var date = document.getElementById("datepicker").value;
-	window.location.href="./BookList.ad?location="+location+"&date="+date;
+	//window.location.href="./BookList.ad?location="+location+"&date="+date;
+	document.fr.submit();
+
+	for(var i = 0; i < locationSelect.options.length; i++){	
+	  if( location == locationSelect.options[i].value){
+		document.fr.location.selectedIndex = "i";
+	  } 
+ 	}
 } 
 </script>
 <title>L'harmonie</title>
@@ -68,7 +72,7 @@ List bookList = (List)request.getAttribute("bookList");
 <jsp:include page="admin_sub.jsp"></jsp:include>
 
 <h1 id="title">예약 목록</h1>
- 
+<form action="./BookList.ad" name="fr" method="get">
 <div id="bookList">
 
 <!-- 일자 선택 -->
@@ -80,7 +84,7 @@ List bookList = (List)request.getAttribute("bookList");
   <option value="부산서면점">부산서면점</option>
  </select>
 <span>조회 일자</span>
- <input type="text" id="datepicker" class="dateBox" >
+ <input type="text" name="date" id="datepicker" class="dateBox" >
 </div>
 
 <div class="mpcount">전체 <%=bookList.size()%>건</div>
@@ -118,6 +122,7 @@ List bookList = (List)request.getAttribute("bookList");
 	
 </table>
 </div>
+</form>
 </div>
 
 <!-- 푸터 들어가는 곳 -->

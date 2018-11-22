@@ -15,7 +15,7 @@
 function openNav() {
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginRight = "250px";
-    document.getElementById("open").onclick=function(){closeNav()};
+ 	document.getElementById("open").onclick=function(){closeNav()};
 }
 	
 function closeNav() {
