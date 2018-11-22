@@ -18,11 +18,11 @@ background-image:  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("
 		
 		}
 #sec1_join{ height: 50px;
-			margin-bottom: 30px;
-			padding-top: 100px;
+			margin-bottom: 50px;
+			padding-top: 130px;
 }
 #sec2_join { 
-		min-height:700px;
+		min-height:650px;
 		padding:10px;
 		background-color:rgba(255, 255, 255, 0.4);
 		margin-top: 80px;
@@ -42,7 +42,7 @@ th {color: #1c1c1c;
 			width:100px; 
 			padding-left: 110px;padding-right: 10px;
  			/* border: 1px solid #fff; */}
-th p{border:1px solid red;}
+table{margin-top: 40px;}
 td {padding: 15px 0px;}
 /* #name_icon{padding: 20px 5px 20px 10px;margin-left: 15px;}
 #phone_icon{padding: 20px 10px 20px 20px; } */
@@ -65,16 +65,18 @@ td {padding: 15px 0px;}
 	}
 
 
-/* 이용약관 체크 */
+/* 이용약관 체크 영역 */
+#access{margin:10px 55px 30px 100px ;
+		float: left;}
 #sec2_join input[type=checkbox]{
 	margin: 0 10px;
 }
-#access{margin:10px 55px 30px 100px ;
-		float: left;	}
+/* 전체체크 */
 .acc_checkall{
 	margin:20px 10px 20px 0px;
 	color: #252525;
 	font-weight: bold; }
+/* 개별체크 */
 .acc_check{	margin:8px 0px 0px 0px ;
 			color:#252525; }
 /* [필수]빨강*/

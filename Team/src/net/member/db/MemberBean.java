@@ -7,7 +7,7 @@ public class MemberBean {
 	String pass;
 	String name;
 	String phone;
-	String birth;
+
 	
 	public int getMem_num() {
 		return mem_num;
@@ -39,12 +39,5 @@ public class MemberBean {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getBirth() {
-		return birth;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-
 	
 }

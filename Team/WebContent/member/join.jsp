@@ -239,14 +239,7 @@ $(document).ready(function(){
 								<span id="checkPhone"></span>
 							</td>
 				</tr>
-				<tr>
-					<th>
-							<i class='far fa-calendar-alt' style='font-size: 24px'></i>선택</th>
-							<td> <input
-								type="text" name="birth" placeholder="생월일 ex)0620" maxlength="4"
-								style="ime-mode:disabled;" onkeyup="checkBirth()" onkeypress="return digit_check(event)">
-								<span id="checkBirth"></span>
-								</td>
+
 				</table>
 
 				<div id="access">

@@ -51,7 +51,7 @@ public class MemberDAO {
 				mem_num=1;
 			}
 			//3단계
-			sql="insert into member(mem_num,email,pass,name,phone,birth) values(?,?,?,?,?,?)";
+			sql="insert into member(mem_num,email,pass,name,phone) values(?,?,?,?,?)";
 
 			pstmt = con.prepareStatement(sql);	//쿼리 길이가 기니까 sql변수에 넣어줌
 
@@ -60,7 +60,6 @@ public class MemberDAO {
 			pstmt.setString(3, mb.getPass());	//String형은 ?에 자동으로 ''가 붙는다.
 			pstmt.setString(4, mb.getName());
 			pstmt.setString(5, mb.getPhone());
-			pstmt.setString(6, mb.getBirth());
 
 
 			//4단계 -SQL실행
@@ -99,10 +98,12 @@ public class MemberDAO {
 			 // 5단계 첫행으로이동  열접근 => 출력
 			 if(rs.next()){
 				 // 첫행 이동 열접근 해서 
-				 // MemberBean id,pass,name,reg_date변수 저장
+				 // MemberBean mem_num,pass,name,email,phone 변수 저장
+				 mb.setMem_num(rs.getInt("mem_num"));
+				 mb.setEmail(rs.getString("email"));
 				 mb.setPass(rs.getString("pass"));
 				 mb.setName(rs.getString("name"));
-				 mb.setEmail(rs.getString("email"));
+				 mb.setPhone(rs.getString("phone"));
 			 }
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -172,12 +173,14 @@ public class MemberDAO {
 				con = getConnection();
 				
 			 //3단계 세션값 id 에 해당하는 회원정보 pass 가져오기
-			 String sql="update member set name=?, age=?, gender=?, email=? where id=?";
+			 String sql="update member set pass=?, name=?, phone=? where email=?";
 			 pstmt=con.prepareStatement(sql);
 			 //4단계 결과저장 <= 실행
-			 pstmt.setString(1, mb.getName());
+			 pstmt.setString(1, mb.getPass());
+			 pstmt.setString(2, mb.getName());
+			 pstmt.setString(3, mb.getPhone());
 			 pstmt.setString(4, mb.getEmail());
-
+			 
 			 pstmt.executeUpdate();
 			 
 		 }catch(Exception e){
@@ -196,21 +199,17 @@ public class MemberDAO {
 	}
 	
 	// 삭제 - deleteMember() 함수
-	public void deleteMember(String id){
+	public void deleteMember(String email){
 		 
 		 try{
-			 //1단계 드라이버로더
-			 Class.forName("com.mysql.jdbc.Driver");
-			 //2단계 디비연결
-			 String dbUrl="jdbc:mysql://localhost:3306/jspdb2";
-			 String dbUser="jspid";
-			 String dbPass="jsppass";
-			 con=DriverManager.getConnection(dbUrl, dbUser, dbPass);
+			//디비연결 메소드 호출
+				con = getConnection();
+				
 			 //3단계 세션값 id 에 해당하는 회원정보 pass 가져오기
-			 String sql="delete from member where id=?";
+			 String sql="delete from member where email=?";
 			 pstmt=con.prepareStatement(sql);
 			 //4단계 결과저장 <= 실행
-			 pstmt.setString(1, id);
+			 pstmt.setString(1, email);
 			 pstmt.executeUpdate();
 			 
 		 }catch(Exception e){
@@ -299,6 +298,7 @@ public class MemberDAO {
 		   return re;
 		 }//end checkEmail()
 	
+	
 	public List getMyReviewList(int mem_num){
 		List myReviewList=new ArrayList();
 
@@ -333,6 +333,7 @@ public class MemberDAO {
 		}
 		return myReviewList;
 	}
+	
 }//클래스
 
 
