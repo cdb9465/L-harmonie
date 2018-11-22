@@ -34,6 +34,7 @@ public class BookListAction implements Action{
 		
 		//저장
 		request.setAttribute("bookList", bookList);
+		request.setAttribute("location", location);
 		
 		//이동
 		ActionForward forward = new ActionForward();
