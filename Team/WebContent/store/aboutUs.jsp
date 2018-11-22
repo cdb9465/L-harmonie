@@ -10,6 +10,8 @@
 <link href="./css/aboutUs.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30e4f19e3412a3a75d0669f0d77273ba"></script>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
     window.onload = function () {
@@ -46,6 +48,7 @@
         });
     }
 </script>
+
 <title>L'harmonie</title>
 </head>
 <body>
@@ -66,7 +69,24 @@
 </div>
 
 <!-- 3번째 메인 -->
-<div class="main_box" id="main2"></div>
+<!-- <div class="main_box" id="main2"> -->
+
+<div class="map_wrap">
+ <div id="map" style="width: 500px;height: 400px;position:relative;overflow:hidden;">
+  <div class="custom_zoomcontrol radius_border"> 
+   <span onclick="zoomIn()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
+   <span onclick="zoomOut()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+  </div>
+ </div>
+  <div class="custom_zoomcontrol radius_border"> 
+   <span onclick="zoomIn()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
+   <span onclick="zoomOut()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+  </div>
+</div>
+
+
+<!-- </div> -->
+
 <!-- 본문 -->
 
 <!-- 서브메뉴 들어가는 곳 -->
@@ -76,6 +96,49 @@
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
+
+<script>
+var container = document.getElementById('map');	//지도 표시할 div
+var options = {	//지도 생성할때 필요한 기본옵션
+	//center: new daum.maps.LatLng(33.450701, 126.570667),	//지도 중심좌표
+	center: new daum.maps.LatLng(35.158462, 129.062079),
+	level: 3	//지도 레벨
+};
+
+var map = new daum.maps.Map(container, options);	//지도생성
+
+//마커 생성
+var markerPosition = new daum.maps.LatLng(35.158462, 129.062079);
+var marker = new daum.maps.Marker({
+	position: markerPosition
+});
+
+//마커 표시
+marker.setMap(map);
+
+//인포윈도우 설정
+var iwContent = '<div style="width:150px;text-align:center;padding:6px 0;">부산서면점</div>',
+			iwPosition = new daum.maps.LatLng(35.158462, 129.062079);
+
+//인포윈도우 생성
+var infowindow = new daum.maps.InfoWindow({
+    position : iwPosition, 
+    content : iwContent
+});
+
+//마커에 인포윈도우 표시
+infowindow.open(map, marker);
+
+function zoomIn() {
+    map.setLevel(map.getLevel() - 1);
+}
+function zoomOut() {
+    map.setLevel(map.getLevel() + 1);
+}
+
+
+
+</script>
 
 </body>
 </html>
