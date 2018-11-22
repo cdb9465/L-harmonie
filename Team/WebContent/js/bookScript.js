@@ -23,6 +23,7 @@ function showTab(n) {
 	
 	fixStepIndicator(n);
 	
+	//step5일때 테이블에 데이터 뿌려주기
 	if(n==4)
 		confirmForm();
 }
@@ -162,7 +163,10 @@ function showDetail(chk) {
 	if(chk)
 		detail.style.display = "inline";
 	else
+	{
+		document.bf.detail.value = "";
 		detail.style.display = "none";
+	}
 }
 
 //step5
@@ -172,7 +176,7 @@ function confirmForm() {
 	tr = table.getElementsByTagName("tr");
 
 	//기존 td삭제
-	for(i = 0; i < 7; i++)
+	for(i = 0; i < 6; i++)
 	{	
 		if(tr[i].cells.length > 1)
 		{
@@ -182,28 +186,42 @@ function confirmForm() {
 	}
 	
 	//td생성
-	var newtd = new Array(7);
-	var text = new Array(7);
+	var newtd = new Array(6);
+	var text = new Array(6);
 	text[0] = document.createTextNode(document.bf.location.value);
 	text[1] = document.createTextNode(document.bf.guest.value);
 	text[2] = document.createTextNode(document.bf.date.value);
 	text[3] = document.createTextNode(document.bf.time.value);
 	text[4] = document.createTextNode(document.bf.tablenum.value);
 	
-	if(document.bf.alergy[1].checked)
-		text[5] = document.createTextNode("있음");
-	else if(document.bf.alergy[0].checked)
-		text[5] = document.createTextNode("없음");
-
-	text[6] = document.createTextNode(document.bf.request.value);
+	setRequest();
+	text[5] = document.createTextNode(document.bf.request.value);
 	
-	for(i = 0; i < 7; i++)
+	for(i = 0; i < 6; i++)
 	{
 		newtd[i] = document.createElement("td"); 
 		tr[i].appendChild(newtd[i]);
 		newtd[i].appendChild(text[i]);
 	}
 	
+}
+
+//request
+function setRequest()
+{
+	var alergyVal, specialVal;
+	if(document.bf.alergy[1].checked)
+		alergyVal = "알레르기 있음 " + document.bf.detail.value;
+	else if(document.bf.alergy[0].checked)
+		alergyVal = "";
+	
+	if(document.bf.special.value=="")
+		specialVal = "";
+	else
+		specialVal = " " + document.bf.special.value;
+	
+	var reqVal = alergyVal + specialVal;
+	document.bf.request.value = reqVal;
 }
 
 

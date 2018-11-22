@@ -18,11 +18,12 @@ h1#title{ margin:0;
 
 #sec1_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");}
 
-/* 하얀배경 메인내용 */
-.write { background-color:rgba(255, 255, 255, 0.4);
-		height:600px; width:800px;
+/* 배경 */
+#bookList, .write{
+		background-color:rgba(255, 255, 255, 0.4);
+		height:700px; width:1300px;
 		margin: 20px auto 0 auto ;
-		position: relative; }
+		position: relative;	 }
 
 /* 서브메뉴 */
 .sidebar {
@@ -71,23 +72,31 @@ h1#title{ margin:0;
     padding: 0;
 }
 
-
+/****** adminForm ******/
 /* form태그 */		
 #newsForm { padding-top: 50px; }/* 전체를 내림 */
 #menuForm { padding-top: 15px; }
 
-.write table{margin: 20px auto 0 auto ;}
-.write td{padding: 25px 50px;}
-.write th{padding: 10px;}
-.write textarea { }
+.write table{ margin: 20px auto 0 auto ; }
+
+.write table th{ padding: 10px;
+	width: 120px; }
+	
+.write table td{ padding: 25px 50px; }
+
+.write table select {}
+
+.write table textarea { }
+
 .write input[type=text]{
-		background-color:rgba(0, 0, 0, 0);
+		background-color:rgba(0, 0, 0, 0) !important;
 		border:none;
 		border-bottom:1px solid #000;
 		color: #000;
 		font-weight: bold;
 		font-size: 15px;
 		padding: 5px; }
+		
 .write table p{font-size: 13px; color: #800000;}
 
 /* submit, reset 버튼 */
@@ -112,16 +121,8 @@ h1#title{ margin:0;
 #btnSubmit:HOVER{color:#000;background-color:rgba(0, 0, 0, 0);}
 #btnReset:HOVER{border: 2px solid #800000;}
 
-
+/************************************************************/
 /* 예약조회테이블 */
-
-/* 배경 */
-#bookList{
-		background-color:rgba(255, 255, 255, 0.4);
-		height:700px; width:1300px;
-		margin: 20px auto 0 auto ;
-		position: relative;	
-		}
 		
 /* 조회날짜선택*/
 .term{float: left; margin:100px 0 0 100px;}

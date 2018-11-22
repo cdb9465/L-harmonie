@@ -5,6 +5,7 @@ public class MenuBean {
 	private String category;
 	private String name;
 	private String content;
+	private String file;
 	
 	public int getMenu_num() {
 		return menu_num;
@@ -29,5 +30,11 @@ public class MenuBean {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getFile() {
+		return file;
+	}
+	public void setFile(String file) {
+		this.file = file;
 	}
 }
