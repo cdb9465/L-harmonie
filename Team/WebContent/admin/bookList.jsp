@@ -14,30 +14,41 @@
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/jquery-ui.js"></script>
 <script>
+
 $(document).ready(function(){
 	
 	//datepicker 
  	$(function () {
- 		
- 		
+ 			
 		$("#datepicker").datepicker({
 			showMonthAfterYear: true, //연도와 달 위치 변경
 			monthNames:['년 1월','년 2월','년 3월','년 4월','년 5월','년 6월','년 7월','년 8월','년 9월','년 10월','년 11월','년 12월'],
 			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			dayNamesMin:['일','월','화','수','목','금','토'],
 			dateFormat: 'yy-mm-dd',
- 			maxDate: '+14d'
- 						
+ 			maxDate: '+14d',
+ 			/* onSelect: function(){
+ 				changeLocationSelect()
+ 			} */
+ 			
 		});
-
+		
 		//초기값 오늘날짜
 		$("#datepicker").datepicker("setDate", new Date());
 				
 		$('.ui-datepicker').css({
 			"margin":"0 auto"
 		});
+		
 	});
-});
+}); 
+
+function changeLocationSelect(){
+	var locationSelect = document.getElementById("selectLoc");
+	var location = locationSelect.options[locationSelect.selectedIndex].value;
+	var date = document.getElementById("datepicker").value;
+	window.location.href="./BookList.ad?location="+location+"&date="+date;
+} 
 </script>
 <title>L'harmonie</title>
 </head>
@@ -63,10 +74,10 @@ List bookList = (List)request.getAttribute("bookList");
 <!-- 일자 선택 -->
 <div class="term">
 <span>조회 지점</span>
- <select class="dateBox">
-  <option>전체</option>
-  <option>서울강남점</option>
-  <option>부산서면점</option>
+ <select class="dateBox" id="selectLoc" name="location" onchange="changeLocationSelect()">
+  <option value="전체">전체</option>
+  <option value="서울강남점">서울강남점</option>
+  <option value="부산서면점">부산서면점</option>
  </select>
 <span>조회 일자</span>
  <input type="text" id="datepicker" class="dateBox" >

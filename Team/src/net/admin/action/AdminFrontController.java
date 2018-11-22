@@ -44,7 +44,6 @@ public class AdminFrontController extends HttpServlet{
 			}catch(Exception e){e.printStackTrace();}
 		}
 		else if(command.equals("/MenuAdd.ad")){
-			System.out.println("왜 안들어오게");
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./admin/menuForm.jsp");
