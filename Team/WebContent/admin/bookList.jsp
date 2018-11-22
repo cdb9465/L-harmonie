@@ -14,7 +14,6 @@
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/jquery-ui.js"></script>
 <script>
-
 $(document).ready(function(){
 	
 	//datepicker 
@@ -26,7 +25,10 @@ $(document).ready(function(){
 			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			dayNamesMin:['일','월','화','수','목','금','토'],
 			dateFormat: 'yy-mm-dd',
- 			maxDate: '+14d'
+ 			maxDate: '+14d',
+ 			onSelect: function(date){
+ 				$("form").submit();
+ 			}
  			
 		});
 		
@@ -47,18 +49,20 @@ function changeLocationSelect(){
 	//window.location.href="./BookList.ad?location="+location+"&date="+date;
 	document.fr.submit();
 
-	for(var i = 0; i < locationSelect.options.length; i++){	
+	/* for(var i = 0; i < locationSelect.options.length; i++){	
 	  if( location == locationSelect.options[i].value){
-		document.fr.location.selectedIndex = "i";
+		document.fr.location.options[i].selected = true;
 	  } 
- 	}
+ 	} */
 } 
+
 </script>
 <title>L'harmonie</title>
 </head>
 <body>
 <%
 List bookList = (List)request.getAttribute("bookList");
+String location = (String)request.getAttribute("location");
 %>
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
@@ -72,16 +76,16 @@ List bookList = (List)request.getAttribute("bookList");
 <jsp:include page="admin_sub.jsp"></jsp:include>
 
 <h1 id="title">예약 목록</h1>
-<form action="./BookList.ad" name="fr" method="get">
+<form action="./BookList.ad" name="fr" method="post">
 <div id="bookList">
 
 <!-- 일자 선택 -->
 <div class="term">
 <span>조회 지점</span>
  <select class="dateBox" id="selectLoc" name="location" onchange="changeLocationSelect()">
-  <option value="전체">전체</option>
-  <option value="서울강남점">서울강남점</option>
-  <option value="부산서면점">부산서면점</option>
+  <option value="전체" <%=location.equals("전체")?"selected":""%>>전체</option>
+  <option value="서울강남점" <%=location.equals("서울강남점")?"selected":""%>>서울강남점</option>
+  <option value="부산서면점" <%=location.equals("부산서면점")?"selected":""%>>부산서면점</option>
  </select>
 <span>조회 일자</span>
  <input type="text" name="date" id="datepicker" class="dateBox" >

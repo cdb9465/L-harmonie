@@ -27,7 +27,7 @@ public class AdminDAO {
 		return con;	
 	}
 	
-	public List getBookList(){
+	public List getBookList(String location, String date){
 		List bookList = new ArrayList();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -41,9 +41,24 @@ public class AdminDAO {
 			con = getConnection();
 			
 			//sql
-			sql = "select * from book where Date=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, sdf.format(cal.getTime()));
+
+			if(location.equals("전체") || date == sdf.format(cal.getTime())){
+				sql = "select * from book where Date=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, sdf.format(cal.getTime()));
+			}
+			else if(location.equals("전체")){
+				sql = "select * from book where Date=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1,date);
+			}
+			else{
+				sql = "select * from book where location =? and Date=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, location);
+				pstmt.setString(2,date);
+			}
+
 			
 			//rs 실행 저장
 			rs = pstmt.executeQuery();

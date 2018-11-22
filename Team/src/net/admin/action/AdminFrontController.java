@@ -31,7 +31,8 @@ public class AdminFrontController extends HttpServlet{
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/BookList.ad")){
+		if(command.equals("/BookList.ad"))
+		{
 			action = new BookListAction();
 			try{
 				forward = action.execute(request, response);
@@ -66,6 +67,12 @@ public class AdminFrontController extends HttpServlet{
 			try{
 				forward = action.execute(request, response);
 			}catch(Exception e){e.printStackTrace();}			
+		}
+		else if(command.equals("/AboutUs.ad"))
+		{
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./store/aboutUs.jsp");
 		}
 		
 		

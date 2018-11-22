@@ -17,6 +17,8 @@ public class BookListAction implements Action{
 
 		System.out.println("BookListAction execute()");
 		
+		request.setCharacterEncoding("utf-8");
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar cal=Calendar.getInstance();
 		
@@ -32,6 +34,7 @@ public class BookListAction implements Action{
 		
 		//저장
 		request.setAttribute("bookList", bookList);
+		request.setAttribute("location", location);
 		
 		//이동
 		ActionForward forward = new ActionForward();
