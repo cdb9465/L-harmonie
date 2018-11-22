@@ -31,7 +31,8 @@ public class AdminFrontController extends HttpServlet{
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/BookList.ad")){
+		if(command.equals("/BookList.ad"))
+		{
 			action = new BookListAction();
 			try{
 				forward = action.execute(request, response);

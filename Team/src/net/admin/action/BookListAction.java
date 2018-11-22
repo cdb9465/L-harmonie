@@ -17,6 +17,8 @@ public class BookListAction implements Action{
 
 		System.out.println("BookListAction execute()");
 		
+		request.setCharacterEncoding("utf-8");
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar cal=Calendar.getInstance();
 		

@@ -14,7 +14,6 @@
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/jquery-ui.js"></script>
 <script>
-
 $(document).ready(function(){
 	
 	//datepicker 
@@ -49,10 +48,12 @@ function changeLocationSelect(){
 
 	for(var i = 0; i < locationSelect.options.length; i++){	
 	  if( location == locationSelect.options[i].value){
-		document.fr.location.selectedIndex = "i";
-	  } 
+		  document.fr.location.selected = true;
+		  //alert(location);
+	  }
  	}
-} 
+}
+
 </script>
 <title>L'harmonie</title>
 </head>
@@ -72,7 +73,7 @@ List bookList = (List)request.getAttribute("bookList");
 <jsp:include page="admin_sub.jsp"></jsp:include>
 
 <h1 id="title">예약 목록</h1>
-<form action="./BookList.ad" name="fr" method="get">
+<form action="./BookList.ad" name="fr" method="post">
 <div id="bookList">
 
 <!-- 일자 선택 -->
