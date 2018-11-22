@@ -14,6 +14,7 @@ import java.util.List;
 import net.book.db.BookBean;
 import net.member.db.MemberBean;
 import net.menu.db.MenuBean;
+import net.news.db.NewsBean;
 
 public class AdminDAO {
 	//디비연결 메소드
@@ -115,6 +116,7 @@ public class AdminDAO {
 		return memberList;
 	}
 
+	// 메뉴등록
 	public void insertMenu(MenuBean mnb)
 	{
 		Connection con = null;
@@ -161,7 +163,51 @@ public class AdminDAO {
 		}
 	}
 
+	// 뉴스등록
+	public void insertNews(NewsBean nb)
+	{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int num = 0;	//news번호 
 
+		try {
+			//1,2단계 메서드 호출
+			con = getConnection();
+
+			// 3. news_num 구하기
+			String sql = "select max(news_num) from news";
+			pstmt = con.prepareStatement(sql);
+
+			// 4. 저장 <= 결과 실행
+			rs = pstmt.executeQuery();
+			
+			// 5. 첫행에 데이터 있으면 가장 큰번호 +1
+			if(rs.next())
+				num = rs.getInt("max(news_num)") + 1;
+			
+			if(pstmt!=null) try{pstmt.close();} catch (SQLException ex) {}
+			
+			//3. sql 실행객체 생성
+			sql = "insert into news(news_num, title, content, date, file)"
+				+ "values(?, ?, ?, now(), ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, nb.getTitle());
+			pstmt.setString(3, nb.getContent());
+			pstmt.setString(4, nb.getFile());
+
+			//4. 실행
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			if(con!=null) try {con.close();} catch (SQLException ex){}
+		}
+	}	
 
 
 }

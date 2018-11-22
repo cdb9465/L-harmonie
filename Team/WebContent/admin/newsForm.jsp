@@ -22,19 +22,19 @@
 
 <h1 id="title">뉴스 등록</h1>
 <div class="write">
-<form id="newsForm" action="./newsAddAction.ad" method="post" enctype="multipart/form-data">
+<form id="newsForm" action="./NewsAddAction.ad" method="post" enctype="multipart/form-data">
  <table border="1">
   <tr>
    <th>제목</th>
-   <td><input type="text" name="title"></td>
+   <td><input type="text" name="title" required></td>
   </tr>
   <tr>
    <th>내용</th>
-   <td><textarea name="content" rows="10" cols="35"></textarea></td>
+   <td><textarea name="content" rows="10" cols="35" required></textarea></td>
   </tr>
   <tr>
    <th>이미지</th>
-   <td><input type="file" name="file"></td>
+   <td><input type="file" name="file" required></td>
   </tr>
   <tr>
    <td colspan="2">

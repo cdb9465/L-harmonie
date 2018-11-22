@@ -8,6 +8,17 @@
 <link href="./css/admin.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <title>Insert title here</title>
+<script type="text/javascript">
+// 카테고리 선택했는지 확인
+function categoryChk() {
+	if(document.fr1.category.selectedIndex==0)
+	{
+		alert("카테고리를 선택하세요.")
+		document.fr1.category.focus();
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -22,12 +33,14 @@
 
 <h1 id="title">메뉴 등록</h1>
 <div class="write">
-<form id="menuForm" action="./MenuAddAction.ad" method="post" enctype="multipart/form-data">
+<form id="menuForm" action="./MenuAddAction.ad" 
+method="post" enctype="multipart/form-data" name="fr1" onsubmit="return categoryChk()">
  <table border="1">
   <tr>
    <th>카테고리</th>
    <td>
    	<select name="category">
+   	 <option value="" selected="selected">카테고리</option>
    	 <option value="appetizer">appetizer</option>
    	 <option value="salad">salad</option>
    	 <option value="steak">steak</option>
@@ -39,15 +52,15 @@
   </tr>
   <tr>
    <th>메뉴이름</th>
-   <td><input type="text" name="name"></td>
+   <td><input type="text" name="name" required></td>
   </tr>
   <tr>
    <th>설명</th>
-   <td><textarea name="content" rows="10" cols="35"></textarea></td>
+   <td><textarea name="content" rows="10" cols="35" required></textarea></td>
   </tr>
   <tr>
    <th>이미지</th>
-   <td><input type="file" name="file"></td>
+   <td><input type="file" name="file" required></td>
   </tr>
   <tr>
    <td colspan="2">
