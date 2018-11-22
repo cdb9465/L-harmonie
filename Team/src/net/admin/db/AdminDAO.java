@@ -13,6 +13,7 @@ import java.util.List;
 
 import net.book.db.BookBean;
 import net.member.db.MemberBean;
+import net.menu.db.MenuBean;
 
 public class AdminDAO {
 	//디비연결 메소드
@@ -121,4 +122,54 @@ public class AdminDAO {
 		
 		return memberList;
 	}
+
+	public void insertMenu(MenuBean mnb)
+	{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int num = 0;	//menu번호 
+
+		try {
+			//1,2단계 메서드 호출
+			con = getConnection();
+
+			// 3. menu_num 구하기
+			String sql = "select max(menu_num) from menu";
+			pstmt = con.prepareStatement(sql);
+
+			// 4. 저장 <= 결과 실행
+			rs = pstmt.executeQuery();
+			
+			// 5. 첫행에 데이터 있으면 가장 큰번호 +1
+			if(rs.next())
+				num = rs.getInt("max(menu_num)") + 1;
+			
+			if(pstmt!=null) try{pstmt.close();} catch (SQLException ex) {}
+			
+			//3. sql 실행객체 생성
+			sql = "insert into menu(menu_num, category, name, file, content)"
+				+ "values(?, ?, ?, ?, ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, mnb.getCategory());
+			pstmt.setString(3, mnb.getName());
+			pstmt.setString(4, mnb.getFile());
+			pstmt.setString(5, mnb.getContent());
+
+			//4. 실행
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			if(con!=null) try {con.close();} catch (SQLException ex){}
+		}
+	}
+
+
+
+
 }

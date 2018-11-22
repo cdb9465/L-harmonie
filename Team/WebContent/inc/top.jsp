@@ -60,7 +60,7 @@ if(sess==null){%>
       <div id="login_btm">
 	      <a href="#">아이디찾기</a>|
 	      <a href="#">비밀번호찾기</a>|
-	      <a href="./MemberJoin.me" id="join">회원가입</a>
+	      <a href="./MemberJoin.me" id="joinlink">회원가입</a>
       </div>
      <div class="clearfix">
      	<button type="submit" class="signupbtn">로그인</button>

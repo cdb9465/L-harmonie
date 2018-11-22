@@ -2,15 +2,13 @@ package net.review.db;
 
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 
 import net.review.db.ReviewBean;
 
@@ -20,15 +18,16 @@ public class ReviewDAO {
 	
 	
 	
-	private Connection getConnection() throws Exception {
-		Connection con=null;
-
-		Context init=new InitialContext();
-		DataSource ds =(DataSource)init.lookup("java:comp/env/jdbc/MysqlDB");
-		con=ds.getConnection();
+	private Connection getConnection()  throws Exception{
+		Connection con= null;//드라이버 불러오기
+		Class.forName("com.mysql.jdbc.Driver");
+		//DB 연결
+		String dbUrl = "jdbc:mysql://localhost:3306/lhdb";
+		String dbId = "jspid";
+		String dbPass = "jsppass";
+		con = DriverManager.getConnection(dbUrl,dbId,dbPass);
 		return con;	
 	}
-	
 	
 
 	public void updateReadCount(int num)
@@ -114,7 +113,8 @@ public class ReviewDAO {
 			
 			while(rs.next())
 			{
-				 rb.setReview_num(rs.getInt("review_num"));
+				 rb.setMem_num(rs.getInt("mem_num"));
+				rb.setReview_num(rs.getInt("review_num"));
 				 rb.setContent(rs.getString("content"));
 				 rb.setRating(rs.getInt("rating"));
 				 rb.setDate(rs.getDate("date"));
@@ -227,6 +227,7 @@ public class ReviewDAO {
 			//  rs => 자바빈 멤버변수 저장 => goodsList 한칸 저장
 			while(rs.next()){
 				ReviewBean rb=new ReviewBean();
+				rb.setMem_num(rs.getInt("mem_num"));
 				 rb.setReview_num(rs.getInt("review_num"));
 				 rb.setContent(rs.getString("content"));
 				 rb.setRating(rs.getInt("rating"));
@@ -266,15 +267,15 @@ public class ReviewDAO {
 			}
 			
 
-			String sql2="insert into review(review_num,rating,location,date,content,file) values (?,?,?,?,?,?now())";
+			String sql2="insert into review(mem_num,review_num,rating,location,content,file,date) values (?,?,?,?,?,?,?now())";
 			psm = con.prepareStatement(sql2);
-			psm.setInt(1, rb.getReview_num());
-			psm.setInt(2, rb.getRating());
-			psm.setString(3, rb.getLocation());
-			psm.setDate(3, rb.getDate());
+			psm.setInt(1, rb.getMem_num());
+			psm.setInt(2, rb.getReview_num());
+			psm.setInt(3, rb.getRating());
+			psm.setString(4, rb.getLocation());
 			psm.setString(5, rb.getContent());
 			psm.setString(6, rb.getFile());
-			psm.setInt(10,0);
+			psm.setInt(7,0);
 	
 			psm.executeUpdate();
 

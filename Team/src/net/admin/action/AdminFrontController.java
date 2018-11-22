@@ -48,6 +48,13 @@ public class AdminFrontController extends HttpServlet{
 			forward.setRedirect(false);
 			forward.setPath("./admin/menuForm.jsp");
 		}
+		else if(command.equals("/MenuAddAction.ad"))
+		{
+			action = new MenuAddAction(); 
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}			
+		}
 		else if(command.equals("/NewsAdd.ad")){
 			forward = new ActionForward();
 			forward.setRedirect(false);

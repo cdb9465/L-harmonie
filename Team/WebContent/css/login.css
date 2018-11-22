@@ -18,7 +18,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			}
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+.container>input[type=text],.container>input[type=password] {
 	font-size:15px;
     width: 100%;
     margin: 0;
@@ -30,39 +30,24 @@ input[type=text], input[type=password] {
 }
 
 /* text창 눌렀을때 */
-input[type=text]:focus, input[type=password]:focus {
+.container>input[type=text]:focus, .container>input[type=password]:focus {
     background-color: #fff;
     outline: none;
     
 }
-
-/* Set a style for all buttons */
-button {
-
-    background-color: #000;
-    color: #fff;/* 버튼글자 */
-    padding: 14px 20px;
-    border: none;
-    cursor: pointer;/* 마우스올렸을때 */
-    width: 100%;
-}
-
-button:hover {
-    opacity:1;
-    
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-    padding: 14px 20px;
-    background-color: #f44336;
-}
-
-/* Float cancel and signup buttons and add an equal width */
+/* 버튼공통 */
 .cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
-}
+	padding: 14px 20px;
+	border:none;
+	font-weight: bold;
+	float: left;
+	width: 50%; }
+/* 로그인버튼 */
+.signupbtn{background-color: #3b3b3b;}
+.signupbtn:HOVER{background-color: #000;color:#eee;}
+/* 취소버튼 */
+.cancelbtn {background-color: #f44336;}
+.cancelbtn:HOVER{background-color: #c1180b;color:#eee;}
 
 /* Add padding to container elements */
 .container {
@@ -94,11 +79,6 @@ button:hover {
 	
 }
 
-/* Style the horizontal ruler */
-hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-}
  
 /* The Close Button (x) */
 .close {
@@ -122,20 +102,14 @@ hr {
     content: "";
     clear: both;
 }
+/* 아이디비번 입력영역 */
 #login_btm{color: #231f20;
 			height: 30px;
 			margin-top: 10px;
 			text-align: right; }
 #login_btm a{color: #333; text-decoration: none;
 			padding: 5px;}
-#join{font-weight: bold;}
-.clearfix input[type=button]{border: 1px solid; 
-			background-color: rgba(0,0,0,0.8);
-			color:#fff; width:100%; height: 45px;
-			
-			 }
-
-.clearfix button[type=submit]{background-color: #333;}
-
-
+/* 회원가입 링크 두껍게 */
+#joinlink{font-weight: bold;}
+#joinlink:HOVER { color: #800000;}
 

@@ -3,12 +3,21 @@ package net.review.db;
 import java.sql.Date;
 
 public class ReviewBean {
-	 private int review_num;
+	private int mem_num;
+	private int review_num;
 	  private String content;
 	  private int rating;
 	  private Date date;
 	  private String file;
 	  private String location;
+	  
+	  
+	  public int getMem_num() {
+			return mem_num;
+		}
+		public void setMem_num(int mem_num) {
+			this.mem_num = mem_num;
+		}
 	public int getReview_num() {
 		return review_num;
 	}

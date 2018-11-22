@@ -135,9 +135,10 @@
   <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br>
   <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없습니다<br>
   <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있습니다<br>
-  <input type="text" id="detail" placeholder="구체적으로" size=30><br>
+  <input type="text" id="detail" placeholder="구체적으로" size="30"><br>
   <label>특별 요청</label>
-  <textarea cols="80" rows="10" name="request"></textarea>
+  <textarea cols="80" rows="10" name="special"></textarea>
+   <input type="hidden" name="request">
  </div> 
 </div>
 </div>
@@ -169,12 +170,8 @@
    <!-- <td>t7번</td> -->
   </tr>
   <tr>
-   <td>알러지여부</td>
+   <td>요청사항</td>
    <!-- <td>없음</td> -->
-  </tr>
-  <tr>
-   <td>특별요청사항</td>
-   <!-- <td>맛있게 만들어 주세요</td> -->
   </tr>
 
  </table>
