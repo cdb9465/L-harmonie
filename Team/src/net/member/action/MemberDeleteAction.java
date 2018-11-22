@@ -35,7 +35,7 @@ public class MemberDeleteAction  implements Action {
 				//main으로 이동
 				ActionForward forward=new ActionForward();
 				forward.setRedirect(true);
-				forward.setPath("./Main.me");
+				forward.setPath("./Main.ma");
 				return forward;
 				
 			// 변수==0 비밀번호틀림 뒤로이동
