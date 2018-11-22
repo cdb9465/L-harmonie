@@ -39,7 +39,9 @@ if(sess==null){%>
 <%
 //세션값이 있으면
 }else{ %>
-<%=mb.getName() %> 로그인 중
+<%=mb.getName() %> 로그인 중 
+
+<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
 <%} %>
 </div>
 

@@ -66,12 +66,7 @@ public class MemberFrontController extends HttpServlet{
 				}catch(Exception e){
 					e.printStackTrace();
 				}
-				//마이페이지 이동
-			}else if(command.equals("/Mypage.me")){
-				forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("./mypage/mypage.jsp");
-				//로그인 제어
+				//로그인하기
 			}else if(command.equals("/MemberLogin.me")){	
 				action = new MemberLoginAction();
 				try{
@@ -80,6 +75,35 @@ public class MemberFrontController extends HttpServlet{
 					e.printStackTrace();
 				}
 				//마이페이지 이동
+			}else if(command.equals("/MemberLogout.me")){	
+				action = new MemberLogoutAction();
+				try{
+					forward = action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+				//마이페이지 이동
+			}else if(command.equals("/Mypage.me")){
+				action = new MemberMypageAction();
+				try{
+					forward = action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}else if(command.equals("/MemberUpdate.me")){
+				action = new MemberUpdateAction();
+				try{
+					forward = action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}else if(command.equals("/MemberDelete.me")){
+				action = new MemberDeleteAction();
+				try{
+					forward = action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
 			}
 /*				
 			else if(command.equals("/MemberLogin.me")){

@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.review.db.ReviewBean;
+
 public class MemberDAO {
 	
 	
@@ -297,7 +299,40 @@ public class MemberDAO {
 		   return re;
 		 }//end checkEmail()
 	
-	
+	public List getMyReviewList(int mem_num){
+		List myReviewList=new ArrayList();
+
+		try {
+			//1,2 디비연결
+			con=getConnection();
+			//3 sql
+			String sql="select * from review where mem_num=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,mem_num);
+			//4 rs 실행 저장
+			rs=pstmt.executeQuery();
+			//5 rs데이터 있으면 자바빈 객체 생성 gBean
+			//  rs => 자바빈 멤버변수 저장 => goodsList 한칸 저장
+			while(rs.next()){
+				ReviewBean rb=new ReviewBean();
+				 rb.setReview_num(rs.getInt("review_num"));
+				 rb.setContent(rs.getString("content"));
+				 rb.setRating(rs.getInt("rating"));
+				 rb.setDate(rs.getDate("date"));
+				 rb.setFile(rs.getString("content"));
+				 rb.setLocation(rs.getString("location"));
+				//자바빈 => 배열 한칸 저장
+				myReviewList.add(rb);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+		return myReviewList;
+	}
 }//클래스
 
 
