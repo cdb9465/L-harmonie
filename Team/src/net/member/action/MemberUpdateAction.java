@@ -32,13 +32,12 @@ public class MemberUpdateAction implements Action {
 		String name=request.getParameter("name");
 		String phone=request.getParameter("phone");
 		String birth=request.getParameter("birth");
-			System.out.println(email+pass+name+phone+birth);
+
 		
 		mb.setEmail(email);
 		mb.setPass(pass);
 		mb.setName(name);
 		mb.setPhone(phone);
-		mb.setBirth(birth);
 
 		
 		

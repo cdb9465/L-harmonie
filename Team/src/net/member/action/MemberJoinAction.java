@@ -18,8 +18,6 @@ public class MemberJoinAction implements Action{
 			String pass = request.getParameter("pass");
 			String name = request.getParameter("name");
 			String phone = request.getParameter("phone");
-			String birth = request.getParameter("birth");
-
 				// 자바빈 - 패키지 member 파일이름 MemberBean (MemberDAO)
 			
 				// 멤버변수 정의 set get메서드 준비
@@ -32,7 +30,6 @@ public class MemberJoinAction implements Action{
 			mb.setPass(pass);
 			mb.setName(name);
 			mb.setPhone(phone);
-			mb.setBirth(birth);
 
 				// MemberDAO  mdao 객체생성
 			MemberDAO mdao=new MemberDAO();
