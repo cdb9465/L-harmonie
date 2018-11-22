@@ -36,7 +36,7 @@ public class MemberLoginAction implements Action {
 			session.setAttribute("email", email);
 			//main으로 이동
 			ActionForward forward=new ActionForward();
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("./Main.ma");
 			return forward;
 			

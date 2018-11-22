@@ -39,7 +39,10 @@ if(sess==null){%>
 <%
 //세션값이 있으면
 }else{ %>
-<%=mb.getName() %> 로그인 중
+<%=mb.getName() %> 로그인 중 
+
+<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
+<a href="./Mypage.me">MyPage</a>
 <%} %>
 </div>
 
@@ -50,7 +53,7 @@ if(sess==null){%>
 
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form action="./MemberLogin.me" class="modal-content" >
+  <form action="./MemberLogin.me" class="modal-content">
   <div id="login_top">LOGIN</div>
     <div class="container">
 

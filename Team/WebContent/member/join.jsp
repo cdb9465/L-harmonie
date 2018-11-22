@@ -22,7 +22,6 @@
 	var repassck = false;
 	var nameck = false;
 	var phoneck = false;
-	var birthck = false;
 	var boxck1 = false;
 	var boxck2 = false;
 
@@ -31,7 +30,7 @@
  function checkJoin(){
 		//조건에 맞으면
 		if(emailck == true && passck == true && repassck == true && nameck == true 
-			&& phoneck == true && birthck == true && boxck1 == true && boxck2 == true){
+			&& phoneck == true && boxck1 == true && boxck2 == true){
 			// 버튼 활성화
 			$(".joinbtn").prop("disabled", false);
 	        $(".joinbtn").css("background-color", "#000");
@@ -149,20 +148,7 @@
 	    }
 	}
 
-/* 생일제어 입력안하거나 입력하면 4자리 */
-	function checkBirth(){
-		if(document.fr1.birth.value.length==0||document.fr1.birth.value.length==4){	
-			document.getElementById('checkBirth').innerHTML = "<p></p>";
-			birthck = true;
-			checkJoin();
 
-		}else {
-			document.getElementById('checkBirth').style.color = "#800000";
-			document.getElementById('checkBirth').innerHTML = "<p>생일 4자리를 입력해주세요.</p>";
-			birthck = false;
-			checkJoin();
-		}
-	}
 /* 체크박스 확인 */
 $(document).ready(function(){
     $("#ckbox1").change(function(){
@@ -253,14 +239,7 @@ $(document).ready(function(){
 								<span id="checkPhone"></span>
 							</td>
 				</tr>
-				<tr>
-					<th>
-							<i class='far fa-calendar-alt' style='font-size: 24px'></i>선택</th>
-							<td> <input
-								type="text" name="birth" placeholder="생월일 ex)0620" maxlength="4"
-								style="ime-mode:disabled;" onkeyup="checkBirth()" onkeypress="return digit_check(event)">
-								<span id="checkBirth"></span>
-								</td>
+
 				</table>
 
 				<div id="access">
