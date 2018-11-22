@@ -67,6 +67,12 @@ public class AdminFrontController extends HttpServlet{
 				forward = action.execute(request, response);
 			}catch(Exception e){e.printStackTrace();}			
 		}
+		else if(command.equals("/AboutUs.ad"))
+		{
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./store/aboutUs.jsp");
+		}
 		
 		
 		//이동

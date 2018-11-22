@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="../css/default.css" rel="stylesheet">
-<link href="../css/aboutUs.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<link href="./css/aboutUs.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
