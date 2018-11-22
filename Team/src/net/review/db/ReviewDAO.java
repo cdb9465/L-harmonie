@@ -12,11 +12,7 @@ import java.util.List;
 
 import net.review.db.ReviewBean;
 
-
-
 public class ReviewDAO {
-	
-	
 	
 	private Connection getConnection()  throws Exception{
 		Connection con= null;//드라이버 불러오기
@@ -27,10 +23,59 @@ public class ReviewDAO {
 		String dbPass = "jsppass";
 		con = DriverManager.getConnection(dbUrl,dbId,dbPass);
 		return con;	
-	}
-	
+	}	
+	public void insertReview(ReviewBean rb)
+	{
+		Connection con = null;
+		PreparedStatement psm = null;
+		ResultSet rs = null;
+		int mnum =0;
+		try
+		{
+			con = getConnection();
+			
+			String sql = "select max(review_num) from review" ;
+			psm = con.prepareStatement(sql);
+			rs = psm.executeQuery();
+			
+			if(rs.next())
+			{
+				mnum = rs.getInt(1)+1;
+			}else{
+				mnum=1;
+			}
+			
 
-	public void updateReadCount(int num)
+			 sql="insert into review(review_num,mem_num,rating,location,content,file,date) values (?,?,?,?,?,?,now())";
+			psm = con.prepareStatement(sql);
+			psm.setInt(1, mnum);
+			psm.setInt(2, rb.getMem_num());
+			psm.setInt(3, rb.getRating());
+			psm.setString(4, rb.getLocation());
+			psm.setString(5, rb.getContent());
+			psm.setString(6, rb.getFile());
+	
+			psm.executeUpdate();
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(psm!=null)		
+				try	{	psm.close();	}	catch(SQLException ex)	{}
+			if(con!=null)		
+				try	{	con.close();	}	catch(SQLException ex)	{}
+			if(rs!=null)		
+				try	{	rs.close();	}	catch(SQLException ex)	{}
+
+		}
+	}
+
+	
+	public void updateReadCount(int review_num)
 	{
 		Connection con = null;
 		PreparedStatement psm = null;
@@ -38,9 +83,9 @@ public class ReviewDAO {
 		try
 		{
 			con = getConnection();
-			String sql = "update review set readcount=readcount+1 where num=?";
+			String sql = "update review set readcount=readcount+1 where review_num=?";
 			psm= con.prepareStatement(sql);
-			psm.setInt(1, num);
+			psm.setInt(1, review_num);
 			psm.executeUpdate();
 		}
 		catch(Exception e)
@@ -97,7 +142,7 @@ public class ReviewDAO {
 	}
 
 
-	public ReviewBean getReview(int num)
+	public ReviewBean getReview(int review_num)
 	{
 		Connection con = null;
 		PreparedStatement psm = null;
@@ -106,9 +151,9 @@ public class ReviewDAO {
 		try
 		{
 			con=getConnection();
-			String sql = "select * from review where num=?";
+			String sql = "select * from review where review_num=?";
 			psm= con.prepareStatement(sql);
-			psm.setInt(1, num);
+			psm.setInt(1, review_num);
 			rs = psm.executeQuery();
 			
 			while(rs.next())
@@ -141,16 +186,16 @@ public class ReviewDAO {
 	}
 
 	
-	public void deleteReview(int num)
+	public void deleteReview(int review_num)
 	{
 		Connection con = null;
 		PreparedStatement psm = null;
 		try
 		{
 			con = getConnection();
-			String sql = "delete from review where num=?";
+			String sql = "delete from review where review_num=?";
 			psm = con.prepareStatement(sql);
-			psm.setInt(1, num);
+			psm.setInt(1, review_num);
 			psm.executeUpdate();
 			
 		}
@@ -169,7 +214,7 @@ public class ReviewDAO {
 	}
 
 
-	public int passCheck(int num, String ppass)
+	public int passCheck(int mem_num, String ppass)
 	{
 		Connection con = null;
 		PreparedStatement psm = null;
@@ -179,9 +224,9 @@ public class ReviewDAO {
 		{
 			con = getConnection();
 			
-			String sql = "select pass from review where num=?";
+			String sql = "select pass from review where mem_num=?";
 			psm= con.prepareStatement(sql);
-			psm.setInt(1,num);
+			psm.setInt(1,mem_num);
 			rs=psm.executeQuery();
 			if(rs.next())
 			{
@@ -209,22 +254,24 @@ public class ReviewDAO {
 	}
 
 	
-	public List getReviewList(){
-		List reviewList=new ArrayList();
+	public List<ReviewBean> getReviewList(int startRow,int pageSize){
+		
+		
 		Connection con=null;
 		PreparedStatement pstmt=null;
-		String sql="";
 		ResultSet rs=null;
+		ArrayList<ReviewBean> reviewList=new ArrayList<ReviewBean>();
 		try {
 			//1,2 디비연결
 			con=getConnection();
 			//3 sql
-			sql="select * from review";
+			
+			 String sql="select * from review limit ?,?";
 			pstmt=con.prepareStatement(sql);
-			//4 rs 실행 저장
+			pstmt.setInt(1, startRow-1);
+			pstmt.setInt(2, pageSize);
 			rs=pstmt.executeQuery();
-			//5 rs데이터 있으면 자바빈 객체 생성 gBean
-			//  rs => 자바빈 멤버변수 저장 => goodsList 한칸 저장
+			
 			while(rs.next()){
 				ReviewBean rb=new ReviewBean();
 				rb.setMem_num(rs.getInt("mem_num"));
@@ -247,52 +294,5 @@ public class ReviewDAO {
 		return reviewList;
 	}
 
-	public void insertReview(ReviewBean rb)
-	{
-		Connection con = null;
-		PreparedStatement psm = null;
-		ResultSet rs = null;
-		int mnum =0;
-		try
-		{
-			con = getConnection();
-			
-			String sql = "select max(num) from review;" ;
-			psm = con.prepareStatement(sql);
-			rs = psm.executeQuery();
-			
-			if(rs.next())
-			{
-				mnum = rs.getInt("max(num)")+1;
-			}
-			
 
-			String sql2="insert into review(mem_num,review_num,rating,location,content,file,date) values (?,?,?,?,?,?,?now())";
-			psm = con.prepareStatement(sql2);
-			psm.setInt(1, rb.getMem_num());
-			psm.setInt(2, rb.getReview_num());
-			psm.setInt(3, rb.getRating());
-			psm.setString(4, rb.getLocation());
-			psm.setString(5, rb.getContent());
-			psm.setString(6, rb.getFile());
-			psm.setInt(7,0);
-	
-			psm.executeUpdate();
-
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			if(psm!=null)		
-				try	{	psm.close();	}	catch(SQLException ex)	{}
-			if(con!=null)		
-				try	{	con.close();	}	catch(SQLException ex)	{}
-			if(rs!=null)		
-				try	{	rs.close();	}	catch(SQLException ex)	{}
-
-		}
-	}
 }

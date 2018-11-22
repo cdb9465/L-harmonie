@@ -22,15 +22,13 @@
 String pageNum=(String)request.getAttribute("pageNum");
 List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("ReviewList");
 int pageCount=((Integer)request.getAttribute("pageCount")).intValue();
+int count=((Integer)request.getAttribute("count")).intValue();
 int pageBlock=((Integer)request.getAttribute("pageBlock")).intValue();
 int startPage=((Integer)request.getAttribute("startPage")).intValue();
 int endPage=((Integer)request.getAttribute("endPage")).intValue();
 %>
 
-<%
-    for(int i=0;i<ReviewList.size();i++){
-    	ReviewBean rb=ReviewList.get(i);
-    	%>
+
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="./../inc/top.jsp"></jsp:include>
 <div class="clear"></div>
@@ -61,13 +59,17 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 <!-- 썸네일 이미지 목록 -->
  <div class="row">
   <div class="column">
-   <img class="demo cursor active" src="seafood.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
+  <%
+    for(int i=0;i<ReviewList.size();i++){
+    	ReviewBean rb=ReviewList.get(i);
+    	%>
+   <img class="demo cursor active" src="./review/upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(1)" alt="">
   </div>
   <div class="column">
-   <img class="demo cursor active" src="salmon_steak.jpg" style= "width:100%" onclick="currentSlide(2)" alt="">
+   <img class="demo cursor active" src="./review/upload/<%=rb.getFile().split(",")[1] %>" style= "width:100%" onclick="currentSlide(2)" alt="">
   </div>  
   <div class="column">
-   <img class="demo cursor active" src="chicken_steak.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
+   <img class="demo cursor active" src="./review/upload/<%=rb.getFile().split(",")[2] %>" style="width:100%" onclick="currentSlide(3)" alt="">
   </div>
  </div>
  <!-- 썸네일 이미지 목록 끝 --> 
@@ -77,13 +79,13 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
   <a class="prev" onclick="plusSlides(-1)">❮</a>
   <a class="next" onclick="plusSlides(1)">❯</a>
   <div class="mySlides">
-   <img alt="첨부사진" src="seafood.jpg"  onclick="currentSlide(1)">
+   <img alt="첨부사진" src="./review/upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(1)">
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="salmon_steak.jpg" onclick="currentSlide(2)">
+   <img alt="첨부사진" src="./review/upload/<%=rb.getFile().split(",")[1] %>" onclick="currentSlide(2)">
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="chicken_steak.jpg" onclick="currentSlide(3)">
+   <img alt="첨부사진" src="./review/upload/<%=rb.getFile().split(",")[2] %>" onclick="currentSlide(3)">
   </div>
  </div>
  <!-- 사진펼침 끝 -->
@@ -99,11 +101,12 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
  
  <div class="clear"></div>
  
-
- <div class="name"> <p><%=rb.getReview_num()%></p> </div>
+<div class="email"> <p><%=rb.getReview_num()%></p> </div>
+ <div class="name"> <p><%=rb.getMem_num()%></p> </div>
  <div class="date"> <p><%=rb.getDate() %></p> </div>
  
  <div class="rating">
+ <p><%=rb.getRating() %></p>
   <i class="fa fa-star"></i>
   <i class="fa fa-star"></i>
   <i class="fa fa-star"></i>
@@ -120,7 +123,6 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
  <div class="like">
   <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart" id=heart style="color:red"></i> <p>좋아요</p> </button>
  </div>
- <input type="button"value="글수정" id="udate" onclick="location='review_re.jsp'">
   <input type="button"value="글삭제" id="ddate" onclick="delete22()">
      <script type="text/javascript">
      function delete22(){

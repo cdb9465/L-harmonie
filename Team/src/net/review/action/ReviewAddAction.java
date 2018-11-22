@@ -12,7 +12,7 @@ public class ReviewAddAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ActionForward execute");
+		System.out.println("ReviewAddAction execute");
 		
 		ServletContext context=request.getServletContext(); 
 		
@@ -21,20 +21,20 @@ public class ReviewAddAction implements Action{
   		MultipartRequest multi=new MultipartRequest(request, realPath,maxSize,"utf-8",new DefaultFileRenamePolicy()); 
   		
   		ReviewBean rb=new ReviewBean();
-  		
+  		rb.setMem_num(Integer.parseInt(multi.getParameter("mem_num")));
   		rb.setContent(multi.getParameter("content")); 
   		String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file2")+","+multi.getFilesystemName("file3"); 
   		rb.setFile(file); 
-  		rb.setLocation(multi.getParameter("location")); 
+  		rb.setLocation(multi.getParameter("sel_location")); 
   		rb.setRating(Integer.parseInt(multi.getParameter("rating")));
-  		rb.setReview_num(Integer.parseInt(multi.getParameter("review_num")));
   		
-  		System.out.println(realPath); 
-   		System.out.println(file); 
+  		
+   		
    		
    		ReviewDAO rd=new ReviewDAO(); 
   		rd.insertReview(rb); 
-  		
+  		System.out.println(realPath); 
+   		System.out.println(file); 
   		ActionForward forward=new ActionForward(); 
   		forward.setRedirect(true); 
   		forward.setPath("./ReviewList.re"); 
