@@ -1,7 +1,6 @@
 package net.admin.db;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +8,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.sql.Date;
 import java.util.List;
 
 import net.book.db.BookBean;
@@ -29,7 +29,7 @@ public class AdminDAO {
 		return con;	
 	}
 	
-	public List getBookList(){
+	public List getBookList(String location, String date){
 		List bookList = new ArrayList();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -43,9 +43,17 @@ public class AdminDAO {
 			con = getConnection();
 			
 			//sql
-			sql = "select * from book where Date=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, sdf.format(cal.getTime()));
+			if(location == "전체" || date == sdf.format(cal.getTime())){
+				sql = "select * from book where Date=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, sdf.format(cal.getTime()));
+			}
+			else{
+				sql = "select * from book where location=? and Date=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1,location);
+				pstmt.setString(2, date);
+			}
 			
 			//rs 실행 저장
 			rs = pstmt.executeQuery();

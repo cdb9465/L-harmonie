@@ -1,5 +1,8 @@
 package net.admin.action;
 
+import java.text.SimpleDateFormat;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +17,18 @@ public class BookListAction implements Action{
 
 		System.out.println("BookListAction execute()");
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar cal=Calendar.getInstance();
+		
+		String location = request.getParameter("location");
+		if(location==null)location="전체";
+		
+		String date = (String)request.getParameter("date");
+		if(date==null) date = sdf.format(cal.getTime());
+		
 		//getBookList() 함수호출
 		AdminDAO adao = new AdminDAO();
-		List bookList = adao.getBookList();
+		List bookList = adao.getBookList(location, date);
 		
 		//저장
 		request.setAttribute("bookList", bookList);
