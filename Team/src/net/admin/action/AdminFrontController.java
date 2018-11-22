@@ -60,6 +60,13 @@ public class AdminFrontController extends HttpServlet{
 			forward.setRedirect(false);
 			forward.setPath("./admin/newsForm.jsp");
 		}
+		else if(command.equals("/NewsAddAction.ad"))
+		{
+			action = new NewsAddAction();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}			
+		}
 		
 		
 		//이동
