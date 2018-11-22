@@ -232,13 +232,6 @@ MemberBean mb = (MemberBean)request.getAttribute("mb");
 										<span id="checkPhone"></span>	
 										</td>
 				</tr>
-				<tr>
-						<td><i class='far fa-calendar-alt' style='font-size:24px'></i></td>
-						<th>생년월일 : </th><td><input type="text" name="birth" value="<%=mb.getBirth() %>" size="35" maxlength="4"
-												style="ime-mode:disabled;" onkeyup="checkBirth()" onkeypress="return digit_check(event)">
-										<span id="checkBirth"></span>
-										</td>
-				</tr>	
 
 				<tr><td id="button_area"></td><td><input type="button" id="mem_update" class="mem_update" value="정보수정" disabled="disabled" onclick="Action(1)"></td>
 					<td><input type="button" id="mem_delete" class="mem_delete" value="회원탈퇴" disabled="disabled" onclick="Action(2)">
