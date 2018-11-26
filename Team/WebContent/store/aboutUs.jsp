@@ -60,6 +60,16 @@
 
 <!-- 본문 -->
 <div class="main_box" id="main0">
+ <div class="main0_txt">
+  더하고, 채우고, 나누는
+  <br>
+   맛있는 열정을 만나다
+ </div>
+ 
+ <a href="#main1" class="arrow">
+   <img src="./images/arrow.png">
+   <img src="./images/dot.png" class="dot">
+</a>
 
 </div>
 <!-- 첫번째 메인 끝 -->
