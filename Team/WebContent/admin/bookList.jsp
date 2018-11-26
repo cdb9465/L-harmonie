@@ -24,7 +24,6 @@ $(document).ready(function(){
 	
 	//datepicker 
  	$(function () {
- 		
  			
 		$("#datepicker").datepicker({
 			showMonthAfterYear: true, //연도와 달 위치 변경
@@ -39,7 +38,7 @@ $(document).ready(function(){
  			
 		});
 		
-		$("#datepicker").datepicker("setDate", new Date());
+		//$("#datepicker").datepicker("setDate", );
 		
 		
 		$('.ui-datepicker').css({
@@ -78,7 +77,7 @@ $(document).ready(function(){
   <option value="부산서면점" <%=location.equals("부산서면점")?"selected":""%>>부산서면점</option>
  </select>
 <span>조회 일자</span>
- <input type="text" name="date" id="datepicker" class="dateBox" >
+ <input type="text" name="date" id="datepicker" class="dateBox" value=<%=date %>>
 </div>
 
 <div class="mpcount">전체 <%=bookList.size()%>건</div>
