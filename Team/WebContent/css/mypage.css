@@ -1,5 +1,6 @@
 @CHARSET "UTF-8";
-
+/* 공통 */
+/* input[type=button]:HOVER{cursor: pointer;} */
 /* 상단제목 */
 h1{ margin:0;
 	padding-top:110px;
@@ -12,8 +13,9 @@ h1{ margin:0;
 	height:100%;
 	width:100%;
 	background-repeat: no-repeat;
-	background-size: 100%;
-	background-attachment:fixed;}
+	background-attachment:fixed;
+	background-size: cover;
+  }
 #sec1_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");}
 #sec2_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback2.jpg");}
 #sec3_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback3.jpg");}
@@ -36,7 +38,7 @@ h1{ margin:0;
 #modify td{padding: 15px 0;}
 #modify th{padding: 0;}
 #button_area{padding-top: 50px;}
-#modify input[type=text], input[type=password]{
+#modify input[type=text],#modify input[type=password]{
 		background-color:rgba(0, 0, 0, 0);
 		border:none;
 		border-bottom:1px solid #000;
@@ -52,25 +54,25 @@ h1{ margin:0;
 
 /* 수정, 탈퇴 버튼 */
 #mem_delete{
-	background-color:rgba(0, 0, 0, 0);
+	/* background-color:rgba(0, 0, 0, 0); */
 	padding:10px 20px;
-	color: #000;
+	color: #bcbcbc;
 	font-weight:bold;
-	border: 2px solid #000;
+	border: none;
 	border-radius:5px;
 	margin-left: 80px;
 	}
 #mem_update{
-	background-color:#000;
+	/* background-color:#000; */
 	padding:10px 20px;
-	color: #eee;
+	color: #bcbcbc;
 	font-weight:bold;
-	border: 2px solid #000;
+	border: none;
 	border-radius:5px;
 	margin-left: 60px;
 }
-#mem_update:HOVER{color:#000;background-color:rgba(0, 0, 0, 0);}
-#mem_delete:HOVER{border: 2px solid #800000;}
+/* #mem_update:HOVER{color:#000;background-color:rgba(0, 0, 0, 0);}
+#mem_delete:HOVER{border: 2px solid #800000;} */
 
 /* ---------------------------------mybook--------------------------------------------- */
 /* 예약기간지정 */
@@ -87,9 +89,9 @@ h1{ margin:0;
 		float: right;
 		margin:100px 120px 0 0;}
 /* 예약조회 테이블 위치/사이즈 */
-#mybook table th{width: 120px; padding: 20px 0; font-size: 16px;
+#mybook table th{width: 140px; padding: 20px 0; font-size: 16px;
 				background-color:rgba(0, 0, 0, 0.9); color: #eee; }
-#mybook table th.ps{width: 500px; border: none;}
+#mybook table th.ps{width: 400px; border: none;}
 #mybook table.mybook_tbl{
 	margin:10px auto;
 	border-collapse:collapse;
@@ -97,11 +99,23 @@ h1{ margin:0;
 	border-bottom: 2.5px solid #000;
 	}
 #mybook table tr.ttl{border-bottom: 1px solid #000;}
-#mybook table td{text-align: center; padding:5px 0;
-				border-bottom: 1px solid #000;}
+#mybook table td{text-align: center; padding:12px 0;
+				border-bottom: 1px solid #000;
+				}
+.bookdetail{color:#800000;
+			font-size: 1.1em;
+			text-decoration: none;
+			}
+.bookdetail:HOVER{color: #eee;}
+#mybook table td input[type=button]{background-color:rgba(0, 0, 0, 0);
+	padding:4px 8px;
+	color: #000;
+	font-weight:bold; 
+	border: none;}
+#mybook table td input[type=button]:HOVER{color: #800000;}
 /* ---------------------------------myreview--------------------------------------------- */
 
-/* 예약조회 테이블 위치/사이즈 */
+/* 리뷰조회 테이블 위치/사이즈 */
 #myreview table th{width: 120px; padding: 20px 0; font-size: 16px;
 				background-color:rgba(0, 0, 0, 0.9); color: #eee; }
 #myreview table th.ps{width: 500px; border: none;}
@@ -112,5 +126,11 @@ h1{ margin:0;
 	border-bottom: 2.5px solid #000;
 	}
 #myreview table tr.ttl{border-bottom: 1px solid #000;}
-#myreview table td{text-align: center; padding:10px 0;
+#myreview table td{text-align: center; padding:12px 0;
 				border-bottom: 1px solid #000;}
+.reviewdetail{color:#800000;
+			font-size: 1.1em;
+			text-decoration: none;
+			padding: 2px 20px;
+			}
+.reviewdetail:HOVER{color: #eee;}

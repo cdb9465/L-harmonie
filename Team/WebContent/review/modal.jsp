@@ -10,11 +10,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <link href="css/default.css" rel="stylesheet">
-<link href="modal.css" rel="stylesheet" type="text/css">
+  <link href="./css/default.css" rel="stylesheet">
+<link href="./css/review_write.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
+<%
+Integer mem_num = (Integer)session.getAttribute("mem_num");
+%>
 <div class="container">
   <h2>Modal Example</h2>
   <!-- Button to Open the Modal -->
@@ -38,31 +41,32 @@
         <div class="modal-body">
 <table border="1">
 
-<form action="review.jsp" method="post" name="fr">
- <div class="write_location">
+<form action="./ReviewAddAction.re" method="post" enctype="multipart/form-data">
+ <div class="write_location"  >
  <tr><th><div class="title">지점선택</div></th>
  <td colspan="3">
   <select name="sel_location">
-   <option value="gangnam">서울강남점</option>
-   <option value="seomyeon">부산서면점</option>
+  <option value="선택">선택</option>
+   <option value="서울강남점">서울강남점</option>
+   <option value="부산서면점">부산서면점</option>
   </select></td></tr>
  </div>
  <div class="clear"></div>
-
- <div class="write_rating">
+<tr><th><div class="title">작성자</div></th><td><input type="text" name="mem_num" value="<%=1 %>" readonly></td></tr>
+ <div class="write_rating" >
  <tr><th>  <div class="title">별점</div></th>
  <td colspan="3">
  <span class="star-input">
-	<span class="input">
-    	<input type="radio" name="star-input" value="1" id="p1">
+	<span class="input" >
+    	<input type="radio" class="star-input" value="1" id="p1" name="rating">
     	<label for="p1">1</label>
-    	<input type="radio" name="star-input" value="2" id="p2">
+    	<input type="radio" class="star-input" value="2" id="p2" name="rating">
     	<label for="p2">2</label>
-    	<input type="radio" name="star-input" value="3" id="p3">
+    	<input type="radio" class="star-input" value="3" id="p3" name="rating">
     	<label for="p3">3</label>
-    	<input type="radio" name="star-input" value="4" id="p4">
+    	<input type="radio" class="star-input" value="4" id="p4" name="rating">
     	<label for="p4">4</label>
-    	<input type="radio" name="star-input" value="5" id="p5">
+    	<input type="radio" class="star-input" value="5" id="p5" name="rating">
     	<label for="p5">5</label>
     	</span>
     	<output for="star-input"><b>0</b>점</output>	
@@ -70,16 +74,18 @@
 </span></td></tr>
 
 
-<script src="../js/jquery-1.11.3.min.js"></script>
-<script src="../js/star.js"></script>
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script src="./js/star.js"></script>
  </div> 
  <div class="clear"></div>
  <tr><th>사진선택</th><td colspan="3">
- <input type="file" name="file1"/>
- <input type="file" name="file2"/>
- <input type="file" name="file3"/></td></tr>
+ <input type="file" name="file1" required/>
+ <input type="file" name="file2" required/>
+ <input type="file" name="file3" required/></td></tr>
  <div class="write_content">
- <tr><th> <div class="title">리뷰</div></th><td> <textarea placeholder="리뷰를 작성해주세요"></textarea></td></tr>
+ <tr><th> <div class="title">리뷰</div></th><td>
+  <input type="text" name="content"  autofocus required>
+  </td></tr>
  
   <div class="clear"></div>
  
@@ -89,14 +95,10 @@
 
 
 </table>
-        
-        
         <!-- Modal footer -->
         <div class="modal-footer">
 
          <button type="submit">리뷰등록</button>
-         
-          <button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
         </div>
         </form>
         </div>

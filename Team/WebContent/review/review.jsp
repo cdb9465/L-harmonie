@@ -1,22 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="java.util.List"%>
+    <%@page import="net.review.db.ReviewDAO"%>
+    <%@page import="net.review.db.ReviewBean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Review Board</title>
-<link href="../css/default.css" rel="stylesheet">
-<link href="../css/review.css" rel="stylesheet" type="text/css">
+<link href="./css/default.css" rel="stylesheet">
+<link href="./css/review.css" rel="stylesheet" type="text/css">
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
 
+
+<%
+String pageNum=(String)request.getAttribute("pageNum");
+List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("ReviewList");
+int pageCount=((Integer)request.getAttribute("pageCount")).intValue();
+int count=((Integer)request.getAttribute("count")).intValue();
+int pageBlock=((Integer)request.getAttribute("pageBlock")).intValue();
+int startPage=((Integer)request.getAttribute("startPage")).intValue();
+int endPage=((Integer)request.getAttribute("endPage")).intValue();
+%>
+
+
 <!-- 헤더파일들어가는 곳 -->
-<jsp:include page="../inc/top.jsp"></jsp:include>
+<jsp:include page="./../inc/top.jsp"></jsp:include>
 <div class="clear"></div>
 <!-- 헤더파일들어가는 곳 -->
 <div id="wraap">
@@ -45,13 +59,17 @@
 <!-- 썸네일 이미지 목록 -->
  <div class="row">
   <div class="column">
-   <img class="demo cursor active" src="seafood.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
+  <%
+    for(int i=0;i<ReviewList.size();i++){
+    	ReviewBean rb=ReviewList.get(i);
+    	%>
+   <img class="demo cursor active" src="./review/upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(1)" alt="">
   </div>
   <div class="column">
-   <img class="demo cursor active" src="salmon_steak.jpg" style= "width:100%" onclick="currentSlide(2)" alt="">
+   <img class="demo cursor active" src="./review/upload/<%=rb.getFile().split(",")[1] %>" style= "width:100%" onclick="currentSlide(2)" alt="">
   </div>  
   <div class="column">
-   <img class="demo cursor active" src="chicken_steak.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
+   <img class="demo cursor active" src="./review/upload/<%=rb.getFile().split(",")[2] %>" style="width:100%" onclick="currentSlide(3)" alt="">
   </div>
  </div>
  <!-- 썸네일 이미지 목록 끝 --> 
@@ -61,13 +79,13 @@
   <a class="prev" onclick="plusSlides(-1)">❮</a>
   <a class="next" onclick="plusSlides(1)">❯</a>
   <div class="mySlides">
-   <img alt="첨부사진" src="seafood.jpg"  onclick="currentSlide(1)">
+   <img alt="첨부사진" src="./review/upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(1)">
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="salmon_steak.jpg" onclick="currentSlide(2)">
+   <img alt="첨부사진" src="./review/upload/<%=rb.getFile().split(",")[1] %>" onclick="currentSlide(2)">
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="chicken_steak.jpg" onclick="currentSlide(3)">
+   <img alt="첨부사진" src="./review/upload/<%=rb.getFile().split(",")[2] %>" onclick="currentSlide(3)">
   </div>
  </div>
  <!-- 사진펼침 끝 -->
@@ -79,14 +97,16 @@
 
 <!-- 리뷰내용 영역 -->
 <div class="review_content">
- 
+
  
  <div class="clear"></div>
-
-
- <div class="name"> <p>홍길동</p> </div>
- <div class="date"> <p>2018.10.26 14:37:00</p> </div>
+ 
+<div class="email"> <p><%=rb.getReview_num()%></p> </div>
+ <div class="name"> <p><%=rb.getMem_num()%></p> </div>
+ <div class="date"> <p><%=rb.getDate() %></p> </div>
+ 
  <div class="rating">
+ <p><%=rb.getRating() %></p>
   <i class="fa fa-star"></i>
   <i class="fa fa-star"></i>
   <i class="fa fa-star"></i>
@@ -99,13 +119,10 @@
  <div class="clear"></div>
 
  <div class="content">
-  <p>내용<br>
-    내용<br>
-    내용<br>
+  <p><%=rb.getContent()%></p><br>
  <div class="like">
   <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart" id=heart style="color:red"></i> <p>좋아요</p> </button>
  </div>
- <input type="button"value="글수정" id="udate" onclick="location='review_re.jsp'">
   <input type="button"value="글삭제" id="ddate" onclick="delete22()">
      <script type="text/javascript">
      function delete22(){
@@ -124,6 +141,9 @@
      <br>
      </p>
  </div>
+ <%
+    }
+%>
 </div>
 
 
@@ -375,34 +395,20 @@
 
 
 <!-- review_wrap 끝 -->
-<p id="numnum" style=margin-left:250px; style=margin-right:auto; style=margin-top:100px; >
-<a href="#" style=text-decoration:none;>[이전]&nbsp;</a><a href="#" style=text-decoration:none;>1&nbsp;</a>
-<a href="#" style=text-decoration:none;>2&nbsp;</a> <a href="#" style=text-decoration:none;>3&nbsp;</a>
-<a href="#" style=text-decoration:none;>4&nbsp;</a><a href="#" style=text-decoration:none;>5&nbsp;</a>
- <a href="#"style=text-decoration:none;>6&nbsp;</a><a href="#" style=text-decoration:none;>7&nbsp;</a>
- <a href="#" style=text-decoration:none;>8&nbsp;</a><a href="#" style=text-decoration:none;>9&nbsp;</a>
- <a href="#" style=text-decoration:none;>10&nbsp;</a><a href="#" style=text-decoration:none;>[다음]</a></p>
-
-
-<!-- 메인 들어가는 곳 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%
+//이전
+if(startPage > pageBlock){
+	%><a href="./ReviewList.re?pageNum=<%=startPage-pageBlock%>">[이전]</a><%
+}
+// 1~10 
+for(int i=startPage;i<=endPage;i++){
+	%><a href="./ReviewList.re?pageNum=<%=i%>">[<%=i %>]</a><%
+}
+//다음
+if(endPage < pageCount){
+	%><a href="./ReviewList.re?pageNum=<%=startPage+pageBlock%>">[다음]</a><%
+}
+%>
 
 <script>
 var bClick = false;
@@ -461,7 +467,7 @@ function showSlides(n) {
 </article>
 </div>
 <!-- 푸터 들어가는 곳 -->
-<jsp:include page="../inc/bottom.jsp"></jsp:include>
+<jsp:include page="./../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
 </body>
 </html>

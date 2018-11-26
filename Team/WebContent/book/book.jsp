@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>L'harmonie</title>
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/book.css" rel="stylesheet">
@@ -21,9 +22,14 @@
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
 
+<%
+//id session 없으면 -> 로그인
+%>
+
 <!-- 본문 -->
 <div id="wrap">
-<article>
+<h1 id="title">BOOK</h1>
+<article id="book_art">
 
 <!-- 예약 네비게이션 메뉴바 -->
 <div class="book_nav">
@@ -46,7 +52,7 @@
 <!-- 예약 네비게이션 메뉴바 -->
 
 <!-- 예약 폼 -->
-<form id="book_form" name="bf" action="./BookCheck.bk" method="post">
+<form id="book_form" name="bf" action="./BookAction.bk" method="post">
 
 <!-- 1단계(지점, 인원) -->
 <div class="tab">
@@ -103,16 +109,16 @@
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
- <div id="t1" class="tabl tfor2" onclick="selectTable(0)"></div>
- <div id="t2" class="tabl tfor2" onclick="selectTable(1)"></div>
- <div id="t3" class="tabl tfor2" onclick="selectTable(2)"></div>
- <div id="t4" class="tabl tfor2" onclick="selectTable(3)"></div>
- <div id="t5" class="tabl tfor4" onclick="selectTable(4)"></div>
- <div id="t6" class="tabl tfor4" onclick="selectTable(5)"></div>
- <div id="t7" class="tabl tfor4" onclick="selectTable(6)"></div>
- <div id="t8" class="tabl tfor4" onclick="selectTable(7)"></div>
- <div id="t9" class="tabl tfor4" onclick="selectTable(8)"></div>
- <div id="t10" class="tabl tfor4" onclick="selectTable(9)"></div>
+ <div id="t1" class="tabl tfor2" onclick="selectTable(0)">1</div>
+ <div id="t2" class="tabl tfor2" onclick="selectTable(1)">2</div>
+ <div id="t3" class="tabl tfor2" onclick="selectTable(2)">3</div>
+ <div id="t4" class="tabl tfor2" onclick="selectTable(3)">4</div>
+ <div id="t5" class="tabl tfor4" onclick="selectTable(4)">5</div>
+ <div id="t6" class="tabl tfor4" onclick="selectTable(5)">6</div>
+ <div id="t7" class="tabl tfor4" onclick="selectTable(6)">7</div>
+ <div id="t8" class="tabl tfor4" onclick="selectTable(7)">8</div>
+ <div id="t9" class="tabl tfor4" onclick="selectTable(8)">9</div>
+ <div id="t10" class="tabl tfor4" onclick="selectTable(9)">10</div>
  <input type="hidden" name="tablenum" value="">
 </div>
 
@@ -129,9 +135,10 @@
   <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br>
   <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없습니다<br>
   <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있습니다<br>
-  <input type="text" id="detail" placeholder="구체적으로" size=30><br>
+  <input type="text" id="detail" placeholder="구체적으로" size="30"><br>
   <label>특별 요청</label>
-  <textarea cols="80" rows="10" name="request"></textarea>
+  <textarea cols="80" rows="10" name="special"></textarea>
+   <input type="hidden" name="request">
  </div> 
 </div>
 </div>
@@ -163,12 +170,8 @@
    <!-- <td>t7번</td> -->
   </tr>
   <tr>
-   <td>알러지여부</td>
+   <td>요청사항</td>
    <!-- <td>없음</td> -->
-  </tr>
-  <tr>
-   <td>특별요청사항</td>
-   <!-- <td>맛있게 만들어 주세요</td> -->
   </tr>
 
  </table>

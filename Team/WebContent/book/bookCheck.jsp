@@ -1,3 +1,4 @@
+<%@page import="net.book.db.BookBean"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
@@ -34,6 +35,9 @@
 <div id="book_form">
 <%
 request.setCharacterEncoding("utf-8");
+BookBean bb = (BookBean)request.getAttribute("bb");
+
+/*
 String location = request.getParameter("location");
 //String date = request.getParameter("date");
 Date date = Date.valueOf(request.getParameter("date"));
@@ -44,15 +48,61 @@ String req = request.getParameter("request");
 
 //날짜파싱
 DateFormat df = new SimpleDateFormat("yyyyMMdd");
-String sDate = df.format(date);
+//String sDate = df.format(date);
+*/
+
 %>
-지점 <%=location %><br>
-날짜 <%=date %><br>
+<div class="bookCk">
+
+<div class="chTitle">
+<img src="./images/logo.png"><br>
+<h1 id="title">예약이 완료되었습니다.</h1>
+</div>
+<article id="book_art">
+<p>예약정보> </p>
+<hr>
+
+<table>
+ <tr>
+  <td>예약 번호</td>
+  <td><%=bb.getBook_num() %></td>
+ </tr>
+ <tr>
+  <td>예약 지점</td>
+  <td><%=bb.getLocation() %></td>
+ </tr>
+ <tr>
+  <td>예약 인원</td>
+  <td><%=bb.getGuest() %></td>
+ </tr>
+ <tr>
+  <td>예약 날짜</td>
+  <td><%=bb.getDate() %></td>
+ </tr>
+ <tr>
+  <td>예약 시간</td>
+  <td><%=bb.getTime() %></td>
+ </tr>
+ <tr>
+  <td>예약 테이블</td>
+  <td><%=bb.getTablenum() %></td>
+  </tr>
+ <tr>
+  <td>그 외 요청사항</td>
+  <td><%=bb.getRequest() %></td>
+ </tr>
+
+</table>
+</article>
+</div>
+<%-- 예약 지점 :<%=location %><br>
+예약 날짜 :<%=date %><br>
 날짜2 <%=sDate %><br>
-시간 <%=time %><br>
-인원 <%=guest %><br>
-테이블 <%=tablenum %><br>
-요청 <%=req %>
+예약 시간 : <%=time %><br>
+예약 인원 : <%=guest %><br>
+예약 테이블 : <%=tablenum %><br>
+예약 요청 : <%=req %> --%> 
+
 
 
 </div>

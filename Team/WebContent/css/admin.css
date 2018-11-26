@@ -1,0 +1,171 @@
+@CHARSET "UTF-8";
+
+/* 상단제목 */
+h1#title{ margin:0;
+	padding-top:110px;
+	font-size: 3em;
+	color: #ffffff;
+	text-align: center; }
+	
+/* 배경영역 */
+.mpbox {
+	height:100%;
+	width:100%;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment:fixed; 
+	padding-bottom: 20px; }
+
+#sec1_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");}
+
+/* 배경 */
+#bookList, .write{
+		background-color:rgba(255, 255, 255, 0.4);
+		height:700px; width:1300px;
+		margin: 20px auto 0 auto ;
+		position: relative;	 }
+
+/* 서브메뉴 */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #000;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 130px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 50px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#main {
+	position: absolute;
+	right: 0px; top: 130px;
+    transition: margin-right .5s;
+    padding: 0;
+}
+
+/****** adminForm ******/
+/* form태그 */		
+#newsForm { padding-top: 50px; }/* 전체를 내림 */
+#menuForm { padding-top: 15px; }
+
+.write table{ margin: 20px auto 0 auto ; }
+
+.write table th{ padding: 10px;
+	width: 120px; }
+	
+.write table td{ padding: 25px 50px; }
+
+.write table select {}
+
+.write table textarea { }
+
+.write input[type=text]{
+		background-color:rgba(0, 0, 0, 0) !important;
+		border:none;
+		border-bottom:1px solid #000;
+		color: #000;
+		font-weight: bold;
+		font-size: 15px;
+		padding: 5px; }
+		
+.write table p{font-size: 13px; color: #800000;}
+
+/* submit, reset 버튼 */
+#btnSubmit{
+	background-color:#000;
+	padding:10px 20px;
+	color: #eee;
+	font-weight:bold;
+	border: 2px solid #000;
+	border-radius:5px;
+	margin-left: 60px; }
+	
+#btnReset {
+	background-color:rgba(0, 0, 0, 0);
+	padding:10px 20px;
+	color: #000;
+	font-weight:bold;
+	border: 2px solid #000;
+	border-radius:5px;
+	margin-left: 80px; }
+
+#btnSubmit:HOVER{color:#000;background-color:rgba(0, 0, 0, 0);}
+#btnReset:HOVER{border: 2px solid #800000;}
+
+/************************************************************/
+/* 예약조회테이블 */
+		
+/* 조회날짜선택*/
+.term{float: left; margin:100px 0 0 100px;}
+.term span { margin: 0 10px;} /* 조회기간 텍스트 간격주기 */
+.term .dateBox{
+	background-color:rgba(0, 0, 0, 0.1);
+	padding:4px 12px;
+	color: #000;
+	font-weight:bold;
+	border: 1px solid #000;}
+	
+/* 총 개수 */
+.mpcount{ font-size: 1.5em; 
+	font-weight: bold; 
+	width: 100px;
+	float: right;
+	margin:100px 120px 0 0;}
+	
+/*테이블 위치/사이즈 */
+
+#bookList table.bookList_tab{
+	margin:10px auto;
+	border-collapse:collapse;
+	border-top: 2.5px solid #000;
+	border-bottom: 2.5px solid #000;
+	}
+
+#bookList table th{width: 120px; 
+	padding: 20px 0; 
+	font-size: 16px;
+	background-color:rgba(0, 0, 0, 0.9);
+	color: #eee; }
+
+#bookList table th.ps{
+	width: 500px; 
+	border: none;}
+
+#bookList table tr{border-bottom: 1px solid #000;}
+
+#bookList table td{
+	text-align: center;
+	padding:5px 0;
+	border-bottom: 1px solid #000;}
+
+
+

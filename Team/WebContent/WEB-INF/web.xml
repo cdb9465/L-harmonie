@@ -52,4 +52,32 @@
 	<servlet-name>MenuFrontController</servlet-name>
 	<url-pattern>*.nu</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<servlet-class>net.member.action.MemberFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<url-pattern>*.me</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+	<servlet-name>AdminFrontController</servlet-name>
+	<servlet-class>net.admin.action.AdminFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>AdminFrontController</servlet-name>
+	<url-pattern>*.ad</url-pattern>
+  </servlet-mapping> 
+
+   <servlet>
+	<servlet-name>ReviewFrontController</servlet-name>
+	<servlet-class>net.review.action.ReviewFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>ReviewFrontController</servlet-name>
+	<url-pattern>*.re</url-pattern>
+  </servlet-mapping>
+
 </web-app>

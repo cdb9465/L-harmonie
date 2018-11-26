@@ -2,16 +2,24 @@
 
 #wrap{
 	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-	padding-top: 80px; 
+	height: 100%;
+	margin: 0 auto;
+	padding-top: 100px; 
+	padding-bottom: 20px;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/backg1.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;	}	
+	background-size: cover;	}
+	
+h1#title{ margin:0;
+	padding-top:10px;
+	paddubg-bottom:10px;
+	font-size: 3em;
+	color: #ffffff;
+	text-align: center; }	
 
-article {width: 70%; height: 100%;
+article#book_art {width: 1300px; height: 700px;
 	margin: 20px auto;
-	background-color:rgba(255,255,255,0.7) }
+	background-color:rgba(255,255,255,0.4); }
 
 .book_nav{
 	width: 100%;
@@ -29,14 +37,13 @@ article {width: 70%; height: 100%;
 
 .book_nav>.steps>.step2{
 	width: 130px;
-	margin: 40px auto 0 auto;
+	margin: 40px auto 0;
 	padding-bottom: 2px; }
 
 #book_form{
 	color: #000;
-	width: 100%; height: 500px;
-	margin-right: auto;
-	margin-left: auto; }
+	width: 100%; height: 600px;
+	margin: 0 auto; }
 
 .tab { display: none; }
 
@@ -72,7 +79,7 @@ article {width: 70%; height: 100%;
 	padding: 20px 0;
 	font-size: 15px;
 	width: 100%;
-	height: 400px; }
+	height: 520px; }
 	
 .panel>#location, .panel>#date {
 	width:50%; height: 100%;
@@ -115,20 +122,22 @@ article {width: 70%; height: 100%;
 
 .step2:HOVER { cursor: pointer; }	
 
-button {
+/* 버튼 */
+#prevBtn, #nextBtn{
   background-color: #333;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
-  margin: 5px 5px;
+  margin: 5px 10px;
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
-  float:right; }
+  float: right;
+  width: 120px; }
 
-button:hover { opacity: 0.8; }
+#prevBtn:hover, #nextBtn:hover { opacity: 0.8; }
 
-button#prevBtn { float: left; }
+#prevBtn { float: left; }
 
 
 /* table */
@@ -158,16 +167,19 @@ button#prevBtn { float: left; }
 	  
 .tfor2, .tfor4 {
 	width: 60px; height: 60px;
+	color: #fff;
+	display: inline-block;
+	line-height: 60px;
 	background-repeat: no-repeat;
 	background-size: cover; }
 
-/* .tfor2, .tfor4:HOVER {cursor: pointer; } */
+.tfor2, .tfor4:HOVER {cursor: pointer; }
 	
 .tfor2 { background-image: url("../images/book/table2.png"); }
 .tfor4 { background-image: url("../images/book/table4.png"); }
 
-/* .tfor2:HOVER { background-image: url("../images/book/table2_g.png"); }
-.tfor4:HOVER { background-image: url("../images/book/table4_g.png"); } */
+.tfor2:HOVER { background-image: url("../images/book/table2_g.png"); }
+.tfor4:HOVER { background-image: url("../images/book/table4_g.png"); }
 
 #t1{ left: 100px; bottom: 2px; }
 #t2{ left: 210px; bottom: 2px; }
@@ -192,3 +204,20 @@ button#prevBtn { float: left; }
 
 .panel>#confirm td{
 	padding: 5px 100px 10px 5px; }
+	
+	
+/* BookCheck */
+
+.bookCk .chTitle{text-align: center;}
+.bookCk p{
+	font-size: 20px;
+	display: inline-block;
+	margin-left: 50px; }
+
+.bookCk table{margin: 20px 0 0 50px; }
+.bookCk td{padding: 15px 20px;}
+.bookCk th{padding: 0;}
+
+
+
+
