@@ -26,8 +26,9 @@ public class BookListAction implements Action{
 		if(location==null)location="전체";
 		
 		String date = (String)request.getParameter("date");
+		System.out.println(date);
 		if(date==null) date = sdf.format(cal.getTime());
-		
+
 		//getBookList() 함수호출
 		AdminDAO adao = new AdminDAO();
 		List bookList = adao.getBookList(location, date);
@@ -35,7 +36,7 @@ public class BookListAction implements Action{
 		//저장
 		request.setAttribute("bookList", bookList);
 		request.setAttribute("location", location);
-		
+		request.setAttribute("date", date);
 		//이동
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

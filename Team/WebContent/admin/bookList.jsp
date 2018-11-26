@@ -1,7 +1,13 @@
+<%@page import="java.sql.Date"%>
 <%@page import="net.book.db.BookBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+List bookList = (List)request.getAttribute("bookList");
+String location = (String)request.getAttribute("location");
+String date = (String)request.getAttribute("date");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,11 +19,12 @@
 <link href="./css/admin.css" rel="stylesheet">
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/jquery-ui.js"></script>
-<script>
+<script type="text/javascript">
 $(document).ready(function(){
 	
 	//datepicker 
  	$(function () {
+ 		
  			
 		$("#datepicker").datepicker({
 			showMonthAfterYear: true, //연도와 달 위치 변경
@@ -26,15 +33,15 @@ $(document).ready(function(){
 			dayNamesMin:['일','월','화','수','목','금','토'],
 			dateFormat: 'yy-mm-dd',
  			maxDate: '+14d',
- 			onSelect: function(date){
- 				$("form").submit();
+ 			onSelect: function(){
+ 				$('form').submit();
  			}
  			
 		});
 		
-		//초기값 오늘날짜
 		$("#datepicker").datepicker("setDate", new Date());
-				
+		
+		
 		$('.ui-datepicker').css({
 			"margin":"0 auto"
 		});
@@ -42,28 +49,11 @@ $(document).ready(function(){
 	});
 }); 
 
-function changeLocationSelect(){
-	var locationSelect = document.getElementById("selectLoc");
-	var location = locationSelect.options[locationSelect.selectedIndex].value;
-	var date = document.getElementById("datepicker").value;
-	//window.location.href="./BookList.ad?location="+location+"&date="+date;
-	document.fr.submit();
-
-	/* for(var i = 0; i < locationSelect.options.length; i++){	
-	  if( location == locationSelect.options[i].value){
-		document.fr.location.options[i].selected = true;
-	  } 
- 	} */
-} 
-
 </script>
 <title>L'harmonie</title>
 </head>
 <body>
-<%
-List bookList = (List)request.getAttribute("bookList");
-String location = (String)request.getAttribute("location");
-%>
+
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
@@ -76,13 +66,13 @@ String location = (String)request.getAttribute("location");
 <jsp:include page="admin_sub.jsp"></jsp:include>
 
 <h1 id="title">예약 목록</h1>
-<form action="./BookList.ad" name="fr" method="post">
+<form action="./BookList.ad" name="fr" method="get">
 <div id="bookList">
 
 <!-- 일자 선택 -->
 <div class="term">
 <span>조회 지점</span>
- <select class="dateBox" id="selectLoc" name="location" onchange="changeLocationSelect()">
+ <select class="dateBox" name="location" onchange="this.form.submit();">
   <option value="전체" <%=location.equals("전체")?"selected":""%>>전체</option>
   <option value="서울강남점" <%=location.equals("서울강남점")?"selected":""%>>서울강남점</option>
   <option value="부산서면점" <%=location.equals("부산서면점")?"selected":""%>>부산서면점</option>
