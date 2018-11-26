@@ -77,41 +77,10 @@
 
 <!-- 2번째 메인 -->
 <div class="main_box" id="main1">
-<div class="text_area left_area">
- <div class="tit">EXPERIENCE</div>
- <div class="st_tx1">
-  경험의<br>
-  레시피 <br>
-  전하다
- </div>
- <div class="st_tx2">
-  순간적인 생각이 아닌 경험과 노하우를<br>
-  바탕으로 차곡차곡 쌓아올린<br>
-  맛있는 음식과 다양한 문화를 전합니다.
- </div>
-</div>
 </div>
 
 <!-- 3번째 메인 -->
 <div class="main_box" id="main2">
-<div class="text_area right_area">
- <div class="tit">PASSION</div>
- <div class="st_tx1">
-  열정의<br>
-  한그릇 <br>
-  채우다
- </div>
- <div class="st_tx2">
-  더 나은 서비스를 위해<br>
-  더 편안하고 행복한 시간을 위해<br>
-  한 곳에 머물지 않고 끊임없이 도전합니다.
- </div>
-</div>
-</div>
-
-<!-- 4번째 메인 -->
-<div class="main_box" id="main3">
-
 <!-- 지도 -->
 <div class="map_wrap">
  <div class="mapdiv" id="mapSeomyeon">
@@ -178,7 +147,7 @@ function createMapAll()
 	
 	//지도 생성할때 필요한 기본옵션
 	options = {
-			center: new daum.maps.LatLng(38.060417, 128.034028),	//지도 중심좌표
+			center: new daum.maps.LatLng(38.060417, 128.034028),//지도 중심좌표
 			level: 14	//지도 레벨
 		};
 	
