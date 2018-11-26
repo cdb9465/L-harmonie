@@ -9,8 +9,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="./css/default.css" rel="stylesheet">
-<link href="./css/news.css" rel="stylesheet">
+<link href="../css/default.css" rel="stylesheet">
+<link href="../css/news.css" rel="stylesheet">
 </head>
 
 <body>
@@ -33,7 +33,7 @@ for(int i=0; i<newsList.size(); i++) {
 <div class="news_row">
 <div class="news_column">
     	<div class="news_content">
-    	<img id="myImg" src="./upload/<%=nb.getFile() %>" style="width:100%">
+    	<img id="myImg" src="../upload/<%=nb.getFile()%>" width="100%">
     	<div id="myModal" class="modal">
     	<span class="close">&times;</span>
     	<img class="modal-content" id="img01">
@@ -45,19 +45,19 @@ for(int i=0; i<newsList.size(); i++) {
 </div>
 <div class="news_column">
     	<div class="news_content">
-    	<img id="myImg" src="./images/comming.jpg" alt="준비중입니다." style="width:100%">
+    	<img id="myImg" src="../images/comming.jpg" alt="준비중입니다." style="width:100%">
 		<h4>hiii</h4>
 		</div>
 </div>
 <div class="news_column">
     	<div class="news_content">
-    	<img id="myImg" src="./images/comming.jpg" alt="준비중입니다." style="width:100%">
+    	<img id="myImg" src="../images/comming.jpg" alt="준비중입니다." style="width:100%">
 		<h4>hiii</h4>
 		</div>
 </div>
 <div class="news_column">
     	<div class="news_content">
-    	<img id="myImg" src="./images/comming.jpg" alt="준비중입니다." style="width:100%">
+    	<img id="myImg" src="../images/comming.jpg" alt="준비중입니다." style="width:100%">
 		<h4>hiii</h4>
 		</div>
 </div>

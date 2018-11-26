@@ -8,13 +8,12 @@
 	color:#000; 
 	font-size:9pt;}
 	
-#main0,#main1,#main2{
+#main0,#main1,#main2,#main3{
 	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: relative;
-	}
+	position: relative; }
 
 #main0{	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/menu/about0.jpg");}	
 .main0_txt{/* border: 1px solid #fff; */
