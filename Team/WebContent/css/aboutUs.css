@@ -8,13 +8,28 @@
 	color:#000; 
 	font-size:9pt;}
 	
-#main0{
-	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");
+#main0,#main1,#main2{
 	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: relative;}
+	position: relative;
+	}
+
+#main0{	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/menu/about0.jpg");}	
+.main0_txt{/* border: 1px solid #fff; */
+	font-size: 50px;
+	color:#fff;
+	line-height: 1.5em;
+	text-align: center;
+	display: block;
+	position: relative;
+	top:50%;
+	width:100%; 
+	transform: translateY(-50%);
+	font-weight: 500;
+	
+}
 #main1{
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/menu/about01.jpg"); }
 #main2{
