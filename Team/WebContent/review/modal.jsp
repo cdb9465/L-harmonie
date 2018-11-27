@@ -80,8 +80,8 @@ Integer mem_num = (Integer)session.getAttribute("mem_num");
  <div class="clear"></div>
  <tr><th>사진선택</th><td colspan="3">
  <input type="file" name="file1" required/>
- <input type="file" name="file2" required/>
- <input type="file" name="file3" required/></td></tr>
+ <input type="file" name="file2" />
+ <input type="file" name="file3" /></td></tr>
  <div class="write_content">
  <tr><th> <div class="title">리뷰</div></th><td>
   <input type="text" name="content"  autofocus required>

@@ -13,6 +13,9 @@ public class ReviewAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ReviewAction execute()");
+		
+		List<ReviewBean> reviewList=null;
+		
 		ReviewDAO rd= new ReviewDAO();
 		
 		int count = rd.getReviewCount();
@@ -29,7 +32,6 @@ public class ReviewAction implements Action{
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow=currentPage*pageSize;
 		
-		List<ReviewBean> reviewList =rd.getReviewList(0,3);;
 		if(count!=0){
 			reviewList = rd.getReviewList(startRow, pageSize);		
 		}
