@@ -27,9 +27,8 @@
 	top:50%;
 	width:100%; 
 	transform: translateY(-50%);
-	font-weight: 500;
-	
-}
+	font-weight: 500;}
+
 #main1{
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/menu/about01.jpg"); }
 #main2{
