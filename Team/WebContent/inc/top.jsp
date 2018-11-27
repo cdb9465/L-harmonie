@@ -18,7 +18,7 @@
 	<a href="./AboutUs.ad">ABOUT US</a>
 	<a href="../store/menu.jsp">MENU</a>
 	<a href="../news/news.jsp">NEWS</a>
-	<a href="../review/review.jsp">REVIEW</a>
+	<a href="./ReviewList.re">REVIEW</a>
 </nav>
 
 <!-- 예약 버튼 -->
