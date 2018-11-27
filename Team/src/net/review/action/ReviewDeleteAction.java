@@ -11,9 +11,10 @@ public class ReviewDeleteAction  implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ReviewDeleteAction execute");
-		int num = Integer.parseInt(request.getParameter("num"));
+		int review_num = Integer.parseInt(request.getParameter("review_num"));
+		System.out.println("coooo");
 		ReviewDAO rd=new ReviewDAO();
-		rd.deleteReview(num);
+		rd.deleteReview(review_num);
 		ActionForward rvd= new ActionForward();
 		rvd.setRedirect(true);
 			rvd.setPath("./ReviewList.re");

@@ -28,9 +28,6 @@ public class ReviewAddAction implements Action{
   		rb.setLocation(multi.getParameter("sel_location")); 
   		rb.setRating(Integer.parseInt(multi.getParameter("rating")));
   		
-  		
-   		
-   		
    		ReviewDAO rd=new ReviewDAO(); 
   		rd.insertReview(rb); 
   		System.out.println(realPath); 
