@@ -3,6 +3,7 @@
     box-sizing: border-box;
 }
 .wrap {
+	height: 100%;
 	background-image: url("../images/news/bg.jpg");
 }
 body {

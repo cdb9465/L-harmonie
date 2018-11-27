@@ -9,4 +9,75 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <resource-ref>
+   <description>lhdb</description>
+   <res-ref-name>jdbc/mysqlDB</res-ref-name>
+   <res-type>javax.sql.DataSource</res-type>
+   <res-auth>Container</res-auth>
+  </resource-ref>
+  
+  <servlet>
+	<servlet-name>MainFrontController</servlet-name>
+	<servlet-class>net.main.action.MainFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>MainFrontController</servlet-name>
+	<url-pattern>*.ma</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+	<servlet-name>BookFrontController</servlet-name>
+	<servlet-class>net.book.action.BookFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>BookFrontController</servlet-name>
+	<url-pattern>*.bk</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>NewsFrontController</servlet-name>
+	<servlet-class>net.news.action.NewsFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>NewsFrontController</servlet-name>
+	<url-pattern>*.nw</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+	<servlet-name>MenuFrontController</servlet-name>
+	<servlet-class>net.menu.action.MenuFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>MenuFrontController</servlet-name>
+	<url-pattern>*.nu</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<servlet-class>net.member.action.MemberFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<url-pattern>*.me</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+	<servlet-name>AdminFrontController</servlet-name>
+	<servlet-class>net.admin.action.AdminFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>AdminFrontController</servlet-name>
+	<url-pattern>*.ad</url-pattern>
+  </servlet-mapping> 
+
+   <servlet>
+	<servlet-name>ReviewFrontController</servlet-name>
+	<servlet-class>net.review.action.ReviewFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>ReviewFrontController</servlet-name>
+	<url-pattern>*.re</url-pattern>
+  </servlet-mapping>
+
 </web-app>

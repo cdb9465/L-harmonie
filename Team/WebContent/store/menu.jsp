@@ -7,12 +7,14 @@
 <link href="../css/menu.css" rel="stylesheet">
 <link href="../css/default.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>L'marmonie| MENU</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript">
         window.onload = function () {
-            $(".box").each(function () {
+            $(".main_box").each(function () {
                 // 개별적으로 Wheel 이벤트 적용
                 $(this).on("mousewheel DOMMouseScroll", function (e) {
                     e.preventDefault();
@@ -45,93 +47,63 @@
             });
         }
     </script>
-</head>
-<body>
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
-<div class="box">
-<article>
-<div id="article_sec1">
-<div id="mmenu_img">
-<div class="main_menu">
-<ul>
+
+<div class="clear"></div>
+
+<article class="menu_article">
+
+<div id="article_sec1" class="main_box">
+<ul class="sec1_menu">
+	<li><a href="#">APPETIZER</a></li>
+	<li><a href="#">SALAD</a></li>
 	<li><a href="#">STEAK</a></li>
-	<li><a href="#">PASTA</a></li>
-	<li><a href="#">RISOTTO</a></li>
 	<li><a href="#">SALAD</a></li>
 	<li><a href="#">DESSERT</a></li>
-	<li><a href="#">WINE</a></li>
 	<li><a href="#">BEVERAGE</a></li>
 </ul>
 </div>
-</div>
-</div>
 
-<div id="article_sec2">
+<div id="article_sec2" class="main_box">
 <div class="tab">
+  <button class="tablinks" onclick="openMenu(event, 'Appetizer')">APPETIZER</button>
+  <button class="tablinks" onclick="openMenu(event, 'Salad')">SALAD</button>
   <button class="tablinks" onclick="openMenu(event, 'Steak')">STEAK</button>
   <button class="tablinks" onclick="openMenu(event, 'Pasta')">PASTA</button>
-  <button class="tablinks" onclick="openMenu(event, 'Rosotto')">RISOTTO</button>
-  <button class="tablinks" onclick="openMenu(event, 'Salad')">SALAD</button>
   <button class="tablinks" onclick="openMenu(event, 'Dessert')">DESSERT</button>
-  <button class="tablinks" onclick="openMenu(event, 'Wine')">WINE</button>
-  <button class="tablinks" onclick="openMenu(event, 'Beverage')">BEVERAGE</button>
+  <button class="tablinks
+  " onclick="openMenu(event, 'Beverage')">BEVERAGE</button>
 </div>
 
-<div id="Steak" class="tabcontent">
+<div id="Appetizer" class="tabcontent">
   <ul>
   	<li><div id="steak1"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
   	<li><div id="steak2"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak3"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<div class="clear"/>
-  	<li><div id="steak4"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak5"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak6"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<div class="clear"/>
   </ul>
 </div>
 
 <!-- 스테이크 id로 통일했으니 바꿔써주세요 -->
-<div id="Pasta" class="tabcontent">
+<div id="Salad" class="tabcontent">
   <ul>
   	<li><div id="steak1"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
   	<li><div id="steak2"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak3"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<div class="clear"/>
-  	<li><div id="steak4"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak5"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak6"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<div class="clear"/>
-  	<li><div id="steak4"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak5"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak6"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<div class="clear"/>
   </ul>
 </div>
 
-<div id="Rosotto" class="tabcontent">
+<div id="Steak" class="tabcontent">
   <h3>Rosotto</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
 
-<div id="Salad" class="tabcontent">
+<div id="Pasta" class="tabcontent">
   <h3>Salad</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
 
-<div id="Dessert" class="tabcontent">
-  <h3>Dessert</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
-<div id="Wine" class="tabcontent">
-  <h3>Wine</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
 <div id="Beverage" class="tabcontent">
-  <h3>Beverage</h3>
+  <h3>Dessert</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
 
@@ -149,17 +121,14 @@ function openMenu(evt, menuName) {
     document.getElementById(menuName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
 </script>
-     
 </div>
-
 </article>
-</div>
+<div class="clear"></div>
+
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
-
 
 </body>
 </html>
