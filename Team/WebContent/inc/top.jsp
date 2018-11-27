@@ -35,15 +35,15 @@ MemberBean mb=mdao.getMember(sess);
 //세션값이 없으면 로그인버튼보이기
 if(sess==null){%>
 <!-- 로그인 버튼 -->
-<input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">
+<input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	
 <%
-//세션값이 있으면
 }else{ %>
-<%=mb.getName() %> 로그인 중 
-
+	<%=mb.getName() %> 로그인 중 
 <input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
-<a href="./Mypage.me">MyPage</a>
-<%} %>
+<%	if(sess.equals("admin@team.com"))%> <a href="./BookList.ad">AdminPage</a><%
+	else%> <a href="./Mypage.me">MyPage</a>
+<%}%>
+
 </div>
 
 </div>

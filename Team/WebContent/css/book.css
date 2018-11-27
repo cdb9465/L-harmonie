@@ -21,13 +21,11 @@ article#book_art {width: 1300px; height: 700px;
 	margin: 20px auto;
 	background-color:rgba(255,255,255,0.4); }
 
-.book_nav{
-	width: 100%;
-	height: 120px;
+/* 예약 네비게이션 메뉴바  */
+.book_nav{ width: 100%; height: 120px;
 	background-color: #000; }
 
-.book_nav>.steps{
-	width: 20%; height: 110px;
+.book_nav>.steps{ width: 20%; height: 110px;
 	float: left;
 	margin: 0 auto;
 	color: #fff;
@@ -35,11 +33,22 @@ article#book_art {width: 1300px; height: 700px;
 	font-size: 16px;
 	line-height: 20px; }
 
-.book_nav>.steps>.step2{
-	width: 130px;
+.book_nav>.steps>.step2{ width: 130px;
 	margin: 40px auto 0;
 	padding-bottom: 2px; }
 
+.step2.active { background-color: #000;
+	border-bottom: 1px solid #fff;
+	display: inline-block;
+	font-size: 16px; }
+	
+.step2.finish{ 	background-color: #000;
+	color: #fff;
+	font-size: 12px; }
+
+.step2:HOVER { cursor: pointer; }	
+
+/* 예약폼 공통요소 */
 #book_form{
 	color: #000;
 	width: 100%; height: 600px;
@@ -47,43 +56,15 @@ article#book_art {width: 1300px; height: 700px;
 
 .tab { display: none; }
 
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    outline: none;
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-	transition: 0.4s;
-	text-align: center; }
-	
-.fa-arrow-circle-down {
-	float: right;
-	margin-right: 20px;
-	margin-top: 13px; }
-	
-.accordion>p{
-	font-size: 20px;
-	font-weight:bold;
-	display: inline-block;
-	cursor: pointer;
-	text-align: center; }
-
-.active, .accordion:hover{
-    background-color: #ccc;
-    cursor: pointer; }
-
-.panel{
+.panel{	width: 100%; height: 520px;
 	text-align: center;
 	padding: 20px 0;
-	font-size: 15px;
-	width: 100%;
-	height: 520px; }
+	font-size: 15px; }
 	
 .panel>#location, .panel>#date {
 	width:50%; height: 100%;
-	float: left; }
+	float: left;
+	position: relative;/* dateDesc위치설정위해 */ }
 
 .panel>#guest, .panel>#time {
 	width:50%; height: 100%;
@@ -102,28 +83,13 @@ article#book_art {width: 1300px; height: 700px;
 	cursor: pointer;
 	color: #424a52;
 	background-color: #d3e0f1; }
-	
+
 .slot:HOVER{
 	background-color: #424a52;
     color: #ffffff; }
-	
-.panel2>#datepicker { line-height: 30px; }
-
-.step2.active {
-	background-color: #000;
-	border-bottom: 1px solid #fff;
-	display: inline-block;
-	font-size: 16px; }
-	
-.step2.finish{
-	background-color: #000;
-	color: #fff;
-	font-size: 12px; }
-
-.step2:HOVER { cursor: pointer; }	
 
 /* 버튼 */
-#prevBtn, #nextBtn{
+#prevBtn, #nextBtn{ width: 120px;
   background-color: #333;
   color: #ffffff;
   border: none;
@@ -132,13 +98,20 @@ article#book_art {width: 1300px; height: 700px;
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
-  float: right;
-  width: 120px; }
+  float: right; }
 
 #prevBtn:hover, #nextBtn:hover { opacity: 0.8; }
 
 #prevBtn { float: left; }
 
+/* 2단계 날짜설명 */
+#dateDesc { position: absolute;
+	top: 200px; right: 50px;
+	width: 120px; height: 80px;
+	text-align: left; }
+
+#dateDesc>#squToday, #dateDesc>#squSelect, #dateDesc>#squAble {
+	padding-bottom: 5px; }
 
 /* table */
 #table{border: 1px solid;
@@ -192,7 +165,7 @@ article#book_art {width: 1300px; height: 700px;
 #t9{ left: 260px; bottom: 190px; }
 #t10{ left: 380px; bottom: 190px; }
 
-/* step4 request */
+/* 4단계 요청사항 */
 #detail { display: none; }
 
 #confirm{margin: 20px auto;}
@@ -217,6 +190,8 @@ article#book_art {width: 1300px; height: 700px;
 .bookCk table{margin: 20px 0 0 50px; }
 .bookCk td{padding: 15px 20px;}
 .bookCk th{padding: 0;}
+
+
 
 
 
