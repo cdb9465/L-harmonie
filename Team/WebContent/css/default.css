@@ -30,8 +30,8 @@ body{margin: 0px; padding: 0px;
 /* 로고 */
 #logo{/* border: 1px solid red; */
 	position: absolute;
-    left: 30px;
-    top: 5px;
+    left: 20px;
+    top: 3px;
 }
 
 /* 
@@ -46,15 +46,14 @@ body{margin: 0px; padding: 0px;
     display: inline-block;
 } */
 /* 가운데메뉴 */
-#main_menu{
-	/* border: 1px solid blue; */
-	width: 810px;
-    height: 100px;
+/* #main_menu{
+	border: 1px solid blue;
+	
 	margin: auto;
     padding: 30px 0 0 100px;
-   /*  position: relative;   */
+    position: relative;  
     margin-left: 200px;
-}
+} */
  
 /* #main_menu{
 	border: 1px solid blue;
@@ -66,6 +65,16 @@ body{margin: 0px; padding: 0px;
     margin-left: 10px;
     display: inline-block;
 } */
+
+
+#main_menu {
+	width: 100%; 
+	/* margin: auto; */
+	padding: 30px 0 0 450px;
+	position: relative;  
+	/* margin-left: 200px; */
+}
+
 
 #main_menu a{
 	/* border: 1px solid yellow; */
@@ -83,7 +92,7 @@ body{margin: 0px; padding: 0px;
 	/* border: 1px solid blue; */
 	position: absolute;
     right: 40px;
-    top: 10px;}
+    top: 1px;}
     
 /*  #login{
 	border: 1px solid blue;
@@ -93,7 +102,7 @@ body{margin: 0px; padding: 0px;
 
 #login a{
 	/* border: 1px solid red; */
-	font-size: 20px;
+	font-size: 15px;
 	font-weight: 400;
 	text-decoration: none;
 	color: #fff;}
@@ -293,11 +302,11 @@ footer{
     
     
     
+/*     
     
-    
-/* 미디아 */    
+미디아    
 @media all and (min-width:1350px) {
-	#main_menu { /* border: 1px solid yellow; */
+	#main_menu { border: 1px solid yellow;
 		width: 810px;
   	  	height: 100px;
 		margin: auto;
@@ -307,7 +316,7 @@ footer{
 	
 }
     
-    
+     */
     
     
     

@@ -18,15 +18,37 @@
 	<a href="../review/review.jsp">REVIEW</a>
 </nav>
 
-<!-- 예약 버튼 -->
-<!-- <div id="book"><a href="../book/book.jsp">BOOK</a></div> -->
-
 <!-- 로그인 버튼 -->
-<div id="login"><a href=#><i class="material-icons" font-size="30px" >lock_open</i>LOGIN</a></div>
+<%
+String id=(String)session.getAttribute("mem_num");
 
+if(id==null){
+%>
+<div id="login"><a href="../main/main.jsp">
+<i class="material-icons">lock_open</i>LOGIN</a>
+</div>
+<% 
+}
+if(id!=null) {
+	if(id.equals("1")){
+	%>
+	   <div id="login"><b>관리자</b>님 반갑습니다
+	   <a href="로그아웃">[logout]</a></div>
+	<%
+	}
+
+
+else {
+   %>
+   <div id="login"><b><%=id %></b>님 반갑습니다
+   <a href="로그아웃">[logout]</a></div>
+   <%
+	}
+}
+%>
+
+<div id="book"><a href="./Book.bk">BOOK</a></div>
 </div>
 
-
 <!-- 헤더 들어가는곳 -->
-
 </header>

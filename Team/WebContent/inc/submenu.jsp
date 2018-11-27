@@ -9,15 +9,12 @@
 </div>
 
 <!-- 1:1채팅 -->
-<div class="chat" onclick="openform()" id="chatbtn">문의/예약</div>
+<div class="chat" onclick="openform()" id="chatbtn">1:1 문의</div>
 
 <div class="chat-popup" id="myform">
   <form action="/action_page.php" class="form-container">
-	<!-- 예약 버튼 -->
-<!-- 	<div id="book"><a href="../book/book.jsp">예약</a></div> -->
     <label for="msg"><b>Message</b></label>
     <textarea placeholder="Type message.." name="msg" required></textarea>
-
     <button type="submit" class="btn">Send</button>
     <button type="button" class="btn cancel" onclick="closeform()">Close</button>
   </form>
@@ -26,8 +23,7 @@
 <script>
 function openform() {
     document.getElementById("myform").style.display = "block";
-    document.getElementById("chatbtn").style.right= "325px";
-    
+    document.getElementById("chatbtn").style.right= "325px";    
 }
 
 function closeform() {

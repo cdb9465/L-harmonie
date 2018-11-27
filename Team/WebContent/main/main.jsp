@@ -63,6 +63,7 @@
     <p>오감을 즐겁게 하다</p>
   </div>
 
+<!-- 마우스 모양 -->
 <a href="#main1" class="arrow">
    <img src="../images/arrow.png">
    <img src="../images/dot.png" class="dot">
