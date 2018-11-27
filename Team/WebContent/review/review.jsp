@@ -60,6 +60,8 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 <%
     for(int i=0;i<ReviewList.size();i++){
     	ReviewBean rb=ReviewList.get(i);
+    	
+    	System.out.println(rb.getFile().split(",")[0]);
     	%>
 
 <tr>
@@ -111,7 +113,8 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
   <a class="prev" onclick="plusSlides(-1)">❮</a>
   <a class="next" onclick="plusSlides(1)">❯</a>
   <div class="mySlides">
-   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(1)">
+   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(1)"> 
+
   </div>
   <div class="mySlides">
    <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>" onclick="currentSlide(2)">
@@ -140,7 +143,7 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
   <input type="button"value="글삭제"  onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" id="ddate">
     <br> 
      <br>
- </div><hr color=red width="500px">
+ </div>
 </td>
 </tr>
 <tr><td  colspan='3'>
