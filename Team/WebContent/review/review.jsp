@@ -20,7 +20,7 @@
 
 <%
 String pageNum=(String)request.getAttribute("pageNum");
-List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("ReviewList");
+List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("reviewList");
 int pageCount=((Integer)request.getAttribute("pageCount")).intValue();
 int count=((Integer)request.getAttribute("count")).intValue();
 int pageBlock=((Integer)request.getAttribute("pageBlock")).intValue();
@@ -55,21 +55,55 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 <div class="review_wrap">	
 
 <!-- 사진영역 div-->
-<div class="container">	
+
+<table border="1" width="100%" cellspacing="0" cellpadding="0">
+<%
+    for(int i=0;i<ReviewList.size();i++){
+    	ReviewBean rb=ReviewList.get(i);
+    	
+    	System.out.println(rb.getFile().split(",")[0]);
+    	%>
+
+<tr>
+<th colspan='2'>
+<div class="review_content">
+<div class="email"> <p><%=rb.getMem_num()%></p> </div>
+</div>
+</th>
+<th><div class="review_content">
+<div class="date"> <p><%=rb.getDate() %></p> </div>
+</div></th>
+</tr>
+
+
+<tr><th colspan='2'>
+ <div class="rating">
+<p><%=rb.getRating() %></p>
+</div>
+</th>
+<td>정말 놀라웠어요~!</td>
+</tr>
+
+
+
+<tr><th colspan='3'><div class="content">
+  <p><%=rb.getContent()%></p><br>
+</div></th></tr>
+
+
+<tr><th colspan='3'> 
+<div class="container">
 <!-- 썸네일 이미지 목록 -->
  <div class="row">
   <div class="column">
-  <%
-    for(int i=0;i<ReviewList.size();i++){
-    	ReviewBean rb=ReviewList.get(i);
-    	%>
-   <img class="demo cursor active" src="./review/upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(1)" alt="">
+  <hr color=red width="500px">
+  <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(1)" alt="">
   </div>
   <div class="column">
-   <img class="demo cursor active" src="./review/upload/<%=rb.getFile().split(",")[1] %>" style= "width:100%" onclick="currentSlide(2)" alt="">
+   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style= "width:100%" onclick="currentSlide(2)" alt="">
   </div>  
   <div class="column">
-   <img class="demo cursor active" src="./review/upload/<%=rb.getFile().split(",")[2] %>" style="width:100%" onclick="currentSlide(3)" alt="">
+   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(3)" alt="">
   </div>
  </div>
  <!-- 썸네일 이미지 목록 끝 --> 
@@ -79,78 +113,40 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
   <a class="prev" onclick="plusSlides(-1)">❮</a>
   <a class="next" onclick="plusSlides(1)">❯</a>
   <div class="mySlides">
-   <img alt="첨부사진" src="./review/upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(1)">
+   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(1)"> 
+
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="./review/upload/<%=rb.getFile().split(",")[1] %>" onclick="currentSlide(2)">
+   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>" onclick="currentSlide(2)">
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="./review/upload/<%=rb.getFile().split(",")[2] %>" onclick="currentSlide(3)">
+   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>" onclick="currentSlide(3)">
   </div>
  </div>
  <!-- 사진펼침 끝 -->
 </div>
 <!-- 사진영역 div 끝-->
-
 <div class="clear"></div>
-<hr>
 
-<!-- 리뷰내용 영역 -->
-<div class="review_content">
+</th></tr>
 
- 
- <div class="clear"></div>
- 
-<div class="email"> <p><%=rb.getReview_num()%></p> </div>
- <div class="name"> <p><%=rb.getMem_num()%></p> </div>
- <div class="date"> <p><%=rb.getDate() %></p> </div>
- 
- <div class="rating">
- <p><%=rb.getRating() %></p>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star-o">4.0</i>
- 
- </div>
- 
- 
- <div class="clear"></div>
+<tr><td >
+<div class="content">
 
- <div class="content">
-  <p><%=rb.getContent()%></p><br>
  <div class="like">
   <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart" id=heart style="color:red"></i> <p>좋아요</p> </button>
  </div>
-  <input type="button"value="글삭제" id="ddate" onclick="delete22()">
-     <script type="text/javascript">
-     function delete22(){
-    	 r=confirm("삭제하시겠습니까?");
-    	 if(r==true){
-    		 alert("삭제 완료되었습니다.")
-    		 location.href="review.jsp";
-    	 }
-    	 else{
-    		 alert("취소되었습니다.")
-    		 location.href="review.jsp";
-    	 }
-     }
-     </script>
+ </div>
+</td>
+<td>4명이 좋아합니다.</td>
+<td><div class="content">
+  <input type="button"value="글삭제"  onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" id="ddate">
     <br> 
      <br>
-     </p>
  </div>
- <%
-    }
-%>
-</div>
-
-
-<!-- 리뷰내용 영역 끝 -->
-
-
-<hr>
+</td>
+</tr>
+<tr><td  colspan='3'>
 <div class="comment">
  <textarea placeholder="댓글"></textarea>
  <button type="button" onclick="sub11()"><p>댓글등록</p></button>
@@ -159,241 +155,26 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
     	 r=confirm("등록하시겠습니까?");
     	 if(r==true){
     		 alert("등록되었습니다.")
-    		 location.href="review.jsp";
+    		 location.href="./review/ReviewList.re";
     	 }
     	 else{
     		 alert("취소되었습니다.")
-    		 location.href="review.jsp";
+    		 location.href="./review/ReviewList.re";
     	 }
      }
      </script>
 </div>
+</td>
+</tr>
+ 
+</table>
+  
+<%
+    }
+%>
+
 
 </div>
-<!-- review_wrap 끝 -->
-
-</div>
-<!-- 메인 들어가는 곳 -->
-
-
-
-<div class="review_wrap">	
-
-<!-- 사진영역 div-->
-<div class="container">	
-<!-- 썸네일 이미지 목록 -->
- <div class="row">
-  <div class="column">
-   <img class="demo cursor active" src="salmon_salade.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
-  </div>
-  <div class="column">
-   <img class="demo cursor active" src="spaghetti.jpg" style= "width:100%" onclick="currentSlide(2)" alt="">
-  </div>  
-  <div class="column">
-   <img class="demo cursor active" src="chicken_steak.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
-  </div>
- </div>
- <!-- 썸네일 이미지 목록 끝 --> 
-
- <!-- 사진펼침 시작 -->
- <div class="review_pic">
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-  <div class="mySlides">
-   <img alt="첨부사진" src="salmon_salade.jpg"  onclick="currentSlide(1)">
-  </div>
-  <div class="mySlides">
-   <img alt="첨부사진" src="spaghetti.jpg" onclick="currentSlide(2)">
-  </div>
-  <div class="mySlides">
-   <img alt="첨부사진" src="chicken_steak.jpg" onclick="currentSlide(3)">
-  </div>
- </div>
- <!-- 사진펼침 끝 -->
-</div>
-<!-- 사진영역 div 끝-->
-
-<div class="clear"></div>
-<hr>
-
-<!-- 리뷰내용 영역 -->
-<div class="review_content">
- 
- 
- <div class="clear"></div>
-
- <div class="name"> <p>홍길동</p> </div>
- <div class="date"> <p>2018.10.26 14:37:00</p> </div>
- <div class="rating">
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star-o">4.0</i>
- 
- </div>
- 
- 
- <div class="clear"></div>
-
- <div class="content">
-  <p>내용<br>
-    내용<br>
-    내용<br>
- <div class="like">
-  <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart-o" id=heart></i> <p>좋아요</p> </button>
- </div>
- <input type="button"value="글수정" id="udate" onclick="re_updateForm.jsp">
-  <input type="button"value="글삭제" id="ddate" onclick="delete22()">
-     <script type="text/javascript">
-     function delete22(){
-    	 r=confirm("삭제하시겠습니까?");
-    	 if(r==true){
-    		 alert("삭제 완료되었습니다.")
-    		 location.href="review.jsp";
-    	 }
-    	 else{
-    		 alert("취소되었습니다.")
-    		 location.href="review.jsp";
-    	 }
-     }
-     </script>
-    <br> 
-     <br>
-     </p>
- </div>
-</div>
-
-
-<!-- 리뷰내용 영역 끝 -->
-
-<hr>
-<div class="comment">
- <textarea placeholder="댓글"></textarea>
- <button type="button"><p>댓글등록</p></button>
-</div>
-
-</div>
-
-
-
-
-
-<div class="review_wrap">	
-
-<!-- 사진영역 div-->
-<div class="container">	
-<!-- 썸네일 이미지 목록 -->
- <div class="row">
-  <div class="column">
-   <img class="demo cursor active" src="salmon_salade.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
-  </div>
-  <div class="column">
-   <img class="demo cursor active" src="spaghetti.jpg" style= "width:100%" onclick="currentSlide(2)" alt="">
-  </div>  
-  <div class="column">
-   <img class="demo cursor active" src="chicken_steak.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
-  </div>
- </div>
- <!-- 썸네일 이미지 목록 끝 --> 
-
- <!-- 사진펼침 시작 -->
- <div class="review_pic">
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-  <div class="mySlides">
-   <img alt="첨부사진" src="salmon_salade.jpg"  onclick="currentSlide(1)">
-  </div>
-  <div class="mySlides">
-   <img alt="첨부사진" src="spaghetti.jpg" onclick="currentSlide(2)">
-  </div>
-  <div class="mySlides">
-   <img alt="첨부사진" src="chicken_steak.jpg" onclick="currentSlide(3)">
-  </div>
- </div>
- <!-- 사진펼침 끝 -->
-</div>
-<!-- 사진영역 div 끝-->
-
-<div class="clear"></div>
-<hr>
-
-<!-- 리뷰내용 영역 -->
-<div class="review_content">
- 
- 
- <div class="clear"></div>
-
- <div class="name"> <p>홍길동</p> </div>
- <div class="date"> <p>2018.10.26 14:37:00</p> </div>
- <div class="rating">
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star-o">4.0</i>
- 
- </div>
- 
- 
- <div class="clear"></div>
-
- <div class="content">
-  <p>내용<br>
-    내용<br>
-    내용<br>
- <div class="like">
-  <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart-o" id=heart></i> <p>좋아요</p> </button>
- </div>
- <input type="button"value="글수정" id="udate" onclick="re_updateForm.jsp">
-  <input type="button"value="글삭제" id="ddate" onclick="delete22()">
-     <script type="text/javascript">
-     function delete22(){
-    	 r=confirm("삭제하시겠습니까?");
-    	 if(r==true){
-    		 alert("삭제 완료되었습니다.")
-    		 location.href="review.jsp";
-    	 }
-    	 else{
-    		 alert("취소되었습니다.")
-    		 location.href="review.jsp";
-    	 }
-     }
-     </script>
-    <br> 
-     <br>
-     </p>
- </div>
-</div>
-
-
-<!-- 리뷰내용 영역 끝 -->
-
-<hr>
-<div class="comment">
- <textarea placeholder="댓글"></textarea>
- <button type="button"><p>댓글등록</p></button>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- review_wrap 끝 -->
 <%
 //이전

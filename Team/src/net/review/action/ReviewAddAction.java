@@ -16,7 +16,7 @@ public class ReviewAddAction implements Action{
 		
 		ServletContext context=request.getServletContext(); 
 		
-  		String realPath=context.getRealPath("/review/upload"); 
+  		String realPath=context.getRealPath("/upload"); 
   		int maxSize=5*1024*1024; 
   		MultipartRequest multi=new MultipartRequest(request, realPath,maxSize,"utf-8",new DefaultFileRenamePolicy()); 
   		
@@ -28,9 +28,6 @@ public class ReviewAddAction implements Action{
   		rb.setLocation(multi.getParameter("sel_location")); 
   		rb.setRating(Integer.parseInt(multi.getParameter("rating")));
   		
-  		
-   		
-   		
    		ReviewDAO rd=new ReviewDAO(); 
   		rd.insertReview(rb); 
   		System.out.println(realPath); 
