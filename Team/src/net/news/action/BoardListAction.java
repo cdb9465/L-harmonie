@@ -15,7 +15,7 @@ public class BoardListAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("BoardListAction execute()");
+		System.out.println("NewsListAction execute()");
 		
 		NewsDAO ndao = new NewsDAO();
 		//count=getBoardCount() 함수 호출

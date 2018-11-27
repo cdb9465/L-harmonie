@@ -186,6 +186,8 @@ body{margin: 0px; padding: 0px;
     margin-top: 15px;
     margin-bottom: 20px;
     background-color: #fff;}
+    
+#sub_about { display: none; }
 
 /* 1:1채팅 */
 .chat{

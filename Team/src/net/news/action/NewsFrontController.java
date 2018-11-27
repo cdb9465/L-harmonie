@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.news.action.FileBoardWriteAction;
+import net.news.action.BoardListAction;
 import net.news.action.Action;
 import net.news.action.ActionForward;
 
@@ -42,29 +42,8 @@ public class NewsFrontController extends HttpServlet{
 		ActionForward forward=null;
 		Action action=null;
 		
-		if(command.equals("/NewsWrite.nw")) {
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./news/writeForm.jsp");
-		}
-		else if(command.equals("/FileBoardWriteAction.nw")){
-			//BoardWriteAction 자바 파일 만들기 <= Action를 적용
-			//execute() 강제적으로 메서드 오버라이딩
-			//부모 = BoardWriteAction 객체 생성
-			action=new FileBoardWriteAction();
-			//메서드 호출한 곳에서 예외처리
-			//forward 이동정보에 저장 =execute()메서드 호출
-			try{
-				forward=action.execute(request, response);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		else if(command.equals("/NewsList.nw")){
-			//BoardListAction 자바 파일 만들기 <= Action를 적용
+		if(command.equals("/NewsList.nw")) {
 			action=new BoardListAction();
-			//execute() 강제적으로 메서드 오버라이딩
-			//execute호출
 			try{
 				forward=action.execute(request, response);
 			} catch(Exception e) {

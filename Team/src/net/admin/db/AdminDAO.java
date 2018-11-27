@@ -43,18 +43,13 @@ public class AdminDAO {
 			con = getConnection();
 			
 			//sql
-
-			if(location.equals("전체") || date == sdf.format(cal.getTime())){
-				sql = "select * from book where Date=?";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, sdf.format(cal.getTime()));
-			}
-			else if(location.equals("전체")){
+			if(location.equals("전체")){
 				sql = "select * from book where Date=?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1,date);
-			}
-			else{
+				
+			}else{
+				
 				sql = "select * from book where location =? and Date=?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, location);
