@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.book.db.BookBean;
 import net.review.db.ReviewBean;
 
 public class MemberDAO {
@@ -333,7 +334,77 @@ public class MemberDAO {
 		}
 		return myReviewList;
 	}
+	public List getMyBookList(int mem_num){
+		List myBookList=new ArrayList();
+
+		try {
+			//1,2 디비연결
+			con=getConnection();
+			//3 sql
+			String sql="select * from book where mem_num=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,mem_num);
+			//4 rs 실행 저장
+			rs=pstmt.executeQuery();
+			//5 rs데이터 있으면 자바빈 객체 생성 gBean
+			//  rs => 자바빈 멤버변수 저장 => goodsList 한칸 저장
+			while(rs.next()){
+				BookBean bb=new BookBean();
+				 bb.setBook_count(rs.getInt("book_count"));
+				 bb.setBook_num(rs.getString("book_num"));
+				 bb.setLocation(rs.getString("location"));
+				 bb.setDate(rs.getDate("date"));
+				 bb.setTime(rs.getString("time"));
+				 bb.setGuest(rs.getInt("guest"));
+				 bb.setTablenum(rs.getInt("tablenum"));
+				 bb.setRequest(rs.getString("request"));
+				 
+				//자바빈 => 배열 한칸 저장
+				myBookList.add(bb);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+		return myBookList;
+	}
 	
+	public int getMyBookCount(int mem_num){
+		int count=0;
+		try{
+			//디비연결 메소드 호출
+			con = getConnection();		
+		
+				//전체의 갯수를 구함 = * / select count(*) from board
+			String sql= "select count(*) from book where mem_num = ? ";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			
+			rs=	pstmt.executeQuery();				
+			
+			
+			if(rs.next()){
+				count=rs.getInt("count(*)"); //getInt(1)도 가능. 1번째열이라는 뜻
+				
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			//예외 발생여부 상관없이 마무리 작업(필수)
+			// 객체생성해서 사용한 기억공간 정리  .close()
+			
+			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+			if(con!=null)	try{con.close(); }catch(SQLException ex){}
+			
+		} //end_try catch
+			return count;
+	}
 }//클래스
 
 

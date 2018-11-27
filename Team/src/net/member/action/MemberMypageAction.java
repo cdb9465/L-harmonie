@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.book.db.BookBean;
 import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 import net.review.db.ReviewBean;
@@ -34,7 +35,11 @@ public class MemberMypageAction implements Action{
 		request.setAttribute("mb", mb);
 		/*------------------------------2페이지 MY Book-------------------*/
 		
-		
+		BookBean bb = new BookBean();
+		List<BookBean> myBookList = mdao.getMyBookList(mb.getMem_num());
+		int myBookCount = mdao.getMyBookCount(mb.getMem_num());
+		request.setAttribute("myBookList", myBookList);
+		request.setAttribute("myBookCount", myBookCount);
 		
 		/*------------------------------3페이지 MY Review-------------------*/
 		
