@@ -9,9 +9,15 @@
 	font-size:24pt;
 }
 
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* 첫번째 메인 */
 #main0 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/main02.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/main/main02.jpg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,57 +47,186 @@
 
 #main1 {
 	/* The image used */
-	background-image: url("../images/main01.jpg");
-	/* background-color: #FCFCFC; */}
+	/* background-image: url("../images/main/main01.jpg"); */
+	background-color: #FCFCFC;}
 #main2 {
     /* The image used */
-    background-image: url("../images/store2.jpg");}
+    background-image: url("../images/main/main01.jpg");}
     
     
-/* 메인 2 텍스트 */
+/* 메인 2 */
 .main2_text {
   text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -180%);
-  color: white;
-}    
-    
-    
-#main02_test { border: 1px solid red;
-	width: 700px;
-	height: 500px;
-	transform: translate(0%, 57%);
-	background-color: blue;	
+  color: #121212;
 }    
 
-/* #main02_test > a {
-	padding: 20px 50px;
-	color: black;
+
+
+.mt01 { 
+    position: relative;
+    width: 50%;
+    height: 600px; 
+	transform: translate(0%, 60.3%);		
+}
+
+.mt02 {
+    position: relative;
+    width: 50%;  
+    height: 300px;      
+	transform: translate(100%, -79.5%);
+}
+
+.mt03 {
+    position: relative;
+    width: 50%;  
+    height: 300px;  
+	transform: translate(100%, -79%);
+}
+
+/* 1 */
+#mtdv01 {    
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	width: 50%;
+    height: 600px;
+    background-image: url("../images/main/main02.jpg");
+}
+
+.mt01_image { 
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.mt01_middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -40%);
+  text-align: center;
+}
+
+.mt01:hover .mt01_image {
+  opacity: 0.5;
+}
+
+.mt01:hover .mt01_middle {
+  opacity: 1;
+}
+
+.mt01_text a {
 	text-decoration: none;
-	border: 1px solid yellow;
-	background-image: url("../images/main02.jpg");
-	
-}    */ 
+	color: #121212;
+	font-size: 80px;
+}
 
-#main_dimg01 {
-	background-image: url("../images/배경3.jpg");
-	background-size: 100%;
-	background-repeat: no-repeat;
-	float: left;
-	width: 700px;
-	height: 500px;
-	margin: 0 50px 0 0;
-}  
-.text01 { border: 1px solid green;
+    
+/* 2 */
+#mtdv02 {   
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	width: 50%;
+    height: 300px;
+    background-image: url("../images/main/main01.jpg");
+}
+
+.mt02_image { 
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.mt02_middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.mt02:hover .mt02_image {
+  opacity: 0.5;
+}
+
+.mt02:hover .mt02_middle {
+  opacity: 1;
+}
+
+.mt02_text a {
+	text-decoration: none;
+	color: #121212;
+	font-size: 80px;
+}
+    
+/* 3 */
+#mtdv03 {   
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	width: 50%;
+    height: 300px;
+    background-image: url("../images/comming.jpg");
+}
+
+.mt03_image { 
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.mt03_middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.mt03:hover .mt03_image {
+  opacity: 0.5;
+}
+
+.mt03:hover .mt03_middle {
+  opacity: 1;
+}
+
+.mt03_text a {
+	text-decoration: none;
+	color: #121212;
+	font-size: 80px;
+}
+
+/* .text01 { border: 1px solid green;
 	text-decoration: none;
 	font-size: 30px;
 	padding-top: 35%;
-	margin: auto;
-	
+	margin: auto;	
 	width: 700px;
 	height: 500px;
 	color: white;
 	font-weight: bold;
-}  
+} */  

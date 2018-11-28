@@ -76,24 +76,44 @@ h1{ margin:0;
 
 /* ---------------------------------mybook--------------------------------------------- */
 /* 예약기간지정 */
-.term{float: left; margin:100px 0 0 100px;}
-.term i{float: left;}	/* 나란히배열 */
-.term span { margin: 0 10px;} /* 조회기간 텍스트 간격주기 */
-.term input[type=button]{background-color:rgba(0, 0, 0, 0.1);
-	padding:4px 12px;
-	color: #000;
-	font-weight:bold;
-	border: 1px solid #000;}
+.term{float: left; margin:30px 0 0 90px;}
+ .searchDate{overflow:hidden;\*zoom:1;float: left;margin-right:10px;}
+.searchDate:after{display:block;content:''}
+.searchDate li{position:relative;float:left;
+				margin:0;list-style: none;}			
+.searchDate li .chkbox2{display:block;text-align:center;}
+.searchDate li .chkbox2 input{position:absolute;z-index:-1;}
+.searchDate li .chkbox2 label{display:block;
+							width:40px;height:26px;
+							font-size:13px;
+							font-weight:bold;
+							border:1px solid #000;
+							border-left:none;
+							color:#000;text-align:center; 
+							line-height:25px;
+							text-decoration:none;
+							cursor:pointer;background:rgba(0, 0, 0, 0); }
+#leftBorder{border-left:1px solid #000; }
+.searchDate li .chkbox2.on label{background:#ec6a6a;}
+.demi{font-weight:bold;margin:20px 10px 0 10px;float: left;display:inline-block;vertical-align:middle}
+.inpType{width:80px;padding-left:6px;height:24px;line-height:24px;vertical-align:middle;border:1px solid #dbdbdb}
+.btncalendar{display:inline-block;width:22px;height:22px;
+			background:url(../images/mypage/cal.png) center center no-repeat;
+			background-size:22px;
+			text-indent:-999em}
+.dset{margin-top:15px;float: left;}
+#bserch{margin:15px 0 0 10px;}
 /* 총 갯수 count */
 .mpcount{ font-size: 1.5em; font-weight: bold; width: 100px;
 		float: right;
-		margin:100px 120px 0 0;}
+		margin:45px 120px 0 0;}
 /* 예약조회 테이블 위치/사이즈 */
-#mybook table th{width: 140px; padding: 20px 0; font-size: 16px;
+#mybook table th{width: 120px; padding: 8px 0; font-size: 16px;
 				background-color:rgba(0, 0, 0, 0.9); color: #eee; }
-#mybook table th.ps{width: 400px; border: none;}
+#mybook table th.ps{width: 350px;}
+#mybook table th.guest{width: 100px;}
 #mybook table.mybook_tbl{
-	margin:10px auto;
+	margin:0px auto;
 	border-collapse:collapse;
 	border-top: 2.5px solid #000;
 	border-bottom: 2.5px solid #000;
@@ -102,17 +122,22 @@ h1{ margin:0;
 #mybook table td{text-align: center; padding:12px 0;
 				border-bottom: 1px solid #000;
 				}
-.bookdetail{color:#800000;
-			font-size: 1.1em;
-			text-decoration: none;
-			}
-.bookdetail:HOVER{color: #eee;}
-#mybook table td input[type=button]{background-color:rgba(0, 0, 0, 0);
-	padding:4px 8px;
-	color: #000;
-	font-weight:bold; 
-	border: none;}
-#mybook table td input[type=button]:HOVER{color: #800000;}
+/* 예약상태(?)확인 - 당일취소불가, 리뷰쓰기, 예약취소 */
+.bookday {font-weight: bold;color: #800000;}
+.bookcancel{background-color:rgba(0, 0, 0, 0.5);
+			color: #bcbcbc;
+			font-weight:bold;
+			border: none;
+			padding:4px 8px;
+			border-radius:5px;}
+.writeReview{background-color:rgba(0, 0, 0, 0.5);
+			color: #bcbcbc;
+			font-weight:bold;
+			border: none;
+			padding:4px 8px;
+			border-radius:5px;}
+#mybook table td input[type=button]:HOVER{background-color:rgba(0, 0, 0, 1);}
+
 /* ---------------------------------myreview--------------------------------------------- */
 
 /* 리뷰조회 테이블 위치/사이즈 */

@@ -20,7 +20,7 @@ public class ReviewAction implements Action{
 		
 		int count = rd.getReviewCount();
 		//pageSize 10설정
-		int pageSize=10;
+		int pageSize=3;
 		//pageNum 파라미터 가져오기 없으면 "1" 설정
 		String pageNum=request.getParameter("pageNum");
 		if(pageNum==null){

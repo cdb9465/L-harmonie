@@ -18,7 +18,7 @@
 	<a href="./AboutUs.ad">ABOUT US</a>
 	<a href="../store/menu.jsp">MENU</a>
 	<a href="../news/news.jsp">NEWS</a>
-	<a href="../review/review.jsp">REVIEW</a>
+	<a href="./ReviewList.re">REVIEW</a>
 </nav>
 
 <!-- 예약 버튼 -->
@@ -34,7 +34,6 @@ MemberBean mb=mdao.getMember(sess);
 
 //세션값이 없으면 로그인버튼보이기
 if(sess==null){%>
-<!-- 로그인 버튼 -->
 <input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	
 <%
 }else{ %>
@@ -44,11 +43,8 @@ if(sess==null){%>
 	else%> <a href="./Mypage.me">MyPage</a>
 <%}%>
 
+	</div>
 </div>
-
-</div>
-
-
 <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
 
 <div id="id01" class="modal">
@@ -87,6 +83,6 @@ window.onclick = function(event) {
     }
 }
 </script>
+>>>>>>> refs/remotes/origin/master
 <!-- 헤더 들어가는곳 -->
-
 </header>
