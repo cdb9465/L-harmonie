@@ -111,7 +111,7 @@
 <div class="tab">
 <div class="panel">
 
-<label class="label">테이블선택</label>
+<label class="label">테이블</label>
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
@@ -156,27 +156,27 @@
  <label class="label">확인</label>
  <table id="confirm" >
  <tr>
-  <td>지점</td>
+  <th>지 점</th>
   <!-- <td>00점</td> -->
  </tr>
  <tr>
-  <td>인원</td>
+  <th>인 원</th>
   <!-- <td>00명</td> -->
   </tr>
   <tr>
-   <td>예약날짜</td>
+   <th>예약 날짜</th>
    <!-- <td>2018년 12월 1일</td> -->
   </tr>
   <tr>
-   <td>예약시간</td>
+   <th>예약 시간</th>
    <!-- <td>13:00시</td> -->
   </tr>
   <tr>
-   <td>예약테이블</td>
+   <th>예약 테이블</th>
    <!-- <td>t7번</td> -->
   </tr>
   <tr>
-   <td>요청사항</td>
+   <th>요청 사항</th>
    <!-- <td>없음</td> -->
   </tr>
 
