@@ -48,8 +48,8 @@ public class NewsAddAction implements Action
 		
 		// 이동
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("./news/news.jsp");
+		forward.setRedirect(true);
+		forward.setPath("./NewsList.nw");
 		
 		return forward;
 	}

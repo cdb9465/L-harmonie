@@ -50,6 +50,7 @@ public class NewsFrontController extends HttpServlet{
 				e.printStackTrace();
 			}	
 		}
+	
 		if(forward!=null) {
 			if(forward.isRedirect()){
 				//true sendRedirect()

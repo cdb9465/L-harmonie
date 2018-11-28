@@ -110,8 +110,8 @@ public class NewsDAO {
 				nb.setNews_num(rs.getInt("news_num"));
 				nb.setTitle(rs.getString("title"));
 				nb.setContent(rs.getString("content"));
-				nb.setFile(rs.getString("file"));
 				nb.setDate(rs.getDate("date"));
+				nb.setFile(rs.getString("file"));
 				newslist.add(nb);
 			}
 		} catch (Exception e) {
