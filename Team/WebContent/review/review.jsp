@@ -96,7 +96,6 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 <!-- 썸네일 이미지 목록 -->
  <div class="row">
   <div class="column">
-  <hr color=red width="500px">
   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(1)" alt="">
   </div>
   <div class="column">

@@ -163,7 +163,7 @@ public class ReviewDAO {
 				 rb.setContent(rs.getString("content"));
 				 rb.setRating(rs.getInt("rating"));
 				 rb.setDate(rs.getDate("date"));
-				 rb.setFile(rs.getString("content"));
+				 rb.setFile(rs.getString("file"));
 				 rb.setLocation(rs.getString("location"));
 			}
 		}
