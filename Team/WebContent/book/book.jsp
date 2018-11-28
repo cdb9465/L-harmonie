@@ -154,7 +154,7 @@
 <div class="tab">
 <div class="panel">
  <label class="label">확인</label>
- <table id="confirm" border="1">
+ <table id="confirm" >
  <tr>
   <td>지점</td>
   <!-- <td>00점</td> -->
