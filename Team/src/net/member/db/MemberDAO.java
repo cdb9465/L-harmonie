@@ -334,16 +334,18 @@ public class MemberDAO {
 		}
 		return myReviewList;
 	}
-	public List getMyBookList(int mem_num){
+	public List getMyBookList(int mem_num,String startDate,String endDate){
 		List myBookList=new ArrayList();
 
 		try {
 			//1,2 디비연결
 			con=getConnection();
 			//3 sql
-			String sql="select * from book where mem_num=?";
+			String sql="select * from book where mem_num=? and date between ? And ?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1,mem_num);
+			pstmt.setString(2,startDate);
+			pstmt.setString(3,endDate);
 			//4 rs 실행 저장
 			rs=pstmt.executeQuery();
 			//5 rs데이터 있으면 자바빈 객체 생성 gBean
@@ -372,26 +374,56 @@ public class MemberDAO {
 		return myBookList;
 	}
 	
-	public int getMyBookCount(int mem_num){
+	public int getMyBookCountTerm(int mem_num, String startDate,String endDate){
 		int count=0;
 		try{
 			//디비연결 메소드 호출
 			con = getConnection();		
 		
 				//전체의 갯수를 구함 = * / select count(*) from board
-			String sql= "select count(*) from book where mem_num = ? ";
-			
+			String sql= "select count(*) from book where mem_num = ? and date between ? And ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, mem_num);
+			pstmt.setString(2,startDate);
+			pstmt.setString(3,endDate);
 			
 			rs=	pstmt.executeQuery();				
-			
-			
+	
 			if(rs.next()){
 				count=rs.getInt("count(*)"); //getInt(1)도 가능. 1번째열이라는 뜻
 				
 			}
 			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			//예외 발생여부 상관없이 마무리 작업(필수)
+			// 객체생성해서 사용한 기억공간 정리  .close()
+			
+			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+			if(con!=null)	try{con.close(); }catch(SQLException ex){}
+			
+		} //end_try catch
+			return count;
+	}
+	
+	public int getMyBookCountAll(int mem_num){
+		int count=0;
+		try{
+			//디비연결 메소드 호출
+			con = getConnection();		
+		
+				//전체의 갯수를 구함 = * / select count(*) from board
+			String sql= "select count(*) from book where mem_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			
+			rs=	pstmt.executeQuery();				
+	
+			if(rs.next()){
+				count=rs.getInt("count(*)"); //getInt(1)도 가능. 1번째열이라는 뜻			
+			}		
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{

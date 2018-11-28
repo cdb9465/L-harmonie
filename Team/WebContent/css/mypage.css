@@ -12,13 +12,14 @@ h1{ margin:0;
 .mpbox{
 	height:100%;
 	width:100%;
+	position:relative; 
 	background-repeat: no-repeat;
 	background-attachment:fixed;
 	background-size: cover;
   }
-#sec1_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");}
-#sec2_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback2.jpg");}
-#sec3_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback3.jpg");}
+#main0{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");}
+#main1{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback2.jpg");}
+#main2{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback3.jpg");}
 
 
 /* 하얀배경 메인내용 */
@@ -102,11 +103,12 @@ h1{ margin:0;
 			background-size:22px;
 			text-indent:-999em}
 .dset{margin-top:15px;float: left;}
-#bserch{margin:15px 0 0 10px;}
-/* 총 갯수 count */
-.mpcount{ font-size: 1.5em; font-weight: bold; width: 100px;
-		float: right;
-		margin:45px 120px 0 0;}
+#bsearch{margin:15px 0 0 10px;}
+/* 총갯수보여주는영역 count */
+.mpcount{ font-size: 2em; font-weight: bold; width: 100px;
+		float: right; margin:45px 120px 0 0;}
+#countAll{ font-weight: normal; color:#7a1010;}
+		
 /* 예약조회 테이블 위치/사이즈 */
 #mybook table th{width: 120px; padding: 8px 0; font-size: 16px;
 				background-color:rgba(0, 0, 0, 0.9); color: #eee; }
@@ -136,7 +138,9 @@ h1{ margin:0;
 			border: none;
 			padding:4px 8px;
 			border-radius:5px;}
-#mybook table td input[type=button]:HOVER{background-color:rgba(0, 0, 0, 1);}
+.bookcancel:HOVER{background-color:#ec6a6a; color: #000;}
+.writeReview:HOVER{background-color:#ec6a6a; color: #000;}
+
 
 /* ---------------------------------myreview--------------------------------------------- */
 
