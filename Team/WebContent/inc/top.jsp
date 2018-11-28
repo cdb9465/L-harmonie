@@ -83,6 +83,5 @@ window.onclick = function(event) {
     }
 }
 </script>
->>>>>>> refs/remotes/origin/master
 <!-- 헤더 들어가는곳 -->
 </header>
