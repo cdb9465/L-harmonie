@@ -163,7 +163,7 @@ public class ReviewDAO {
 				 rb.setContent(rs.getString("content"));
 				 rb.setRating(rs.getInt("rating"));
 				 rb.setDate(rs.getDate("date"));
-				 rb.setFile(rs.getString("content"));
+				 rb.setFile(rs.getString("file"));
 				 rb.setLocation(rs.getString("location"));
 			}
 		}
@@ -279,7 +279,7 @@ public class ReviewDAO {
 				 rb.setContent(rs.getString("content"));
 				 rb.setRating(rs.getInt("rating"));
 				 rb.setDate(rs.getDate("date"));
-				 rb.setFile(rs.getString("content"));
+				 rb.setFile(rs.getString("file"));
 				 rb.setLocation(rs.getString("location"));
 				//자바빈 => 배열 한칸 저장
 				reviewList.add(rb);

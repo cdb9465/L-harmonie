@@ -13,11 +13,14 @@ public class ReviewAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ReviewAction execute()");
+		
+		List<ReviewBean> reviewList=null;
+		
 		ReviewDAO rd= new ReviewDAO();
 		
 		int count = rd.getReviewCount();
 		//pageSize 10설정
-		int pageSize=10;
+		int pageSize=3;
 		//pageNum 파라미터 가져오기 없으면 "1" 설정
 		String pageNum=request.getParameter("pageNum");
 		if(pageNum==null){
@@ -29,7 +32,6 @@ public class ReviewAction implements Action{
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow=currentPage*pageSize;
 		
-		List<ReviewBean> reviewList =rd.getReviewList(0,3);;
 		if(count!=0){
 			reviewList = rd.getReviewList(startRow, pageSize);		
 		}

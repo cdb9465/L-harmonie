@@ -111,7 +111,7 @@
 
 <!-- 4번째 메인 -->
 <div class="main_box" id="main3">
-
+ <h1 id="title">오시는길 </h1>
 <!-- 지도 -->
 <div class="map_wrap">
  <div class="mapdiv" id="mapSeomyeon">
@@ -148,7 +148,6 @@
  </div>
 
 </div>
-
 
 </div>
 

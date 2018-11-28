@@ -18,7 +18,7 @@
 	<a href="./AboutUs.ad">ABOUT US</a>
 	<a href="../store/menu.jsp">MENU</a>
 	<a href="../news/news.jsp">NEWS</a>
-	<a href="../review/review.jsp">REVIEW</a>
+	<a href="./ReviewList.re">REVIEW</a>
 </nav>
 
 <!-- 예약 버튼 -->
@@ -34,21 +34,17 @@ MemberBean mb=mdao.getMember(sess);
 
 //세션값이 없으면 로그인버튼보이기
 if(sess==null){%>
-<!-- 로그인 버튼 -->
-<input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">
+<input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	
 <%
-//세션값이 있으면
 }else{ %>
-<%=mb.getName() %> 로그인 중 
-
+	<%=mb.getName() %> 로그인 중 
 <input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
-<a href="./Mypage.me">MyPage</a>
-<%} %>
+<%	if(sess.equals("admin@team.com"))%> <a href="./BookList.ad">AdminPage</a><%
+	else%> <a href="./Mypage.me">MyPage</a>
+<%}%>
+
+	</div>
 </div>
-
-</div>
-
-
 <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
 
 <div id="id01" class="modal">
@@ -87,6 +83,6 @@ window.onclick = function(event) {
     }
 }
 </script>
+>>>>>>> refs/remotes/origin/master
 <!-- 헤더 들어가는곳 -->
-
 </header>

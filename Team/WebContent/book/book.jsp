@@ -86,6 +86,12 @@
  <div id="date">
   <label class="label">날짜</label>
   <div id="datepicker"><input type="hidden" name="date" id="dateval"></div>
+  
+  <div id="dateDesc">
+   <div id="squToday"><i class="fa fa-square" style="color:#666666"></i> 오늘날짜</div>
+   <div id="squSelect"><i class="fa fa-square" style="color:#333333"></i> 선택된날짜</div>
+   <div id="squAble"><i class="fa fa-square" style="color:#eeeeee"></i> 예약가능날짜</div>
+  </div>
  </div>
   
  <div id="time">
@@ -207,7 +213,7 @@ $(document).ready(function(){
 	
 	//datepicker 
  	$(function () {
- 		var minDate = new Date();
+ 		var today = $.datepicker.formatDate('yy-mm-dd', new Date());
  		
 		$("#datepicker").datepicker({
 			showMonthAfterYear: true, //연도와 달 위치 변경
@@ -215,11 +221,24 @@ $(document).ready(function(){
 			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			dayNamesMin:['일','월','화','수','목','금','토'],
 			dateFormat: 'yy-mm-dd',
- 			minDate: minDate,
+ 			minDate: today,
  			maxDate: '+14d',
  			defaultDate: '+1d',	//초기값
 			onSelect: function (date) { //date:선택된날짜 inst:인스턴스
-				$('#dateval').val(date);				
+				/* var day = new Date();
+				day.setDate(day.getDate()+1);
+				var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
+				alert(nextDay); */ //내일날짜구하기
+				
+				if(date == today)
+				{
+					alert("예약은 익일날짜부터 가능합니다.");
+					$("#datepicker").datepicker("option", "defaultDate", selected);
+				}
+				else
+				{
+					$('#dateval').val(date);				
+				}
  			}
 		});
 
