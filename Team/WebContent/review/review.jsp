@@ -189,7 +189,7 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 <%
 //이전
 if(startPage > pageBlock){
-	%><a href="./ReviewList.re?pageNum=<%=startPage-1%>" >[이전]</a><%
+	%><a href="./ReviewList.re?pageNum=<%=startPage-pageBlock%>" >[이전]</a><%
 }
 // 1~10 
 for(int i=startPage;i<=endPage;i++){
