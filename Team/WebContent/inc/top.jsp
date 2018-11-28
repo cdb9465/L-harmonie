@@ -9,7 +9,7 @@
 <div class="top_menu">
 
 <!-- 로고들어가는 곳 시작 -->
-<div id="logo"><a href ="./Main.ma"><img src="./images/logo.png"></a></div>
+<div id="logo"><a href ="./Main.ma" id="logoId"><img src="./images/logo.png"></a></div>
 <!-- 로고들어가는 곳 끝 -->
 
 <!-- 메인메뉴 -->
@@ -17,7 +17,7 @@
 <nav id="main_menu">
 	<a href="./AboutUs.ad">ABOUT US</a>
 	<a href="../store/menu.jsp">MENU</a>
-	<a href="../news/news.jsp">NEWS</a>
+	<a href="./NewsList.nw">NEWS</a>
 	<a href="./ReviewList.re">REVIEW</a>
 </nav>
 
@@ -83,6 +83,5 @@ window.onclick = function(event) {
     }
 }
 </script>
->>>>>>> refs/remotes/origin/master
 <!-- 헤더 들어가는곳 -->
 </header>
