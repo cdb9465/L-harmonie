@@ -12,7 +12,6 @@
 }
 .news_main {
 	padding-top: 80px;
-	border: 1px solid red;
     max-width: 1000px;
     margin: auto;
 }
@@ -21,7 +20,6 @@ h1 {
     word-break: break-all;
 }
 .news_row {
-	border: 1px solid green;
     margin: 8px -16px;
 }
 .news_row,
@@ -37,8 +35,7 @@ h1 {
     float: left;
     width: 25%;
 }
-.news_content {d
-	border: 1px solid blue;
+.news_content {
     background-color: white;
     padding: 10px;
 }
@@ -61,7 +58,7 @@ h1 {
     transition: 0.3s;
 }
 #myImg:hover {opacity: 0.7;}
-.modal {
+#myModal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -73,11 +70,12 @@ h1 {
     overflow: auto;
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
-.modal-content {
+#img01 {
 	position: relative;
     margin: auto;
     display: block;
-    width: 800px;
+    width: 600px;
+    height: 400px;
     max-width: 800px;
 }
 #caption {
@@ -89,8 +87,9 @@ h1 {
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+    font-size: 1.2em;
 }
-.modal-content, #caption { 
+#img01, #caption { 
     animation-name: zoom;
     animation-duration: 0.6s;
 }
@@ -98,23 +97,23 @@ h1 {
     from {transform:scale(0)} 
     to {transform:scale(1)}
 }
-.close {
-    position: absolute;
-    top: 240px;
+.news_close {
+	position: absolute;
+    top: 185px;
     right: 600px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
 }
-.close:hover,
-.close:focus {
+.news_close:hover,
+.news_close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
 }
 @media only screen and (max-width: 800px){
-    .modal-content {
+    #img01 {
         width: 100%;
     }
 }

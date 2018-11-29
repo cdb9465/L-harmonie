@@ -16,8 +16,8 @@
 
 <nav id="main_menu">
 	<a href="./AboutUs.ad">ABOUT US</a>
-	<a href="../store/menu.jsp">MENU</a>
-	<a href="../news/news.jsp">NEWS</a>
+	<a href="./MenuList.nu">MENU</a>
+	<a href="./NewsList.nw">NEWS</a>
 	<a href="./ReviewList.re">REVIEW</a>
 </nav>
 
