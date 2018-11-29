@@ -16,8 +16,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-
 <%
 String pageNum=(String)request.getAttribute("pageNum");
 List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("reviewList");
@@ -27,8 +25,6 @@ int pageBlock=((Integer)request.getAttribute("pageBlock")).intValue();
 int startPage=((Integer)request.getAttribute("startPage")).intValue();
 int endPage=((Integer)request.getAttribute("endPage")).intValue();
 %>
-
-
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="./../inc/top.jsp"></jsp:include>
 <div class="clear"></div>
@@ -56,29 +52,29 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 
 <!-- 사진영역 div-->
 
-<table border="1" width="100%" cellspacing="0" cellpadding="0">
+
 <%
     for(int i=0;i<ReviewList.size();i++){
     	ReviewBean rb=ReviewList.get(i);
     	
-    	System.out.println(rb.getFile().split(",")[0]);
+    	//System.out.println(rb.getFile().split(",")[0]);
     	%>
-
+<table border="1" class="tbimg" width="100%" cellspacing="0" cellpadding="0">
 <tr>
 <th colspan='2'>
 <div class="review_content">
-<div class="email"> <p><%=rb.getMem_num()%></p> </div>
+<div class="email"><%=rb.getMem_num()%></div>
 </div>
 </th>
 <th><div class="review_content">
-<div class="date"> <p><%=rb.getDate() %></p> </div>
+<div class="date"><%=rb.getDate() %></div>
 </div></th>
 </tr>
 
 
 <tr><th colspan='2'>
  <div class="rating">
-<p><%=rb.getRating() %></p>
+<%=rb.getRating() %>
 </div>
 </th>
 <td>정말 놀라웠어요~!</td>
@@ -87,7 +83,7 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 
 
 <tr><th colspan='3'><div class="content">
-  <p><%=rb.getContent()%></p><br>
+  <%=rb.getContent()%><br>
 </div></th></tr>
 
 
@@ -96,30 +92,30 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 <!-- 썸네일 이미지 목록 -->
  <div class="row">
   <div class="column">
-  <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(1)" alt="">
+  <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(<%=i%>,1)" alt="">
   </div>
   <div class="column">
-   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style= "width:100%" onclick="currentSlide(2)" alt="">
+   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[1] %>" style= "width:100%" onclick="currentSlide(<%=i%>,2)" alt="">
   </div>  
   <div class="column">
-   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(3)" alt="">
+   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[2] %>" style="width:100%" onclick="currentSlide(<%=i%>,3)" alt="">
   </div>
  </div>
  <!-- 썸네일 이미지 목록 끝 --> 
 
  <!-- 사진펼침 시작 -->
  <div class="review_pic">
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
+  <a class="prev" onclick="plusSlides(<%=i%>,-1)">❮</a>
+  <a class="next" onclick="plusSlides(<%=i%>,1)">❯</a>
   <div class="mySlides">
-   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(1)"> 
+   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(<%=i%>,1)"> 
 
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>" onclick="currentSlide(2)">
+   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[1] %>" onclick="currentSlide(<%=i%>,2)">
   </div>
   <div class="mySlides">
-   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>" onclick="currentSlide(3)">
+   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[2] %>" onclick="currentSlide(<%=i%>,3)">
   </div>
  </div>
  <!-- 사진펼침 끝 -->
@@ -129,7 +125,7 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 
 </th></tr>
 
-<tr><td >
+<tr><td>
 <div class="content">
 
  <div class="like">
@@ -140,12 +136,26 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 <td>4명이 좋아합니다.</td>
 <td><div class="content">
   <input type="button"value="글삭제"  onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" id="ddate">
+        <script type="text/javascript">
+     function sub11(){
+    	 r=confirm("등록하시겠습니까?");
+    	 if(r==true){
+    		 alert("등록되었습니다.")
+    		 location.href="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'";
+    	 }
+    	 else{
+    		 alert("취소되었습니다.")
+    		 location.href="./review/ReviewList.re";
+    	 }
+     }
+     </script>
     <br> 
      <br>
  </div>
 </td>
 </tr>
-<tr><td  colspan='3'>
+
+<tr><td colspan='3'>
 <div class="comment">
  <textarea placeholder="댓글"></textarea>
  <button type="button" onclick="sub11()"><p>댓글등록</p></button>
@@ -175,36 +185,45 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 
 </div>
 <!-- review_wrap 끝 -->
+<p class="pageSelect">
 <%
 //이전
 if(startPage > pageBlock){
-	%><a href="./ReviewList.re?pageNum=<%=startPage-pageBlock%>">[이전]</a><%
+	%><a href="./ReviewList.re?pageNum=<%=startPage-pageBlock%>" >[이전]</a><%
 }
 // 1~10 
 for(int i=startPage;i<=endPage;i++){
-	%><a href="./ReviewList.re?pageNum=<%=i%>">[<%=i %>]</a><%
+	%><a href="./ReviewList.re?pageNum=<%=i%>" class="pp">[<%=i %>]</a><%
 }
 //다음
 if(endPage < pageCount){
 	%><a href="./ReviewList.re?pageNum=<%=startPage+pageBlock%>">[다음]</a><%
 }
 %>
-
+</p>
 <script>
 var bClick = false;
 var activeIndex = 0;
 var slideIndex = 0;
+var j=0;
 //showSlides(slideIndex);
 
-function plusSlides(n) { showSlides(slideIndex += n); }
-function currentSlide(n) {	showSlides(slideIndex = n); }
+function plusSlides(j,n) { showSlides(j,slideIndex += n); }
+function currentSlide(j,n) {	showSlides(j,slideIndex = n); }
 
-function showSlides(n) {
+function showSlides(j,n) {
+	
 	var i;
-	var slides = document.getElementsByClassName("mySlides");
-	var dots = document.getElementsByClassName("demo");
-	var prev = document.getElementsByClassName("prev");
-	var next = document.getElementsByClassName("next");
+	var tbimg=document.getElementsByClassName("tbimg");
+	
+// 	for(i=0; i<tbimg.length; i++)
+// 		{
+		var slides = tbimg[j].getElementsByClassName("mySlides");
+		var dots = tbimg[j].getElementsByClassName("demo");
+		var prev = tbimg[j].getElementsByClassName("prev");
+		var next = tbimg[j].getElementsByClassName("next");
+// 		}
+	
 	
 	if (n > slides.length) {slideIndex = 1}
 	if (n < 1) {slideIndex = slides.length}
@@ -236,7 +255,7 @@ function showSlides(n) {
 		}
 		
 		slides[slideIndex-1].style.display = "block";
-		dots[slideIndex-1].className += " active";
+		dots[slideIndex-1].className += "active";
 		prev[0].style.display = "block";
 		next[0].style.display = "block";
 		

@@ -9,7 +9,7 @@
 <div class="top_menu">
 
 <!-- 로고들어가는 곳 시작 -->
-<div id="logo"><a href ="./Main.ma"><img src="./images/logo.png"></a></div>
+<div id="logo"><a href ="./Main.ma" id="logoId"><img src="./images/logo.png"></a></div>
 <!-- 로고들어가는 곳 끝 -->
 
 <!-- 메인메뉴 -->
@@ -82,7 +82,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
 </script>
->>>>>>> refs/remotes/origin/master
 <!-- 헤더 들어가는곳 -->
 </header>

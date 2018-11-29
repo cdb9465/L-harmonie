@@ -69,33 +69,41 @@
 	color: #a4a2a1;
 	font-weight: 300; }
 
-/* 지도 */
-
+/***** 지도 *****/
 h1#title{ margin:0;
 	padding-top:110px;
 	font-size: 3em;
 	color: #ffffff;
 	text-align: center; }
 	
-.map_wrap { /* border: 1px solid red; */
+.map_wrap {
 	position:relative; overflow:hidden;
 	width:1300px; height:700px;
 	background-color:rgba(255, 255, 255, 0.4);
 	top: 20px;
 	margin:0 auto 0; }
 
-.mapdiv { width: 300px; height: 300px; /* 지도크기 */ 
+.map_wrap>.mapdiv { width: 300px; height: 300px; /* 지도크기 */ 
 	position: absolute;
-	overflow: hidden; }
+	overflow: hidden; 
+	display: none;/* 지도type1지움 */}
 
-.mapAlldiv { width: 300px; height: 400px; /* 지도크기 */ 
+.mapAlldiv { width:40%; height: 80%; /* 지도크기 */ 
 	position: absolute;
 	overflow: hidden; }
 	
 #mapSeomyeon { top: 20px; left: 20px;	/* 지도위치 */ }
 #mapKangnam { top: 20px; left: 420px;	/* 지도위치 */ }
-#mapAll { top: 330px; left: 20px;	/* 지도위치 */ }
+#mapAll { top: 70px; left: 50px;	/* 지도위치 */ }
+ 
+.map_wrap>.mapInfo {
+	background-color: rgba(230, 230, 230, 0.7);	
+	position: absolute;
+	width: 40%; height: 80%;
+	top: 70px; right: 50px;
+}
 
+ /* 확대축소버튼  */
 .radius_border{ border:1px solid #919191;
 	border-radius:5px; }    
 
@@ -119,6 +127,73 @@ h1#title{ margin:0;
 	  
 .custom_zoomcontrol span:first-child{
 	border-bottom:1px solid #bfbfbf; } 
+
+/* 지점정보 */
+.map_wrap>.mapInfo .info-data {
+	border-bottom: 1px solid #aaa;
+	width: 90%; height: 150px;
+	position: relative;
+	margin: 20px auto; }
+
+.map_wrap>.mapInfo .info-data:HOVER { cursor: pointer; }
+
+.map_wrap>.mapInfo img { width:100px; height: 100px;
+	position: absolute;
+	top: 20px; left: 20px; }
+
+.map_wrap>.mapInfo .infoTxt {
+	width: 350px; height:100px;
+	position: absolute;
+	top: 20px; left: 150px;
+	color: #666; }
+
+.map_wrap>.mapInfo .infoTxt>div { margin: 5px 0; }
+
+#itxt1 { font-size: 16px; font-weight: bold; }
+#itxt2 { font-size: 14px; }
+
+/***** 지점상세정보 *****/
+.map_wrap>.storeInfo {
+	background-color: rgba(230, 230, 230, 0.7);
+	position: absolute;
+	width: 40%; height: 80%;
+	top: 70px; right: 50px;
+	display: none; }
+	
+.map_wrap>.storeInfo .store { display: none; }
+
+ /* 돌아가기버튼 */
+.backMap { width: 80px; 
+	font-size: 14px;
+	padding: 5px 0 0 5px; }
+.backMap:HOVER { cursor: pointer; color: #fff; }
+.backMap i { font-size:24px; }
+
+.map_wrap>.storeInfo img { width:400px; height: 250px;
+ 	position: absolute;
+ 	top: 50px; left: 60px; }
+
+.map_wrap>.storeInfo .storeTitle {color: #333; font-size: 16px; }
+
+.storeInfo table {
+	position: absolute;
+	top: 320px; left: 60px; }
+
+.storeInfo table #title {
+	color: #333; 
+	font-size: 16px; }
+	
+.storeInfo table th, td {
+	color: #666; 
+	font-size: 14px; }
+	
+.storeInfo table th { padding: 10px 30px; }
+.storeInfo table td { padding: 10px 80px; }
+
+
+
+
+
 
 
 

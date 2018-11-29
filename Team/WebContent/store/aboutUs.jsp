@@ -9,9 +9,10 @@
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/aboutUs.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
+integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30e4f19e3412a3a75d0669f0d77273ba"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
@@ -146,6 +147,90 @@
    </span>
   </div>
  </div>
+ 
+ <div class="mapInfo">
+  <div class="info-data" onclick="selectStore(0)">
+	<img src="./images/menu/about01.jpg">
+	<div class="infoTxt">
+	 <div id="itxt1">서울강남점</div>
+	 <div id="itxt2">전화 02-123-1234</div>
+	 <div id="itxt2">주소 서울시 강남구</div>
+	</div>
+  </div>
+  
+  <div class="info-data" onclick="selectStore(1)">
+	<img src="./images/menu/about03.jpg">
+	<div class="infoTxt">
+	 <div id="itxt1">부산서면점</div>
+	 <div id="itxt2">전화 051-803-0909</div>
+	 <div id="itxt2">주소 부산시 부산진구 동천로 109</div>
+	</div>
+  </div> 
+  
+  <div class="info-data">
+	<img src="./images/comming.jpg">
+	<div class="infoTxt">
+	 <div id="itxt1">제주 중문점 (오픈예정)</div>
+	 <div id="itxt2">전화 - </div>
+	 <div id="itxt2">주소 - </div>
+	</div>
+  </div> 
+ </div>
+
+  <div class="storeInfo">
+   <div class="backMap" onclick="backMap()"><i class='fas fa-angle-left'> back</i></div>
+   
+   <div class="store">
+    <img src="./images/menu/about01.jpg">
+    <table>
+     <tr>
+      <th colspan="2" id="title">서울강남점</th>
+     </tr>
+     <tr>
+      <th>주소</th>
+      <td>서울시 강남구 논현동 </td>
+     </tr>
+     <tr>
+      <th>전화번호</th>
+      <td>02-123-1234</td>
+     </tr>
+     <tr>
+      <th>영업시간</th>
+      <td>11:00 - 21:00</td>
+     </tr>
+     <tr>
+      <th>BREAK TIME</th>
+      <td>15:00 - 17:00</td>
+     </tr>
+    </table>
+   </div>
+   
+   <div class="store">
+    <img src="./images/menu/about03.jpg">
+    <table>
+     <tr>
+      <th colspan="2" id="title">부산서면점</th>
+     </tr>
+     <tr>
+      <th>주소</th>
+      <td>부산시 부산진구 동천로 109</td>
+     </tr>
+     <tr>
+      <th>전화번호</th>
+      <td>051-803-0909</td>
+     </tr>
+     <tr>
+      <th>영업시간</th>
+      <td>11:00 - 21:00</td>
+     </tr>
+     <tr>
+      <th>BREAK TIME</th>
+      <td>15:00 - 17:00</td>
+     </tr>
+    </table>
+   </div>
+   
+  </div>
 
 </div>
 
@@ -164,6 +249,7 @@
 <script>
 var map = new Array(3);
 var mapIndex;
+var markers = [];
 
 createMap("서울강남점");
 createMap("부산서면점");
@@ -201,8 +287,9 @@ function createMapAll()
 			position: positions[i].latlng,	//마커 표시 위치
 			title : positions[i].title // 마커의 타이틀
 		});
+		
+		markers.push(marker);
 
-	
 		//인포윈도우 설정
 		var iwContent = '<div style="width:150px;text-align:center;padding:6px 0;">'+positions[i].title+'</div>',
 			iwPosition = positions[i];
@@ -215,11 +302,60 @@ function createMapAll()
 
 		//마커에 인포윈도우 표시
 		infowindow.open(map[mapIndex], marker);
-
-	
+		
+		//마커에 클릭이벤트 등록
+		(function(marker, i){
+			daum.maps.event.addListener(marker, 'click', function(){ 
+				selectStore(i);
+			});
+		})(marker, i);
 	}
-
 	
+}
+
+//지점정보 선택
+function selectStore(n)
+{
+	var mapInfo = document.getElementsByClassName("mapInfo");
+	var storeInfo = document.getElementsByClassName("storeInfo");
+	var storediv = document.getElementsByClassName("store");
+	
+	//해당지점으로 맵 이동
+	var moveLocation = markers[n].getPosition();	//클릭한 마커의 중심좌표 얻기
+	map[0].setLevel(3);	//레벨 변경
+	map[0].panTo(moveLocation); //부드럽게 중심좌표 이동시키기
+
+	//지점정보 없애고 지점상세정보 보이게
+	mapInfo[0].style.display = "none";
+	storeInfo[0].style.display = "block";
+	
+	//선택한 지점 상세정보만 보이게
+	if(n==0)
+	{
+		storediv[0].style.display = "block";
+		storediv[1].style.display = "none";
+	}
+	else
+	{
+		storediv[0].style.display = "none";
+		storediv[1].style.display = "block";	
+	}
+}
+
+//지점정보로 돌아가기
+function backMap()
+{
+	var mapInfo = document.getElementsByClassName("mapInfo");
+	var storeInfo = document.getElementsByClassName("storeInfo");
+	
+	//전체지점으로 맵 이동
+	var moveLocation = new daum.maps.LatLng(38.060417, 128.034028);
+	map[0].setLevel(14);	//레벨 변경
+	map[0].panTo(moveLocation); //부드럽게 중심좌표 이동시키기
+	
+	//지점상제정보 없애고 지점정보 보이게
+	mapInfo[0].style.display = "block";
+	storeInfo[0].style.display = "none";
 }
 
 function createMap(location)
@@ -286,7 +422,6 @@ function createMap(location)
 
 	//마커에 인포윈도우 표시
 	infowindow.open(map[mapIndex], marker);
-	
 }
 
 /* 

@@ -58,7 +58,7 @@ DateFormat df = new SimpleDateFormat("yyyyMMdd");
 <img src="./images/logo.png"><br>
 <h1 id="title">예약이 완료되었습니다.</h1>
 </div>
-<article id="book_art">
+<article id="bookck_art">
 <p>예약정보> </p>
 <hr>
 
