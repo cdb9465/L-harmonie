@@ -12,6 +12,10 @@
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/review.css" rel="stylesheet" type="text/css">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -39,11 +43,11 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 <!-- 리뷰쓰기 영역 끝 -->
 <hr>
  <div class="write_find">
-  <div class="title">*간편검색*</div>
-  <select name="sel_location">
-    <option value="gangnam">전체</option>
-   <option value="gangnam">서울강남점</option>
-   <option value="seomyeon">부산서면점</option>
+  <div class="title">*간편검색*</div><br>
+  <select name="sel_location" >
+    <option value="">전체</option>
+   <option value="서울강남점" >서울강남점</option>
+   <option value="부산서면점" >부산서면점</option>
   </select>
   
  </div>
@@ -59,22 +63,23 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
     	
     	//System.out.println(rb.getFile().split(",")[0]);
     	%>
+
 <table border="1" class="tbimg" width="100%" cellspacing="0" cellpadding="0">
-<tr>
-<th colspan='2'>
-<div class="review_content">
-<div class="email"><%=rb.getMem_num()%></div>
-</div>
-</th>
-<th><div class="review_content">
-<div class="date"><%=rb.getDate() %></div>
-</div></th>
+<tr style="background-color:black; color:white; height:20px;">
+<th><%=rb.getMem_num()%></th>
+<th><%=rb.getLocation() %></th>
+<th><%=rb.getDate() %></th>
 </tr>
 
 
 <tr><th colspan='2'>
  <div class="rating">
-<%=rb.getRating() %>
+ <%
+		//평점 점수에 따라 ★로 표시함
+		for(int s=0; s< rb.getRating(); s++){
+			%><i class="fa fa-star" style="color:#fff"></i><%
+		}
+		%>
 </div>
 </th>
 <td>정말 놀라웠어요~!</td>

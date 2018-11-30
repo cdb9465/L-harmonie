@@ -101,7 +101,7 @@ form { margin: 0 100px; }
 	margin-top: 10px; }
 	
 	.write_find { /* border: 1px solid blue; */
-	width: 500px;
+	width: 700px;
 	margin-top: 10px;
 	padding-left:350px;}
 
@@ -129,7 +129,7 @@ form { margin: 0 100px; }
 .review_pic { width: 500px;
 	margin: 0 auto; }
 
-.review_content { margin: 0 100px; }
+
 
 .container {
   position: relative;	/* < > 버튼 위치 잡기 위해 필요 */ }
@@ -201,8 +201,6 @@ form { margin: 0 100px; }
 
 
 
-/* 리뷰날짜 */
-.date {	width: 300px; height: 30px; }
 
 /* 리뷰 내용 글자색 */
 .content { color: #323232; }
