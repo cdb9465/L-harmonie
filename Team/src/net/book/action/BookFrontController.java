@@ -52,6 +52,13 @@ public class BookFrontController extends HttpServlet{
 				forward = action.execute(request, response);
 			} catch (Exception e) { e.printStackTrace(); }			
 		}
+		else if(command.equals("/BookTest.bk"))
+		{
+			action = new BookTestAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) { e.printStackTrace(); }			
+		}
 		
 		
 		//이동

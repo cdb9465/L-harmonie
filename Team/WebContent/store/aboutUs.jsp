@@ -9,6 +9,8 @@
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/aboutUs.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
+integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30e4f19e3412a3a75d0669f0d77273ba"></script>
 
@@ -176,7 +178,7 @@
  </div>
 
   <div class="storeInfo">
-   <div class="backMap" onclick="backMap()">돌아가기</div>
+   <div class="backMap" onclick="backMap()"><i class='fas fa-angle-left'> back</i></div>
    
    <div class="store">
     <img src="./images/menu/about01.jpg">

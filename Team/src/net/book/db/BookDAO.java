@@ -6,7 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import net.member.db.MemberBean;
 
 
 
@@ -117,4 +121,50 @@ public class BookDAO {
 		return bb;
 	}
 
+	public List<BookBean> testBook(BookBean bb)
+	{
+		int chkTable[] = new int[10];
+		int cnt = 0;
+		
+		List<BookBean> list = new ArrayList<BookBean>();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			con = getConnection();
+			
+			//sql 생성
+			String sql = "select * from book where location=? and date=? and time=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bb.getLocation());
+			pstmt.setDate(2, bb.getDate());
+			pstmt.setString(3, bb.getTime());
+			
+			//결과값 저장
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				bb.setBook_num(rs.getString("book_num"));
+				bb.setLocation(rs.getString("location"));
+				bb.setGuest(rs.getInt("guest"));
+				bb.setDate(rs.getDate("date"));
+				bb.setTime(rs.getString("time"));
+				bb.setTablenum(rs.getInt("tablenum"));
+				bb.setRequest(rs.getString("request"));	
+				
+				list.add(bb);
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			if(con!=null) try {con.close();} catch (SQLException ex){}
+			if(rs!=null) try {rs.close();} catch (SQLException ex){}
+		}
+	
+		return list;		
+	}
 }

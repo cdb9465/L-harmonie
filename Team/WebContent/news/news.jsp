@@ -34,10 +34,10 @@ for(int i=0; i<newsList.size(); i++) {
 %>
 <div class="news_column">
     	<div class="news_content">
-    	<img id="myImg" src="./upload/<%=nb.getFile()%>" width="100%" height="150px" alt="<%=nb.getTitle()%>">
-    	<div id="myModal" class="modal">
-    	<span class="close">&times;</span>
-    	<img class="modal-content" id="img01">
+    	<img id="myImg" src="./upload/<%=nb.getFile()%>" width="100%" height="150px" alt="<%=nb.getTitle()%>" onclick="onClick(this)">
+    	<div id="myModal">
+    	<span class="news_close">&times;</span>
+    	<img id="img01">
     	<div id="caption"></div>
     	</div>
 		<h4><%=nb.getTitle() %></h4>
@@ -62,31 +62,24 @@ count2=0;
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
 <script>
-var modal = document.getElementById("myModal");
-
-var img = document.getElementById("myImg");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    
-    captionText.innerHTML = this.alt;
+function onClick(element) {
+	document.getElementById("img01").src = element.src;
+	var modal = document.getElementById("myModal");
+	document.getElementById("caption").innerHTML = element.alt;
+	modal.style.display = "block";
+	
+	var span = document.getElementsByClassName("news_close")[0];
+	
+	//x표 누르면 팝업창 사라지기
+	span.onclick = function() { 
+	  modal.style.display = "none";
+	}
+	
+	//검은 바탕 누르면 팝업창 사라지기
+	modal.onclick = function() {   
+	  modal.style.display = "none";
+	}
 }
-
-var span = document.getElementsByClassName("close")[0];
-
-var div = document.getElementsByClassName("modal")[0];
-
-
-span.onclick = function() { 
-  modal.style.display = "none";
-}
-//x표 누르면 팝업창 사라지기
-div.onclick = function() {   
-  modal.style.display = "none";
-}
-//검은 바탕 누르면 팝업창 사라지기
 </script>
 
 </body>

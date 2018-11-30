@@ -94,13 +94,13 @@ h1#title{ margin:0;
 	
 #mapSeomyeon { top: 20px; left: 20px;	/* 지도위치 */ }
 #mapKangnam { top: 20px; left: 420px;	/* 지도위치 */ }
-#mapAll { top: 40px; left: 50px;	/* 지도위치 */ }
+#mapAll { top: 70px; left: 50px;	/* 지도위치 */ }
  
 .map_wrap>.mapInfo {
-	background-color: #e6e6e6;
+	background-color: rgba(230, 230, 230, 0.7);	
 	position: absolute;
 	width: 40%; height: 80%;
-	top: 40px; right: 50px;
+	top: 70px; right: 50px;
 }
 
  /* 확대축소버튼  */
@@ -130,7 +130,7 @@ h1#title{ margin:0;
 
 /* 지점정보 */
 .map_wrap>.mapInfo .info-data {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #aaa;
 	width: 90%; height: 150px;
 	position: relative;
 	margin: 20px auto; }
@@ -154,17 +154,20 @@ h1#title{ margin:0;
 
 /***** 지점상세정보 *****/
 .map_wrap>.storeInfo {
-	background-color: #e6e6e6;
+	background-color: rgba(230, 230, 230, 0.7);
 	position: absolute;
 	width: 40%; height: 80%;
-	top: 40px; right: 50px;
+	top: 70px; right: 50px;
 	display: none; }
 	
 .map_wrap>.storeInfo .store { display: none; }
 
  /* 돌아가기버튼 */
-.backMap { font-size: 14px; }
-.backMap:HOVER { cursor: pointer; }
+.backMap { width: 80px; 
+	font-size: 14px;
+	padding: 5px 0 0 5px; }
+.backMap:HOVER { cursor: pointer; color: #fff; }
+.backMap i { font-size:24px; }
 
 .map_wrap>.storeInfo img { width:400px; height: 250px;
  	position: absolute;

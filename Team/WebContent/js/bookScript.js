@@ -128,7 +128,12 @@ function selectTime(n){
 		if(n == i)
 			document.bf.time.value = timeArr[i];
 	}
-		
+
+	var l = document.bf.location.value;
+	var t = document.bf.time.value;
+	var d = document.bf.date.value;
+	
+	location.href="./BookTest.bk?location="+"ddd"+"&time="+t+"&date="+d;
 }
 
 //테이블선택
