@@ -2,6 +2,7 @@
 function moveTab(n)
 {
 	nextPrev(n-currentTab);
+	
 }
 
 function showTab(n) {
