@@ -26,7 +26,7 @@ public class ReviewAction implements Action{
 		if(pageNum==null){
 			pageNum="1";
 		}
-		
+	
 		int currentPage=Integer.parseInt(pageNum);
 		//startRow 시작페이지 계산식 endRow 끝페이지 계산식
 		int startRow=(currentPage-1)*pageSize+1;
@@ -46,7 +46,7 @@ public class ReviewAction implements Action{
 		if(endPage > pageCount){
 			endPage=pageCount;//전체 페이지 개수
 		}
-		
+
 		request.setAttribute("count", count);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("pageBlock", pageBlock);
