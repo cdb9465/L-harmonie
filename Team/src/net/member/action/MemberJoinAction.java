@@ -1,5 +1,7 @@
 package net.member.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,6 +20,7 @@ public class MemberJoinAction implements Action{
 			String pass = request.getParameter("pass");
 			String name = request.getParameter("name");
 			String phone = request.getParameter("phone");
+
 				// 자바빈 - 패키지 member 파일이름 MemberBean (MemberDAO)
 			
 				// 멤버변수 정의 set get메서드 준비
@@ -35,12 +38,23 @@ public class MemberJoinAction implements Action{
 			MemberDAO mdao=new MemberDAO();
 				// insertMember 함수호출
 			mdao.insertMember(mb);	
+			
 				// 이동   MemberLogin.me
-			ActionForward forward = new ActionForward();
+			
+			response.setContentType("text/html; charset=UTF-8");
+			//자바에서 JSP구문 쓸때 ↓ 아래 형식으로 사용
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('회원 가입이 완료되었습니다.');");
+			out.println("location.href='Main.ma';"); //이동
+			out.println("</script>");
+			out.close();
+			
+			/*ActionForward forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("./MemberJoin.me");
-			
-			return forward;
+			return forward;*/
+			return null;
 	}
 	
 	

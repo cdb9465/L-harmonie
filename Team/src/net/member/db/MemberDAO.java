@@ -300,54 +300,33 @@ public class MemberDAO {
 		 }//end checkEmail()
 	
 	
-	public List getMyReviewList(int mem_num){
-		List myReviewList=new ArrayList();
-
-		try {
-			//1,2 디비연결
-			con=getConnection();
-			//3 sql
-			String sql="select * from review where mem_num=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1,mem_num);
-			//4 rs 실행 저장
-			rs=pstmt.executeQuery();
-			//5 rs데이터 있으면 자바빈 객체 생성 gBean
-			//  rs => 자바빈 멤버변수 저장 => goodsList 한칸 저장
-			while(rs.next()){
-				ReviewBean rb=new ReviewBean();
-				 rb.setReview_num(rs.getInt("review_num"));
-				 rb.setContent(rs.getString("content"));
-				 rb.setRating(rs.getInt("rating"));
-				 rb.setDate(rs.getDate("date"));
-				 rb.setFile(rs.getString("content"));
-				 rb.setLocation(rs.getString("location"));
-				//자바빈 => 배열 한칸 저장
-				myReviewList.add(rb);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally{
-			if(rs!=null)try{rs.close();}catch(SQLException ex){}
-			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
-			if(con!=null)try{con.close();}catch(SQLException ex){}
-		}
-		return myReviewList;
-	}
-	public List getMyBookList(int mem_num,String startDate,String endDate){
+	public List getMyBookList(int mem_num,String startDate,String endDate,int bookstartRow,int bookpageSize){
+		System.out.println("getMyBookList 접속");
 		List myBookList=new ArrayList();
 
 		try {
 			//1,2 디비연결
 			con=getConnection();
+			
 			//3 sql
-			String sql="select * from book where mem_num=? and date between ? And ?";
+			if(startDate.equals("")&&endDate.equals("")){
+				String sql="select * from book where mem_num=? order by date desc limit ?, ? ";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1,mem_num);
+				pstmt.setInt(2, bookstartRow-1);
+				pstmt.setInt(3, bookpageSize);
+			}else{
+			String sql="select * from book where mem_num=? and date between ? And ? order by date desc limit ?, ? ";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1,mem_num);
 			pstmt.setString(2,startDate);
 			pstmt.setString(3,endDate);
+			pstmt.setInt(4, bookstartRow-1);
+			pstmt.setInt(5, bookpageSize);
+			}
 			//4 rs 실행 저장
 			rs=pstmt.executeQuery();
+			
 			//5 rs데이터 있으면 자바빈 객체 생성 gBean
 			//  rs => 자바빈 멤버변수 저장 => goodsList 한칸 저장
 			while(rs.next()){
@@ -374,51 +353,24 @@ public class MemberDAO {
 		return myBookList;
 	}
 	
-	public int getMyBookCountTerm(int mem_num, String startDate,String endDate){
+
+	public int getMyBookCount(int mem_num,String startDate,String endDate){
 		int count=0;
 		try{
 			//디비연결 메소드 호출
 			con = getConnection();		
-		
+			if(startDate.equals("")&&endDate.equals("")){
+				String sql="select count(*) from book where mem_num=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1,mem_num);
+			}else{
 				//전체의 갯수를 구함 = * / select count(*) from board
 			String sql= "select count(*) from book where mem_num = ? and date between ? And ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, mem_num);
 			pstmt.setString(2,startDate);
 			pstmt.setString(3,endDate);
-			
-			rs=	pstmt.executeQuery();				
-	
-			if(rs.next()){
-				count=rs.getInt("count(*)"); //getInt(1)도 가능. 1번째열이라는 뜻
-				
 			}
-			
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			//예외 발생여부 상관없이 마무리 작업(필수)
-			// 객체생성해서 사용한 기억공간 정리  .close()
-			
-			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
-			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
-			if(con!=null)	try{con.close(); }catch(SQLException ex){}
-			
-		} //end_try catch
-			return count;
-	}
-	
-	public int getMyBookCountAll(int mem_num){
-		int count=0;
-		try{
-			//디비연결 메소드 호출
-			con = getConnection();		
-		
-				//전체의 갯수를 구함 = * / select count(*) from board
-			String sql= "select count(*) from book where mem_num = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
-			
 			rs=	pstmt.executeQuery();				
 	
 			if(rs.next()){
@@ -437,6 +389,159 @@ public class MemberDAO {
 		} //end_try catch
 			return count;
 	}
+
+
+	public int getMyBookCountAll(int mem_num){
+		int count=0;
+		try{
+			//디비연결 메소드 호출
+			con = getConnection();		
+			
+				//전체의 갯수를 구함 = * / select count(*) from board
+			String sql= "select count(*) from book where mem_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+
+			rs=	pstmt.executeQuery();				
+	
+			if(rs.next()){
+				count=rs.getInt("count(*)"); //getInt(1)도 가능. 1번째열이라는 뜻			
+			}		
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			//예외 발생여부 상관없이 마무리 작업(필수)
+			// 객체생성해서 사용한 기억공간 정리  .close()
+			
+			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+			if(con!=null)	try{con.close(); }catch(SQLException ex){}
+			
+		} //end_try catch
+			return count;
+	}
+
+	
+	public List getMyReviewList(int mem_num,String startDate2,String endDate2,int reviewstartRow,int reviewpageSize){
+		List myReviewList=new ArrayList();
+
+		try {
+			//1,2 디비연결
+			con=getConnection();
+			
+			//3 sql
+			if(startDate2.equals("")&&endDate2.equals("")){
+				String sql="select * from review where mem_num=? order by review_num desc limit ?, ? ";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1,mem_num);
+				pstmt.setInt(2, reviewstartRow-1);
+				pstmt.setInt(3, reviewpageSize);
+			}else{
+			String sql="select * from review where mem_num=? and date between ? And ? order by review_num desc limit ?, ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,mem_num);
+			pstmt.setString(2,startDate2);
+			pstmt.setString(3,endDate2);
+			pstmt.setInt(4, reviewstartRow-1);
+			pstmt.setInt(5, reviewpageSize);
+			}
+			//4 rs 실행 저장
+			rs=pstmt.executeQuery();
+			
+			//5 rs데이터 있으면 자바빈 객체 생성 gBean
+			//  rs => 자바빈 멤버변수 저장 => goodsList 한칸 저장
+			while(rs.next()){
+				ReviewBean rb=new ReviewBean();
+
+				 rb.setReview_num(rs.getInt("review_num"));
+				 rb.setContent(rs.getString("content"));
+				 rb.setRating(rs.getInt("rating"));
+				 rb.setDate(rs.getDate("date"));
+				 rb.setFile(rs.getString("file"));
+				 rb.setLocation(rs.getString("location"));
+
+				 
+				//자바빈 => 배열 한칸 저장
+				myReviewList.add(rb);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+		return myReviewList;
+	}
+
+	
+	public int getMyReviewCount(int mem_num,String startDate2,String endDate2){
+		int count=0;
+		try{
+			//디비연결 메소드 호출
+			con = getConnection();		
+			if(startDate2.equals("")&&endDate2.equals("")){
+				String sql="select count(*) from review where mem_num=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1,mem_num);
+			}else{
+				//전체의 갯수를 구함 = * / select count(*) from board
+			String sql= "select count(*) from review where mem_num = ? and date between ? And ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			pstmt.setString(2,startDate2);
+			pstmt.setString(3,endDate2);
+			}
+			rs=	pstmt.executeQuery();				
+	
+			if(rs.next()){
+				count=rs.getInt("count(*)"); //getInt(1)도 가능. 1번째열이라는 뜻			
+			}		
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			//예외 발생여부 상관없이 마무리 작업(필수)
+			// 객체생성해서 사용한 기억공간 정리  .close()
+			
+			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+			if(con!=null)	try{con.close(); }catch(SQLException ex){}
+			
+		} //end_try catch
+			return count;
+	}
+
+	
+	public int getMyReviewCountAll(int mem_num){
+		int count=0;
+		try{
+			//디비연결 메소드 호출
+			con = getConnection();		
+			
+				//전체의 갯수를 구함 = * / select count(*) from board
+			String sql= "select count(*) from review where mem_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+
+			rs=	pstmt.executeQuery();				
+	
+			if(rs.next()){
+				count=rs.getInt("count(*)"); //getInt(1)도 가능. 1번째열이라는 뜻			
+			}		
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			//예외 발생여부 상관없이 마무리 작업(필수)
+			// 객체생성해서 사용한 기억공간 정리  .close()
+			
+			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+			if(con!=null)	try{con.close(); }catch(SQLException ex){}
+			
+		} //end_try catch
+			return count;
+	}
+
 }//클래스
 
 
