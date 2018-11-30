@@ -19,7 +19,8 @@ public class MemberUpdateAction implements Action {
 		HttpSession session=request.getSession();
 		//세션값 가져오기
 		String email=(String)session.getAttribute("email");
-
+		//hiden값으로 넘긴 mem_num가져오기
+		
 		//세션값이 없으면 loginForm.jsp
 		/*if(email==null){
 			response.sendRedirect("./Mypage.me");
@@ -28,18 +29,17 @@ public class MemberUpdateAction implements Action {
 		//request 한글처리
 		request.setCharacterEncoding("utf-8");
 		//request 파라미터 가져오기 id pass name
+		/*String pass=request.getParameter("pass");*/
 		String pass=request.getParameter("pass");
 		String name=request.getParameter("name");
 		String phone=request.getParameter("phone");
-		String birth=request.getParameter("birth");
-
+		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
 		
 		mb.setEmail(email);
 		mb.setPass(pass);
 		mb.setName(name);
 		mb.setPhone(phone);
 
-		
 		
 			// MemberDAO mdao 객체 생성
 			MemberDAO mdao = new MemberDAO();
@@ -52,15 +52,16 @@ public class MemberUpdateAction implements Action {
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('회원 정보가 수정되었습니다.');");
+				out.println("location.href='Mypage.me';"); //이동
 				out.println("</script>");
 				out.close();
 				
-				//main으로 이동
+				/*// 이동
 				ActionForward forward=new ActionForward();
 				forward.setRedirect(true);
 				forward.setPath("./Mypage.me");
-				return forward;
-
+				return forward;*/
+				return null;
 	}
 
 	
