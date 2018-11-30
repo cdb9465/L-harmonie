@@ -101,6 +101,7 @@
   <div class="slot" onclick = "selectTime(2)">17:00</div>
   <div class="slot" onclick = "selectTime(3)">19:00</div>
   <input type="hidden" name="time" value="">
+  <input type="button" id="timeck" value="쳌">
  </div>
  
 </div>
@@ -249,6 +250,20 @@ $(document).ready(function(){
 			"margin":"0 auto"
 		});
 	});
+	
+	/* $("#timeck").click(function(){
+	 	$.ajax({
+			url : 'BookAction.bk',
+			data : {'location': $('input[name=location]').val(),
+					'guest': $('input[name=guest]').val(),
+					'time' : $('input[name=time]').val()},
+			type : POST,
+			success : function(){
+				alert("gg");
+			}
+		}); 
+	}); */
+
 });
 </script>
 

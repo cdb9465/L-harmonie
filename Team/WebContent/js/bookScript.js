@@ -133,7 +133,7 @@ function selectTime(n){
 	var t = document.bf.time.value;
 	var d = document.bf.date.value;
 	
-	location.href="./BookTest.bk?location="+"ddd"+"&time="+t+"&date="+d;
+	//location.href="./BookTest.bk?location="+"ddd"+"&time="+t+"&date="+d;
 }
 
 //테이블선택
