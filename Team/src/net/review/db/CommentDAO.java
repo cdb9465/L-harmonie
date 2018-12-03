@@ -66,4 +66,32 @@ public class CommentDAO {
 
 		}
 	}
+
+	public void deleteComment(int comment_num)
+	{
+		Connection con = null;
+		PreparedStatement psm = null;
+		try
+		{
+			con = getConnection();
+			String sql = "delete from comment where comment_num=?";
+			psm = con.prepareStatement(sql);
+			psm.setInt(1, comment_num);
+			psm.executeUpdate();
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(psm!=null)		
+				try	{	psm.close();	}	catch(SQLException ex)	{}
+			if(con!=null)		
+				try	{	con.close();	}	catch(SQLException ex)	{}
+		}
+		
+	}
+
 }

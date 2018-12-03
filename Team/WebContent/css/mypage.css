@@ -40,14 +40,15 @@ h1{ margin:0;
 #modify th{padding: 0;}
 #button_area{padding-top: 50px;}
 #modify input[type=text],#modify input[type=password]{
-		background-color:rgba(0, 0, 0, 0);
-		border:none;
-		border-bottom:1px solid #000;
 		color: #000;
+		background-color: transparent;
+		border:none;
+		border-bottom:1px solid #000;	
 		font-weight: bold;
 		font-size: 15px;
 		padding: 5px;
 }
+
 #modify table p{font-size: 13px; color: #800000;}
 /* 아이콘 */
 #modify i{
@@ -62,6 +63,7 @@ h1{ margin:0;
 	border: none;
 	border-radius:5px;
 	margin-left: 80px;
+	cursor:pointer;
 	}
 #mem_update{
 	/* background-color:#000; */
@@ -71,14 +73,15 @@ h1{ margin:0;
 	border: none;
 	border-radius:5px;
 	margin-left: 60px;
+	cursor:pointer;
 }
 /* #mem_update:HOVER{color:#000;background-color:rgba(0, 0, 0, 0);}
 #mem_delete:HOVER{border: 2px solid #800000;} */
 
 /* ---------------------------------mybook--------------------------------------------- */
 /* 예약기간지정 */
-.term{float: left; margin:30px 0 0 90px;}
- .searchDate{overflow:hidden;\*zoom:1;float: left;margin-right:10px;}
+.term{float: left; margin:70px 0 0 90px;}
+.searchDate{overflow:hidden;\*zoom:1;float: left;margin-right:10px;}
 .searchDate:after{display:block;content:''}
 .searchDate li{position:relative;float:left;
 				margin:0;list-style: none;}			
@@ -96,38 +99,51 @@ h1{ margin:0;
 							cursor:pointer;background:rgba(0, 0, 0, 0); }
 #leftBorder{border-left:1px solid #000; }
 .searchDate li .chkbox2.on label{background:#ec6a6a;}
-.demi{font-weight:bold;margin:20px 10px 0 10px;float: left;display:inline-block;vertical-align:middle}
-.inpType{width:80px;padding-left:6px;height:24px;line-height:24px;vertical-align:middle;border:1px solid #dbdbdb}
+.demi{font-weight:bold;margin:20px 10px 0 10px;float: left;display:inline-block;vertical-align:middle;}
+.inpType{width:80px;padding-left:6px;height:24px;line-height:24px;vertical-align:middle;
+		background: rgba(0,0,0,0);
+		border:none;
+		border-bottom: 1px solid #000;
+		}
 .btncalendar{display:inline-block;width:22px;height:22px;
 			background:url(../images/mypage/cal.png) center center no-repeat;
 			background-size:22px;
 			text-indent:-999em}
 .dset{margin-top:15px;float: left;}
-#bsearch{margin:15px 0 0 10px;}
+/* [조회]버튼 */
+.termSearch{border: 1px solid #000;margin:13px 0 0 20px; padding: 5px 10px;
+			background-color:rgba(0, 0, 0, 0);
+			color: #000; cursor:pointer;}
 /* 총갯수보여주는영역 count */
-.mpcount{ font-size: 2em; font-weight: bold; width: 100px;
-		float: right; margin:45px 120px 0 0;}
-#countAll{ font-weight: normal; color:#7a1010;}
+.mpcount{ font-size:15px;font-weight: bold; width: 200px;
+		float: right; margin:90px 130px 0 0;}
+.countRed{ color:#7a1010; font-size: 19px;}
 		
 /* 예약조회 테이블 위치/사이즈 */
-#mybook table th{width: 120px; padding: 8px 0; font-size: 16px;
+#myreview table th, 
+ #mybook table th{width: 120px; padding: 8px 0; font-size: 16px;
 				background-color:rgba(0, 0, 0, 0.9); color: #eee; }
-#mybook table th.ps{width: 350px;}
+
+   #mybook table th.ps{width: 350px;}
 #mybook table th.guest{width: 100px;}
-#mybook table.mybook_tbl{
+
+#myreview table.mybook_tbl,
+   #mybook table.mybook_tbl{
 	margin:0px auto;
 	border-collapse:collapse;
 	border-top: 2.5px solid #000;
 	border-bottom: 2.5px solid #000;
 	}
-#mybook table tr.ttl{border-bottom: 1px solid #000;}
-#mybook table td{text-align: center; padding:12px 0;
+#myreview table tr.ttl,
+   #mybook table tr.ttl{border-bottom: 1px solid #000;}
+#myreview table td,
+   #mybook table td{text-align: center; padding:12px 0;
 				border-bottom: 1px solid #000;
 				}
 /* 예약상태(?)확인 - 당일취소불가, 리뷰쓰기, 예약취소 */
 .bookday {font-weight: bold;color: #800000;}
-.bookcancel{background-color:rgba(0, 0, 0, 0.5);
-			color: #bcbcbc;
+.bookcancel{
+			background-color:#ec6a6a; color: #000;
 			font-weight:bold;
 			border: none;
 			padding:4px 8px;
@@ -138,14 +154,15 @@ h1{ margin:0;
 			border: none;
 			padding:4px 8px;
 			border-radius:5px;}
-.bookcancel:HOVER{background-color:#ec6a6a; color: #000;}
+.bookcancel:HOVER{background-color:rgba(0, 0, 0, 0.5);
+			color: #bcbcbc;}
 .writeReview:HOVER{background-color:#ec6a6a; color: #000;}
 
 
 /* ---------------------------------myreview--------------------------------------------- */
 
-/* 리뷰조회 테이블 위치/사이즈 */
-#myreview table th{width: 120px; padding: 20px 0; font-size: 16px;
+
+/* #myreview table th{width: 120px; padding: 20px 0; font-size: 16px;
 				background-color:rgba(0, 0, 0, 0.9); color: #eee; }
 #myreview table th.ps{width: 500px; border: none;}
 #myreview table.mybook_tbl{
@@ -157,9 +174,65 @@ h1{ margin:0;
 #myreview table tr.ttl{border-bottom: 1px solid #000;}
 #myreview table td{text-align: center; padding:12px 0;
 				border-bottom: 1px solid #000;}
-.reviewdetail{color:#800000;
-			font-size: 1.1em;
-			text-decoration: none;
-			padding: 2px 20px;
-			}
-.reviewdetail:HOVER{color: #eee;}
+ */
+ 
+ 
+ /* 리뷰조회 테이블 위치/사이즈 */
+#myreview table th.ps{width: 450px; border: none;}
+
+ .searchDate2{overflow:hidden;\*zoom:1;float: left;margin-right:10px;}
+.searchDate2:after{display:block;content:''}
+.searchDate2 li{position:relative;float:left;
+				margin:0;list-style: none;}			
+.searchDate2 li .chkbox22{display:block;text-align:center;}
+.searchDate2 li .chkbox22 input{position:absolute;z-index:-1;}
+.searchDate2 li .chkbox22 label{display:block;
+							width:40px;height:26px;
+							font-size:13px;
+							font-weight:bold;
+							border:1px solid #000;
+							border-left:none;
+							color:#000;text-align:center; 
+							line-height:25px;
+							text-decoration:none;
+							cursor:pointer;background:rgba(0, 0, 0, 0); }
+.searchDate2 li .chkbox22.on label{background:#ec6a6a;}
+.demi2{font-weight:bold;margin:20px 10px 0 10px;float: left;display:inline-block;vertical-align:middle}
+.dset2{margin-top:15px;float: left}
+
+/* 페이지 */
+.pageArea{text-align: center; 
+		margin-top:30px;
+		 }
+#page1 {text-decoration: none;
+		padding:3px; margin-right:5px;
+		color: #000;
+		font-size: 15px;}
+
+.page2{text-decoration: none;
+		padding:3px; margin-right:5px;
+		color: #000;font-size: 12px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

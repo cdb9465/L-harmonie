@@ -104,6 +104,27 @@ public class MemberFrontController extends HttpServlet{
 				}catch(Exception e){
 					e.printStackTrace();
 				}
+				//id,pass찾기 같이있음
+			}else if(command.equals("/FindIdPass.me")){	
+				forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("./member/findidpass.jsp");
+				//id찾기 액션
+			}else if(command.equals("/FindIdAction.me")){	
+				action = new FindIdAction();
+				try{
+					forward = action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+				//pass찾기 액션
+			}else if(command.equals("/FindPassAction.me")){	
+				action = new FindPassAction();
+				try{
+					forward = action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
 			}
 /*				
 			else if(command.equals("/MemberLogin.me")){

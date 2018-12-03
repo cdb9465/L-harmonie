@@ -256,3 +256,114 @@
  			
         }
  
+        function setSearchAll(){
+        	$('#searchStartDate').val("");
+        	$('#searchEndDate').val("");
+        }
+ //--------------------------3페이지
+        
+   	 $(document).ready(function() {
+
+         // Datepicker            
+         $(".datepicker2").datepicker({
+             
+             dateFormat: "yy-mm-dd",
+             onClose : function ( selectedDate ) {
+             
+                 var eleId = $(this).attr("id");
+                 var optionName = "";
+
+                 if(eleId.indexOf("StartDate2") > 0) {
+                     eleId = eleId.replace("StartDate2", "EndDate2");
+                     optionName = "minDate";
+                 } else {
+                     eleId = eleId.replace("EndDate2", "StartDate2");
+                     optionName = "maxDate";
+                 }
+
+                 $("#"+eleId).datepicker( "option", optionName, selectedDate );        
+                 $(".searchDate2").find(".chkbox2").removeClass("on"); 
+             }
+         }); 
+
+         //시작일.
+         $('#searchStartDate2').datepicker("option","onClose", function( selectedDate ) {    
+             // 시작일 datepicker가 닫힐때
+             // 종료일의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+             $("#searchEndDate2").datepicker( "option", "minDate", selectedDate );
+             $(".searchDate2").find(".chkbox2").removeClass("on");
+         });
+         
+
+         //종료일.
+         $('#searchEndDate2').datepicker("option","onClose", function( selectedDate ) {    
+             // 종료일 datepicker가 닫힐때
+             // 시작일의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정 
+             $("#searchStartDate2").datepicker( "option", "maxDate", selectedDate );
+             $(".searchDate2").find(".chkbox22").removeClass("on");
+         });
+         
+
+         $(".dateclick2").dateclick2();    // DateClick
+         $(".searchDate2").schDate2();        // searchDate
+         
+     });
+
+     // Search Date
+     jQuery.fn.schDate2 = function(){
+         var $obj = $(this);
+         var $chk = $obj.find("input[type=radio]");
+         $chk.click(function(){                
+             $('input:not(:checked)').parent(".chkbox22").removeClass("on");
+             $('input:checked').parent(".chkbox22").addClass("on");                    
+         });
+     };
+
+     // DateClick
+     jQuery.fn.dateclick2 = function(){
+         var $obj = $(this);
+         $obj.click(function(){
+             $(this).parent().find("input").focus();
+         });
+     }    
+
+    
+     function setSearchDate2(start){
+         var num = start.substring(0,1);
+         var str = start.substring(1,2);
+         var today = new Date();
+         
+         //var year = today.getFullYear();
+         //var month = today.getMonth() + 1;
+         //var day = today.getDate();
+         
+         var endDate = $.datepicker.formatDate('yy-mm-dd', today);
+         $('#searchEndDate2').val(endDate);
+         
+         if(str == 'd'){
+             today.setDate(today.getDate() - num);
+         }else if (str == 'w'){
+             today.setDate(today.getDate() - (num*7));
+         }else if (str == 'm'){
+             today.setMonth(today.getMonth() - num);
+             today.setDate(today.getDate() + 1);
+         }
+
+         var startDate = $.datepicker.formatDate('yy-mm-dd', today);
+         $('#searchStartDate2').val(startDate);
+                 
+         // 종료일은 시작일 이전 날짜 선택하지 못하도록 비활성화
+         $("#searchEndDate2").datepicker( "option", "minDate2", startDate );
+         
+         // 시작일은 종료일 이후 날짜 선택하지 못하도록 비활성화
+         $("#searchStartDate2").datepicker( "option", "maxDate2", endDate );
+
+         
+			/*	$('form').submit();*/
+     }
+     
+     function setSearchAll2(){
+     	$('#searchStartDate2').val("");
+     	$('#searchEndDate2').val("");
+     }
+        

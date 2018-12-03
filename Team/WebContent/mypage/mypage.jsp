@@ -44,7 +44,7 @@ MemberBean mb = (MemberBean)request.getAttribute("mb");
  <h1>MODIFY</h1>
  	<div id="modify"> 	
  		<form id="info_update" method="post" name="fr1">
- 		<input type="hidden" value="<%=mb.getMem_num() %>" name="mem_num"><!-- 회원번호 숨겨서 넘기기 -->
+ 		<input type="hidden" value="<%=mb.getMem_num() %>" id="mem_num" name="mem_num"><!-- 회원번호 숨겨서 넘기기 -->
 				<table >
 				<tr>
 						<td><i class='far fa-envelope' style='font-size:24px'></i></td>
@@ -92,22 +92,34 @@ MemberBean mb = (MemberBean)request.getAttribute("mb");
 <!-- 2번째 메인 -->
 <%
 List myBookList = (List)request.getAttribute("myBookList");
+//book용 조회
 String startDate = (String)request.getAttribute("startDate");
 String endDate = (String)request.getAttribute("endDate");
-
-int myBookCountTerm = ((Integer)request.getAttribute("myBookCountTerm")).intValue();
+int myBookCount = ((Integer)request.getAttribute("myBookCount")).intValue();
 int myBookCountAll = ((Integer)request.getAttribute("myBookCountAll")).intValue();
+//페이지관련
+String bookpageNum=(String)request.getAttribute("bookpageNum");
+int bookpageCount=((Integer)request.getAttribute("bookpageCount")).intValue();
+int bookpageBlock=((Integer)request.getAttribute("bookpageBlock")).intValue();
+int bookstartPage=((Integer)request.getAttribute("bookstartPage")).intValue();
+int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 %>
 <div class="mpbox" id="main1"><!-- 배경들어가는 영역 -->
  <h1>MY BOOK</h1>
 <div id="mybook">
-<form action="./Mypage.me#main1" name="fr" method="get">
+<form action="./Mypage.me?searchStartDate=<%=startDate %>&searchEndDate=<%=endDate%>#main1" name="fr2" method="get">
 	<div class="term">
 		 <ul class="searchDate">
+			 <li>
+                <span class="chkbox2">
+                    <input type="radio" name="dateType" id="dateType0" onclick="setSearchAll()"/>
+                    <label for="dateType0" id="leftBorder">전체</label>
+                </span>
+            </li>
             <li>
                 <span class="chkbox2">
                     <input type="radio" name="dateType" id="dateType1" onclick="setSearchDate('0d')"/>
-                    <label for="dateType1" id="leftBorder">오늘</label>
+                    <label for="dateType1">오늘</label>
                 </span>
             </li>
             <li>
@@ -137,25 +149,30 @@ int myBookCountAll = ((Integer)request.getAttribute("myBookCountAll")).intValue(
         </ul>
 		 	 <!-- 시작일 -->
             <span class="dset">
-                <input type="text" class="datepicker inpType" name="searchStartDate" id="searchStartDate" value=<%=startDate %> >
+                <input type="text" class="datepicker inpType" name="searchStartDate" id="searchStartDate" value=<%=startDate.equals("1500-01-01")?"":startDate %> >
             	 <a href="#none" class="btncalendar dateclick">달력</a>
             </span>
             <span class="demi">~</span>
             <!-- 종료일 -->
             <span class="dset">
-                <input type="text" class="datepicker inpType" name="searchEndDate" id="searchEndDate" value=<%=endDate %> >
+                <input type="text" class="datepicker inpType" name="searchEndDate" id="searchEndDate" value=<%=endDate.equals("1500-01-01")?"":endDate %> >
             	<a href="#none" class="btncalendar dateclick">달력</a>
+            	
             </span>
-			<input type="submit" value="조회">
+			<input type="submit" value="조회" class="termSearch">
 	</div>
 
-<div class="mpcount"> <%=myBookCountTerm %><span id="countAll"> / <%= myBookCountAll%></span></div>
+
+<div class="mpcount"> 조회 <span class="countRed"><%=myBookCount%></span>건 / 전체 예약 <span class="countRed"><%= myBookCountAll%></span>건 </div>
 	<div class="clear"></div>
 <table class="mybook_tbl">
 <tr class="ttl"><th>예약번호</th><th>지점</th><th>예약일자<br>[시간]</th><th>테이블번호</th><th class="guest">인원</th>
-	<th class="ps">요청사항</th><th>리뷰/취소</th></tr>
+	<th class="ps">요청사항</th><th>취소/리뷰</th></tr>
 <tbody>
-<%	for(int i=0; i < myBookList.size(); i++){
+<% 	if(myBookList==null){ %>
+	<tr class="ttl"><td colspan="7">예약 내역이 없습니다.</td>
+<%	}else{
+	for(int i=0; i < myBookList.size(); i++){
 		BookBean bb = (BookBean)myBookList.get(i);
 		
 		//오늘날짜구하기
@@ -189,16 +206,29 @@ int myBookCountAll = ((Integer)request.getAttribute("myBookCountAll")).intValue(
 			<span class="bookday">당일취소불가</span>
 		<%} else{  // 예약일 이후  %> 
 			<input type="button" value="리뷰작성" class="writeReview" id="wreview" >
-<%} %>
+<%			}
+		}%>
 	</td></tr>
 <%} %>
 </tbody>
 </table>
 
-	<div class="pageArea">
-	
-
-	</div>
+		<div class="pageArea">
+			<%
+			//이전
+			if(bookstartPage > bookpageBlock){
+				%><a href="./Mypage.me?bookpageNum=<%=bookstartPage-bookpageBlock%>&searchStartDate=<%=startDate %>&searchEndDate=<%=endDate%>#main1" class="page2">◀</a><%
+			}// 1~10 
+			for(int i=bookstartPage;i<=bookendPage;i++){
+				%><a href="./Mypage.me?bookpageNum=<%=i%>&searchStartDate=<%=startDate %>&searchEndDate=<%=endDate%>#main1" id="page1"><%=i %></a><%
+			}
+			//다음
+			if(bookendPage < bookpageCount){
+				%><a href="./Mypage.me?bookpageNum=<%=bookstartPage+bookpageBlock%>&searchStartDate=<%=startDate %>&searchEndDate=<%=endDate%>#main1"  class="page2">▶</a><%
+			}
+			%>
+				
+		</div>
 	</form>
 </div>
 </div>
@@ -206,30 +236,91 @@ int myBookCountAll = ((Integer)request.getAttribute("myBookCountAll")).intValue(
 <!-- 3번째 메인 -->
 <%
 List myReviewList = (List)request.getAttribute("myReviewList");
+
+int myReviewCount = ((Integer)request.getAttribute("myReviewCount")).intValue();
+int myReviewCountAll = ((Integer)request.getAttribute("myReviewCountAll")).intValue();
+//review용 조회
+String startDate2 = (String)request.getAttribute("startDate2");
+String endDate2 = (String)request.getAttribute("endDate2");
+//페이지관련
+String reviewpageNum=(String)request.getAttribute("reviewpageNum");
+int reviewpageCount=((Integer)request.getAttribute("reviewpageCount")).intValue();
+int reviewpageBlock=((Integer)request.getAttribute("reviewpageBlock")).intValue();
+int reviewstartPage=((Integer)request.getAttribute("reviewstartPage")).intValue();
+int reviewendPage=((Integer)request.getAttribute("reviewendPage")).intValue();
 %>
 <div class="mpbox" id="main2">
  <h1>MY REVIEW</h1>
 <div id="myreview">
-<div class="term">
+<form action="./Mypage.me#main2" name="fr3" method="get">
+	<div class="term">
+		<ul class="searchDate2">
+			 <li>
+                <span class="chkbox22">
+                    <input type="radio" name="dateType2" id="dateType02" onclick="setSearchAll2()"/>
+                    <label for="dateType02" id="leftBorder">전체</label>
+                </span>
+            </li>
+            <li>
+                <span class="chkbox22">
+                    <input type="radio" name="dateType2" id="dateType12" onclick="setSearchDate2('0d')"/>
+                    <label for="dateType12">오늘</label>
+                </span>
+            </li>
+            <li>
+                <span class="chkbox22">
+                    <input type="radio" name="dateType2" id="dateType32" onclick="setSearchDate2('1w')"/>
+                    <label for="dateType32">1주일</label>
+                </span>
+            </li>
+            <li>
+                <span class="chkbox22">
+                    <input type="radio" name="dateType2" id="dateType52" onclick="setSearchDate2('1m')"/>
+                    <label for="dateType52">1개월</label>
+                </span>
+            </li>
+            <li>
+                <span class="chkbox22">
+                    <input type="radio" name="dateType2" id="dateType62" onclick="setSearchDate2('3m')"/>
+                    <label for="dateType62">3개월</label>
+                </span>
+            </li>
+            <li>
+                <span class="chkbox22">
+                    <input type="radio" name="dateType2" id="dateType72" onclick="setSearchDate2('6m')"/>
+                    <label for="dateType72">6개월</label>
+                </span>
+            </li>
+        </ul>
+		 	 <!-- 시작일 -->
+            <span class="dset2">
+                <input type="text" class="datepicker2 inpType" name="searchStartDate2" id="searchStartDate2" value=<%=startDate2.equals("1500-01-01")?"":startDate2 %> >
+            	 <a href="#none" class="btncalendar dateclick2">달력</a>
+            </span>
+            <span class="demi2">~</span>
+            <!-- 종료일 -->
+            <span class="dset2">
+                <input type="text" class="datepicker2 inpType" name="searchEndDate2" id="searchEndDate2" value=<%=endDate2.equals("1500-01-01")?"":endDate2 %> >
+            	<a href="#none" class="btncalendar dateclick2">달력</a>
+            </span>
+            	<input type="submit" value="조회" class="termSearch">
+	</div>
 
-<i class='far fa-calendar-alt' style='font-size:27px'></i>
-<span>조회기간</span>
- <input type="button" value="일주일" class="termbtn"> <input type="button" value="1개월" class="termbtn">
- <input type="button" value="3개월" class="termbtn"> <input type="button" value="6개월" class="termbtn">
-  <input type="button" value="6개월 이전" class="termbtn">
-</div>
+<div class="mpcount">  조회 <span class="countRed"><%=myReviewCount%></span>건 / 전체 리뷰 <span class="countRed"><%= myReviewCountAll%></span>건</div>
 
-<div class="mpcount">전체 1건</div>
 	<div class="clear"></div>
 <table class="mybook_tbl">
-	<tr class="ttl"><th>번호</th><th>평점</th><th>날짜</th>
-	<th class="ps">내용</th><th>지점</th><th>첨부</th></tr>
-	
-	<%	for(int i=0; i < myReviewList.size(); i++){
+	<tr class="ttl"><th>번호</th><th>지점</th><th>평점</th><th>날짜</th>
+	<th class="ps">내용</th><th> </th></tr>
+<% 	if(myReviewList==null){ %>
+	<tr class="ttl"><td colspan="6">작성하신 리뷰가 없습니다.</td>
+<%	}else{
+		for(int i=0; i < myReviewList.size(); i++){
 
 		ReviewBean rb = (ReviewBean)myReviewList.get(i);
 %>
-	<tr class="ttl"><td><a href="#" class="reviewdetail"><%=rb.getReview_num() %></a></td>
+	<tr class="ttl"><td><%=rb.getReview_num() %></td>
+	<td><%=rb.getLocation() %></td>
 	<td><%
 		//평점 점수에 따라 ★로 표시함
 		for(int j=0; j < rb.getRating(); j++){
@@ -237,12 +328,33 @@ List myReviewList = (List)request.getAttribute("myReviewList");
 		}
 		%>
 	</td>
-	<td><%=rb.getDate() %></td><td class="ps"><%=rb.getContent() %></td><td><%=rb.getLocation() %></td><td><%=rb.getFile() %></td></tr>
-<%	}
-
+	<td><%=rb.getDate() %></td><td class="ps"><%=rb.getContent() %></td>
+	<td><input type="button" value="리뷰삭제" class="writeReview" onclick="#"></td></tr>
+<%		}
+	}
 	 %>
 	
 </table>
+
+	
+		<div class="pageArea">
+			<%
+			//이전
+			if(reviewstartPage > reviewpageBlock){
+				%><a href="./Mypage.me?reviewpageNum=<%=reviewstartPage-reviewpageBlock%>&searchStartDate2=<%=startDate2 %>&searchEndDate2=<%=endDate2%>#main1" class="page2">◀</a><%
+			}
+			// 1~10 
+			for(int i=reviewstartPage;i<=reviewendPage;i++){
+				%><a href="./Mypage.me?reviewpageNum=<%=i%>&searchStartDate2=<%=startDate2 %>&searchEndDate2=<%=endDate2%>#main1" id="page1"><%=i %></a><%
+			}
+			//다음
+			if(reviewendPage < reviewpageCount){
+				%><a href="./Mypage.me?reviewpageNum=<%=reviewstartPage+reviewpageBlock%>&searchStartDate2=<%=startDate2 %>&searchEndDate2=<%=endDate2%>#main1" class="page2">▶</a><%
+			}
+			%>
+				
+		</div>
+</form>
 </div>
 </div>
 
