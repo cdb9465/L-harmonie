@@ -19,6 +19,13 @@ public class ReviewAction implements Action{
 		
 		ReviewDAO rd= new ReviewDAO();
 		
+	
+		
+		String location = request.getParameter("location");
+		
+		if(location==null)location="전체";
+		List reviewlocation=rd.getLocation(location);
+		
 		int count = rd.getReviewCount();
 		//pageSize 10설정
 		int pageSize=3;
@@ -47,6 +54,8 @@ public class ReviewAction implements Action{
 			endPage=pageCount;//전체 페이지 개수
 		}
 	
+		request.setAttribute("reviewlocation", reviewlocation);
+		request.setAttribute("location", location);
 		request.setAttribute("count", count);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("pageBlock", pageBlock);

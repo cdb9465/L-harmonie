@@ -49,26 +49,32 @@ String email=(String)session.getAttribute("email");
 <!-- 리뷰쓰기 영역 끝 -->
 <hr>
 
+<form action="./ReviewList.re" name="location" method="get">
 
  <div class="write_find">
   <div class="title">*간편검색*</div><br>
-  <select name="sel_location" >
-    <option value="">전체</option>
-   <option value="서울강남점" >서울강남점</option>
+  <select name="sel_location">
+    <option value="전체">전체</option>
+   <option value="서울강남점">서울강남점</option>
    <option value="부산서면점" >부산서면점</option>
   </select>
-  
  </div>
+ </form>
 <!-- review_wrap 시작 -->
 <div class="review_wrap">	
 
 <!-- 사진영역 div-->
-
-
 <%
-    for(int i=0;i<ReviewList.size();i++){
+ReviewDAO rd= new ReviewDAO();
+ReviewBean rbb=rd.getReview(1);
+if(rbb.getReview_num()!=0)
+{  
+for(int i=0;i<ReviewList.size();i++){
+	
+	
     	ReviewBean rb=ReviewList.get(i);
-    	
+     
+    	 	
     	//System.out.println(rb.getFile().split(",")[0]);
     	%>
 
@@ -185,7 +191,9 @@ if(email.equals("admin@team.com")){%> <td colspan='3'>
 <%}%>
  </tr>
 </table>
-
+<%
+}
+%>
   
 <%
     }
