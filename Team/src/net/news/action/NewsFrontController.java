@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.news.action.BoardListAction;
+import net.news.action.NewsListAction;
 import net.news.action.Action;
 import net.news.action.ActionForward;
 
@@ -43,7 +43,7 @@ public class NewsFrontController extends HttpServlet{
 		Action action=null;
 		
 		if(command.equals("/NewsList.nw")) {
-			action=new BoardListAction();
+			action=new NewsListAction();
 			try{
 				forward=action.execute(request, response);
 			} catch(Exception e) {

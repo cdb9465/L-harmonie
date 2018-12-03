@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.menu.action.Action;
 import net.menu.action.ActionForward;
+import net.news.action.NewsListAction;
 
 public class MenuFrontController extends HttpServlet{
 
@@ -40,7 +41,16 @@ public class MenuFrontController extends HttpServlet{
 		
 		ActionForward forward=null;
 		Action action=null;
-		
+	
+		if(command.equals("/MenuList.nu")) {
+			action=new MenuListAction();
+			try{
+				forward=action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}	
+		}	
+	
 		if(forward!=null) {
 			if(forward.isRedirect()){
 				//true sendRedirect()

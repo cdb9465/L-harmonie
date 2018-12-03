@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.news.db.NewsDAO;
 import net.news.db.NewsBean;
 
-public class BoardListAction implements Action{	
+public class NewsListAction implements Action{	
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
