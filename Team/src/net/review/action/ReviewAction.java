@@ -4,6 +4,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.admin.db.AdminDAO;
 import net.review.action.ActionForward;
 import net.review.db.ReviewBean;
 import net.review.db.ReviewDAO;
@@ -26,12 +27,11 @@ public class ReviewAction implements Action{
 		if(pageNum==null){
 			pageNum="1";
 		}
-		
+	
 		int currentPage=Integer.parseInt(pageNum);
 		//startRow 시작페이지 계산식 endRow 끝페이지 계산식
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow=currentPage*pageSize;
-		
 		if(count!=0){
 			reviewList = rd.getReviewList(startRow, pageSize);		
 		}
@@ -46,7 +46,7 @@ public class ReviewAction implements Action{
 		if(endPage > pageCount){
 			endPage=pageCount;//전체 페이지 개수
 		}
-		
+	
 		request.setAttribute("count", count);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("pageBlock", pageBlock);

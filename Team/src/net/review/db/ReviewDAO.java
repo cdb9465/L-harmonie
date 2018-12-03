@@ -6,10 +6,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-
+import net.book.db.BookBean;
 import net.review.db.ReviewBean;
 
 public class ReviewDAO {
@@ -294,5 +296,55 @@ public class ReviewDAO {
 		return reviewList;
 	}
 
+		
+	public List<ReviewBean> getLocation(String location){
+		List<ReviewBean> ReviewList1 = new ArrayList<ReviewBean>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql="";
+		ResultSet rs= null;
+		
+		try{
+			//db 연결
+			con = getConnection();
+			
+			//sql
+			if(location.equals("전체")){
+				sql = "select * from Review";
+				pstmt = con.prepareStatement(sql);
+				
+			}else{
+				
+				sql = "select * from Review where location =?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, location);
+			}
 
+			
+			//rs 실행 저장
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				ReviewBean rb = new ReviewBean();
+				rb.setMem_num(rs.getInt("mem_num"));
+				 rb.setReview_num(rs.getInt("review_num"));
+				 rb.setContent(rs.getString("content"));
+				 rb.setRating(rs.getInt("rating"));
+				 rb.setDate(rs.getDate("date"));
+				 rb.setFile(rs.getString("file"));
+				 rb.setLocation(rs.getString("location"));
+				ReviewList1.add(rb);
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+		
+		return ReviewList1;
+	}
+	
 }

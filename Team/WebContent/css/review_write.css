@@ -26,12 +26,12 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 .star-input>.input>input:focus+label,
 .star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
 .star-input>.input>label:hover~label{background-image: none;}
-.star-input>.input>label[for="p1"]{width:30px;z-index:5;}
-.star-input>.input>label[for="p2"]{width:60px;z-index:4;}
-.star-input>.input>label[for="p3"]{width:90px;z-index:3;}
-.star-input>.input>label[for="p4"]{width:120px;z-index:2;}
-.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
-.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+.star-input>.input>label[for="p1"]{width:30px;z-index:5;}/* 후버했을시 옆에 점수 바뀌는거 이건5점 */
+.star-input>.input>label[for="p2"]{width:60px;z-index:4;}/* 후버했을시 옆에 점수 바뀌는거 이건4점 */
+.star-input>.input>label[for="p3"]{width:90px;z-index:3;}/* 후버했을시 옆에 점수 바뀌는거 이건3점 */
+.star-input>.input>label[for="p4"]{width:120px;z-index:2;}/* 후버했을시 옆에 점수 바뀌는거 이건2점 */
+.star-input>.input>label[for="p5"]{width:150px;z-index:1;}/* 후버했을시 옆에 점수 바뀌는거 이건1점 */
+.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}/* 그 점수의 글자사이즈 지정 */
 
 
 /* 별점 점수 */
