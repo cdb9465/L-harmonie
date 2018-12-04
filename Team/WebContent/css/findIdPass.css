@@ -4,7 +4,7 @@
 			width: 100%; height: 100%;
 			background-color: #eee;
 			/* 위 메인menu랑 안겹치게 padding값 줌 */
-			background-image:  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url("../images/find/findback4.png");
+			background-image:  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url("../images/findback4.png");
  			background-repeat: no-repeat;
  			background-size:/*  2000px 350px */ 100% 362px ; 
  			background-position: top;
