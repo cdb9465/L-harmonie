@@ -101,7 +101,6 @@
   <div class="slot" onclick = "selectTime(2)">17:00</div>
   <div class="slot" onclick = "selectTime(3)">19:00</div>
   <input type="hidden" name="time" value="">
-  <input type="button" id="timeck" value="쳌">
  </div>
  
 </div>
@@ -211,7 +210,6 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
 $(document).ready(function(){
-	
 	//datepicker 
  	$(function () {
  		var today = $.datepicker.formatDate('yy-mm-dd', new Date());
@@ -251,18 +249,24 @@ $(document).ready(function(){
 		});
 	});
 	
-	/* $("#timeck").click(function(){
-	 	$.ajax({
-			url : 'BookAction.bk',
-			data : {'location': $('input[name=location]').val(),
-					'guest': $('input[name=guest]').val(),
-					'time' : $('input[name=time]').val()},
-			type : POST,
+	//테이블 중복제어
+	var l = document.bf.location.value;
+	var t = document.bf.time.value;
+	var d = document.bf.date.value;
+	
+	 $("#time").click(function(){
+		$.ajax({
+	 		data : {location:l, date:d, time:t},
+	 		type : 'POST',
+	 		url : './BookTest.bk',
 			success : function(){
-				alert("gg");
+				//$('#t1').attr('class','tabl tfor2Act');
+				$('#t1').css({
+					"background-image":"url('./images/book/table2_g.png');"
+				});
 			}
 		}); 
-	}); */
+	}); 
 
 });
 </script>
