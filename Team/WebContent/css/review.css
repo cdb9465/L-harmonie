@@ -91,9 +91,8 @@ float:right; }
 form { margin: 0 100px; }
 
 .title { /* border: 1px solid orange; */
-	width: 100px; height: 30px;
-	padding-right:35px;
-	float: left;
+ height: 8px;
+
 }
 
 .write_location { /* border: 1px solid blue; */
@@ -101,9 +100,9 @@ form { margin: 0 100px; }
 	margin-top: 10px; }
 	
 	.write_find { /* border: 1px solid blue; */
-	width: 700px;
-	margin-top: 10px;
-	padding-left:350px;}
+	width: 800px;
+	margin-top: 20px;
+	padding-right:150px;}
 
 .write_rating{ float:left; }
 

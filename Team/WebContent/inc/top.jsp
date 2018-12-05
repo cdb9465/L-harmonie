@@ -57,8 +57,7 @@ if(sess==null){%>
 		<input type="password" size="60" placeholder="비밀번호" name="pass">
 
       <div id="login_btm">
-	      <a href="#">아이디찾기</a>|
-	      <a href="#">비밀번호찾기</a>|
+	      <a href="./FindIdPass.me">아이디/비밀번호찾기</a>|
 	      <a href="./MemberJoin.me" id="joinlink">회원가입</a>
       </div>
      <div class="clearfix">
