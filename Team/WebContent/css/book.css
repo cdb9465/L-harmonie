@@ -17,8 +17,8 @@ h1#title{ margin:0;
 	text-align: center; }	
 
 article#book_art {width: 1300px; height: 700px;
-	margin: 20px auto;
-	background-color:rgba(255,255,255,0.7); }
+	margin: 5px auto;
+	background-color:rgba(255,255,255,0.7);}
 	
 article#bookck_art {width: 1300px; height: 600px;
 	margin: 20px auto;
@@ -62,8 +62,8 @@ article#bookck_art {width: 1300px; height: 600px;
 .panel{	width: 100%; height: 520px;
 	text-align: center;
 	padding: 20px 0;
-	font-size: 15px; }
-	
+	font-size: 15px;}
+		
 .panel>#location, .panel>#date {
 	width:50%; height: 100%;
 	float: left;
@@ -89,6 +89,10 @@ article#bookck_art {width: 1300px; height: 600px;
 	color: #424a52;
 	background-color: #d3e0f1; }
 
+.slotAct{
+	background-color: #424a52;
+	color: #d3e0f1;
+}
 .slot:HOVER{
 	background-color: #424a52;
     color: #ffffff; }
@@ -143,7 +147,7 @@ article#bookck_art {width: 1300px; height: 600px;
 	font-size: 18px;
 	left: 2px; bottom: 2px; }
 	  
-.tfor2, .tfor4 {
+#table>.tabl {
 	width: 60px; height: 60px;
 	color: #fff;
 	display: inline-block;
@@ -155,6 +159,9 @@ article#bookck_art {width: 1300px; height: 600px;
 	
 .tfor2 { background-image: url("../images/book/table2.png"); }
 .tfor4 { background-image: url("../images/book/table4.png"); }
+
+.tfor2Act { background-image: url("../images/book/table2_g.png"); }
+.tfor4Act { background-image: url("../images/book/table4_g.png"); }
 
 .tfor2:HOVER { background-image: url("../images/book/table2_g.png"); }
 .tfor4:HOVER { background-image: url("../images/book/table4_g.png"); }

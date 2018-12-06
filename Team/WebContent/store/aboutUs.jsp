@@ -168,7 +168,7 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
   </div> 
   
   <div class="info-data">
-	<img src="./images/comming.jpg">
+	<img src="./images/book/coming-soon.png">
 	<div class="infoTxt">
 	 <div id="itxt1">제주 중문점 (오픈예정)</div>
 	 <div id="itxt2">전화 - </div>

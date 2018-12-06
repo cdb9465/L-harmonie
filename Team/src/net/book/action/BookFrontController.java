@@ -53,7 +53,7 @@ public class BookFrontController extends HttpServlet{
 			} catch (Exception e) { e.printStackTrace(); }			
 		}
 		else if(command.equals("/BookTest.bk"))
-		{
+		{	System.out.println("/BookTest.bk");
 			action = new BookTestAction();
 			try {
 				forward = action.execute(request, response);

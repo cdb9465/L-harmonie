@@ -1,6 +1,7 @@
 package net.book.action;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +31,7 @@ public class BookTestAction implements Action
 		
 		//BookBean bb에 저장
 		BookBean bb = new BookBean();
-		bb.setLocation("부산서면점");
+		bb.setLocation(location);
 		bb.setDate(date);
 		bb.setTime(time);
 		

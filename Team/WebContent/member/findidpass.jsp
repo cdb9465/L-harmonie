@@ -23,25 +23,28 @@
 <div class="clear"></div>
 
 <div id="article_fi">
-
-	<div id="tapBtn">
-<button class="tablink" onclick="openPage('Home', this, '#eee')" id="defaultOpen">FIND ID</button>
-<button class="tablink" onclick="openPage('News', this, '#eee')">FIND PASS</button>
-	</div>
+		<!-- <div id="backimg">
+		이미지영역
+		</div> -->
+		
+			<div id="tapBtn">
+				<button class="tablink" onclick="openPage('Home', this, '#eee')" id="defaultOpen">FIND ID</button>
+				<button class="tablink" onclick="openPage('News', this, '#eee')">FIND PASS</button>
+			</div>
 
 <div id="Home" class="tabcontent">
 
 		<div id="inputForm">
-			<form action="" name="fr1" method="post">
+			<form action="./FindIdAction.me" name="fr1" method="post">
 				<table class="findTbl">
 					<tr><td><i class='fas fa-male' style='font-size: 25px' id="name_icon"></i>NAME</td></tr>
-					<tr><td class="inputArea"><input type="text" name="name" id="name"></td></tr>
+					<tr><td class="inputArea"><input type="text" class="txtbox" name="name" id="name"></td></tr>
 					
 					<tr><td><i class="material-icons" style='font-size: 25px' id="phone_icon">phone_android</i>PHONE</td></tr>
-					<tr><td class="inputArea"><input type="text" name="phone" id="phone" placeholder="(-)제외 숫자만 입력"></td></tr>
+					<tr><td class="inputArea"><input type="text" class="txtbox" name="phone" id="phone" maxlength="11" placeholder="(-)제외 숫자만 입력"></td></tr>
 						
 				</table>		
-				<input type="button" class="submitBtn" value="FIND YOUR ID >">			
+				<input type="submit" class="submitBtn" value="FIND YOUR ID >">			
 			</form>
 		</div>
 	
@@ -51,18 +54,18 @@
 
 		<div id="inputForm">
 
-			<form action="" name="fr2" method="post">
+			<form action="./FindPassAction.me" name="fr2" method="post">
 				<table class="findTbl">
 					<tr><td><i class='far fa-envelope' style='font-size: 25px'></i>EMAIL</td></tr>
-					<tr><td class="inputArea"><input type="text" name="email" id="email"></td></tr>
+					<tr><td class="emailInputArea"><input type="text" class="txtbox" name="email1" id="email1"><div>@</div><input type="text" class="txtbox" name="email2" id="email2"></td></tr>
 					
 					<tr><td><i class='fas fa-male' style='font-size: 25px' id="name_icon"></i>NAME</td>
-					<tr><td class="inputArea"><input type="text" name="name" id="name"></td></tr>
+					<tr><td class="inputArea"><input type="text" class="txtbox" name="name" id="name"></td></tr>
 					
 					<tr><td><i class="material-icons" style='font-size: 25px' id="phone_icon">phone_android</i>PHONE</td></tr>
-					<tr><td class="inputArea"><input type="text" name="phone" id="phone" placeholder="(-)제외 숫자만 입력"></td></tr>
+					<tr><td class="inputArea"><input type="text" class="txtbox" name="phone" id="phone" maxlength="11" placeholder="(-)제외 숫자만 입력"></td></tr>
 				</table>		
-				<input type="button" class="submitBtn" value="FIND YOUR PASSWORD >">			
+				<input type="submit" class="submitBtn" value="FIND YOUR PASSWORD >">			
 			</form>
 		</div>
 	

@@ -8,19 +8,19 @@
 </div>
 
 <div id="main">
-  <button id="open" class="openbtn" onclick="openNav()">☰ 관리자메뉴</button>
+  <button id="open" class="openbtn" onclick="openMenu()">☰ 관리자메뉴</button>
 </div>
 
 <script>
-function openNav() {
+function openMenu() {
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginRight = "250px";
- 	document.getElementById("open").onclick=function(){closeNav()};
+ 	document.getElementById("open").onclick=function(){closeMenu()};
 }
 	
-function closeNav() {
+function closeMenu() {
 	document.getElementById("mySidebar").style.width = "0";
     document.getElementById("main").style.marginRight= "0";
-    document.getElementById("open").onclick=function(){openNav()};
+    document.getElementById("open").onclick=function(){openMenu()};
 }
 </script>

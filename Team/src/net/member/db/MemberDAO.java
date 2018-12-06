@@ -542,6 +542,80 @@ public class MemberDAO {
 			return count;
 	}
 
+	
+	public String findId(String name, String phone){
+		MemberBean mb=new MemberBean();
+		String email = null;
+		try {
+			//디비연결 메소드 호출
+			con = getConnection();
+			
+			 // 3단계 sql 구문 만들고 실행할수 있는 객체생성
+			 // 세션값에 해당하는 회원정보 가져오기
+			 String sql="select email from member where name=? and phone=?";
+			 pstmt=con.prepareStatement(sql);
+			 pstmt.setString(1, name);
+			 pstmt.setString(2, phone);
+			 // 4단계  결과 저장 <= 실행
+			 rs=pstmt.executeQuery();
+			 // 5단계 첫행으로이동  열접근 => 출력
+			
+			 while(rs.next()){
+				 email = rs.getString("email");
+				 System.out.println(email);
+				   }
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			//예외 발생여부 상관없이 마무리 작업(필수)
+			// 객체생성해서 사용한 기억공간 정리  .close()
+			
+			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+			if(con!=null)	try{con.close(); }catch(SQLException ex){}
+		}
+		
+		return email;
+	}
+	
+	public String findPass(String email,String name, String phone){
+		MemberBean mb=new MemberBean();
+		String pass = null;
+		try {
+			//디비연결 메소드 호출
+			con = getConnection();
+			
+			 // 3단계 sql 구문 만들고 실행할수 있는 객체생성
+			 // 세션값에 해당하는 회원정보 가져오기
+			 String sql="select pass from member where email=? and name=? and phone=?";
+			 pstmt=con.prepareStatement(sql);
+			 pstmt.setString(1, email);
+			 pstmt.setString(2, name);
+			 pstmt.setString(3, phone);
+			 // 4단계  결과 저장 <= 실행
+			 rs=pstmt.executeQuery();
+			 // 5단계 첫행으로이동  열접근 => 출력
+			
+			 while(rs.next()){
+				 pass = rs.getString("pass");
+				   }
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			//예외 발생여부 상관없이 마무리 작업(필수)
+			// 객체생성해서 사용한 기억공간 정리  .close()
+			
+			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+			if(con!=null)	try{con.close(); }catch(SQLException ex){}
+		}
+		
+		return pass;
+	}
+	
+	
 }//클래스
 
 
