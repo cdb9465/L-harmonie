@@ -10,7 +10,10 @@
 </div>
 
 <!-- 1:1채팅 -->
-<div class="chat" onclick="openform()" id="chatbtn">1:1 문의</div>
+<div class="chat" id="chatbtn"><a href="./chat.jsp">문의</a></div>
+
+<!-- 
+<div class="chat" onclick="openform()" id="chatbtn">문의</div>
 
 <div class="chat-popup" id="myform">
   <form action="/action_page.php" class="form-container">
@@ -32,3 +35,4 @@ function closeform() {
     document.getElementById("chatbtn").style.right= "0";
 }
 </script>
+ -->

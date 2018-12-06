@@ -1,4 +1,4 @@
-package net.chat.action;
+package chat;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

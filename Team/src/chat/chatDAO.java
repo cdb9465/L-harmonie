@@ -1,4 +1,4 @@
-package net.chat.action;
+package chat;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

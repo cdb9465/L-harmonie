@@ -6,7 +6,7 @@
 	<div class="ftop">
 		<a href="#"><i class="material-icons" >people_outline</i>브랜드 제휴 문의</a>
 		<a href="#"><i class="material-icons" >business</i>가맹문의</a>
-		<a href="#"><i class="material-icons" >mail_outline</i>이메일</a>
+		<a href="./mail/mailForm.jsp"><i class="material-icons" >mail_outline</i>이메일</a>
 	</div>
 	
 	<div class="fmenu">
