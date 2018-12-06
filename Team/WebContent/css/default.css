@@ -198,7 +198,7 @@ footer{
     line-height: 80px;
     border-bottom: 1px solid #ededed;}
 
-.ftop a{
+.ftop a, .ftop span {
 	display: inline-block;
 	text-decoration: none;
     height: 80px;
