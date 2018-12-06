@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/chat.css">
 	<title>1:1 문의</title>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
@@ -115,33 +115,12 @@
 							<div class="clearfix"></div>
 						</div>
 						<div id="chat" class="panel-collapse collapse in">
-							<div id="chatList" class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 600px;">
-<!-- 								<div class="row">
-									<div class="col-lg-12">
-										<p class="text-center text-muted small">2018-11-26</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="media">
-											<a class="pull-left" href="#">
-												<img class="media-object img-circle" src="images/icon.png" width="30px" height="30px">
-											</a>
-											<div class="media-body">
-												<h4 class="media-heading">관리자
-													<span class="small pull-right">오후 12:42</span>
-												</h4>
-											</div>
-											<p>안녕하세요. 관리자 입니다.</p>
-										</div>
-									</div>
-								</div>	 -->				
-							</div>
+							<div id="chatList" class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 600px;"></div>
 							<div class="portlet-footer">
 								<div class="row">
-									<div class="form-group col-xs-4">
+									<!-- <div class="form-group col-xs-4">
 										<input style="height: 40px;" type="text" id="chatName" class="form-control" placeholder="이름" maxlength="8">
-									</div>
+									</div> -->
 								</div>
 								<div class="row" style="height: 90px;">
 									<div class="form-group col-xs-10">
