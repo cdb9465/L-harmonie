@@ -1,28 +1,5 @@
 @CHARSET "UTF-8";
-/* 
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
-* {
-	font-family: 'Nanum Gothic';		
-}
-h5 {
-	font-family: 'Noto Sans KR';
-	font-size: 15px;
-}
-h4 {
-	font-family: 'Noto Sans KR';
-}
-h3 {
-	font-family: 'Hanna';
-}
-h2 {
-	font-family: 'Hanna';
-}
-h1 {
-	font-family: 'Hanna';
-}
-*/
+
 
 img { width: 30px; height: 30px; }
 
