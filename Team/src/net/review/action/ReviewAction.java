@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.admin.db.AdminDAO;
 import net.review.action.ActionForward;
+import net.review.db.CommentBean;
+import net.review.db.CommentDAO;
 import net.review.db.ReviewBean;
 import net.review.db.ReviewDAO;
 
@@ -23,8 +25,13 @@ public class ReviewAction implements Action{
 		
 		String location = request.getParameter("location");
 		
-		if(location==null)location="전체";
+		if(location==null){
+			
+			location="전체";
+			
+		}
 		List reviewlocation=rd.getLocation(location);
+		
 		
 		int count = rd.getReviewCount();
 		//pageSize 10설정
@@ -54,6 +61,26 @@ public class ReviewAction implements Action{
 			endPage=pageCount;//전체 페이지 개수
 		}
 	
+		
+		
+		
+		CommentDAO cd= new CommentDAO();
+		CommentBean cb= new CommentBean();
+		int review_num = cb.getReview_num();
+		int mem_num=cb.getMem_num();
+		List<CommentBean> cobe=null;
+		
+		
+		int Ccount = cd.getCommentCount();
+		if(Ccount!=0){
+			cobe=cd.getCommentList(mem_num, review_num);
+		}
+		
+		
+		
+		request.setAttribute("review_num", review_num);
+		request.setAttribute("cobe", cobe);
+		request.setAttribute("Ccount", Ccount);
 		request.setAttribute("reviewlocation", reviewlocation);
 		request.setAttribute("location", location);
 		request.setAttribute("count", count);
