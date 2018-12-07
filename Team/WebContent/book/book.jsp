@@ -250,21 +250,31 @@ $(document).ready(function(){
 	});
 	
 	//테이블 중복제어
-	var l = document.bf.location.value;
-	var t = document.bf.time.value;
-	var d = document.bf.date.value;
-	
 	 $("#time").click(function(){
+		var l = document.bf.location.value;
+		var t = document.bf.time.value;
+		var d = document.bf.date.value;
+	
 		$.ajax({
 	 		data : {location:l, date:d, time:t},
 	 		type : 'POST',
 	 		url : './BookTest.bk',
-			success : function(){
+	 		//dataType : 'html',
+			success : function(data){
 				//$('#t1').attr('class','tabl tfor2Act');
-				$('#t1').css({
-					"background-image":"url('./images/book/table2_g.png');"
-				});
-			}
+				
+// 				var res = data.split(',');
+				
+// 				$.each(res, function(index, item){
+// 					alert(item);
+// 					});
+// 				}
+				
+			
+// 				$('#t1').css({
+// 					"background-image":"url('./images/book/table2_g.png');"
+				}
+
 		}); 
 	}); 
 

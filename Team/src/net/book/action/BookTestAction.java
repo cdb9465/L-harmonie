@@ -1,5 +1,6 @@
 package net.book.action;
 
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -18,8 +19,9 @@ public class BookTestAction implements Action
 	{
 		System.out.println("BookTestAction execute");
 		
-		int cnt=0;
-		int chkTable[] = new int[10];
+		int cnt=0;	//예약된 테이블 갯수
+		int chkTable[] = new int[10]; //테이블 예약여부 확인
+		String strTable = null;
 		
 		//한글처리
 		request.setCharacterEncoding("utf-8");
@@ -38,19 +40,24 @@ public class BookTestAction implements Action
 		//TestBook호출
 		BookDAO bdao = new BookDAO();
 		List<BookBean> bookList = bdao.testBook(bb);
-		
+	
 		for(int i = 0; i < bookList.size(); i++)
 		{
 			bb = bookList.get(i);
+		
+			System.out.println("예약된테이블번호: "+bb.getTablenum());
 			
-			if(i == bb.getTablenum()) //예약된 테이블이면
+			for(int j = 1; j <= chkTable.length; j++)
 			{
-				chkTable[i] = 1;
-				cnt++;				
-			}
-			else // 예약된 테이블 아니면
-			{
-				chkTable[i] = 0;
+				if(j == bb.getTablenum()) //예약된 테이블이면 1
+				{
+					chkTable[j-1] = 1;
+					cnt++;				
+				}
+				else // 예약된 테이블 아니면
+				{
+
+				}
 			}
 		}
 		
@@ -59,15 +66,25 @@ public class BookTestAction implements Action
 			//시간 비활성화..
 		}
 		
-		for(int i = 0; i< 10; i++)
+		strTable = Integer.toString(chkTable[0]);
+		//string으로 변경
+		for(int i = 1; i < chkTable.length; i++)
 		{
-			System.out.println(chkTable[i]);
-			System.out.println();
+			strTable += "," + chkTable[i];
 		}
 		
+		System.out.println(strTable);
+
+		//ajax로 값 리턴
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println(strTable);
+		out.close();		
+		
+		
 		ActionForward forward = null;
-		forward.setRedirect(false);
-		forward.setPath("./Book.bk");
+//		forward.setRedirect(false);
+//		forward.setPath("./Book.bk");
 		
 		return forward;
 	}
