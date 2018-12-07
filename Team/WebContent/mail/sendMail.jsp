@@ -14,7 +14,7 @@ request.setCharacterEncoding("utf-8");
 String from = request.getParameter("from");
 String to = request.getParameter("to");
 String subject = request.getParameter("email");
-String content = "제목 : " + request.getParameter("subject") + "<br>[문의]<br>" + request.getParameter("content");
+String content = "제목 : " + request.getParameter("subject") + "<br>[내용]<br>" + request.getParameter("content");
 // 입력값 받음
  
 Properties p = new Properties(); // 정보를 담을 객체
