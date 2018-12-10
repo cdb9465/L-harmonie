@@ -347,4 +347,42 @@ public class ReviewDAO {
 		return ReviewList1;
 	}
 	
+	public ReviewBean getReview1(){
+		Connection con = null;
+		PreparedStatement psm = null;
+		ResultSet rs = null;
+		ReviewBean rb = new ReviewBean();
+		try
+		{
+			con=getConnection();
+			String sql = "select * from review";
+			psm= con.prepareStatement(sql);
+			rs = psm.executeQuery();
+			
+			while(rs.next())
+			{
+				 rb.setMem_num(rs.getInt("mem_num"));
+				rb.setReview_num(rs.getInt("review_num"));
+				 rb.setContent(rs.getString("content"));
+				 rb.setRating(rs.getInt("rating"));
+				 rb.setDate(rs.getDate("date"));
+				 rb.setFile(rs.getString("file"));
+				 rb.setLocation(rs.getString("location"));
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(psm!=null)		
+				try	{	psm.close();	}	catch(SQLException ex)	{}
+			if(con!=null)		
+				try	{	con.close();	}	catch(SQLException ex)	{}
+			if(rs!=null)		
+				try	{	rs.close();	}	catch(SQLException ex)	{}
+		}
+	return rb;
+	}
 }

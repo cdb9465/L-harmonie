@@ -1,3 +1,4 @@
+<%@page import="javax.swing.text.AbstractDocument.Content"%>
 <%@page import="net.review.db.CommentDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="net.review.db.CommentBean"%>
@@ -29,7 +30,10 @@
 <body>
 
 <%
-int review_num1=((Integer)request.getAttribute("review_num")).intValue();
+
+
+int review_num1=((Integer)request.getAttribute("review_num1")).intValue();
+System.out.println(review_num1);
 List<CommentBean> cobe=(List<CommentBean>)request.getAttribute("cobe");
 String pageNum=(String)request.getAttribute("pageNum");
 List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("reviewList");
@@ -75,7 +79,7 @@ List<ReviewBean> reviewlocation=(List)request.getAttribute("reviewlocation");
 <%
 
 ReviewDAO rd= new ReviewDAO();
-ReviewBean rbb=rd.getReview(1);
+ReviewBean rbb= rd.getReview1();
 if(rbb.getReview_num()!=0)
 {  
 for(int i=0;i<ReviewList.size();i++)
@@ -196,7 +200,7 @@ if(email.equals("admin@team.com")){%>
  </tr>
  <%
  CommentDAO cd= new CommentDAO();
- CommentBean cdd= cd.getComment(1);
+ CommentBean cdd= cd.getComment1();
  if(cdd.getComment_num()!=0){
  
 for(int j=0;j<cobe.size();j++){
