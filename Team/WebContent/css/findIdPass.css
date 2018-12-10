@@ -21,7 +21,7 @@
 			width: 700px;
 			padding-top: 300px;}
 .tablink {
-    background-color: #777;
+    background-color: #505027;
     color: #000;
     float: left;
     border: none;
@@ -45,7 +45,7 @@
     height: 100%;
 }
 
-#Home,#News {background-color: eee;}
+
 
 /* 제목,설명 영역 */
 #subject{margin-top:0;
@@ -77,10 +77,11 @@
 .submitBtn{width: 100%; height:60px;
 		text-align: center; margin-top:50px;
 		font-size: 16px; border:none;
-		background-color:#b41616;
-		color:#eee; font-weight:bold;
-		 cursor: pointer;}
-.submitBtn:HOVER ,#resultbtn:HOVER{
+		background-color:#c7c5c5;
+		color:#adabab; font-weight:bold;
+		 cursor: pointer; }
+/* .submitBtn:HOVER , */
+#resultbtn:HOVER{
 	background-color: #000;
 }
 
@@ -89,7 +90,7 @@
 #resultId{font-size: 18px; line-height: 32px; }
 #resultId span{color: #808000;font-weight:bold;}
 	/* 홈으로 버튼 */
-#resultbtn{border: none; height:45px;width:50%;background-color:#b41616;
+#resultbtn{border: none; height:50px;width:50%;background-color:#b41616;
 		color:#eee; font-weight:bold; margin-top:50px;
 		 cursor: pointer;}
 

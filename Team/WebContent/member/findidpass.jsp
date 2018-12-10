@@ -14,7 +14,10 @@
 <title>L'harmonie</title>
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/httpRequest.js"></script>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./js/findidpass.js"></script>
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -38,13 +41,14 @@
 			<form action="./FindIdAction.me" name="fr1" method="post">
 				<table class="findTbl">
 					<tr><td><i class='fas fa-male' style='font-size: 25px' id="name_icon"></i>NAME</td></tr>
-					<tr><td class="inputArea"><input type="text" class="txtbox" name="name" id="name"></td></tr>
+					<tr><td class="inputArea"><input type="text" class="txtbox" name="name" id="name" onkeyup="checkName()"></td></tr>
 					
 					<tr><td><i class="material-icons" style='font-size: 25px' id="phone_icon">phone_android</i>PHONE</td></tr>
-					<tr><td class="inputArea"><input type="text" class="txtbox" name="phone" id="phone" maxlength="11" placeholder="(-)제외 숫자만 입력"></td></tr>
+					<tr><td class="inputArea"><input type="text" class="txtbox" name="phone" id="phone" style="ime-mode:disabled;"
+													 onkeyup="checkPhone()" onkeypress="return digit_check(event)" maxlength="11" placeholder="(-)제외 숫자만 입력"></td></tr>
 						
 				</table>		
-				<input type="submit" class="submitBtn" value="FIND YOUR ID >">			
+				<input type="submit" class="submitBtn" id="findidbtn" disabled="disabled" value="FIND YOUR ID >">			
 			</form>
 		</div>
 	
@@ -57,15 +61,16 @@
 			<form action="./FindPassAction.me" name="fr2" method="post">
 				<table class="findTbl">
 					<tr><td><i class='far fa-envelope' style='font-size: 25px'></i>EMAIL</td></tr>
-					<tr><td class="emailInputArea"><input type="text" class="txtbox" name="email1" id="email1"><div>@</div><input type="text" class="txtbox" name="email2" id="email2"></td></tr>
+					<tr><td class="emailInputArea"><input type="text" class="txtbox" name="email1" id="email1" onkeyup="checkEmail2()"><div>@</div><input type="text" class="txtbox" name="email2" id="email2" onkeyup="checkEmail2()"></td></tr>
 					
 					<tr><td><i class='fas fa-male' style='font-size: 25px' id="name_icon"></i>NAME</td>
-					<tr><td class="inputArea"><input type="text" class="txtbox" name="name" id="name"></td></tr>
+					<tr><td class="inputArea"><input type="text" class="txtbox" name="name" id="name" onkeyup="checkName2()"></td></tr>
 					
 					<tr><td><i class="material-icons" style='font-size: 25px' id="phone_icon">phone_android</i>PHONE</td></tr>
-					<tr><td class="inputArea"><input type="text" class="txtbox" name="phone" id="phone" maxlength="11" placeholder="(-)제외 숫자만 입력"></td></tr>
+					<tr><td class="inputArea"><input type="text" class="txtbox" name="phone" id="phone" style="ime-mode:disabled;" 
+													  onkeyup="checkPhone2()" onkeypress="return digit_check(event)" maxlength="11" placeholder="(-)제외 숫자만 입력"></td></tr>
 				</table>		
-				<input type="submit" class="submitBtn" value="FIND YOUR PASSWORD >">			
+				<input type="submit" class="submitBtn" id="findpassbtn" disabled="disabled" value="FIND YOUR PASSWORD >">			
 			</form>
 		</div>
 	
