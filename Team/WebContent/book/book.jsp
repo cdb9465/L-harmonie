@@ -250,23 +250,9 @@ $(document).ready(function(){
 	});
 	
 	//테이블 중복제어
-	var l = document.bf.location.value;
-	var t = document.bf.time.value;
-	var d = document.bf.date.value;
 	
-	 $("#time").click(function(){
-		$.ajax({
-	 		data : {location:l, date:d, time:t},
-	 		type : 'POST',
-	 		url : './BookTest.bk',
-			success : function(){
-				//$('#t1').attr('class','tabl tfor2Act');
-				$('#t1').css({
-					"background-image":"url('./images/book/table2_g.png');"
-				});
-			}
-		}); 
-	}); 
+	
+
 
 });
 </script>

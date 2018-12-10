@@ -28,7 +28,7 @@ public class BookTestAction implements Action
 		String location = request.getParameter("location");
 		Date date = Date.valueOf(request.getParameter("date"));
 		String time = request.getParameter("time");
-		
+
 		//BookBean bb에 저장
 		BookBean bb = new BookBean();
 		bb.setLocation(location);
@@ -61,8 +61,8 @@ public class BookTestAction implements Action
 		
 		for(int i = 0; i< 10; i++)
 		{
-			System.out.println(chkTable[i]);
-			System.out.println();
+			//System.out.println(chkTable[i]);
+			//System.out.println();
 		}
 		
 		ActionForward forward = null;
