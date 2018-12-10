@@ -65,10 +65,11 @@ td {padding: 15px 0px;}
 	}
 
 /* 이메일 선택박스 */
-#email{width:200px;margin: 0 5px 0 15px;}
-#email2{width: 150px;margin: 0 5px;}
-#at{font-weight: bold;font-size:20px;}
+#email{width:220px;margin: 0 0 0 15px;float: left;}
+#email2{width: 150px;margin: 0px;float: left;}
+#at{font-weight: bold;font-size:20px;padding: 7px 0 5px 0px;float: left;background-color: #eee;}
 #selectEmail{
+	margin-left:10px;
 	width:150px;
 	padding:12px 7px 5px 7px;
 	font-size:15px;
