@@ -1,3 +1,5 @@
+<%@page import="net.member.db.MemberBean"%>
+<%@page import="net.member.db.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,7 +8,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/chat.css">
 	<title>1:1 문의</title>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
@@ -103,6 +105,24 @@
 	</script>
 </head>
 <body>
+<% 
+request.setCharacterEncoding("utf-8");
+String id=(String)session.getAttribute("email");
+System.out.print(id);
+MemberDAO mdao=new MemberDAO();
+//리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
+MemberBean mb=mdao.getMember(id);
+
+if(id == null){
+	%>
+	<script>
+				alert("로그인 후 이용해주세요.");
+				window.opener = window.location.href; self.close();			 
+	</script>
+	<% 
+}
+%>
+
 	<div class="container">
 		<div class="container bootstrap snippet">
 			<div class="row">
@@ -115,32 +135,11 @@
 							<div class="clearfix"></div>
 						</div>
 						<div id="chat" class="panel-collapse collapse in">
-							<div id="chatList" class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 600px;">
-<!-- 								<div class="row">
-									<div class="col-lg-12">
-										<p class="text-center text-muted small">2018-11-26</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="media">
-											<a class="pull-left" href="#">
-												<img class="media-object img-circle" src="images/icon.png" width="30px" height="30px">
-											</a>
-											<div class="media-body">
-												<h4 class="media-heading">관리자
-													<span class="small pull-right">오후 12:42</span>
-												</h4>
-											</div>
-											<p>안녕하세요. 관리자 입니다.</p>
-										</div>
-									</div>
-								</div>	 -->				
-							</div>
+							<div id="chatList" class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 600px;"></div>
 							<div class="portlet-footer">
 								<div class="row">
 									<div class="form-group col-xs-4">
-										<input style="height: 40px;" type="text" id="chatName" class="form-control" placeholder="이름" maxlength="8">
+										<input style="height: 40px;" type="hidden" id="chatName" class="form-control" placeholder="이름" maxlength="8" value="<%=mb.getName() %>">
 									</div>
 								</div>
 								<div class="row" style="height: 90px;">

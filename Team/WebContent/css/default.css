@@ -34,38 +34,6 @@ body{margin: 0px; padding: 0px;
     top: 3px;
 }
 
-/* 
-
-#logo{border: 1px solid red;
-	position: absolute;
-    left: 30px;
-    top: 10px;
-    width: 300px;
-    height: 52px ;
-    margin-right: 10px;
-    display: inline-block;
-} */
-/* 가운데메뉴 */
-/* #main_menu{
-	border: 1px solid blue;
-	
-	margin: auto;
-    padding: 30px 0 0 100px;
-    position: relative;  
-    margin-left: 200px;
-} */
- 
-/* #main_menu{
-	border: 1px solid blue;
-	width: 50%;
-    height: 100px;
-	margin: auto;
-    padding: 30px 0 0 20px;
-    position: relative;
-    margin-left: 10px;
-    display: inline-block;
-} */
-
 
 #main_menu {
 	width: 100%; 
@@ -91,8 +59,10 @@ body{margin: 0px; padding: 0px;
 #login{
 	/* border: 1px solid blue; */
 	position: absolute;
-    right: 40px;
-    top: 1px;}
+    right: 30px;
+    top: 5px;
+    color: white;
+    }
     
 /*  #login{
 	border: 1px solid blue;
@@ -104,11 +74,15 @@ body{margin: 0px; padding: 0px;
 	/* border: 1px solid red; */
 	font-size: 15px;
 	font-weight: 400;
-	border:none;
+	/* border:none; */
 	background:rgba(0,0,0,0);
-	color: #fff;
-	
+	color: white;	
 	}
+	
+#PageName {
+	color: #B2CCFF;
+	text-decoration: none;
+}	
 	
 /* 원래있던 로그인 속성이 a href=""였는데 버튼으로 바꿔서 ↑걸로 --임시-- 수정해둠 -박소정
 
@@ -199,53 +173,15 @@ body{margin: 0px; padding: 0px;
 #sub_about { display: none; }
 
 /* 1:1채팅 */
-.chat{
-	display: inline-block;
-	width: 60px; height: 30px;
+.chat{	
+	width: 50px; height: 30px;
 	background-color: rgba(51,51,51,0.8);
-	color: #fff;
-	padding-left: 12px;
-	line-height: 30px;
+	
 	position: fixed;
-	top: 58%; right:0;
-	cursor: pointer;}
-
-.chat-popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  right: 0px;
-  border: 3px solid #f1f1f1;
-  z-index: 500;
-}
-
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-.form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 200px;
-}
-
-.form-container .btn {
-  background-color:  rgb(51,51,51);
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
+	top: 57%; right:10px;
+	color: #fff;
+	border: none;	
+	}
 
 /* 푸터전체 */
 footer{
@@ -262,7 +198,7 @@ footer{
     line-height: 80px;
     border-bottom: 1px solid #ededed;}
 
-.ftop a{
+.ftop a, .ftop span {
 	display: inline-block;
 	text-decoration: none;
     height: 80px;

@@ -5,6 +5,13 @@
 <link href="./css/login.css" rel="stylesheet">
 <header>
 <!-- 헤더 들어가는곳 -->
+<% 
+String sess=(String)session.getAttribute("email");
+System.out.print(sess);
+MemberDAO mdao=new MemberDAO();
+//리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
+MemberBean mb=mdao.getMember(sess);
+%>
 
 <div class="top_menu">
 
@@ -20,29 +27,22 @@
 	<a href="./NewsList.nw">NEWS</a>
 	<a href="./ReviewList.re">REVIEW</a>
 </nav>
-
 <!-- 예약 버튼 -->
 <div id="book"><a href="./Book.bk">BOOK</a></div>
+
 <!-- 로그인버튼 -->
-<div id="login"><i class="material-icons" font-size="30px" >lock_open</i>
-
-<% String sess=(String)session.getAttribute("email");
-System.out.print(sess);
-MemberDAO mdao=new MemberDAO();
-//리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
-MemberBean mb=mdao.getMember(sess);
-
+<div id="login"><i class="material-icons" font-size="30px" ></i>
+<%
 //세션값이 없으면 로그인버튼보이기
 if(sess==null){%>
 <input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	
 <%
 }else{ %>
-	<%=mb.getName() %> 로그인 중 
-<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
-<%	if(sess.equals("admin@team.com"))%> <a href="./BookList.ad">AdminPage</a><%
-	else%> <a href="./Mypage.me">MyPage</a>
+	<%=mb.getName() %>님 
+<%	if(sess.equals("admin@team.com"))%> <a href="./BookList.ad" id="PageName">AdminPage </a><%
+	else%> <a href="./Mypage.me" id="PageName">MyPage</a>
+	<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
 <%}%>
-
 	</div>
 </div>
 <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->

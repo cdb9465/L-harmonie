@@ -1,4 +1,4 @@
-package net.chat.action;
+package chat;
 
 public class Chat {
 	int chatID;

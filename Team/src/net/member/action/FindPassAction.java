@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 
 public class FindPassAction implements Action{
@@ -21,8 +22,13 @@ public class FindPassAction implements Action{
 		System.out.println("적은 name="+name+", 적은 phone="+phone);
 		//sql구문 실행
 		MemberDAO mdao = new MemberDAO();
+		MemberBean mb = new MemberBean();
 		String findPass = mdao.findPass(email, name, phone);
 		
+		//비밀번호 변경을 위해 email 저장
+		mb.setEmail(email);
+		mb.setName(name);
+		mb.setPhone(phone);
 		
 		if(findPass==null){		
 			//자바에서 JSP구문 쓸때 ↓ 아래 형식으로 사용
@@ -30,14 +36,14 @@ public class FindPassAction implements Action{
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('조회된 회원정보가 없습니다. 입력 정보를 다시 확인해주세요.');");
-			out.println("history.back();");
+			out.println("location.href='./FindIdPass.me'");
 			out.println("</script>");
 			out.close();		
 			return null;
 		}else{
 			//결과값 내보내기
 			request.setAttribute("findPass",findPass);
-			System.out.println(findPass);
+			request.setAttribute("mb",mb);
 			//forward 객체생성
 			ActionForward forward=new ActionForward();
 			forward.setRedirect(false); //jsp로 가면 false, 가상주소로 가면 true 이다.

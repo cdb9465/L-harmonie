@@ -1,28 +1,36 @@
+<%@page import="net.review.db.CommentDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="net.review.db.CommentBean"%>
 <%@page import="net.member.db.MemberDAO"%>
 <%@page import="net.member.db.MemberBean"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@page import="java.util.List"%>
-    <%@page import="net.review.db.ReviewDAO"%>
-    <%@page import="net.review.db.ReviewBean"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="net.review.db.ReviewDAO"%>
+<%@page import="net.review.db.ReviewBean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
+
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Review Board</title>
+
+<title>L'harmonie</title>
+
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/review.css" rel="stylesheet" type="text/css">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+
 <body>
+
 <%
+int review_num1=((Integer)request.getAttribute("review_num")).intValue();
+List<CommentBean> cobe=(List<CommentBean>)request.getAttribute("cobe");
 String pageNum=(String)request.getAttribute("pageNum");
 List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("reviewList");
 int pageCount=((Integer)request.getAttribute("pageCount")).intValue();
@@ -31,7 +39,8 @@ int pageBlock=((Integer)request.getAttribute("pageBlock")).intValue();
 int startPage=((Integer)request.getAttribute("startPage")).intValue();
 int endPage=((Integer)request.getAttribute("endPage")).intValue();
 String email=(String)session.getAttribute("email");
-
+String location=(String)session.getAttribute("location");
+List<ReviewBean> reviewlocation=(List)request.getAttribute("reviewlocation");
 %>
 
 <!-- 헤더파일들어가는 곳 -->
@@ -50,13 +59,12 @@ String email=(String)session.getAttribute("email");
 <hr>
 
 <form action="./ReviewList.re" name="location" method="get">
-
  <div class="write_find">
   <div class="title">*간편검색*</div><br>
   <select name="sel_location">
-    <option value="전체">전체</option>
-   <option value="서울강남점">서울강남점</option>
-   <option value="부산서면점" >부산서면점</option>
+    <option value="전체" >전체</option>
+   <option value="서울강남점" ><a href="./LocationAction.re">서울강남점</a></option>
+   <option value="부산서면점">부산서면점</option>
   </select>
  </div>
  </form>
@@ -65,19 +73,16 @@ String email=(String)session.getAttribute("email");
 
 <!-- 사진영역 div-->
 <%
+
 ReviewDAO rd= new ReviewDAO();
 ReviewBean rbb=rd.getReview(1);
 if(rbb.getReview_num()!=0)
 {  
-for(int i=0;i<ReviewList.size();i++){
-	
-	
-    	ReviewBean rb=ReviewList.get(i);
-     
-    	 	
-    	//System.out.println(rb.getFile().split(",")[0]);
-    	%>
-
+for(int i=0;i<ReviewList.size();i++)
+{
+    ReviewBean rb=ReviewList.get(i);
+   %>
+   
 <table border="1" class="tbimg" width="100%" cellspacing="0" cellpadding="0">
 <tr style="background-color:black; color:white; height:20px;">
 <th><%=rb.getMem_num()%></th>
@@ -87,13 +92,13 @@ for(int i=0;i<ReviewList.size();i++){
 
 
 <tr><th colspan='2'>
+ 
  <div class="rating">
- <%
-		//평점 점수에 따라 ★로 표시함
-		for(int s=0; s< rb.getRating(); s++){
-			%><i class="fa fa-star" style="color:red; font-size:20px;"></i><%
-		}
-		%>
+ <%	
+	for(int s=0; s< rb.getRating(); s++){
+		%><i class="fa fa-star" style="color:red; font-size:20px;"></i><%
+	}
+	%>
 </div>
 </th>
 <td>정말 놀라웠어요~!</td>
@@ -155,41 +160,81 @@ for(int i=0;i<ReviewList.size();i++){
 <td>4명이 좋아합니다.</td>
 <td><div class="content">
   <input type="button"value="글삭제"  onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" id="ddate">
-        <script type="text/javascript">
-     function sub11(){
-    	 r=confirm("등록하시겠습니까?");
-    	 if(r==true){
-    		 alert("등록되었습니다.")
-    		 location.href="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'";
-    	 }
-    	 else{
-    		 alert("취소되었습니다.")
-    		 location.href="./review/ReviewList.re";
-    	 }
-     }
-     </script>
     <br> 
      <br>
  </div>
 </td>
 </tr>
+
+
 <tr>
+
+
 <%
+
 MemberDAO mdao=new MemberDAO();
 //리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
 MemberBean mb=mdao.getMember(email);
 if(email!=null)
 {
-if(email.equals("admin@team.com")){%> <td colspan='3'>
+if(email.equals("admin@team.com")){%> 
+
+<td colspan='3'>
+ <form action="./CommentWriteAction.re"  method="post">
 <div class="comment">
- <textarea placeholder="댓글"></textarea>
- <button type="button" onclick="sub11()"><p>댓글등록</p></button>
+<input type="hidden" name="mem_num" value=<%=rb.getMem_num()%>>
+<input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
+   <input type="text" name="content" id="content">
+ <button type="submit"><p>댓글등록</p></button>
 </div>
+</form>
 </td>
 
 <%}%>
 <%}%>
+
  </tr>
+ <%
+ CommentDAO cd= new CommentDAO();
+ CommentBean cdd= cd.getComment(1);
+ if(cdd.getComment_num()!=0){
+ 
+for(int j=0;j<cobe.size();j++){
+	
+	
+    	CommentBean cb=cobe.get(j);
+     
+    	 	
+    	//System.out.println(rb.getFile().split(",")[0]);
+    	%>
+<tr>
+
+<td colspan="3">
+
+<div>
+<i class="material-icons">subdirectory_arrow_right</i>
+<%=cb.getContent() %>
+
+<%
+
+
+//리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
+
+if(email!=null)
+{
+if(email.equals("admin@team.com")){%> 
+
+<input type="button"value="댓글삭제"  onclick="location.href='./CommentDelete.re?comment_num=<%=cb.getComment_num()%>'" id="ddate">
+</div>
+
+</td>
+
+</tr>
+<%}%>
+<%}%>
+<%}%>
+<%}%>
+
 </table>
 <%
 }
@@ -279,6 +324,8 @@ function showSlides(j,n) {
 		activeIndex = slideIndex;
 	}
 }
+
+
 </script>
 </div>
 </article>

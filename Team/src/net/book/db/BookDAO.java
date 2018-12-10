@@ -143,6 +143,8 @@ public class BookDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
+				bb = new BookBean();
+
 				bb.setBook_num(rs.getString("book_num"));
 				bb.setLocation(rs.getString("location"));
 				bb.setGuest(rs.getInt("guest"));
