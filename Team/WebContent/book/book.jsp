@@ -250,6 +250,7 @@ $(document).ready(function(){
 	});
 	
 	//테이블 중복제어
+
 	 $("#time").click(function(){
 		var l = document.bf.location.value;
 		var t = document.bf.time.value;
@@ -263,12 +264,13 @@ $(document).ready(function(){
 			success : function(data){
 				//$('#t1').attr('class','tabl tfor2Act');
 				
-// 				var res = data.split(',');
+				var res = data.split(',');
 				
-// 				$.each(res, function(index, item){
-// 					alert(item);
-// 					});
-// 				}
+				$.each(res, function(index, item){
+					//alert(item);
+					disableTable(item);
+					});
+//				}
 				
 			
 // 				$('#t1').css({
@@ -277,7 +279,6 @@ $(document).ready(function(){
 
 		}); 
 	}); 
-
 });
 </script>
 

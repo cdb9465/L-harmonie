@@ -68,7 +68,7 @@ public class ReviewFrontController extends HttpServlet {
   	  			} 
   	  		}
 	
-  		
+	   
   			
   		if (forward != null) { 
   			if (forward.isRedirect()) { 
@@ -77,8 +77,9 @@ public class ReviewFrontController extends HttpServlet {
   				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath()); 
   				dispatcher.forward(request, response); 
   			} 
-  		} 
-  	} 
+  		}
+	}
+  	 
 	
 	
 	@Override 

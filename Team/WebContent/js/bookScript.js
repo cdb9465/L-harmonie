@@ -154,6 +154,18 @@ function selectTable(n){
 
 }
 
+//테이블 disable
+function disableTable(n)
+{
+	var div = document.getElementById("table");
+	var table =div.getElementsByClassName("tabl");
+	
+	if(n <= 3)
+		table[n].className = table[n].className.replace("tfor2","tfor2Act");
+	else
+		table[n].className = table[n].className.replace("tfor4","tfor4Act");
+}
+
 //show Request Detail input
 function showDetail(chk) {
 	var detail = document.getElementById("detail");

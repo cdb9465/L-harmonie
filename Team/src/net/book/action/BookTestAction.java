@@ -20,8 +20,7 @@ public class BookTestAction implements Action
 		System.out.println("BookTestAction execute");
 		
 		int cnt=0;	//예약된 테이블 갯수
-		int chkTable[] = new int[10]; //테이블 예약여부 확인
-		String strTable = null;
+		String strTable = null;	//예약된 테이블 번호
 		
 		//한글처리
 		request.setCharacterEncoding("utf-8");
@@ -30,7 +29,7 @@ public class BookTestAction implements Action
 		String location = request.getParameter("location");
 		Date date = Date.valueOf(request.getParameter("date"));
 		String time = request.getParameter("time");
-		
+
 		//BookBean bb에 저장
 		BookBean bb = new BookBean();
 		bb.setLocation(location);
@@ -47,32 +46,19 @@ public class BookTestAction implements Action
 		
 			System.out.println("예약된테이블번호: "+bb.getTablenum());
 			
-			for(int j = 1; j <= chkTable.length; j++)
-			{
-				if(j == bb.getTablenum()) //예약된 테이블이면 1
-				{
-					chkTable[j-1] = 1;
-					cnt++;				
-				}
-				else // 예약된 테이블 아니면
-				{
-
-				}
-			}
+			//strTable += 예약된 테이블 번호 저장
+			if(i==0)
+				strTable = Integer.toString(bb.getTablenum());
+			else
+				strTable += "," + Integer.toString(bb.getTablenum());
+			
 		}
 		
-		if(cnt == 10) //모든 테이블이 예약되어 있으면
+		if(bookList.size() == 10) //모든 테이블이 예약되어 있으면
 		{
 			//시간 비활성화..
 		}
-		
-		strTable = Integer.toString(chkTable[0]);
-		//string으로 변경
-		for(int i = 1; i < chkTable.length; i++)
-		{
-			strTable += "," + chkTable[i];
-		}
-		
+	
 		System.out.println(strTable);
 
 		//ajax로 값 리턴
@@ -80,7 +66,6 @@ public class BookTestAction implements Action
 		PrintWriter out = response.getWriter();
 		out.println(strTable);
 		out.close();		
-		
 		
 		ActionForward forward = null;
 //		forward.setRedirect(false);

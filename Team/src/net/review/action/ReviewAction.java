@@ -20,9 +20,7 @@ public class ReviewAction implements Action{
 		List<ReviewBean> reviewList=null;
 		
 		ReviewDAO rd= new ReviewDAO();
-		
-	
-		
+				
 		String location = request.getParameter("location");
 		
 		if(location==null){
@@ -63,22 +61,22 @@ public class ReviewAction implements Action{
 	
 		
 		
-		
 		CommentDAO cd= new CommentDAO();
 		CommentBean cb= new CommentBean();
-		int review_num = cb.getReview_num();
+		int review_num1 = cb.getReview_num();
 		int mem_num=cb.getMem_num();
 		List<CommentBean> cobe=null;
 		
 		
 		int Ccount = cd.getCommentCount();
+
 		if(Ccount!=0){
-			cobe=cd.getCommentList(mem_num, review_num);
+			cobe=cd.getCommentList(1);
 		}
 		
 		
-		
-		request.setAttribute("review_num", review_num);
+	
+		request.setAttribute("review_num1", review_num1);
 		request.setAttribute("cobe", cobe);
 		request.setAttribute("Ccount", Ccount);
 		request.setAttribute("reviewlocation", reviewlocation);
