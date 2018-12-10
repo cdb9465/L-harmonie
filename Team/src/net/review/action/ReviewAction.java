@@ -69,8 +69,9 @@ public class ReviewAction implements Action{
 		
 		
 		int Ccount = cd.getCommentCount();
+
 		if(Ccount!=0){
-			cobe=cd.getCommentList(mem_num, review_num1);
+			cobe=cd.getCommentList(1);
 		}
 		
 		

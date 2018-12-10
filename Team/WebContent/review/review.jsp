@@ -33,12 +33,15 @@
 
 
 int review_num1=((Integer)request.getAttribute("review_num1")).intValue();
-System.out.println(review_num1);
+//System.out.println(review_num1);
 List<CommentBean> cobe=(List<CommentBean>)request.getAttribute("cobe");
+
 String pageNum=(String)request.getAttribute("pageNum");
 List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("reviewList");
 int pageCount=((Integer)request.getAttribute("pageCount")).intValue();
 int count=((Integer)request.getAttribute("count")).intValue();
+int Ccount=((Integer)request.getAttribute("Ccount")).intValue();
+
 int pageBlock=((Integer)request.getAttribute("pageBlock")).intValue();
 int startPage=((Integer)request.getAttribute("startPage")).intValue();
 int endPage=((Integer)request.getAttribute("endPage")).intValue();
@@ -46,6 +49,7 @@ String email=(String)session.getAttribute("email");
 String location=(String)session.getAttribute("location");
 List<ReviewBean> reviewlocation=(List)request.getAttribute("reviewlocation");
 %>
+
 
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="./../inc/top.jsp"></jsp:include>
@@ -77,10 +81,7 @@ List<ReviewBean> reviewlocation=(List)request.getAttribute("reviewlocation");
 
 <!-- 사진영역 div-->
 <%
-
-ReviewDAO rd= new ReviewDAO();
-ReviewBean rbb= rd.getReview1();
-if(rbb.getReview_num()!=0)
+if(count!=0)
 {  
 for(int i=0;i<ReviewList.size();i++)
 {
@@ -199,15 +200,18 @@ if(email.equals("admin@team.com")){%>
 
  </tr>
  <%
- CommentDAO cd= new CommentDAO();
- CommentBean cdd= cd.getComment1();
- if(cdd.getComment_num()!=0){
+CommentBean cdd=new CommentBean();
+ if(Ccount!=0){
+	 //System.out.println(rb.getReview_num());
+	 
  
+
 for(int j=0;j<cobe.size();j++){
 	
 	
     	CommentBean cb=cobe.get(j);
-     
+
+    	if(rb.getReview_num()==cb.getReview_num()){
     	 	
     	//System.out.println(rb.getFile().split(",")[0]);
     	%>
@@ -215,8 +219,9 @@ for(int j=0;j<cobe.size();j++){
 
 <td colspan="3">
 
-<div>
-<i class="material-icons">subdirectory_arrow_right</i>
+<div> 
+<i class="material-icons" >subdirectory_arrow_right </i>
+<b>[관리자]</b>
 <%=cb.getContent() %>
 
 <%
@@ -238,7 +243,7 @@ if(email.equals("admin@team.com")){%>
 <%}%>
 <%}%>
 <%}%>
-
+<%}%>
 </table>
 <%
 }
