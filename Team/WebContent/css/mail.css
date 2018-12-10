@@ -70,7 +70,7 @@ background-position: center center}
 배경이미지 t_back.jpg repeat-x center center*/
 
 article table#notice tr:hover{
-	background-color: #EEFDFF;
+	background-color: #D9E5FF;
 cursor: pointer;cursor: hand;}
 /*배경색 #EEFDFF
 커서 pointer 커서 hand*/

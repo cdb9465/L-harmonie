@@ -1,3 +1,5 @@
+<%@page import="net.member.db.MemberBean"%>
+<%@page import="net.member.db.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -103,6 +105,24 @@
 	</script>
 </head>
 <body>
+<% 
+request.setCharacterEncoding("utf-8");
+String id=(String)session.getAttribute("email");
+System.out.print(id);
+MemberDAO mdao=new MemberDAO();
+//리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
+MemberBean mb=mdao.getMember(id);
+
+if(id == null){
+	%>
+	<script>
+				alert("로그인 후 이용해주세요.");
+				window.opener = window.location.href; self.close();			 
+	</script>
+	<% 
+}
+%>
+
 	<div class="container">
 		<div class="container bootstrap snippet">
 			<div class="row">
@@ -118,9 +138,9 @@
 							<div id="chatList" class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 600px;"></div>
 							<div class="portlet-footer">
 								<div class="row">
-									<!-- <div class="form-group col-xs-4">
-										<input style="height: 40px;" type="text" id="chatName" class="form-control" placeholder="이름" maxlength="8">
-									</div> -->
+									<div class="form-group col-xs-4">
+										<input style="height: 40px;" type="hidden" id="chatName" class="form-control" placeholder="이름" maxlength="8" value="<%=mb.getName() %>">
+									</div>
 								</div>
 								<div class="row" style="height: 90px;">
 									<div class="form-group col-xs-10">
