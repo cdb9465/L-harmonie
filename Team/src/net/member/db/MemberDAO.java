@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import net.book.db.BookBean;
 import net.review.db.ReviewBean;
 
@@ -20,7 +24,7 @@ public class MemberDAO {
 		
 		
 	//디비연결 메소드 분리시키기 (1,2단계가 반복되므로)
-	private Connection getConnection() throws Exception{
+/*	private Connection getConnection() throws Exception{
 		Connection con = null;
 		
 		//1단계
@@ -33,7 +37,19 @@ public class MemberDAO {
 		con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
 
 		return con;
-	}
+	}*/
+		private Connection getConnection() throws Exception{
+		      
+		      Connection con = null;
+		      // Context 객체 생성
+		      Context init = new InitialContext();
+		      // DateSource = 디비연동 이름 불러오기
+		      DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/MysqlDB");
+		      // con = DataSource
+		      con = ds.getConnection();
+
+		      return con;
+		   }
 	
 	public void insertMember(MemberBean mb){
 		int mem_num=0;
@@ -542,80 +558,81 @@ public class MemberDAO {
 			return count;
 	}
 
-	
-	public String findId(String name, String phone){
-		MemberBean mb=new MemberBean();
-		String email = null;
-		try {
-			//디비연결 메소드 호출
-			con = getConnection();
-			
-			 // 3단계 sql 구문 만들고 실행할수 있는 객체생성
-			 // 세션값에 해당하는 회원정보 가져오기
-			 String sql="select email from member where name=? and phone=?";
-			 pstmt=con.prepareStatement(sql);
-			 pstmt.setString(1, name);
-			 pstmt.setString(2, phone);
-			 // 4단계  결과 저장 <= 실행
-			 rs=pstmt.executeQuery();
-			 // 5단계 첫행으로이동  열접근 => 출력
-			
-			 while(rs.next()){
-				 email = rs.getString("email");
-				 System.out.println(email);
-				   }
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally{
-			//예외 발생여부 상관없이 마무리 작업(필수)
-			// 객체생성해서 사용한 기억공간 정리  .close()
-			
-			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
-			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
-			if(con!=null)	try{con.close(); }catch(SQLException ex){}
-		}
-		
-		return email;
-	}
-	
-	public String findPass(String email,String name, String phone){
-		MemberBean mb=new MemberBean();
-		String pass = null;
-		try {
-			//디비연결 메소드 호출
-			con = getConnection();
-			
-			 // 3단계 sql 구문 만들고 실행할수 있는 객체생성
-			 // 세션값에 해당하는 회원정보 가져오기
-			 String sql="select pass from member where email=? and name=? and phone=?";
-			 pstmt=con.prepareStatement(sql);
-			 pstmt.setString(1, email);
-			 pstmt.setString(2, name);
-			 pstmt.setString(3, phone);
-			 // 4단계  결과 저장 <= 실행
-			 rs=pstmt.executeQuery();
-			 // 5단계 첫행으로이동  열접근 => 출력
-			
-			 while(rs.next()){
-				 pass = rs.getString("pass");
-				   }
+	//아이디 찾기
+		public String findId(String name, String phone){
+			MemberBean mb=new MemberBean();
+			String email = null;
+			try {
+				//디비연결 메소드 호출
+				con = getConnection();
+				
+				 // 3단계 sql 구문 만들고 실행할수 있는 객체생성
+				 // 세션값에 해당하는 회원정보 가져오기
+				 String sql="select email from member where name=? and phone=?";
+				 pstmt=con.prepareStatement(sql);
+				 pstmt.setString(1, name);
+				 pstmt.setString(2, phone);
+				 // 4단계  결과 저장 <= 실행
+				 rs=pstmt.executeQuery();
+				 // 5단계 첫행으로이동  열접근 => 출력
+				
+				 while(rs.next()){
+					 email = rs.getString("email");
+					 System.out.println(email);
+					   }
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally{
-			//예외 발생여부 상관없이 마무리 작업(필수)
-			// 객체생성해서 사용한 기억공간 정리  .close()
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				//예외 발생여부 상관없이 마무리 작업(필수)
+				// 객체생성해서 사용한 기억공간 정리  .close()
+				
+				if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+				if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+				if(con!=null)	try{con.close(); }catch(SQLException ex){}
+			}
 			
-			if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
-			if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
-			if(con!=null)	try{con.close(); }catch(SQLException ex){}
+			return email;
 		}
-		
-		return pass;
-	}
-	
-	
+
+	//비밀번호 찾기
+		public String findPass(String email,String name, String phone){
+			MemberBean mb=new MemberBean();
+			String pass = null;
+			try {
+				//디비연결 메소드 호출
+				con = getConnection();
+				
+				 // 3단계 sql 구문 만들고 실행할수 있는 객체생성
+				 // 세션값에 해당하는 회원정보 가져오기
+				 String sql="select pass from member where email=? and name=? and phone=?";
+				 pstmt=con.prepareStatement(sql);
+				 pstmt.setString(1, email);
+				 pstmt.setString(2, name);
+				 pstmt.setString(3, phone);
+				 // 4단계  결과 저장 <= 실행
+				 rs=pstmt.executeQuery();
+				 // 5단계 첫행으로이동  열접근 => 출력
+				
+				 while(rs.next()){
+					 pass = rs.getString("pass");
+					   }
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally{
+				//예외 발생여부 상관없이 마무리 작업(필수)
+				// 객체생성해서 사용한 기억공간 정리  .close()
+				
+				if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+				if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+				if(con!=null)	try{con.close(); }catch(SQLException ex){}
+			}
+			
+			return pass;
+		}
+
 }//클래스
 
 

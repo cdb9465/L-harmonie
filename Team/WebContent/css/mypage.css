@@ -140,7 +140,7 @@ h1{ margin:0;
    #mybook table td{text-align: center; padding:12px 0;
 				border-bottom: 1px solid #000;
 				}
-/* 예약상태(?)확인 - 당일취소불가, 리뷰쓰기, 예약취소 */
+/* 예약상태(?) 버튼 - 당일취소불가, 리뷰쓰기, 예약취소 */
 .bookday {font-weight: bold;color: #800000;}
 .bookcancel{
 			background-color:#ec6a6a; color: #000;
@@ -154,9 +154,8 @@ h1{ margin:0;
 			border: none;
 			padding:4px 8px;
 			border-radius:5px;}
-.bookcancel:HOVER{background-color:rgba(0, 0, 0, 0.5);
-			color: #bcbcbc;}
-.writeReview:HOVER{background-color:#ec6a6a; color: #000;}
+.bookcancel:HOVER{background-color:#b51717; color: #000;}
+.writeReview:HOVER{background-color:rgba(0, 0, 0, 1); color: #bcbcbc;}
 
 
 /* ---------------------------------myreview--------------------------------------------- */

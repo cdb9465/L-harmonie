@@ -182,7 +182,7 @@ if(email.equals("admin@team.com")){%>
 <td colspan='3'>
  <form action="./CommentWriteAction.re"  method="post">
 <div class="comment">
-<input type="hidden" name="mem_num" value=<%=rb.getReview_num()%>>
+<input type="hidden" name="mem_num" value=<%=rb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
    <input type="text" name="content" id="content">
  <button type="submit"><p>댓글등록</p></button>
@@ -195,8 +195,10 @@ if(email.equals("admin@team.com")){%>
 
  </tr>
  <%
-CommentDAO cd= new CommentDAO();
-  
+ CommentDAO cd= new CommentDAO();
+ CommentBean cdd= cd.getComment(1);
+ if(cdd.getComment_num()!=0){
+ 
 for(int j=0;j<cobe.size();j++){
 	
 	
@@ -230,7 +232,7 @@ if(email.equals("admin@team.com")){%>
 </tr>
 <%}%>
 <%}%>
-
+<%}%>
 <%}%>
 
 </table>
