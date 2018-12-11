@@ -17,7 +17,7 @@ public class LoveBean {
 	public void setReview_num(int review_num) {
 		this.review_num = review_num;
 	}
-	public boolean isLove() {
+	public boolean getLove() {
 		return love;
 	}
 	public void setLove(boolean love) {

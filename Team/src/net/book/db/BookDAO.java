@@ -123,9 +123,6 @@ public class BookDAO {
 
 	public List<BookBean> testBook(BookBean bb)
 	{
-		int chkTable[] = new int[10];
-		int cnt = 0;
-		
 		List<BookBean> list = new ArrayList<BookBean>();
 		
 		Connection con = null;
@@ -147,6 +144,7 @@ public class BookDAO {
 			
 			while(rs.next()){
 				bb = new BookBean();
+
 				bb.setBook_num(rs.getString("book_num"));
 				bb.setLocation(rs.getString("location"));
 				bb.setGuest(rs.getInt("guest"));

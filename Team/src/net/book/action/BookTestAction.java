@@ -29,7 +29,7 @@ public class BookTestAction implements Action
 		String location = request.getParameter("location");
 		Date date = Date.valueOf(request.getParameter("date"));
 		String time = request.getParameter("time");
-		
+
 		//BookBean bb에 저장
 		BookBean bb = new BookBean();
 		bb.setLocation(location);
@@ -66,7 +66,6 @@ public class BookTestAction implements Action
 		PrintWriter out = response.getWriter();
 		out.println(strTable);
 		out.close();		
-		
 		
 		ActionForward forward = null;
 //		forward.setRedirect(false);

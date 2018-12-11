@@ -250,6 +250,7 @@ $(document).ready(function(){
 	});
 	
 	//테이블 중복제어
+
 	 $("#time").click(function(){
 		var l = document.bf.location.value;
 		var t = document.bf.time.value;
@@ -275,7 +276,6 @@ $(document).ready(function(){
 
 		}); 
 	}); 
-
 });
 </script>
 

@@ -16,34 +16,37 @@ MemberBean mb=mdao.getMember(sess);
 <div class="top_menu">
 
 <!-- 로고들어가는 곳 시작 -->
-<div id="logo"><a href ="./Main.ma" id="logoId"><img src="./images/logo.png"></a></div>
+<!-- <div id="logo"><a href ="./Main.ma"><img src="./images/logo.png"></a></div> -->
+<a href="#" id="logo" class="logoC"></a>
 <!-- 로고들어가는 곳 끝 -->
 
 <!-- 메인메뉴 -->
 
 <nav id="main_menu">
-	<a href="./AboutUs.ad">ABOUT US</a>
-	<a href="./MenuList.nu">MENU</a>
-	<a href="./NewsList.nw">NEWS</a>
-	<a href="./ReviewList.re">REVIEW</a>
+	<a href="./AboutUs.ad" id="MM">ABOUT US</a>
+	<a href="./MenuList.nu" id="MM">MENU</a>
+	<a href="./NewsList.nw" id="MM">NEWS</a>
+	<a href="./ReviewList.re" id="MM">REVIEW</a>
+	<a href="./Book.bk" id="book">BOOK</a>
 </nav>
 <!-- 예약 버튼 -->
-<div id="book"><a href="./Book.bk">BOOK</a></div>
+<!-- <a href="./Book.bk" id="book"></a> -->
 
 <!-- 로그인버튼 -->
-<div id="login"><i class="material-icons" font-size="30px" ></i>
-<%
-//세션값이 없으면 로그인버튼보이기
+<%//세션값이 없으면 로그인버튼보이기
 if(sess==null){%>
-<input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	
-<%
-}else{ %>
-	<%=mb.getName() %>님 
-<%	if(sess.equals("admin@team.com"))%> <a href="./BookList.ad" id="PageName">AdminPage </a><%
-	else%> <a href="./Mypage.me" id="PageName">MyPage</a>
-	<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
-<%}%>
+<span id="login" style="cursor:pointer"onclick="document.getElementById('id01').style.display='block'"><i class="material-icons" >lock</i></span>
+<!-- <input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	 -->
+<% } else { %>
+	<div id="log02">
+		<%=mb.getName()%>님 
+		<%--
+		<%if(sess.equals("admin@team.com"))%><a href="./BookList.ad" id="PageName">AdminPage</a>
+		<%else%><a href="./Mypage.me" id="PageName">MyPage</a>
+		--%>
+		<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
 	</div>
+<% } %>
 </div>
 <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
 
