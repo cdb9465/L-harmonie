@@ -41,7 +41,7 @@ if(sess==null){%>
 		<%=mb.getName()%>님 
 		<%--
 		<%if(sess.equals("admin@team.com"))%><a href="./BookList.ad" id="PageName">AdminPage</a>
-		<%else%><a href="./Mypage.me" id="PageName">MyPage</a>
+		<%else%>							 <a href="./Mypage.me" id="PageName">MyPage</a>
 		--%>	
 		</div>	
 		<!-- 마이페이지 -->
@@ -49,7 +49,8 @@ if(sess==null){%>
   			<button onclick="myFunction()" class="MPDbtn"></button>
   			
   			<div id="myMPDown" class="MPDown-content">
-    			<a href="./Mypage.me" id="PageName">MyPage</a>
+    			<%if(sess.equals("admin@team.com")) {%> <a href="./BookList.ad" id="PageName">AdminPage</a>
+    			<%} else {%>							<a href="./Mypage.me" id="PageName">MyPage</a> <%} %>
     			<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
   			</div>
 		</div>
