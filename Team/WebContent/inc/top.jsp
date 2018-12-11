@@ -17,7 +17,7 @@ MemberBean mb=mdao.getMember(sess);
 
 <!-- 로고들어가는 곳 시작 -->
 <!-- <div id="logo"><a href ="./Main.ma"><img src="./images/logo.png"></a></div> -->
-<a href="#" id="logo" class="logoC"></a>
+<a href="./Main.ma" id="logo" class="logoC"></a>
 <!-- 로고들어가는 곳 끝 -->
 
 <!-- 메인메뉴 -->
@@ -35,7 +35,7 @@ MemberBean mb=mdao.getMember(sess);
 <!-- 로그인버튼 -->
 <%//세션값이 없으면 로그인버튼보이기
 if(sess==null){%>
-<span id="login" style="cursor:pointer"onclick="document.getElementById('id01').style.display='block'"><i class="material-icons" >lock</i></span>
+<span id="login" style="cursor:pointer"onclick="document.getElementById('id01').style.display='block'"><i class="material-icons" >lock_outline</i></span>
 <!-- <input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	 -->
 <% } else { %>
 	<div id="log02">
