@@ -23,7 +23,16 @@
 <div class="clear"></div>
 
 <%
-//id session 없으면 -> 로그인
+// session 없으면 -> 로그인
+String email = (String)session.getAttribute("email");
+if(email == null){
+%>
+<script>
+alert("로그인 후 이용가능합니다.");
+history.back();
+</script>	
+<%
+}
 %>
 
 <!-- 본문 -->
