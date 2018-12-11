@@ -122,6 +122,7 @@ public class BookDAO {
 	}
 
 	public List<BookBean> testBook(BookBean bb)
+
 	{
 		List<BookBean> list = new ArrayList<BookBean>();
 		
@@ -166,4 +167,25 @@ public class BookDAO {
 	
 		return list;		
 	}
+
+	public void bookDelete(String book_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql = "delete from book where book_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, book_num);
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			if(con!=null) try {con.close();} catch (SQLException ex){}			
+		}
+	}
+
 }
