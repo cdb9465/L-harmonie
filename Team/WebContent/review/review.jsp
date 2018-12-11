@@ -180,6 +180,7 @@ for(int i=0;i<ReviewList.size();i++)
 MemberDAO mdao=new MemberDAO();
 //리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
 MemberBean mb=mdao.getMember(email);
+
 if(email!=null)
 {
 if(email.equals("admin@team.com")){%> 
