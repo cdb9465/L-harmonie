@@ -57,8 +57,8 @@ public class BookDAO {
 			sql = "insert into book values(?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, 1);
-			//pstmt.setInt(1,bb.getMem_num());
+			//pstmt.setInt(1, 1);
+			pstmt.setInt(1,bb.getMem_num());
 			pstmt.setInt(2, book_count);
 			//pstmt.setInt(3,bb.getBook_num());
 			pstmt.setString(3, book_num); //예약번호
