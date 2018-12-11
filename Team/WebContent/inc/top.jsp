@@ -17,6 +17,7 @@ MemberBean mb=mdao.getMember(sess);
 
 
 
+
 <!-- 로고들어가는 곳 시작 -->
 <!-- <div id="logo"><a href ="./Main.ma"><img src="./images/logo.png"></a></div> -->
 <a href="./Main.ma" id="logo" class="logoC"></a>
