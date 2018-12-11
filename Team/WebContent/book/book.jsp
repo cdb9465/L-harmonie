@@ -17,11 +17,6 @@
 <link href="./js/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
-<!-- 헤더파일들어가는 곳 -->
-<jsp:include page="../inc/top.jsp"></jsp:include>
-<!-- 헤더파일들어가는 곳 -->
-<div class="clear"></div>
-
 <%
 // session 없으면 -> 로그인
 String email = (String)session.getAttribute("email");
@@ -34,6 +29,11 @@ history.back();
 <%
 }
 %>
+
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/top.jsp"></jsp:include>
+<!-- 헤더파일들어가는 곳 -->
+<div class="clear"></div>
 
 <!-- 본문 -->
 <div id="wrap">
