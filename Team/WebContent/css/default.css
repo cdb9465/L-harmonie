@@ -28,7 +28,7 @@ body{margin: 0px; padding: 0px;
 
 
 /* 로고 */
-#logo {  /* border: 1px solid red; */
+#logo {  border: 1px solid red;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("../images/logo.png");
@@ -43,10 +43,8 @@ body{margin: 0px; padding: 0px;
   display: block;
   transition: .5s ease;
   backface-visibility: hidden;
+  
 }
-
-
-
 
 
 #main_menu { /* border: 1px solid yellow; */
