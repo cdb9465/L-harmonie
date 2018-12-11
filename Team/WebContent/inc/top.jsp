@@ -7,7 +7,6 @@
 <!-- 헤더 들어가는곳 -->
 <% 
 String sess=(String)session.getAttribute("email");
-System.out.print(sess);
 MemberDAO mdao=new MemberDAO();
 //리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
 MemberBean mb=mdao.getMember(sess);
@@ -44,6 +43,7 @@ if(sess==null){%>
 		<%if(sess.equals("admin@team.com"))%><a href="./BookList.ad" id="PageName">AdminPage</a>
 		<%else%><a href="./Mypage.me" id="PageName">MyPage</a>
 		--%>
+		<input type="button" onclick="chatBtn()" id="mp001">
 		<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
 	</div>
 <% } %>

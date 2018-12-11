@@ -114,6 +114,13 @@ body{margin: 0px; padding: 0px;
 		
 	}
 	
+#mp001 { border: 1px solid red;
+	background-image: url("../images/myPage.png");
+	width: 25px; height: 25px;
+	cursor: pointer;
+	background-size: cover;
+}	
+
 #PageName {
 	color: #B2CCFF;
 	text-decoration: none;

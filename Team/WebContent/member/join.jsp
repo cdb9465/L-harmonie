@@ -35,7 +35,7 @@ input:read-only{background-color:#dedede}
 				<table>
 				<tr>
 					<th>
-						<i class='far fa-envelope' style='font-size: 24px'></i>
+						<i class='far fa-envelope' style='font-size: 24px'></i><br>이메일
 						</th>
 						<td>	
 						<input type="text" name="email" id="email" placeholder="이메일 " onkeyup="checkEmail()">
@@ -61,28 +61,28 @@ input:read-only{background-color:#dedede}
 						</td>
 				</tr>
 				<tr>
-					<th><i class='fas fa-lock' style='font-size: 24px'></i></th>
+					<th><i class='fas fa-lock' style='font-size: 24px'></i><br>비밀번호</th>
 							<td><input type="password" name="pass" id="pass" placeholder="비밀번호 4자리 이상" onkeyup="checkPwd()">			
 								<span id="checkPwd1"></span>
 							</td>
 				</tr>
 				<tr>
 						<th>
-							<i class='fas fa-lock' style='font-size: 24px'></i></th>
+							<i class='fas fa-lock' style='font-size: 24px'></i><br>비밀번호확인</th>
 						<td><input type="password" name="repass" id="repass" placeholder="비밀번호 확인" onkeyup="checkPwd()"/>
 							<span id="checkPwd2"></span>
 						</td>
 				</tr>
 				<tr>
 						<th >
-							<i class='fas fa-male' style='font-size: 32px' id="name_icon" ></i></th>
+							<i class='fas fa-male' style='font-size: 32px' id="name_icon" ></i><br>이름</th>
 						<td><input type="text" name="name" id="name" placeholder="이름  ex)홍길동" onkeyup="checkName()" >
 						<span id="checkName"></span>
 						</td>
 				</tr>
 				<tr>
 						<th>
-							<i class="material-icons" style='font-size: 28px' id="phone_icon">phone_android</i></th>
+							<i class="material-icons" style='font-size: 28px' id="phone_icon">phone_android</i><br>휴대전화</th>
 							<td><input type="text" name="phone" id="phone" placeholder="휴대폰번호 (-)제외 숫자만 입력" maxlength="11" 
 								style="ime-mode:disabled;" onkeyup="checkPhone()" onkeypress="return digit_check(event)" >
 								<span id="checkPhone"></span>

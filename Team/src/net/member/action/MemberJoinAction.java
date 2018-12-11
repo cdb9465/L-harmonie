@@ -16,7 +16,17 @@ public class MemberJoinAction implements Action{
 				//request 한글처리
 			request.setCharacterEncoding("utf-8");
 				//request 저장된 파라미터 가져오기
-			String email = request.getParameter("email");
+			
+			String email=null;
+			String sel = request.getParameter("selectEmail"); 
+				//selectBox에서 1=직접입력이면 email2값 받기
+			if(sel.equals("1")){
+				email = (String)(request.getParameter("email")+"@"+request.getParameter("email2"));
+				//selectBox에서 1!=메일주소 이면 selectEmail값 받기
+			}else{
+				email = (String)(request.getParameter("email")+"@"+request.getParameter("selectEmail"));
+			}
+			
 			String pass = request.getParameter("pass");
 			String name = request.getParameter("name");
 			String phone = request.getParameter("phone");
