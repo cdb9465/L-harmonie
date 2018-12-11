@@ -28,55 +28,90 @@ body{margin: 0px; padding: 0px;
 
 
 /* 로고 */
-#logo{/* border: 1px solid red; */
-	position: absolute;
-    left: 20px;
-    top: 3px;
+#logo {  border: 1px solid red;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/logo.png");
+    width: 300px; height: 70px;
+	float: left;
+	margin-left: 10px;
+	margin-right: 100px;
+}
+
+.logoC { 
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  
 }
 
 
-#main_menu {
-	width: 100%; 
-	/* margin: auto; */
-	padding: 30px 0 0 450px;
+#main_menu { /* border: 1px solid yellow; */
+	float: left;
+	margin: auto;
+	/* padding: 30px 0 0 450px; */
 	position: relative;  
-	/* margin-left: 200px; */
+	
 }
 
 
-#main_menu a{
-	/* border: 1px solid yellow; */
+#main_menu a {
+	/* border: 1px solid green; */
 	text-decoration: none;
 	display: inline-block;
     color: #fff;
     font-size: 20px;
-    font-weight: 400;
-    margin-right: 10%;
+    font-weight: 500;
+    padding: 28px 70px;
+    /* margin-right: 10%; */
    }
 
 
+#MM:HOVER {
+	background-color: #670000;
+	cursor: pointer;cursor: hand;
+	color: #EAEAEA;
+	border-radius: 30px 30px; 
+}
+
+#book:HOVER {
+	background-color: #CC3D3D;
+	cursor: pointer;cursor: hand;
+	color: black;
+}
+
+
 /* 로그인 */
-#login{
+#log02{
 	/* border: 1px solid blue; */
-	position: absolute;
-    right: 30px;
-    top: 5px;
+/* 	position: absolute; */
+    width: 150px;
     color: white;
+    position: absolute;
+    top: 15px;
+    right: 50px;
+    font-size: 20px;
+    float: left;
     }
     
-/*  #login{
-	border: 1px solid blue;
-	display:inline-block;
+#login > .material-icons{
+	font-size: 30px;
 	position: absolute;
-}    */
+    top: 10px;
+    right: 70px;
+    color: white;
+}   
+
+
 /* 로그인버튼 */
-#login input[type=button]{
-	/* border: 1px solid red; */
-	font-size: 15px;
+#log02 input[type=button]{
+	border-radius: 5px 5px;
+	margin-left: 10px;
 	font-weight: 400;
-	/* border:none; */
 	background:rgba(0,0,0,0);
-	color: white;	
+	color: #fff;
+		
 	}
 	
 #PageName {
@@ -120,24 +155,22 @@ body{margin: 0px; padding: 0px;
 }
 
 /* 예약버튼 */
-#book{
-	width: 200px; height: 70px;
-	background-color: #fff;
-	position: absolute;
-	right: 250px;	
-	top:0px;}
+/* #book{ 
+	border: 1px solid yellow;
+	border-radius: 10px 10px;
+	width: 180px; height: 60px;	
+	float: left;
+	margin-left: 50px;
+	margin-top: 10px;
+	background-image: url("../images/bookImg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	} */
 
-#book a{
-	border:1px solid;
-	box-sizing: border-box;
-	padding: 17px 65px;
-	width: 200px; height: 70px;
-	font-size: 25px;
-	font-weight: 600;
-	display:inline-block;
-	text-decoration: none;
-	color: #000;}
-
+#book {
+	border: 1px solid  #CC3D3D;
+}	
 
 
 /* 서브메뉴 */
@@ -209,7 +242,7 @@ footer{
     color: #666666;}
 
 .ftop .material-icons{
-	/* border: 1px solid red; */
+	/* border: 1px solid yellow; */
 	font-size:20px;
 	color:#666666;
 	margin-right: 5px !important;

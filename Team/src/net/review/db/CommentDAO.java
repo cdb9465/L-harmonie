@@ -33,8 +33,9 @@ public class CommentDAO {
 		{
 			con = getConnection();
 			
-			String sql = "select max(comment_num) from comment" ;
+			String sql = "select max(comment_num) from comment where review_num=?" ;
 			psm = con.prepareStatement(sql);
+			psm.setInt(1,cb.getReview_num());
 			rs = psm.executeQuery();
 			
 			if(rs.next())
@@ -112,6 +113,7 @@ public class CommentDAO {
 			
 			String sql = "select count(*) from comment";
 			psm= con.prepareStatement(sql);
+		//psm.setInt(1, review_num);
 			rs = psm.executeQuery();
 			
 	
@@ -180,9 +182,9 @@ public class CommentDAO {
 	}
 
 	
-public List<CommentBean> getCommentList(int mem_num , int review_num){
+public List<CommentBean> getCommentList(int mem_num){
 		
-		
+	
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -192,10 +194,10 @@ public List<CommentBean> getCommentList(int mem_num , int review_num){
 			con=getConnection();
 			//3 sql
 			
-			 String sql="select * from comment where mem_num=? & review_num=?";
+			 String sql="select * from comment where mem_num=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, mem_num);
-			pstmt.setInt(2, review_num);
+			//pstmt.setInt(2, review_num);
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()){
@@ -218,5 +220,47 @@ public List<CommentBean> getCommentList(int mem_num , int review_num){
 		}
 		return commentList;
 	}
+
+
+public CommentBean getComment1(){
+	Connection con = null;
+	PreparedStatement psm = null;
+	ResultSet rs = null;
+	CommentBean rb = new CommentBean();
+	try
+	{
+		con=getConnection();
+		String sql = "select * from comment";
+		psm= con.prepareStatement(sql);
+		rs = psm.executeQuery();
+		
+		while(rs.next())
+		{
+			 rb.setMem_num(rs.getInt("mem_num"));
+			rb.setReview_num(rs.getInt("review_num"));
+			 rb.setComment_num(rs.getInt("comment_num"));
+			 rb.setContent(rs.getString("content"));
+			 rb.setDate(rs.getDate("date"));
+		}
+	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+	finally
+	{
+		if(psm!=null)		
+			try	{	psm.close();	}	catch(SQLException ex)	{}
+		if(con!=null)		
+			try	{	con.close();	}	catch(SQLException ex)	{}
+		if(rs!=null)		
+			try	{	rs.close();	}	catch(SQLException ex)	{}
+	}
+	
+	
+return rb;
+
+}
+
 }
 
