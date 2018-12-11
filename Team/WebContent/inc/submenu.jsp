@@ -14,7 +14,7 @@
 <script>
 function chatBtn(){
 	      
-	window.open('./chat.jsp','1:1 문의','width=500,height=700');
+	window.open('./chat.jsp','1:1 문의','width=500,height=770');
 	   											/* scrollbars=yes */
 	}
 </script>
