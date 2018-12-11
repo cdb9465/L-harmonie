@@ -3,75 +3,78 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
- background-color: black;
-}
-.dropbtn {
+.MPDbtn {
   background-image: url("images/myPage.png");
-  border: 1px solid red;
-  cursor: pointer;
-  width: 25px; height: 25px;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  width: 28px; height: 30px;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.MPDbtn:hover {
   background-color: #2980B9;
 }
 
-.dropdown {
+.MPDown {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-content {
+.MPDown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
+  min-width: 80px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   z-index: 1;
 }
 
-.dropdown-content a {
+.MPDown-content a {
   color: black;
-  padding: 12px 16px;
+  padding: 8px 10px;
   text-decoration: none;
   display: block;
 }
+.MPDown-content input[type=button] {
+  color: black;
+  padding: 8px 10px;
+  display: block;
+  min-width: 80px;
+  border: none;
+}
 
-.dropdown a:hover {background-color: #ddd;}
+.MPDown a:hover {background-color: #ddd;}
+.MPDown input[type=button]:HOVER {background-color: red;}
 
-.show {display: block;}
+.Myshow {display: inline-block;}
 </style>
 </head>
 <body>
 
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn"></button>
-  <div id="myDropdown" class="dropdown-content">
+<div class="MPDown">
+  <button onclick="myFunction()" class="MPDbtn"></button>
+  <div id="myMPDown" class="MPDown-content">
     <a href="./Mypage.me" id="PageName">MyPage</a>
-    <a href="./MemberLogout.me'" id="PageName">Logout</a>
     <input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
   </div>
 </div>
 
 <script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
 function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("myMPDown").classList.toggle("Myshow");
 }
 
-// Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
+  if (!event.target.matches('.MPDbtn')) {
+    var MPDowns = document.getElementsByClassName("MPDown-content");
     var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+    for (i = 0; i < MPDowns.length; i++) {
+      var openMPDown = MPDowns[i];
+      if (openMPDown.classList.contains('Myshow')) {
+        openMPDown.classList.remove('Myshow');
       }
     }
   }
