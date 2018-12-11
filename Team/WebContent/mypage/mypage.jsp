@@ -210,7 +210,7 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 	<td><%=bb.getRequest() %></td><td>
 	
 		<%if ( Result >= 1 ){ // 예약일 이전 %>
-			<input type="button" value="예약취소" class="bookcancel" id="bcancel" >
+			<input type="button" value="예약취소" class="bookcancel" id="bcancel" onclick="BookDelete(<%=bb.getBook_num() %>)">
 		<%} else if(Result == 0){ //예약당일 %>
 			<span class="bookday">당일취소불가</span>
 		<%} else{  // 예약일 이후  %> 

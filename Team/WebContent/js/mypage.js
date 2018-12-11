@@ -366,4 +366,14 @@
      	$('#searchStartDate2').val("");
      	$('#searchEndDate2').val("");
      }
-        
+       
+     // MyBook 예약취소
+     
+     function BookDelete(num){
+		var r = confirm("예약을 취소하시겠습니까?");
+		if(r){
+			location.href="./BookDelete.bk?num=" + num;
+		}
+     }
+     
+     
