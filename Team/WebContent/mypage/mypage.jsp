@@ -171,7 +171,7 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 			<input type="submit" value="조회" class="termSearch">
 	</div>
 
-
+	
 <div class="mpcount"> 조회 <span class="countRed"><%=myBookCount%></span>건 / 전체 예약 <span class="countRed"><%= myBookCountAll%></span>건 </div>
 	<div class="clear"></div>
 <table class="mybook_tbl">
