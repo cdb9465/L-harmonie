@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import net.menu.db.MenuBean;
+import net.news.db.NewsBean;
 
 public class MenuDAO {
 	private Connection getConnection() throws Exception{
@@ -88,6 +91,38 @@ public class MenuDAO {
 		return count;
 	} //getMenuCount
 	
+	public List<MenuBean> getMenuList() {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		List<MenuBean> menulist = new ArrayList<>();
+
+		try{
+			con=getConnection();
+			String sql = "select * from menu";
+			pstmt=con.prepareStatement(sql);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MenuBean nu = new MenuBean();
+				nu.setMenu_num(rs.getInt("menu_num"));
+				nu.setCategory(rs.getString("category"));
+				nu.setName(rs.getString("name"));
+				nu.setFile(rs.getString("file"));
+				nu.setContent(rs.getString("content"));
+				menulist.add(nu);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+		return menulist;
+	}//getBoardList
 	public MenuBean getMenu(int a) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -107,7 +142,7 @@ public class MenuDAO {
 				mnb.setCategory(rs.getString("category"));
 				mnb.setName(rs.getString("name"));
 				mnb.setContent(rs.getString("content"));
-				
+				mnb.setFile(rs.getString("file"));
 			}
 		}catch (Exception e) {
 			e.printStackTrace();

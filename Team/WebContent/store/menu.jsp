@@ -1,11 +1,15 @@
+<%@ page import="net.menu.db.MenuBean" %>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../css/menu.css" rel="stylesheet">
-<link href="../css/default.css" rel="stylesheet">
+<link href="./css/menu.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>L'marmonie| MENU</title>
@@ -50,8 +54,10 @@
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
-
 <div class="clear"></div>
+<%
+List<MenuBean> menuList=(List<MenuBean>)request.getAttribute("menuList");
+%>
 
 <article class="menu_article">
 
@@ -60,70 +66,115 @@
 	<li><a href="#">APPETIZER</a></li>
 	<li><a href="#">SALAD</a></li>
 	<li><a href="#">STEAK</a></li>
-	<li><a href="#">SALAD</a></li>
+	<li><a href="#">PASTA</a></li>
 	<li><a href="#">DESSERT</a></li>
 	<li><a href="#">BEVERAGE</a></li>
 </ul>
+<a href="#main1" class="arrow">
+   <img src="./images/arrow.png">
+   <img src="./images/dot.png" class="dot">
+</a>
 </div>
 
 <div id="article_sec2" class="main_box">
 <div class="tab">
-  <button class="tablinks" onclick="openMenu(event, 'Appetizer')">APPETIZER</button>
+  <button id="defaultOpen" class="tablinks" onclick="openMenu(event, 'Appetizer')">APPETIZER</button>
   <button class="tablinks" onclick="openMenu(event, 'Salad')">SALAD</button>
   <button class="tablinks" onclick="openMenu(event, 'Steak')">STEAK</button>
   <button class="tablinks" onclick="openMenu(event, 'Pasta')">PASTA</button>
   <button class="tablinks" onclick="openMenu(event, 'Dessert')">DESSERT</button>
-  <button class="tablinks
-  " onclick="openMenu(event, 'Beverage')">BEVERAGE</button>
+  <button class="tablinks" onclick="openMenu(event, 'Beverage')">BEVERAGE</button>
 </div>
 
-<div id="Appetizer" class="tabcontent">
-  <ul>
-  	<li><div id="steak1"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak2"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  </ul>
+<div class="tabcontent">
+<%
+for(int i=0; i<menuList.size(); i++) {
+	
+	MenuBean nu = (MenuBean)menuList.get(i);
+	
+	if(nu.getCategory().equals("appetizer")) {
+	%>
+	  	<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px"  class="Appetizer" >
+	  	<p class="caption" title="<%=nu.getCategory()%>"><%=nu.getName()%></p>
+  	<%
+	}
+	else if(nu.getCategory().equals("salad")) {
+	%>
+  		<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Salad" >
+  		<p class="caption" title="<%=nu.getName()%>"><%=nu.getName()%></p>
+  	<% 
+	}
+	else if(nu.getCategory().equals("steak")) {
+	%>
+  		<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Steak" >
+  	<%
+	}
+	else if(nu.getCategory().equals("pasta")) {
+  	%>
+  		<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Pasta" >
+  	<%
+	}
+	else if(nu.getCategory().equals("dessert")) {
+  	%>
+  		<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Dessert" >
+  	<%
+	}
+	else {
+  	%>
+  		<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Beverage" >
+	<%
+	}
+}
+%>
+</div>
 </div>
 
-<!-- 스테이크 id로 통일했으니 바꿔써주세요 -->
-<div id="Salad" class="tabcontent">
-  <ul>
-  	<li><div id="steak1"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  	<li><div id="steak2"><p id="steak_ps1">Feta Cheese Ribeye Steak</p><p id="steak_ps2">39,900</p></div></li>
-  </ul>
-</div>
 
-<div id="Steak" class="tabcontent">
-  <h3>Rosotto</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
-<div id="Pasta" class="tabcontent">
-  <h3>Salad</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
-<div id="Beverage" class="tabcontent">
-  <h3>Dessert</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
+</article>
 <script>
+document.getElementById("defaultOpen").click();
+
 function openMenu(evt, menuName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+    var i, tablinks, n, menu, img, caption;
+    img = document.getElementsByTagName("img");
+    
+   
+    
+   
+    show = document.getElementsByClassName(menuName);
+    menu = document.getElementsByClassName(menuName)[0].getAttribute("class");
+    
+    allcaption = document.getElementsByClassName("caption")[0].getAttribute("title");
+    alert(allcaption);
+    alert(menu);
+   
+    
+    
+    for(i = 0; i<img.length; i++) {
+    	img[i].style.display = "none";
+
     }
+    
+    if(menuName==menu) {
+    	for(i =0; i<show.length; i++) {
+    		if(allcaption==menu) {
+    			allcaption[i].style.display = "block";
+    		}
+			show[i].style.display = "block";
+			
+    	}
+    }
+    
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(menuName).style.display = "block";
     evt.currentTarget.className += " active";
+    
 }
+
+
 </script>
-</div>
-</article>
 <div class="clear"></div>
 
 <!-- 푸터 들어가는 곳 -->

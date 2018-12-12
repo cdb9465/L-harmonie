@@ -17,12 +17,12 @@ public class MenuFrontController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("MenuFrontController doGet()메서드");
-		super.doGet(request, response);
+		doProcess(request, response);
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("MenuFrontController doPost()메서드");
-		super.doPost(request, response);
+		doProcess(request, response);
 	}
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("MenuFrontController doProcess()메서드");

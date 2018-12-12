@@ -34,7 +34,7 @@ for(int i=0; i<newsList.size(); i++) {
 %>
 <div class="news_column">
     	<div class="news_content">
-    	<img id="myImg" src="./upload/<%=nb.getFile()%>" width="100%" height="150px" alt="<%=nb.getTitle()%>" onclick="onClick(this)">
+    	<img id="myImg" s rc="./upload/<%=nb.getFile()%>" width="100%" height="150px" alt="<%=nb.getTitle()%>" onclick="onClick(this)">
     	<div id="myModal">
     	<span class="news_close">&times;</span>
     	<img id="img01">
@@ -50,12 +50,13 @@ count2 +=1;
 <%
 if(count2==4) {
 %>
-</div>  
+  
 <%
 count2=0;
 }
 }
 %>
+</div>
 </div>
 </div>
 <!-- 푸터 들어가는 곳 -->

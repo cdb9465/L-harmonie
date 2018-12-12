@@ -20,16 +20,9 @@ public class MenuListAction implements Action{
 		//NewsDAO ndao 객체생성
 		MenuDAO mdao = new MenuDAO();
 		
-		//count=getBoardCount() 함수 호출
-		int count=mdao.getMenuCount();
-		
-		//데이터 있으면 boardList getBoardList(시작행,가져올글개수)
-		List<MenuBean> menuList=null;
-		if(count!=0) {
-			//menuList = mdao.getMenu();
-		}
 
-		request.setAttribute("count", count);
+		List menuList = mdao.getMenuList();
+
 		request.setAttribute("menuList", menuList);
 		
 		//이동 ./board/list.jsp
