@@ -52,7 +52,7 @@ Integer mem_num = (Integer)session.getAttribute("mem_num");
   </select></td></tr>
  </div>
  <div class="clear"></div>
-<tr><th><div class="title">작성자</div></th><td><input type="text" name="mem_num" value="<%=1 %>" readonly></td></tr>
+<tr><th><div class="title">작성자</div></th><td><input type="text" name="mem_num" value="<%=1%>" readonly></td></tr>
  <div class="write_rating" >
  <tr><th>  <div class="title">별점</div></th>
  <td colspan="3">

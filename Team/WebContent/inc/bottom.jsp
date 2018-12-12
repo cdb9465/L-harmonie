@@ -67,7 +67,7 @@ function closeNav() {
 
 /* 메일 */
 function mailSend(){    	
-	window.open('./mail/mailForm.jsp','메일문의','width=250,height=310,left=832,top=350');
+	window.open('./mail/mailForm.jsp','메일문의','width=700,height=450,left=600,top=270');
 }
 </script>
 
