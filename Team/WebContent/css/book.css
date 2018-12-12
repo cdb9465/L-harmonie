@@ -160,11 +160,14 @@ article#bookck_art {width: 1300px; height: 600px;
 .tfor2 { background-image: url("../images/book/table2.png"); }
 .tfor4 { background-image: url("../images/book/table4.png"); }
 
-.tfor2Act { background-image: url("../images/book/table2_g.png"); }
-.tfor4Act { background-image: url("../images/book/table4_g.png"); }
+.tfor2Act { background-image: url("../images/book/table2_p.png"); }
+.tfor4Act { background-image: url("../images/book/table4_p.png"); }
 
-.tfor2:HOVER { background-image: url("../images/book/table2_g.png"); }
-.tfor4:HOVER { background-image: url("../images/book/table4_g.png"); }
+.tfor2Disable { background-image: url("../images/book/table2_g.png"); }
+.tfor4Disable { background-image: url("../images/book/table2_g.png"); }
+
+.tfor2:HOVER { background-image: url("../images/book/table2_r.png"); }
+.tfor4:HOVER { background-image: url("../images/book/table4_r.png"); }
 
 #t1{ left: 100px; bottom: 2px; }
 #t2{ left: 210px; bottom: 2px; }

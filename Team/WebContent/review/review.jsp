@@ -154,13 +154,18 @@ for(int i=0;i<ReviewList.size();i++)
 
 </th></tr>
 
-<tr><td>
+<tr><td> 
+<form action="./LoveCountAction.re"  method="post">
 <div class="content">
+<input type="hidden" name="mem_num" value=<%=rb.getMem_num()%>>
+<input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
+
 
  <div class="like">
-  <button type="button" onclick="style='background-color:pink'"> <i class="fa fa-heart" id=heart style="color:red"></i> <p>좋아요</p> </button>
+  <button type="submit" onclick="style='background-color:pink'"<i class="fa fa-heart" id=heart style="color:red"></i>>  <p>좋아요</p> </button>
  </div>
  </div>
+ </form>
 </td>
 <td>4명이 좋아합니다.</td>
 <td><div class="content">
@@ -180,6 +185,7 @@ for(int i=0;i<ReviewList.size();i++)
 MemberDAO mdao=new MemberDAO();
 //리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
 MemberBean mb=mdao.getMember(email);
+
 if(email!=null)
 {
 if(email.equals("admin@team.com")){%> 
