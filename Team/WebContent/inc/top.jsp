@@ -7,7 +7,6 @@
 <!-- 헤더 들어가는곳 -->
 <% 
 String sess=(String)session.getAttribute("email");
-System.out.print(sess);
 MemberDAO mdao=new MemberDAO();
 //리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
 MemberBean mb=mdao.getMember(sess);
@@ -38,14 +37,54 @@ if(sess==null){%>
 <span id="login" style="cursor:pointer"onclick="document.getElementById('id01').style.display='block'"><i class="material-icons" >lock_outline</i></span>
 <!-- <input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	 -->
 <% } else { %>
-	<div id="log02">
+	<div id="loginPage">
 		<%=mb.getName()%>님 
 		<%--
 		<%if(sess.equals("admin@team.com"))%><a href="./BookList.ad" id="PageName">AdminPage</a>
-		<%else%><a href="./Mypage.me" id="PageName">MyPage</a>
-		--%>
-		<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
-	</div>
+		<%else%>							 <a href="./Mypage.me" id="PageName">MyPage</a>
+		--%>	
+		</div>	
+		<!-- 마이페이지 -->
+		<div class="MPDown">
+  			<button onclick="myFunction()" class="MPDbtn"></button>
+  			
+  			<div id="myMPDown" class="MPDown-content">
+    			<%if(sess.equals("admin@team.com")) {%> <a href="./BookList.ad" id="PageName">AdminPage</a>
+    			<%} else {%>							<a href="./Mypage.me" id="PageName">MyPage</a> <%} %>
+    			<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
+  			</div>
+		</div>
+
+		<script>
+			function myFunction() {
+  				document.getElementById("myMPDown").classList.toggle("Myshow");
+			}
+
+			window.onclick = function(event) {
+  				if (!event.target.matches('.MPDbtn')) {
+    				var MPDowns = document.getElementsByClassName("MPDown-content");
+    				var i;
+    				
+    				for (i = 0; i < MPDowns.length; i++) {
+      					var openMPDown = MPDowns[i];
+      					
+      					if (openMPDown.classList.contains('Myshow')) {
+        					openMPDown.classList.remove('Myshow');
+      					}    				
+    				}  				
+  				}			
+			}
+		</script>
+
+<!-- 		<div class="mypageImg">
+  			<button class="Mydropbtn"></button>
+  			<div class="mypageImg-content">
+    			<a href="./Mypage.me" id="PageName">MyPage</a>
+    			<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
+  			</div>
+		</div>	 -->	
+		<!-- <input type="button" onclick="chatBtn()" class="mypageImg"> -->
+		<!-- <input type="button" value="Logout" onclick="location.href='./MemberLogout.me'"> -->
 <% } %>
 </div>
 <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->

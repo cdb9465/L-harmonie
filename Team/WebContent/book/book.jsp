@@ -17,14 +17,23 @@
 <link href="./js/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
+<%
+// session 없으면 -> 로그인
+String email = (String)session.getAttribute("email");
+if(email == null){
+%>
+<script>
+alert("로그인 후 이용가능합니다.");
+history.back();
+</script>	
+<%
+}
+%>
+
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
-
-<%
-//id session 없으면 -> 로그인
-%>
 
 <!-- 본문 -->
 <div id="wrap">

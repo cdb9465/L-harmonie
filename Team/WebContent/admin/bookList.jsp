@@ -52,6 +52,18 @@ $(document).ready(function(){
 <title>L'harmonie</title>
 </head>
 <body>
+<%
+// session 없으면 -> 로그인
+String email = (String)session.getAttribute("email");
+if(email == null || !email.equals("admin@team.com")){
+%>
+<script>
+alert("관리자만 이용가능합니다.");
+history.back();
+</script>	
+<%
+}
+%>
 
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
