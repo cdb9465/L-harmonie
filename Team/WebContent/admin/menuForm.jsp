@@ -54,12 +54,12 @@ method="post" enctype="multipart/form-data" name="fr1" onsubmit="return category
    <td>
    	<select name="category">
    	 <option value="" selected="selected">카테고리</option>
-   	 <option value="appetizer">appetizer</option>
-   	 <option value="salad">salad</option>
-   	 <option value="steak">steak</option>
-   	 <option value="pasta">pasta</option>
-   	 <option value="dessert">dessert</option>
-   	 <option value="beverage">beverage</option>
+   	 <option value="Appetizer">Appetizer</option>
+   	 <option value="Salad">Salad</option>
+   	 <option value="Steak">Steak</option>
+   	 <option value="Pasta">Pasta</option>
+   	 <option value="Dessert">Dessert</option>
+   	 <option value="Beverage">Beverage</option>
    	</select>   
    </td>
   </tr>

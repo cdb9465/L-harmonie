@@ -143,18 +143,20 @@ function selectTable(n){
 	}*/
 	
 	//테이블선택 초기화
-	var selected = 0; //초기값
-	selected = parseInt(document.bf.tablenum.value)-1; //선택했던 테이블 받아오기
-	
-	if(selected<=3)
-	{
-		table[selected].className = "tabl tfor2";
-	}
-	else if(selected > 3)
-	{
-		table[selected].className = "tabl tfor4";
-	}
+	var selected = parseInt(document.bf.tablenum.value)-1; //선택했던 테이블 받아오기
 
+	if(!isNaN(selected)) //selected 있을때만 초기화
+	{	
+		if(selected<=3)
+		{
+			table[selected].className = "tabl tfor2";
+		}
+		else
+		{
+			table[selected].className = "tabl tfor4";
+		}
+	}
+	
 	//이미 예약된 테이블 선택시 알림
 	if(table[n].className == "tabl tfor2Disable" 
 		|| table[n].className == "tabl tfor4Disable")
@@ -175,12 +177,34 @@ function selectTable(n){
 
 }
 
+//테이블선택 초기화
+function initTable()
+{
+	var div = document.getElementById("table");
+	var table = div.getElementsByClassName("tabl");
+
+	//테이블 초기화
+	for(i = 0; i < table.length; i++)
+	{
+		if(i<=3)
+		{
+			table[i].className = "tabl tfor2";
+		}
+		else
+		{
+			table[i].className = "tabl tfor4";
+		}
+	}
+
+}
+
 //예약된 테이블 표시
 function disableTable(n)
 {
 	var div = document.getElementById("table");
 	var table = div.getElementsByClassName("tabl");
 	
+	// 예약된 테이블 표시
 	if(n <= 3)
 	{
 		table[n].className = table[n].className.replace("tfor2","tfor2Disable");
