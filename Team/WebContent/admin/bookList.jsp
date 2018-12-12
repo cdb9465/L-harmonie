@@ -125,7 +125,7 @@ int currentPage = Integer.parseInt(pageNum);
 		 BookBean bb = (BookBean)bookList.get(i);
  	%>
  <tr>
-  <td><%=bb.getLocation()%>
+  <td><%=bb.getLocation()%></td>
   <td><%=bb.getBook_num()%></td>
   <td><%=bb.getMem_num()%></td>
   <td><%=bb.getGuest()%></td>

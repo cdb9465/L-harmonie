@@ -1,77 +1,79 @@
 @CHARSET "UTF-8";
 
+body {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/mail/notebook.jpg");
+  	background-position: center;
+  	background-size: cover;
+  	position: relative;  	
+  	display: block;
+  	width: 100%;	
+  	height: 100%;
+}
 
-.clear{clear: both;}
+#mailtable {
+	margin-left: 50px;
+		
+}
 
-article {
-	width: 660px;
-	padding-right: 30px;
-	font-family: Verdana,Geneva,sans-serif;
-	font-size: 1em;line-height: 1.5em;
-	margin-top: 70px;
-}/*정렬 오른쪽 너비 660px 안오른쪽여백 30px
-글자체Verdana,Geneva,sans-serif 글자크기1em 
-줄간격1.5em */
-
-article h1 {
-	font-family: "Times New Roman";
-	font-size: 45px; color: #CCC; margin: 20px 0;
+h1 {
+	font-size: 40px;
 	font-weight: normal;
-}/*글자체 Times New Roman 글자크기 45px
-글자색 #CCC 밖여백20px 0  글자굵기 normal*/
+	color: #CCC;	
+	padding: 0 10px;
+}
 
-article table#notice {
-	width: 300px;
-	border-collapse: collapse;
-}/*너비 670 테이블공간없애기*/
+#t1 {
+	width: 600px;
+}
 
-article table#notice th {
-	height: 20px;
-	text-transform: capitalize;font-size: 14px;
-	font-family: seo; font-weight: bold;padding: 5px;
-	background-image: url("../images/t_back.jpg");
-	background-repeat: repeat-x;
-	background-position: center center; color:black;
-}/*높이 20 첫글자대문자
-글자크기 14 글자모양 seo 굵기 bold 안여백 5px
-배경이미지 images/center/t_back.jpg 반복 x 
-위치 center center 글자색 #FFF*/
+#mailtable th { /* border: 1px solid red; */
+	font-size: 20px;
+	width: 50px;
+	padding: 10px 10px;
+	background-color: rgba(0, 0, 0, 0.8); 
+	color: #BDBDBD;
+	border-radius: 8px 8px;
+}
 
-article table#notice td {
-	text-align: center;
-	padding: 6px 0; border-bottom-width: 1px;
-	border-bottom-style: dotted;border-bottom-color: #999;
-}/*글자정렬 center
-안여백 6px 0 테두리아래너비 1px 테두리아래스타일dotted
-테두리아래색 #999*/
+#mailtable td input[type=text]{ /* border: 1px solid blue; */
+	padding: 10px 10px;
+	margin-left: 20px;
+	width: 400px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border: 1px solid #191919; 
+	border-radius: 3px 3px;
+}
 
-article th.notice_th { width: 75px; }00000000000000000000000000000
-/*너비 75px*/
+#mailtable td textarea {
+	padding: 10px 10px;
+	margin-left: 20px;
+	width: 400px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border: 1px solid #191919; 
+	border-radius: 3px 3px;
+}
 
-article #table_search { 
-	margin: 15px 0 10px 0;
-	float: right;}
-/*밖여백 15px 0 10px 0 정렬 right*/
-#table_search .input_box{height: 20px; width: 200px;
-border-radius:10px;background-color: #FEFDED;
-border: 1px solid #333}
-/*높이 20px 너비 200px
-테두리 1px solid #333 테두리둥글게 10px 배경색#FEFDED*/
+#mailtable td input[type=button] {
+	border: none;
+	border-radius: 5px 5px;
+	float: left;
+	margin: 10px 10px;
+	margin-left: 300px;
+	padding: 7px 10px;
+	width: 100px;
+	background-color: rgba(204, 204, 204, 0.7);
+}
 
-#table_search .btn{padding: 2px;margin: 0 0 0 5px;
-width: 90px;height: 23px;border: 1px solid #999;
-border-radius:10px;color: #FFF;
-background-image: url("../images/t_back.jpg");
-background-repeat: repeat-x;
-background-position: center center}
-/*안여백 2px 밖여백 0 0 0 5px
-너비 90 높이 23 테두리 1 solid #999 테두리둥글게 10px
-글자색 #FFF 
-배경이미지 t_back.jpg repeat-x center center*/
+#mailtable td input[type=reset] {
+	border: none;
+	border-radius: 5px 5px;
+	float: left;
+	margin: 10px 10px;
+	margin-left: 20px;
+	padding: 7px 10px;
+	width: 100px;
+	background-color: rgba(204, 204, 204, 0.7);
+}
 
-article table#notice tr:hover{
-	background-color: #D9E5FF;
-cursor: pointer;cursor: hand;}
-/*배경색 #EEFDFF
-커서 pointer 커서 hand*/
+
 

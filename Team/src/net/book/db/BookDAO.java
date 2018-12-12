@@ -16,7 +16,7 @@ import net.member.db.MemberBean;
 
 public class BookDAO {
 	//디비연결 메소드
-		private Connection getConnection()  throws Exception{
+	private Connection getConnection()  throws Exception{
 			Connection con= null;//드라이버 불러오기
 			Class.forName("com.mysql.jdbc.Driver");
 			//DB 연결

@@ -108,7 +108,6 @@
 <% 
 request.setCharacterEncoding("utf-8");
 String id=(String)session.getAttribute("email");
-System.out.print(id);
 MemberDAO mdao=new MemberDAO();
 //리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
 MemberBean mb=mdao.getMember(id);

@@ -40,7 +40,7 @@ public class LoveDAO {
 			}
 			
 
-			 sql="insert into comment(love_num,review_num,mem_num,love) values (?,?,?,?)";
+			 sql="insert into love(love_num,review_num,mem_num,love) values (?,?,?,?)";
 			psm = con.prepareStatement(sql);
 			psm.setInt(1, mnum);
 			psm.setInt(2, lb.getReview_num());

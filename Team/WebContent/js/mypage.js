@@ -53,6 +53,22 @@
 	        $(".mem_delete").prop("disabled", false);
 	        $(".mem_delete").css("background-color", "#000");
 	        $(".mem_delete").css("color", "#eee");
+			      //정보수정 마우스올렸을 때
+		        $(".mem_update").hover(function() {
+		        	$(this).css("background-color", "#800000");
+		        	$(this).css("color", "#000");
+		        }, function(){
+		        	$(this).css("background-color", "#000");
+		 	        $(this).css("color", "#eee");
+		        });
+		      //회원탈퇴 마우스올렸을 때
+		        $(".mem_delete").hover(function() {
+		        	$(this).css("background-color", "#800000");
+		        	$(this).css("color", "#000");
+		        }, function(){
+		        	$(this).css("background-color", "#000");
+		 	        $(this).css("color", "#eee");
+		        });
 		}else{
 		
 			// 버튼 비활성화
