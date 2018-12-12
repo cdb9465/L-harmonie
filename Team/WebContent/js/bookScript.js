@@ -2,6 +2,7 @@
 function moveTab(n)
 {
 	nextPrev(n-currentTab);
+	
 }
 
 function showTab(n) {
@@ -78,12 +79,10 @@ function selectLocation(n){
 	var location = div.getElementsByClassName("slot");
 	
 	for(i = 0; i < location.length; i++){
-		location[i].style.background = "#d3e0f1";
-		location[i].style.color = "#424a52";
+		location[i].className = "slot";
 	}
 	
-	location[n].style.background = "#424a52";
-	location[n].style.color = "#d3e0f1"
+	location[n].className += " slotAct";
 	
 	if(n == 0)
 		document.bf.location.value = "서울강남점";
@@ -98,12 +97,10 @@ function selectGuest(n){
 	var guest =div.getElementsByClassName("slot");
 	
 	for(i = 0; i < guest.length; i++){
-		guest[i].style.background = "#d3e0f1";
-		guest[i].style.color = "#424a52";
+		guest[i].className = "slot";
 	}
 	
-	guest[n].style.background = "#424a52";
-	guest[n].style.color = "#d3e0f1"
+	guest[n].className += " slotAct";
 	
 	document.bf.guest.value= n+1;
 	
@@ -115,12 +112,10 @@ function selectTime(n){
 	var time =div.getElementsByClassName("slot");
 	
 	for(i = 0; i < time.length; i++){
-		time[i].style.background = "#d3e0f1";
-		time[i].style.color = "#424a52";
+		time[i].className = "slot";
 	}
 	
-	time[n].style.background = "#424a52";
-	time[n].style.color = "#d3e0f1"
+	time[n].className += " slotAct";
 	
 	var timeArr = ["11:00","13:00","17:00","19:00"];
 	for(i=0; i<time.length; i++){
@@ -128,38 +123,72 @@ function selectTime(n){
 			document.bf.time.value = timeArr[i];
 	}
 
-	var l = document.bf.location.value;
-	var t = document.bf.time.value;
-	var d = document.bf.date.value;
+	//var l = document.bf.location.value;
+	//var t = document.bf.time.value;
+	//var d = document.bf.date.value;
 	
-	location.href="./BookTest.bk?location="+"ddd"+"&time="+t+"&date="+d;
+	//location.href="./BookTest.bk?location="+"ddd"+"&time="+t+"&date="+d;
 }
 
 //테이블선택
 function selectTable(n){
 	var div = document.getElementById("table");
-	var table =div.getElementsByClassName("tabl");
+	var table = div.getElementsByClassName("tabl");
 	
-	for(i = 0; i < table.length; i++){
-
+/*	for(i = 0; i < table.length; i++){
 		if(i<=3)
-			table[i].style.backgroundImage = "url('./images/book/table2.png')";
+			table[i].className = "tabl tfor2";
 		else
-			table[i].style.backgroundImage = "url('./images/book/table4.png')";
+			table[i].className = "tabl tfor4";
+	}*/
+	
+	//테이블선택 초기화
+	var selected = 0; //초기값
+	selected = parseInt(document.bf.tablenum.value)-1; //선택했던 테이블 받아오기
+	
+	if(selected<=3)
+	{
+		table[selected].className = "tabl tfor2";
+	}
+	else if(selected > 3)
+	{
+		table[selected].className = "tabl tfor4";
+	}
+
+	//이미 예약된 테이블 선택시 알림
+	if(table[n].className == "tabl tfor2Disable" 
+		|| table[n].className == "tabl tfor4Disable")
+	{
+		alert("선택 불가능한 테이블입니다.\n다른 테이블을 선택해 주세요.");
+		return;
 	}
 	
-
+	//테이블선택
 	if(n<=3){
-		table[n].style.backgroundImage = "url('./images/book/table2_g.png')";
-		
+		table[n].className = table[n].className.replace("tfor2","tfor2Act");
 	}
 	else{
-		table[n].style.backgroundImage = "url('./images/book/table4_g.png')";
-		
+		table[n].className = table[n].className.replace("tfor4","tfor4Act");
 	}
 
 	document.bf.tablenum.value= n+1;
 
+}
+
+//예약된 테이블 표시
+function disableTable(n)
+{
+	var div = document.getElementById("table");
+	var table = div.getElementsByClassName("tabl");
+	
+	if(n <= 3)
+	{
+		table[n].className = table[n].className.replace("tfor2","tfor2Disable");
+	}
+	else
+	{
+		table[n].className = table[n].className.replace("tfor4","tfor4Disable");
+	}
 }
 
 //show Request Detail input
@@ -228,16 +257,5 @@ function setRequest()
 	var reqVal = alergyVal + specialVal;
 	document.bf.request.value = reqVal;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 

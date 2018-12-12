@@ -50,8 +50,25 @@ public class ReviewFrontController extends HttpServlet {
   	  			} catch (Exception e) { 
   	  				e.printStackTrace(); 
   	  			} 
-  	  		}  
-  		
+  	  		}
+  			else if (command.equals("/CommentWriteAction.re")) { 
+  	  			action = new CommentWriteAction(); 
+  	  			try { 
+  	  				forward = action.execute(request, response); 
+  	  			} catch (Exception e) { 
+  	  				e.printStackTrace(); 
+  	  			}
+  			}else if (command.equals("/CommentDelete.re")) { 
+  	  		
+  	  			action = new CommentDeleteAction(); 
+  	  			try { 
+  	  				forward = action.execute(request, response); 
+  	  			} catch (Exception e) { 
+  	  				e.printStackTrace(); 
+  	  			} 
+  	  		}
+	
+	   
   			
   		if (forward != null) { 
   			if (forward.isRedirect()) { 
@@ -60,8 +77,10 @@ public class ReviewFrontController extends HttpServlet {
   				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath()); 
   				dispatcher.forward(request, response); 
   			} 
-  		} 
-  	} 
+  		}
+	}
+  	 
+	
 	
 	@Override 
   	protected void doGet(HttpServletRequest request, HttpServletResponse response) 

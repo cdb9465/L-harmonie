@@ -28,87 +28,200 @@ body{margin: 0px; padding: 0px;
 
 
 /* 로고 */
-#logo{/* border: 1px solid red; */
-	position: absolute;
-    left: 20px;
-    top: 3px;
+#logo {  border: 1px solid red;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/logo.png");
+    width: 300px; height: 70px;
+	float: left;
+	margin-left: 10px;
+	margin-right: 100px;
 }
 
-/* 
+.logoC { 
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  
+}
 
-#logo{border: 1px solid red;
-	position: absolute;
-    left: 30px;
-    top: 10px;
-    width: 300px;
-    height: 52px ;
-    margin-right: 10px;
-    display: inline-block;
-} */
-/* 가운데메뉴 */
-/* #main_menu{
-	border: 1px solid blue;
-	
+
+#main_menu { /* border: 1px solid yellow; */
+	float: left;
 	margin: auto;
-    padding: 30px 0 0 100px;
-    position: relative;  
-    margin-left: 200px;
-} */
- 
-/* #main_menu{
-	border: 1px solid blue;
-	width: 50%;
-    height: 100px;
-	margin: auto;
-    padding: 30px 0 0 20px;
-    position: relative;
-    margin-left: 10px;
-    display: inline-block;
-} */
-
-
-#main_menu {
-	width: 100%; 
-	/* margin: auto; */
-	padding: 30px 0 0 450px;
+	/* padding: 30px 0 0 450px; */
 	position: relative;  
-	/* margin-left: 200px; */
+	
 }
 
 
-#main_menu a{
-	/* border: 1px solid yellow; */
+#main_menu a {
+	/* border: 1px solid green; */
 	text-decoration: none;
 	display: inline-block;
     color: #fff;
     font-size: 20px;
-    font-weight: 400;
-    margin-right: 10%;
+    font-weight: 500;
+    padding: 28px 70px;
+    /* margin-right: 10%; */
    }
 
 
+#MM:HOVER {
+	background-color: #670000;
+	cursor: pointer;cursor: hand;
+	color: #EAEAEA;
+	border-radius: 30px 30px; 
+}
+
+#book:HOVER {
+	background-color: #CC3D3D;
+	cursor: pointer;cursor: hand;
+	color: black;
+}
+
+
 /* 로그인 */
-#login{
-	/* border: 1px solid blue; */
-	position: absolute;
-    right: 40px;
-    top: 1px;}
     
-/*  #login{
-	border: 1px solid blue;
-	display:inline-block;
+#login > .material-icons{
+	font-size: 30px;
 	position: absolute;
-}    */
+    top: 10px;
+    right: 70px;
+    color: white;
+}   
+
+/* #loginPage{
+	border: 1px solid blue;
+	position: absolute;
+    width: 150px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 50px;
+    font-size: 20px;
+    float: left;
+    } */
+
 /* 로그인버튼 */
-#login input[type=button]{
-	/* border: 1px solid red; */
-	font-size: 15px;
+/* #log02 input[type=button]{
+	border-radius: 5px 5px;
+	margin-left: 10px;
 	font-weight: 400;
-	border:none;
+	border: none;
 	background:rgba(0,0,0,0);
 	color: #fff;
+	font-size: 14px;
 	
-	}
+	color: black;
+  	padding: 6px 8px;		
+} */
+
+/* 마이페이지 */
+#loginPage {
+	/* border: 1px solid blue; */
+	color: white;
+	width: 100px;
+	float: left;
+	font-size: 30px;
+	margin-left: 130px;
+	margin-top: 15px;
+}
+
+
+
+.MPDbtn { background-color: rgba(0,0,0,0);
+  background-image: url("../images/myPage.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  width: 25px; height: 27px;
+  margin-top: 15px;
+}
+
+.MPDbtn:hover {
+  background-color: #2980B9;
+}
+
+.MPDown {
+  position: relative;
+  display: inline-block;
+}
+
+.MPDown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 80px;
+  overflow: auto;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+.MPDown-content a {
+  color: black;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+}
+.MPDown-content input[type=button] {
+  color: black;
+  padding: 8px 10px;
+  display: block;
+  min-width: 80px;
+  border: none;
+}
+
+.MPDown a:hover {background-color: #ddd;}
+.MPDown input[type=button]:HOVER {background-color: red;}
+
+.Myshow {display: inline-block; margin-top: 15px;}
+
+
+
+/* .Mydropbtn {
+  background-image: url("images/myPage.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 28px; height: 30px;
+}
+
+.mypageImg {
+  position: relative;
+  display: inline-block;
+}
+
+.mypageImg-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 70px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.mypageImg-content a {
+  color: black;
+  padding: 6px 8px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.mypageImg-content a:hover {background-color: #ddd;}
+
+.mypageImg:hover .mypageImg-content {display:inline-block;}
+
+ */
+
+
+
+
 	
 /* 원래있던 로그인 속성이 a href=""였는데 버튼으로 바꿔서 ↑걸로 --임시-- 수정해둠 -박소정
 
@@ -146,24 +259,22 @@ body{margin: 0px; padding: 0px;
 }
 
 /* 예약버튼 */
-#book{
-	width: 200px; height: 70px;
-	background-color: #fff;
-	position: absolute;
-	right: 250px;	
-	top:0px;}
+/* #book{ 
+	border: 1px solid yellow;
+	border-radius: 10px 10px;
+	width: 180px; height: 60px;	
+	float: left;
+	margin-left: 50px;
+	margin-top: 10px;
+	background-image: url("../images/bookImg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	} */
 
-#book a{
-	border:1px solid;
-	box-sizing: border-box;
-	padding: 17px 65px;
-	width: 200px; height: 70px;
-	font-size: 25px;
-	font-weight: 600;
-	display:inline-block;
-	text-decoration: none;
-	color: #000;}
-
+#book {
+	border: 1px solid  #CC3D3D;
+}	
 
 
 /* 서브메뉴 */
@@ -199,53 +310,15 @@ body{margin: 0px; padding: 0px;
 #sub_about { display: none; }
 
 /* 1:1채팅 */
-.chat{
-	display: inline-block;
-	width: 60px; height: 30px;
+.chat{	
+	width: 50px; height: 30px;
 	background-color: rgba(51,51,51,0.8);
-	color: #fff;
-	padding-left: 12px;
-	line-height: 30px;
+	
 	position: fixed;
-	top: 58%; right:0;
-	cursor: pointer;}
-
-.chat-popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  right: 0px;
-  border: 3px solid #f1f1f1;
-  z-index: 500;
-}
-
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-.form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 200px;
-}
-
-.form-container .btn {
-  background-color:  rgb(51,51,51);
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
+	top: 57%; right:10px;
+	color: #fff;
+	border: none;	
+	}
 
 /* 푸터전체 */
 footer{
@@ -262,7 +335,7 @@ footer{
     line-height: 80px;
     border-bottom: 1px solid #ededed;}
 
-.ftop a{
+.ftop a, .ftop span {
 	display: inline-block;
 	text-decoration: none;
     height: 80px;
@@ -273,7 +346,7 @@ footer{
     color: #666666;}
 
 .ftop .material-icons{
-	/* border: 1px solid red; */
+	/* border: 1px solid yellow; */
 	font-size:20px;
 	color:#666666;
 	margin-right: 5px !important;

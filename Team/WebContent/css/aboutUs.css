@@ -4,6 +4,7 @@
 
 /* 3구역 배경이미지 지정 */
 .main_box{
+	margin:0px;
 	height:100%;
 	width:100%;
 	position:relative; 
@@ -11,7 +12,6 @@
 	font-size:9pt;}
 	
 #main0,#main1,#main2,#main3{
-	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;}
@@ -145,7 +145,7 @@ h1#title{ margin:0;
 	width: 350px; height:100px;
 	position: absolute;
 	top: 20px; left: 150px;
-	color: #666; }
+	color: #333; }
 
 .map_wrap>.mapInfo .infoTxt>div { margin: 5px 0; }
 
@@ -163,9 +163,11 @@ h1#title{ margin:0;
 .map_wrap>.storeInfo .store { display: none; }
 
  /* 돌아가기버튼 */
-.backMap { width: 80px; 
-	font-size: 14px;
-	padding: 5px 0 0 5px; }
+.backMap { width: 90px; 
+	font-size: 20px;
+	padding: 5px 0 0 5px;
+	margin: 5px;}
+		
 .backMap:HOVER { cursor: pointer; color: #fff; }
 .backMap i { font-size:24px; }
 
@@ -184,7 +186,7 @@ h1#title{ margin:0;
 	font-size: 16px; }
 	
 .storeInfo table th, td {
-	color: #666; 
+	color: #333; 
 	font-size: 14px; }
 	
 .storeInfo table th { padding: 10px 30px; }

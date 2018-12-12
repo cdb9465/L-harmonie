@@ -17,14 +17,23 @@
 <link href="./js/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
+<%
+// session 없으면 -> 로그인
+String email = (String)session.getAttribute("email");
+if(email == null){
+%>
+<script>
+alert("로그인 후 이용가능합니다.");
+history.back();
+</script>	
+<%
+}
+%>
+
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
-
-<%
-//id session 없으면 -> 로그인
-%>
 
 <!-- 본문 -->
 <div id="wrap">
@@ -210,7 +219,6 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
 $(document).ready(function(){
-	
 	//datepicker 
  	$(function () {
  		var today = $.datepicker.formatDate('yy-mm-dd', new Date());
@@ -249,6 +257,34 @@ $(document).ready(function(){
 			"margin":"0 auto"
 		});
 	});
+	
+	//테이블 중복제어
+
+	 $("#time").click(function(){
+		var l = document.bf.location.value;
+		var t = document.bf.time.value;
+		var d = document.bf.date.value;
+	
+		$.ajax({
+	 		data : {location:l, date:d, time:t},
+	 		type : 'POST',
+	 		url : './BookTest.bk',
+	 		//dataType : 'html',
+			success : function(data){
+				var res = data.split(',');
+				
+				$.each(res, function(index, item){
+					disableTable(item-1);
+					});
+
+				//$('#t1').attr('class','tabl tfor2Act');
+			
+// 				$('#t1').css({
+// 					"background-image":"url('./images/book/table2_g.png');"
+				}
+
+		}); 
+	}); 
 });
 </script>
 

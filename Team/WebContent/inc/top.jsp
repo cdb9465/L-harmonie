@@ -5,45 +5,87 @@
 <link href="./css/login.css" rel="stylesheet">
 <header>
 <!-- 헤더 들어가는곳 -->
+<% 
+String sess=(String)session.getAttribute("email");
+MemberDAO mdao=new MemberDAO();
+//리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
+MemberBean mb=mdao.getMember(sess);
+%>
 
 <div class="top_menu">
 
 <!-- 로고들어가는 곳 시작 -->
-<div id="logo"><a href ="./Main.ma" id="logoId"><img src="./images/logo.png"></a></div>
+<!-- <div id="logo"><a href ="./Main.ma"><img src="./images/logo.png"></a></div> -->
+<a href="./Main.ma" id="logo" class="logoC"></a>
 <!-- 로고들어가는 곳 끝 -->
 
 <!-- 메인메뉴 -->
 
 <nav id="main_menu">
-	<a href="./AboutUs.ad">ABOUT US</a>
-	<a href="./MenuList.nu">MENU</a>
-	<a href="./NewsList.nw">NEWS</a>
-	<a href="./ReviewList.re">REVIEW</a>
+	<a href="./AboutUs.ad" id="MM">ABOUT US</a>
+	<a href="./MenuList.nu" id="MM">MENU</a>
+	<a href="./NewsList.nw" id="MM">NEWS</a>
+	<a href="./ReviewList.re" id="MM">REVIEW</a>
+	<a href="./Book.bk" id="book">BOOK</a>
 </nav>
-
 <!-- 예약 버튼 -->
-<div id="book"><a href="./Book.bk">BOOK</a></div>
+<!-- <a href="./Book.bk" id="book"></a> -->
+
 <!-- 로그인버튼 -->
-<div id="login"><i class="material-icons" font-size="30px" >lock_open</i>
-
-<% String sess=(String)session.getAttribute("email");
-System.out.print(sess);
-MemberDAO mdao=new MemberDAO();
-//리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
-MemberBean mb=mdao.getMember(sess);
-
-//세션값이 없으면 로그인버튼보이기
+<%//세션값이 없으면 로그인버튼보이기
 if(sess==null){%>
-<input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	
-<%
-}else{ %>
-	<%=mb.getName() %> 로그인 중 
-<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
-<%	if(sess.equals("admin@team.com"))%> <a href="./BookList.ad">AdminPage</a><%
-	else%> <a href="./Mypage.me">MyPage</a>
-<%}%>
+<span id="login" style="cursor:pointer"onclick="document.getElementById('id01').style.display='block'"><i class="material-icons" >lock_outline</i></span>
+<!-- <input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	 -->
+<% } else { %>
+	<div id="loginPage">
+		<%=mb.getName()%>님 
+		<%--
+		<%if(sess.equals("admin@team.com"))%><a href="./BookList.ad" id="PageName">AdminPage</a>
+		<%else%>							 <a href="./Mypage.me" id="PageName">MyPage</a>
+		--%>	
+		</div>	
+		<!-- 마이페이지 -->
+		<div class="MPDown">
+  			<button onclick="myFunction()" class="MPDbtn"></button>
+  			
+  			<div id="myMPDown" class="MPDown-content">
+    			<%if(sess.equals("admin@team.com")) {%> <a href="./BookList.ad" id="PageName">AdminPage</a>
+    			<%} else {%>							<a href="./Mypage.me" id="PageName">MyPage</a> <%} %>
+    			<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
+  			</div>
+		</div>
 
-	</div>
+		<script>
+			function myFunction() {
+  				document.getElementById("myMPDown").classList.toggle("Myshow");
+			}
+
+			window.onclick = function(event) {
+  				if (!event.target.matches('.MPDbtn')) {
+    				var MPDowns = document.getElementsByClassName("MPDown-content");
+    				var i;
+    				
+    				for (i = 0; i < MPDowns.length; i++) {
+      					var openMPDown = MPDowns[i];
+      					
+      					if (openMPDown.classList.contains('Myshow')) {
+        					openMPDown.classList.remove('Myshow');
+      					}    				
+    				}  				
+  				}			
+			}
+		</script>
+
+<!-- 		<div class="mypageImg">
+  			<button class="Mydropbtn"></button>
+  			<div class="mypageImg-content">
+    			<a href="./Mypage.me" id="PageName">MyPage</a>
+    			<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
+  			</div>
+		</div>	 -->	
+		<!-- <input type="button" onclick="chatBtn()" class="mypageImg"> -->
+		<!-- <input type="button" value="Logout" onclick="location.href='./MemberLogout.me'"> -->
+<% } %>
 </div>
 <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
 
@@ -57,8 +99,7 @@ if(sess==null){%>
 		<input type="password" size="60" placeholder="비밀번호" name="pass">
 
       <div id="login_btm">
-	      <a href="#">아이디찾기</a>|
-	      <a href="#">비밀번호찾기</a>|
+	      <a href="./FindIdPass.me">아이디/비밀번호찾기</a>|
 	      <a href="./MemberJoin.me" id="joinlink">회원가입</a>
       </div>
      <div class="clearfix">

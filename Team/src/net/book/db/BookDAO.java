@@ -16,7 +16,7 @@ import net.member.db.MemberBean;
 
 public class BookDAO {
 	//디비연결 메소드
-		private Connection getConnection()  throws Exception{
+	private Connection getConnection()  throws Exception{
 			Connection con= null;//드라이버 불러오기
 			Class.forName("com.mysql.jdbc.Driver");
 			//DB 연결
@@ -57,8 +57,8 @@ public class BookDAO {
 			sql = "insert into book values(?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, 1);
-			//pstmt.setInt(1,bb.getMem_num());
+			//pstmt.setInt(1, 1);
+			pstmt.setInt(1,bb.getMem_num());
 			pstmt.setInt(2, book_count);
 			//pstmt.setInt(3,bb.getBook_num());
 			pstmt.setString(3, book_num); //예약번호
@@ -122,10 +122,8 @@ public class BookDAO {
 	}
 
 	public List<BookBean> testBook(BookBean bb)
+
 	{
-		int chkTable[] = new int[10];
-		int cnt = 0;
-		
 		List<BookBean> list = new ArrayList<BookBean>();
 		
 		Connection con = null;
@@ -145,7 +143,9 @@ public class BookDAO {
 			//결과값 저장
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()){
+			while(rs.next()){
+				bb = new BookBean();
+
 				bb.setBook_num(rs.getString("book_num"));
 				bb.setLocation(rs.getString("location"));
 				bb.setGuest(rs.getInt("guest"));
@@ -167,4 +167,25 @@ public class BookDAO {
 	
 		return list;		
 	}
+
+	public void bookDelete(String book_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql = "delete from book where book_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, book_num);
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			if(con!=null) try {con.close();} catch (SQLException ex){}			
+		}
+	}
+
 }

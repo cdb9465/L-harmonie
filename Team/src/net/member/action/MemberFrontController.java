@@ -125,92 +125,14 @@ public class MemberFrontController extends HttpServlet{
 				}catch(Exception e){
 					e.printStackTrace();
 				}
-			}
-/*				
-			else if(command.equals("/MemberLogin.me")){
-				// .member/Login.jsp 로 이동
-				forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("./member/loginForm.jsp");
-				
-			}else if(command.equals("/MemberLoginAction.me")){
-				// Action 인터페이스 상속받은 MemberLoginAction 파일 만들고
-				// 메서드 호출
-				action = new MemberLoginAction();
-				try{
-					forward = action.execute(request, response);
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-			}else if(command.equals("/Main.me")){
-				// .member/main.jsp 로 이동
-				forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("./member/main.jsp");
-									//가상 주소가 /MemberLogout.me일 때
-			}else if(command.equals("/MemberLogout.me")){
-				// Action 인터페이스 상속받은 MemberLogoutAction 파일 만들고
-				// 메서드 호출
-				action = new MemberLogoutAction();
-				try{
-					forward = action.execute(request, response);
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-			}else if(command.equals("/MemberInfo.me")){
-				// Action 인터페이스 상속받은 MemberInfoAction 파일 만들고
-				// 메서드 호출
-				action = new MemberInfoAction();
-				try{
-					forward = action.execute(request, response);
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-				
-			}else if(command.equals("/MemberUpdate.me")){
-				// Action 인터페이스 상속받은 MemberUpdate 파일 만들고
-				// 메서드 호출
-				action = new MemberUpdate();
-				try{
-					forward = action.execute(request, response);
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-			}else if(command.equals("/MemberUpdateAction.me")){
-				// Action 인터페이스 상속받은 MemberUpdateAction 파일 만들고
-				// 메서드 호출
-				action = new MemberUpdateAction();
-				try{
-					forward = action.execute(request, response);
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-				
-			}else if(command.equals("/MemberDelete.me")){
-				forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("./member/deleteForm.jsp");
-				
-			}else if(command.equals("/MemberDeleteAction.me")){
-				// Action 인터페이스 상속받은 MemberDeleteAction 파일 만들고
-				// 메서드 호출
-				action = new MemberDeleteAction();
+			}else if(command.equals("/ChangePassAction.me")){
+				action = new ChangePassAction();
 				try{
 					forward = action.execute(request, response);
 				}catch(Exception e){
 					e.printStackTrace();
 				}
 			}
-			else if(command.equals("/MemberList.me")){
-				// Action 인터페이스 상속받은 MemberListAction 파일 만들고
-				// 메서드 호출
-				action = new MemberListAction();
-				try{
-					forward = action.execute(request, response);
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-			}*/
 			
 			
 			//이동

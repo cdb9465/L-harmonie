@@ -1,3 +1,4 @@
+<%@page import="net.admin.db.PageBean"%>
 <%@page import="net.member.db.MemberBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,7 +16,28 @@
 </head>
 <body>
 <%
-List memberList = (List)request.getAttribute("memberList");
+// session 없으면 -> 로그인
+String email = (String)session.getAttribute("email");
+if(email == null || !email.equals("admin@team.com")){
+%>
+<script>
+alert("관리자만 이용가능합니다.");
+history.back();
+</script>	
+<%
+}
+
+PageBean pb = (PageBean)request.getAttribute("pb");
+List<MemberBean> memberList = (List)request.getAttribute("memberList");
+
+int count = pb.getCount();
+String pageNum = pb.getPageNum();
+int pageCount = pb.getPageCount();
+int pageBlock = pb.getPageBlock();
+int startPage = pb.getStartPage();
+int endPage = pb.getEndPage();
+int currentPage = Integer.parseInt(pageNum);
+
 %>
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
@@ -58,6 +80,27 @@ for(int i=0;i<memberList.size();i++){
 }
   %>
 </table>
+<div class="pageArea">
+<%
+//이전
+if(startPage > pageBlock){
+ %><a class="page2" href="./MemberList.ad?pageNum=<%=startPage-pageBlock%>">◀</a>
+<%}
+
+for(int i=startPage;i<=endPage;i++){
+	if(currentPage!=i){%><a id="page1" href="/MemberList.ad?pageNum=<%=i%>">
+	<%}%>
+	[<%=i %>]</a>
+	<%}
+
+//다음
+if(endPage < pageCount){
+	%><a class="page2" href="./BookList.ad?pageNum=<%=startPage+pageBlock%>">▶</a>
+	<%
+}
+%>
+ </div>
+ 
 </div>
 </div>
 
