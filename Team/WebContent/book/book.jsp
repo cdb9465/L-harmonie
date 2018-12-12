@@ -259,11 +259,13 @@ $(document).ready(function(){
 	});
 	
 	//테이블 중복제어
-
 	 $("#time").click(function(){
+		 
 		var l = document.bf.location.value;
 		var t = document.bf.time.value;
 		var d = document.bf.date.value;
+		
+		initTable(); //시간변경시 테이블선택 초기화
 	
 		$.ajax({
 	 		data : {location:l, date:d, time:t},
@@ -271,23 +273,21 @@ $(document).ready(function(){
 	 		url : './BookTest.bk',
 	 		//dataType : 'html',
 			success : function(data){
-				//$('#t1').attr('class','tabl tfor2Act');
-				
 				var res = data.split(',');
 				
 				$.each(res, function(index, item){
-					//alert(item);
-					disableTable(item);
-					});
-//				}
-				
+					disableTable(item-1);
+				});
+
+				//$('#t1').attr('class','tabl tfor2Act');
 			
 // 				$('#t1').css({
 // 					"background-image":"url('./images/book/table2_g.png');"
-				}
+			}
 
 		}); 
 	}); 
+		
 });
 </script>
 

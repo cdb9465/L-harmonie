@@ -171,8 +171,8 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 			<input type="submit" value="조회" class="termSearch">
 	</div>
 
-	
-<div class="mpcount"> 조회 <span class="countRed"><%=myBookCount%></span>건 / 전체 예약 <span class="countRed"><%= myBookCountAll%></span>건 </div>
+</form>
+<div class="mpcount"> 조회 <span class="countRed"><%=myBookCount%></span>건 / 전체 예약 <span class="countRed"><%=myBookCountAll%></span>건 </div>
 	<div class="clear"></div>
 <table class="mybook_tbl">
 <tr class="ttl"><th>예약번호</th><th>지점</th><th>예약일자<br>[시간]</th><th>테이블번호</th><th class="guest">인원</th>
@@ -218,24 +218,25 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 			<!--모달창 시작  -->
 			<button type="button" class="mm" data-toggle="modal" data-target="#myModal"> 리뷰작성</button>
  			 <!-- The Modal -->
- 			 <div class="modal" id="myModal">
+ 			 <div class="modal" id="myModal" style="z-index: 99999 !important;">
    			 <div class="modal-dialog">
-      		 <div class="modal-content">
+      		 <div class="modal-content review-w">
       
        		 <!--모달 머리부분 -->
         	 <div class="modal-header">
              <h4 class="modal-title">리뷰작성</h4>
-          	 <button type="button" class="close" data-dismiss="modal">&times;</button>
+          	 <button type="button" class="close review-w-close" data-dismiss="modal">&times;</button>
              </div>
         
         	<!-- 모달 몸부분 -->
+        
         	<div class="modal-body">
+	<form action="./ReviewAddAction.re" method="post" enctype="multipart/form-data">
+			
 			<table border="1">
-
-			<form action="./ReviewAddAction.re" method="post" enctype="multipart/form-data">
  			<div class="write_location"  >
  			<tr>
- 			<th><div class="title">지점선택</div></th>
+ 			<th><div class="title_review">지점선택</div></th>
  			<td colspan="3">
   			<select name="sel_location">
   			<option value="선택">선택</option>
@@ -248,17 +249,19 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
  			<div class="clear"></div>
  			
 			<tr>
-			<th><div class="title">작성자</div></th>
-			<td><input type="text" name="mem_num" value="<%=mem_num %>" readonly></td>
+			<th><div class="title_review">작성자</div></th>
+			
+			<td><%=mb.getEmail()%>
+			<input type="hidden" name="mem_num" value="<%=mb.getMem_num()%>" readonly></td>
 			</tr>
 			
  			<div class="write_rating" >
  			
  			<tr>
- 			<th>  <div class="title">별점</div></th>
+ 			<th>  <div class="title_review">별점</div></th>
  			<td colspan="3">
  			<span class="star-input">
-			<span class="input" >
+			<span class="inputss" >
     			<input type="radio" class="star-input" value="1" id="p1" name="rating">
     			<label for="p1">1</label>
     			<input type="radio" class="star-input" value="2" id="p2" name="rating">
@@ -283,13 +286,15 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
  			<tr>
  			<th>사진선택</th>
  			<td colspan="3">
-			 <input type="file" name="file1" required/>
+			 <input type="file" name="file1" />
  			 <input type="file" name="file2" />
-			 <input type="file" name="file3" /></td></tr>
+			 <input type="file" name="file3" />
+			 </td>
+			</tr>
 			 <div class="write_content">
  			<tr>
- 			<th> <div class="title">리뷰</div></th>
- 			<td> <input type="text" name="content"  autofocus required> </td>
+ 			<th> <div class="title_review">리뷰</div></th>
+ 			<td> <input type="text" name="content"  autofocus > </td>
  			</tr>
  
 		  <div class="clear"></div>
@@ -299,8 +304,11 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
         <div class="modal-footer">
 
          <button type="submit">리뷰등록</button>
+       
 	        </div>
-    	    </form>
+	          </form>
+	    
+    	        
        	 </div>
      	 </div>
    	 </div>
@@ -331,7 +339,7 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 			%>
 				
 		</div>
-	</form>
+	
 </div>
 </div>
 

@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoveDAO {
 	private Connection getConnection()  throws Exception{
@@ -24,12 +26,14 @@ public class LoveDAO {
 		PreparedStatement psm = null;
 		ResultSet rs = null;
 		int mnum =0;
+		boolean nnum=true;
 		try
 		{
 			con = getConnection();
 			
-			String sql = "select max(love_num) from love" ;
+			String sql = "select max(love_num) from love where review_num=?" ;
 			psm = con.prepareStatement(sql);
+			psm.setInt(1,lb.getReview_num());
 			rs = psm.executeQuery();
 			
 			if(rs.next())
@@ -40,12 +44,12 @@ public class LoveDAO {
 			}
 			
 
-			 sql="insert into comment(love_num,review_num,mem_num,love) values (?,?,?,?)";
+			 sql="insert into love(love_num,review_num,mem_num,love) values (?,?,?,?)";
 			psm = con.prepareStatement(sql);
 			psm.setInt(1, mnum);
 			psm.setInt(2, lb.getReview_num());
 			psm.setInt(3, lb.getMem_num());
-			psm.setBoolean(4, lb.getLove());
+			psm.setBoolean(4, nnum);
 	
 			psm.executeUpdate();
 
@@ -129,5 +133,80 @@ public class LoveDAO {
 		return count;
 		
 		
+	}
+
+	public List<LoveBean> getLoveList(int review_num, int mem_num){
+		
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<LoveBean> loveList=new ArrayList<LoveBean>();
+		try {
+			//1,2 디비연결
+			con=getConnection();
+			//3 sql
+			
+			 String sql="select * from love where review_num=? mem_num=? order by love_num desc limit 1;";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, review_num);
+			pstmt.setInt(2, mem_num);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				LoveBean lb=new LoveBean();
+				lb.setMem_num(rs.getInt("mem_num"));
+				 lb.setReview_num(rs.getInt("review_num"));
+				 lb.setLove_num(rs.getInt("love_num"));
+				 lb.setLove(rs.getBoolean("love"));
+				 loveList.add(lb);
+				//자바빈 => 배열 한칸 저장
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+		return loveList;
+	}
+
+public List<LoveBean> getLoveList1(){
+		
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<LoveBean> loveList=new ArrayList<LoveBean>();
+		try {
+			//1,2 디비연결
+			con=getConnection();
+			//3 sql
+			
+			 String sql="select * from love order by love_num desc limit 1;";
+			pstmt=con.prepareStatement(sql);
+			//pstmt.setInt(2, review_num);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				LoveBean lb=new LoveBean();
+				lb.setMem_num(rs.getInt("mem_num"));
+				 lb.setReview_num(rs.getInt("review_num"));
+				 lb.setLove_num(rs.getInt("love_num"));
+				 lb.setLove(rs.getBoolean("love"));
+				 loveList.add(lb);
+				//자바빈 => 배열 한칸 저장
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+		return loveList;
 	}
 }

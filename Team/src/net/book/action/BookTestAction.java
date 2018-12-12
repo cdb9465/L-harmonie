@@ -19,7 +19,7 @@ public class BookTestAction implements Action
 	{
 		System.out.println("BookTestAction execute");
 		
-		int cnt=0;	//예약된 테이블 갯수
+		//int cnt=0;	//예약된 테이블 갯수
 		String strTable = null;	//예약된 테이블 번호
 		
 		//한글처리

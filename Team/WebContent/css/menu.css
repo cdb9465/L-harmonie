@@ -81,7 +81,7 @@
     color: #fff;
     margin-top: 20px;
     width: 100%;
-    text-align: left;
+    text-align: center;
 }
 
 /* 텝페이지 마우스올렸을때 글자색변경 */
@@ -98,45 +98,18 @@
 .tabcontent {
 	padding-top: 70px;
 	background-color:rgba(255,255,255,0.3);
-    display: none;
     border: 1px solid blue;
     border-top: none;
-    float: left;
+   `float: left;
     width: 70%;
+    height: 100%;
 }
-/* 스테이크 전체 */
-#Steak{
-	width:1600px;
-	height: 500px;
-	margin: auto; }
-#Pasta{
-	width:2200px;
-	height: 500px;
-	margin: auto; }
-#Steak li,#Pasta li{	float: left;
-	list-style: none; 
-	}
-	
-#steak1,#steak2,#steak3,#steak4,#steak5,#steak6{
-	background-color:#f3f3f3;
-	width: 416px; height: 335px;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	margin: 40px;
-	border: 1px solid red; }
 
+.Appetizer, .Salad, .Steak, .Pasta, .Dessert, .Beverage {
+	display: none;
+}
 
-/* 메뉴이름표시  */
-#steak_ps1{
-	color:#303030;
-	font-size:1.8em;
-	border:1px solid #fff;
-	float:left;
-	margin-top: 300px; }
-	
-/* 가격표시  */
-#steak_ps2{color:#303030;
-	font-size:1.8em;
-	border:1px solid #fff;
-	float:right;
-	margin-top: 300px;}
+h4{
+	color : white;
+	font-size: 20px;
+}

@@ -46,8 +46,8 @@ public class MenuAddAction implements Action
 		
 		// 이동
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("./store/menu.jsp");	//가상주소 변경 해야함
+		forward.setRedirect(true);
+		forward.setPath("./MenuList.nu");
 		
 		return forward;
 	}

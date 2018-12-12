@@ -9,6 +9,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>E-mail 문의</title>
 <link href="../css/mail.css" rel="stylesheet">
+	<script type="text/javascript">
+		function sendCheck() {
+			if(document.fr1.subject.value.length==0){
+				alert("제목을 입력하세요");
+				document.fr1.subject.focus();
+				return;
+			}
+			
+			if(document.fr1.content.value.length==0){
+				alert("내용을 입력하세요");
+				document.fr1.content.focus();
+				return;
+			}
+			
+	    	document.fr1.submit();
+		} 
+	</script>
 </head>
 <% 
 request.setCharacterEncoding("utf-8");
@@ -27,17 +44,20 @@ if(id == null){
 %>
 <body>
     <div id="mailtable">
-        <form action="sendMail.jsp" method="post">
+        <form action="sendMail.jsp" method="post" name="fr1">
     		<h1>E-mail 문의</h1>
             <table id="t1">
                 <!-- <tr><th colspan="2">E-mail 문의</th></tr> -->
-                <tr><td><input type="hidden" name="from" value="wwe5y2@naver.com"/></td></tr>
-                <tr><td><input type="hidden" name="to" value="wwe5y2@naver.com"/></td></tr>				
-				<tr><td><input type="hidden" name="email" value="<%=mb.getEmail()%>"></td></tr>            	
-                <tr><td>subject</td><td><input type="text" name="subject" size="25"/></td></tr>
-                <tr><td>content</td><td><textarea name="content" style="height:200px;"></textarea></td></tr>
-                <tr><td colspan="2" style="text-align:right;"><input type="submit" value="전송"/>
-                    <input type="reset" value="reset"></td></tr>
+                <tr><td>
+                  <input type="hidden" name="from" value="wwe5y2@naver.com"/>
+                  <input type="hidden" name="to" value="wwe5y2@naver.com"/>			
+				  <input type="hidden" name="email" value="<%=mb.getEmail()%>">
+				</td></tr>
+				            	
+                <tr><th>Subject</th><td><input type="text" name="subject" size="25"/></td></tr>
+                <tr><th>Content</th><td><textarea name="content" style="height:200px;"></textarea></td></tr>
+                <tr><td colspan="2" style="text-align:right;"><input type="button" value="Send" onclick="sendCheck()"/>
+                    <input type="reset" value="Reset"></td></tr>
             </table>
         </form>
     </div>            

@@ -66,6 +66,14 @@ public class ReviewFrontController extends HttpServlet {
   	  			} catch (Exception e) { 
   	  				e.printStackTrace(); 
   	  			} 
+  	  		}else if (command.equals("/LoveCountAction.re")) { 
+  	  
+  	  			action = new LoveCountAction(); 
+  	  			try { 
+  	  				forward = action.execute(request, response); 
+  	  			} catch (Exception e) { 
+  	  				e.printStackTrace(); 
+  	  			}
   	  		}
 	
 	   
