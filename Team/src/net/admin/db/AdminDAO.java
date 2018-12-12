@@ -29,14 +29,49 @@ public class AdminDAO {
 		return con;	
 	}
 	
-	public List getBookList(String location, String date){
-		List bookList = new ArrayList();
+	public int getBookCount(String location, String date){
+		int count=0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		try {
+			//1,2단계 메서드 호출
+			con = getConnection();
+			//3 sql
+			if(location.equals("전체")){
+				sql = "select count(*) from book where date=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1,date);
+			}else{
+				sql = "select count(*) from book where location =? and date=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, location);
+				pstmt.setString(2,date);
+				
+			}
+			//4 저장 <=결과 실행
+			rs=pstmt.executeQuery();
+			//5 첫행에 데이터 있으면 글개수 count
+			if(rs.next()){
+				count = rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			if(con!=null) try {con.close();} catch (SQLException ex){}
+			if(rs!=null) try{rs.close();} catch(SQLException ex){}	
+		}
+		return count;
+	}
+	
+	public List<BookBean> getBookList(String location, String date, int startRow, int pageSize){
+		List<BookBean> bookList = new ArrayList<BookBean>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql="";
 		ResultSet rs= null;
-		Calendar cal=Calendar.getInstance();
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		
 		try{
 			//db 연결
@@ -44,19 +79,20 @@ public class AdminDAO {
 			
 			//sql
 			if(location.equals("전체")){
-				sql = "select * from book where Date=?";
+				sql = "select * from book where date=? limit ?,?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1,date);
-				
+				pstmt.setInt(2, startRow-1);
+				pstmt.setInt(3, pageSize);
 			}else{
-				
-				sql = "select * from book where location =? and Date=?";
+				sql = "select * from book where location=? and date=? limit ?,?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, location);
 				pstmt.setString(2,date);
+				pstmt.setInt(3, startRow-1);
+				pstmt.setInt(4, pageSize);
 			}
 
-			
 			//rs 실행 저장
 			rs = pstmt.executeQuery();
 			
@@ -85,8 +121,38 @@ public class AdminDAO {
 		return bookList;
 	}
 	
-	public List getMemberList(){
-		List memberList = new ArrayList();
+	public int getMemberCount(){
+		int count=0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		try {
+			//1,2단계 메서드 호출
+			con = getConnection();
+			
+			//3 sql
+			sql = "select count(*) from member";
+			pstmt = con.prepareStatement(sql);
+			
+			//4 저장 <=결과 실행
+			rs=pstmt.executeQuery();
+			//5 첫행에 데이터 있으면 글개수 count
+			if(rs.next()){
+				count = rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			if(con!=null) try {con.close();} catch (SQLException ex){}
+			if(rs!=null) try{rs.close();} catch(SQLException ex){}	
+		}
+		return count;
+	}
+	
+	public List<MemberBean> getMemberList(){
+		List<MemberBean> memberList = new ArrayList<MemberBean>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql="";

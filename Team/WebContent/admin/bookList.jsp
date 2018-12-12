@@ -1,13 +1,10 @@
+<%@page import="net.admin.db.PageBean"%>
 <%@page import="java.sql.Date"%>
 <%@page import="net.book.db.BookBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-List bookList = (List)request.getAttribute("bookList");
-String location = (String)request.getAttribute("location");
-String date = (String)request.getAttribute("date");
-%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,6 +60,18 @@ history.back();
 </script>	
 <%
 }
+PageBean pb = (PageBean)request.getAttribute("pb");
+List<BookBean> bookList = (List)request.getAttribute("bookList");
+String location = (String)request.getAttribute("location");
+String date = (String)request.getAttribute("date");
+
+int count = pb.getCount();
+String pageNum = pb.getPageNum();
+int pageCount = pb.getPageCount();
+int pageBlock = pb.getPageBlock();
+int startPage = pb.getStartPage();
+int endPage = pb.getEndPage();
+int currentPage = Integer.parseInt(pageNum);
 %>
 
 <!-- 헤더파일들어가는 곳 -->
@@ -92,7 +101,7 @@ history.back();
  <input type="text" name="date" id="datepicker" class="dateBox" value=<%=date%>>
 </div>
 
-<div class="mpcount">전체 <%=bookList.size()%>건</div>
+<div class="mpcount">전체 <%=count%>건</div>
 
 <div class="clear"></div>
 	
@@ -109,9 +118,12 @@ history.back();
 	
 <!-- 예약내역목록 -->
  <%
- for(int i=0;i<bookList.size();i++){
-	 BookBean bb = (BookBean)bookList.get(i);
- %>
+ if(bookList==null){
+	 %><tr><td colspan="7"><b>예약내역이 없습니다.</b></td></tr><%
+ }else{
+	 for(int i=0;i<bookList.size();i++){
+		 BookBean bb = (BookBean)bookList.get(i);
+ 	%>
  <tr>
   <td><%=bb.getLocation()%>
   <td><%=bb.getBook_num()%></td>
@@ -122,10 +134,31 @@ history.back();
   <td><%=bb.getRequest()%></td> 
  </tr>
  <%
- }
- %>
+ 	}
+ }%>
 	
 </table>
+
+ <div class="pageArea">
+<%
+//이전
+if(startPage > pageBlock){
+ %><a class="page2" href="./BookList.ad?location=<%=location %>&date=<%=date %>&pageNum=<%=startPage-pageBlock%>">◀</a>
+<%}
+
+for(int i=startPage;i<=endPage;i++){
+	if(currentPage!=i){%><a id="page1" href="/BookList.ad?location=<%=location %>&date=<%=date %>&pageNum=<%=i%>">
+	<%}%>
+	[<%=i %>]</a>
+	<%}
+
+//다음
+if(endPage < pageCount){
+	%><a class="page2" href="./BookList.ad?location=<%=location %>&date=<%=date %>&pageNum=<%=startPage+pageBlock%>">▶</a>
+	<%
+}
+%>
+ </div>
 </div>
 </form>
 </div>

@@ -93,6 +93,7 @@ DateFormat df = new SimpleDateFormat("yyyyMMdd");
  </tr>
 
 </table>
+<input type="button" id="bookCheckbtn" onclick="location.href='./Mypage.me#main1'" value="예약현황보기">
 </article>
 </div>
 <%-- 예약 지점 :<%=location %><br>

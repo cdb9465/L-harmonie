@@ -164,8 +164,20 @@ h1#title{ margin:0;
 
 #bookList table td{
 	text-align: center;
-	padding:5px 0;
+	padding:10px 0;
 	border-bottom: 1px solid #000;}
 
+/* 페이지 */
+.pageArea{text-align: center; 
+		margin-top:30px;
+		 }
+#page1 {text-decoration: none;
+		padding:3px; margin-right:5px;
+		color: #000;
+		font-size: 15px;}
+
+.page2{text-decoration: none;
+		padding:3px; margin-right:5px;
+		color: #000;font-size: 12px;}
 
 
