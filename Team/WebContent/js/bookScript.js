@@ -141,14 +141,6 @@ function selectTable(n){
 		else
 			table[i].className = "tabl tfor4";
 	}*/
-
-	//이미 예약된 테이블 선택시 알림
-	if(table[n].className == "tabl tfor2Disable" 
-		|| table[n].className == "tabl tfor4Disable")
-	{
-		alert("선택 불가능한 테이블입니다.\n다른 테이블을 선택해 주세요.");
-		return;
-	}
 	
 	//테이블선택 초기화
 	var selected = 0; //초기값
@@ -163,6 +155,14 @@ function selectTable(n){
 		table[selected].className = "tabl tfor4";
 	}
 
+	//이미 예약된 테이블 선택시 알림
+	if(table[n].className == "tabl tfor2Disable" 
+		|| table[n].className == "tabl tfor4Disable")
+	{
+		alert("선택 불가능한 테이블입니다.\n다른 테이블을 선택해 주세요.");
+		return;
+	}
+	
 	//테이블선택
 	if(n<=3){
 		table[n].className = table[n].className.replace("tfor2","tfor2Act");
