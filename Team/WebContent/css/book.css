@@ -171,7 +171,7 @@ article#bookck_art {width: 1300px; height: 600px;
 .tfor4Act { background-image: url("../images/book/table4_p.png"); }
 
 .tfor2Disable { background-image: url("../images/book/table2_g.png"); }
-.tfor4Disable { background-image: url("../images/book/table2_g.png"); }
+.tfor4Disable { background-image: url("../images/book/table4_g.png"); }
 
 .tfor2:HOVER { background-image: url("../images/book/table2_r.png"); }
 .tfor4:HOVER { background-image: url("../images/book/table4_r.png"); }
