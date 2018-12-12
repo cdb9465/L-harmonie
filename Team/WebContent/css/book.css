@@ -18,10 +18,12 @@ h1#title{ margin:0;
 
 article#book_art {width: 1300px; height: 700px;
 	margin: 5px auto;
+	position: relative;
 	background-color:rgba(255,255,255,0.7);}
 	
 article#bookck_art {width: 1300px; height: 600px;
 	margin: 20px auto;
+	position: relative;
 	background-color:rgba(255,255,255,0.7); }
 
 /* 예약 네비게이션 메뉴바  */
@@ -98,7 +100,7 @@ article#bookck_art {width: 1300px; height: 600px;
     color: #ffffff; }
 
 /* 버튼 */
-#prevBtn, #nextBtn{ width: 120px;
+#prevBtn, #nextBtn, #bookCheckbtn{ width: 120px;
   background-color: #333;
   color: #ffffff;
   border: none;
@@ -107,12 +109,17 @@ article#bookck_art {width: 1300px; height: 600px;
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
-  float: right; }
+  position: absolute;}
 
 #prevBtn:hover, #nextBtn:hover { opacity: 0.8; }
 
-#prevBtn { float: left; }
+#prevBtn { left: 10px; bottom: 10px; }
 
+#nextBtn { right: 10px; bottom: 10px;}
+
+#bookCheckbtn{ left: 45%; bottom: 5%;
+	width: 140px; !important}
+	
 /* 2단계 날짜설명 */
 #dateDesc { position: absolute;
 	top: 200px; right: 50px;
@@ -164,7 +171,7 @@ article#bookck_art {width: 1300px; height: 600px;
 .tfor4Act { background-image: url("../images/book/table4_p.png"); }
 
 .tfor2Disable { background-image: url("../images/book/table2_g.png"); }
-.tfor4Disable { background-image: url("../images/book/table2_g.png"); }
+.tfor4Disable { background-image: url("../images/book/table4_g.png"); }
 
 .tfor2:HOVER { background-image: url("../images/book/table2_r.png"); }
 .tfor4:HOVER { background-image: url("../images/book/table4_r.png"); }
