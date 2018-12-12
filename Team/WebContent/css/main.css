@@ -33,6 +33,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  font-size: 40px;
+}
+
+.main_text p {
+	font-size: 30px;
 }
 
 /* 메인이미지 */
@@ -48,7 +53,7 @@
 #main1 {
 	/* The image used */
 	/* background-image: url("../images/main/main01.jpg"); */
-	background-color: #FCFCFC;}
+	background-color: #fff;}
 #main2 {
     /* The image used */
     background-image: url("../images/main/main01.jpg");}
@@ -63,7 +68,6 @@
   transform: translate(-50%, -180%);
   color: #121212;
 }    
-
 
 
 .mt01 { 
@@ -94,7 +98,7 @@
     background-size: cover;
 	width: 50%;
     height: 600px;
-    background-image: url("../images/main/main02.jpg");
+    background-image: url("../images/main/brickWall.jpg");
 }
 
 .mt01_image { 
@@ -114,32 +118,37 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -40%);
-  text-align: center;
+  text-align: center;  
 }
 
-.mt01:hover .mt01_image {
-  opacity: 0.5;
+.mt01:hover .mt01_image { 
+  opacity: 0.5;  
 }
 
-.mt01:hover .mt01_middle {
+.mt01:hover .mt01_middle { 	
   opacity: 1;
 }
 
 .mt01_text a {
 	text-decoration: none;
-	color: #121212;
+	color: #0C0000;
 	font-size: 80px;
+	font-weight: bolder;
 }
 
+.mt01_text p {
+	color: #0C0000;
+	font-size: 25px;
+}
     
 /* 2 */
-#mtdv02 {   
+#mtdv02 {
 	background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 	width: 50%;
-    height: 300px;
-    background-image: url("../images/main/main01.jpg");
+    height: 301px;
+    background-image: url("../images/main/cook.jpg");   
 }
 
 .mt02_image { 
@@ -172,8 +181,14 @@
 
 .mt02_text a {
 	text-decoration: none;
-	color: #121212;
+	color: #0C0000;
 	font-size: 80px;
+	font-weight: bolder;
+}
+
+.mt02_text p {
+	color: #0C0000;
+	font-size: 25px;
 }
     
 /* 3 */
@@ -183,7 +198,7 @@
     background-size: cover;
 	width: 50%;
     height: 300px;
-    background-image: url("../images/comming.jpg");
+    background-image: url("../images/main/newspaper.jpg");
 }
 
 .mt03_image { 
@@ -216,10 +231,16 @@
 
 .mt03_text a {
 	text-decoration: none;
-	color: #121212;
+	color: #0C0000;
 	font-size: 80px;
+	font-weight: bolder;	
 }
 
+
+.mt03_text p {
+	color: #0C0000;
+	font-size: 25px;
+}
 /* .text01 { border: 1px solid green;
 	text-decoration: none;
 	font-size: 30px;
