@@ -7,7 +7,7 @@ var userFeed = new Instafeed({
     userId: 9538569120,
     sortBy: "most-recent",
     limit: 4,
-    template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>', 
+    template: '<a href="{{link}}" target="_blank"><img src="{{image}}" class="instaimg"/></a>', 
     // {{link}} : 게시물 링크, {{image}} : 사진 url, {{caption}} : 게시물 텍스트
     accessToken: '9538569120.7c9af27.fb5cb2144b3f48b69326dd11fd3b38ed'        
 });

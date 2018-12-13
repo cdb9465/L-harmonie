@@ -43,8 +43,8 @@ if(sess==null){%>
 	<i class="material-icons" >lock_outline</i>	 -->
 
 	<li class="logArea"><span id="login" style="cursor:pointer" onclick="document.getElementById('id01').style.display='block'">
-							<i class='fas fa-key' style='font-size:18px;color:#eee'></i> 로그인  </span></li> 
-	<li class="logArea"><a href="./MemberJoin.me"><i class='fas fa-user-plus' style='font-size:18px;color:#eee'></i> 회원가입  </a></li>
+							<i class='fas fa-key' style='font-size:18px;'></i> 로그인  </span></li> 
+	<li class="logArea"><a href="./MemberJoin.me"><i class='fas fa-user-plus' style='font-size:18px;'></i> 회원가입  </a></li>
  	
 
 
@@ -53,10 +53,10 @@ if(sess==null){%>
 
 		<!-- 마이페이지 -->
 
-    			<%if(sess.equals("admin@team.com")) {%> <li class="logArea" id="login"><a href="./BookList.ad" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;color:#eee'></i> AdminPage </a></li>
-    			<%} else {%>							<li class="logArea" id="login"><a href="./Mypage.me" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;color:#eee'></i> MyPage </a></li> 
+    			<%if(sess.equals("admin@team.com")) {%> <li class="logArea" id="login"><a href="./BookList.ad" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> AdminPage </a></li>
+    			<%} else {%>							<li class="logArea" id="login"><a href="./Mypage.me" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> MyPage </a></li> 
     			<%} %>
-    			<li class="logArea"><a href="./MemberLogout.me"><i class='fas fa-power-off' style='font-size:18px;color:#eee'></i>  로그아웃  </a></li>
+    			<li class="logArea"><a href="./MemberLogout.me"><i class='fas fa-power-off' style='font-size:18px;'></i>  로그아웃  </a></li>
   				
 <% } %>
 		</ul>
@@ -67,15 +67,15 @@ if(sess==null){%>
 			<div id="minwin_btn">
 					<%//세션값이 없으면 로그인버튼보이기
 						if(sess==null){%>
-							<span style="cursor:pointer" onclick="document.getElementById('id01').style.display='block'"><i class='fas fa-key' style='font-size:20px;color:#eee'></i>Login</span>
-							<a href="./MemberJoin.me"><i class='fas fa-user-plus' style='font-size:20px;color:#eee'></i>Join</a>
+							<span style="cursor:pointer" onclick="document.getElementById('id01').style.display='block'"><i class='fas fa-key' style='font-size:20px;'></i>Login</span>
+							<a href="./MemberJoin.me"><i class='fas fa-user-plus' style='font-size:20px;'></i>Join</a>
 					<%	} else { %>
 							<%if(sess.equals("admin@team.com")) {%>
-										<a href="./BookList.ad"><i class='fas fa-user-cog' style='font-size:20px;color:#eee'></i>Admin</a>
+										<a href="./BookList.ad"><i class='fas fa-user-cog' style='font-size:20px;'></i>Admin</a>
 								<%} else {%>	
-										<a href="./Mypage.me"><i class='fas fa-user-cog' style='font-size:20px;color:#eee'></i>My</a>
+										<a href="./Mypage.me"><i class='fas fa-user-cog' style='font-size:20px;'></i>My</a>
 								<%} %>
-										<a href="./MemberLogout.me"><i class='fas fa-power-off' style='font-size:20px;color:#eee'></i>Out</a>
+										<a href="./MemberLogout.me"><i class='fas fa-power-off' style='font-size:20px;'></i>Out</a>
 						<% } %>
 			</div>
 		</div>
