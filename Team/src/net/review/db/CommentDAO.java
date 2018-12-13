@@ -7,21 +7,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 
 public class CommentDAO {
 
-	private Connection getConnection()  throws Exception{
-		Connection con= null;//드라이버 불러오기
-		Class.forName("com.mysql.jdbc.Driver");
-		//DB 연결
-		String dbUrl = "jdbc:mysql://localhost:3306/lhdb";
-		String dbId = "jspid";
-		String dbPass = "jsppass";
-		con = DriverManager.getConnection(dbUrl,dbId,dbPass);
-		return con;	
-	}	
+
+	private Connection getConnection() throws Exception{
+      
+      Connection con = null;
+      // Context 객체 생성
+      Context init = new InitialContext();
+      // DateSource = 디비연동 이름 불러오기
+      DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/MysqlDB");
+      // con = DataSource
+      con = ds.getConnection();
+
+      return con;
+   }	
 	
 	public void insertComment(CommentBean cb)
 	{
