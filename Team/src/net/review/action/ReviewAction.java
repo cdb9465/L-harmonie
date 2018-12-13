@@ -25,11 +25,13 @@ public class ReviewAction implements Action{
 				
 		String location = request.getParameter("location");
 		
-		if(location==null){
+		if(location==null)
+		{
 			
 			location="전체";
 			
 		}
+		
 		List reviewlocation=rd.getLocation(location);
 		
 		
@@ -110,9 +112,9 @@ public class ReviewAction implements Action{
 		
 		ActionForward forward= new ActionForward();
 		forward.setRedirect(false);
-			forward.setPath("/review/review.jsp");
+		forward.setPath("/review/review.jsp");
 			
-			return forward;
+		return forward;
 	}
 
 }
