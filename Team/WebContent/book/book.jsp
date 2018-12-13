@@ -247,6 +247,9 @@ $(document).ready(function(){
 				{
 					$('#dateval').val(date);				
 				}
+				
+				initTime();//날짜변경시 시간선택 초기화
+				getReserved();
  			}
 		});
 
@@ -259,14 +262,20 @@ $(document).ready(function(){
 	});
 	
 	//테이블 중복제어
-	 $("#time").click(function(){
-		 
+ 	$("#time").click(function(){
+ 		initTable(); 	//시간변경시 테이블선택 초기화	 
+ 		getReserved();
+ 	});
+
+
+	function getReserved()
+	{
 		var l = document.bf.location.value;
 		var t = document.bf.time.value;
 		var d = document.bf.date.value;
 		
-		initTable(); //시간변경시 테이블선택 초기화
-	
+		//initTable(); //시간변경시 테이블선택 초기화
+		
 		$.ajax({
 	 		data : {location:l, date:d, time:t},
 	 		type : 'POST',
@@ -275,18 +284,23 @@ $(document).ready(function(){
 			success : function(data){
 				var res = data.split(',');
 				
+				//if(res=="full")
+					//시간제어
+					
 				$.each(res, function(index, item){
 					disableTable(item-1);
 				});
 
 				//$('#t1').attr('class','tabl tfor2Act');
 			
-// 				$('#t1').css({
-// 					"background-image":"url('./images/book/table2_g.png');"
+ 				//$('#t1').css({
+ 				//	"background-image":"url('./images/book/table2_g.png');"
 			}
 
-		}); 
-	}); 
+		});
+	}
+	
+		
 		
 });
 </script>

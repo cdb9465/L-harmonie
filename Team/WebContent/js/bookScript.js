@@ -130,6 +130,18 @@ function selectTime(n){
 	//location.href="./BookTest.bk?location="+"ddd"+"&time="+t+"&date="+d;
 }
 
+//시간 선택 초기화
+function initTime()
+{
+	var div = document.getElementById("time");
+	var time =div.getElementsByClassName("slot");
+	
+	for(i = 0; i < time.length; i++)
+	{
+		time[i].className = "slot";
+	}
+}
+
 //테이블선택
 function selectTable(n){
 	var div = document.getElementById("table");

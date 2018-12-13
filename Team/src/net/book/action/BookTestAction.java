@@ -30,6 +30,15 @@ public class BookTestAction implements Action
 		Date date = Date.valueOf(request.getParameter("date"));
 		String time = request.getParameter("time");
 
+		
+		if(time=="")
+			System.out.println("tNull");
+		// 시간제어 ..
+		//  time별로 테이블수 계산
+		
+		//else //시간있으면
+		// 테이블제어
+		
 		//BookBean bb에 저장
 		BookBean bb = new BookBean();
 		bb.setLocation(location);
@@ -57,6 +66,7 @@ public class BookTestAction implements Action
 		if(bookList.size() == 10) //모든 테이블이 예약되어 있으면
 		{
 			//시간 비활성화..
+			//strTable = "full";
 		}
 	
 		System.out.println(strTable);
