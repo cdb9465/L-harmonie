@@ -15,13 +15,20 @@ import net.menu.db.MenuBean;
 import net.news.db.NewsBean;
 
 public class MenuDAO {
+	
 	private Connection getConnection() throws Exception{
-		Connection con = null;
-		Context init=new InitialContext();
-	    DataSource ds =(DataSource)init.lookup("java:comp/env/jdbc/MysqlDB");
-	    con=ds.getConnection();
-	    return con;
-	} //Connection
+	      
+	      Connection con = null;
+	      // Context 객체 생성
+	      Context init = new InitialContext();
+	      // DateSource = 디비연동 이름 불러오기
+	      DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/MysqlDB");
+	      // con = DataSource
+	      con = ds.getConnection();
+
+	      return con;
+	   }
+	
 	
 	public void insertMenu(MenuBean mnb) {
 		Connection con=null;
