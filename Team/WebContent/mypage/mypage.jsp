@@ -216,7 +216,7 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 		<%} else{  // 예약일 이후  %> 
 			
 			<!--모달창 시작  -->
-			<button type="button" class="mm" data-toggle="modal" data-target="#myModal"> 리뷰작성</button>
+			<button type="button" class="bookcancel" data-toggle="modal" data-target="#myModal"> 리뷰작성</button>
  			 <!-- The Modal -->
  			 <div class="modal" id="myModal" style="z-index: 99999 !important;">
    			 <div class="modal-dialog">
@@ -286,9 +286,9 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
  			<tr>
  			<th>사진선택</th>
  			<td colspan="3">
-			 <input type="file" name="file1" />
- 			 <input type="file" name="file2" />
-			 <input type="file" name="file3" />
+			 <input type="file" name="file1"  />
+ 			 <input type="file" name="file2"  />
+			 <input type="file" name="file3"  />
 			 </td>
 			</tr>
 			 <div class="write_content">
@@ -303,7 +303,7 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
         <!-- 모달 바닥부분 -->
         <div class="modal-footer">
 
-         <button type="submit">리뷰등록</button>
+         <button type="submit" id="review_sub">리뷰등록</button>
        
 	        </div>
 	          </form>

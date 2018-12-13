@@ -51,7 +51,7 @@ form { margin: 0 100px; }
 }
 
 /* 버튼  */
-button{
+#file_sel, #review_sub{
 	border: 1px solid #969696;
 	border-style: outset;
 	box-sizing: border-box;
@@ -60,13 +60,7 @@ button{
 	width: 80px; height: 40px;
 	cursor: pointer;}
 
-.review_write button { /* border: 1px solid red; */
-	vertical-align: text-bottom;
-}
-.button {
-    background: #5e5c6a;
-    color: #fff;
-}
+
 
 
 
