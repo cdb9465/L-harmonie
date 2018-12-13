@@ -8,6 +8,8 @@ import net.admin.db.AdminDAO;
 import net.review.action.ActionForward;
 import net.review.db.CommentBean;
 import net.review.db.CommentDAO;
+import net.review.db.LoveBean;
+import net.review.db.LoveDAO;
 import net.review.db.ReviewBean;
 import net.review.db.ReviewDAO;
 
@@ -74,8 +76,24 @@ public class ReviewAction implements Action{
 			cobe=cd.getCommentList(1);
 		}
 		
+		LoveDAO ld= new LoveDAO();
+		LoveBean lb=new LoveBean();
+		int review_num2 = lb.getReview_num();
+		int mem_num2=lb.getMem_num();
+		List<LoveBean> lobe=null;
 		
-	
+		
+		int Lcount = ld.getLoveCount();
+
+		if(Lcount!=0){
+			lobe=ld.getLoveList1();
+			System.out.println(lb.getLove_num());
+		}
+		
+		
+		request.setAttribute("review_num2", review_num2);
+		request.setAttribute("Lcount", Lcount);
+		request.setAttribute("lobe", lobe);
 		request.setAttribute("review_num1", review_num1);
 		request.setAttribute("cobe", cobe);
 		request.setAttribute("Ccount", Ccount);

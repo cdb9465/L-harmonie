@@ -1,3 +1,4 @@
+<%@page import="net.review.db.LoveBean"%>
 <%@page import="javax.swing.text.AbstractDocument.Content"%>
 <%@page import="net.review.db.CommentDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -35,6 +36,9 @@
 int review_num1=((Integer)request.getAttribute("review_num1")).intValue();
 //System.out.println(review_num1);
 List<CommentBean> cobe=(List<CommentBean>)request.getAttribute("cobe");
+
+List<LoveBean> lobe=(List<LoveBean>)request.getAttribute("lobe");
+int Lcount=((Integer)request.getAttribute("Lcount")).intValue();
 
 String pageNum=(String)request.getAttribute("pageNum");
 List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("reviewList");
@@ -159,15 +163,44 @@ for(int i=0;i<ReviewList.size();i++)
 <div class="content">
 <input type="hidden" name="mem_num" value=<%=rb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
-
-
+<input type="hidden" name="love_num" value="1">
  <div class="like">
-  <button type="submit" onclick="style='background-color:pink'"<i class="fa fa-heart" id=heart style="color:red"></i>>  <p>좋아요</p> </button>
+  <Button type="submit" onclick="style='background-color:pink'">
+  <i class="fa fa-heart" id=heart style="color:red"></i>
+  <p>좋아요</p>
+  </Button>
  </div>
  </div>
  </form>
 </td>
-<td>4명이 좋아합니다.</td>
+ 
+<td>
+
+<%
+ if(Lcount!=0){
+	 
+	 
+ 
+
+for(int z=0;z<lobe.size();z++){
+	
+	
+    	LoveBean lb=lobe.get(z);
+    	if(rb.getReview_num()==lb.getReview_num()){
+    	System.out.println(lb.getMem_num());
+    	 	
+    	//System.out.println(rb.getFile().split(",")[0]);
+    	%>
+
+
+
+<%=lb.getLove_num() %>명이 좋아합니다.</td>
+<%
+    	}
+	}
+ }
+
+%>
 <td><div class="content">
   <input type="button"value="글삭제"  onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" id="ddate">
     <br> 
@@ -206,7 +239,6 @@ if(email.equals("admin@team.com")){%>
 
  </tr>
  <%
-CommentBean cdd=new CommentBean();
  if(Ccount!=0){
 	 //System.out.println(rb.getReview_num());
 	 

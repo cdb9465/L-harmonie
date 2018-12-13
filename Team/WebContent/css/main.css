@@ -33,6 +33,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  font-size: 40px;
+}
+
+.main_text p {
+	font-size: 30px;
 }
 
 /* 메인이미지 */
@@ -48,10 +53,17 @@
 #main1 {
 	/* The image used */
 	/* background-image: url("../images/main/main01.jpg"); */
-	background-color: #FCFCFC;}
+	/* background-color: #fff; */
+	background-color: rgba(0,0,0,0.1);
+	}
 #main2 {
     /* The image used */
-    background-image: url("../images/main/main01.jpg");}
+/*     background-image: url("../images/main/star03.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;	 */
+    background-color: rgba(0,0,0,0.1);
+    
+}
     
     
 /* 메인 2 */
@@ -64,27 +76,29 @@
   color: #121212;
 }    
 
-
+.main2_text p {
+	font-size: 20px;
+}
 
 .mt01 { 
     position: relative;
     width: 50%;
-    height: 600px; 
-	transform: translate(0%, 60.3%);		
+    height: 587px; 
+	transform: translate(0%, 60.3%);	
 }
 
 .mt02 {
     position: relative;
     width: 50%;  
-    height: 300px;      
+    height: 293px;      
 	transform: translate(100%, -79.5%);
 }
 
 .mt03 {
     position: relative;
     width: 50%;  
-    height: 300px;  
-	transform: translate(100%, -79%);
+    height: 293px;  
+	transform: translate(100%, -79.5%);
 }
 
 /* 1 */
@@ -93,8 +107,8 @@
     background-repeat: no-repeat;
     background-size: cover;
 	width: 50%;
-    height: 600px;
-    background-image: url("../images/main/main02.jpg");
+    height: 587px;
+    background-image: url("../images/main/brickWall.jpg");
 }
 
 .mt01_image { 
@@ -114,32 +128,37 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -40%);
-  text-align: center;
+  text-align: center;  
 }
 
-.mt01:hover .mt01_image {
-  opacity: 0.5;
+.mt01:hover .mt01_image { 
+  opacity: 0.5;  
 }
 
-.mt01:hover .mt01_middle {
+.mt01:hover .mt01_middle { 	
   opacity: 1;
 }
 
 .mt01_text a {
 	text-decoration: none;
-	color: #121212;
+	color: #0C0000;
 	font-size: 80px;
+	font-weight: bolder;
 }
 
+.mt01_text p {
+	color: #0C0000;
+	font-size: 25px;
+}
     
 /* 2 */
-#mtdv02 {   
+#mtdv02 {
 	background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 	width: 50%;
-    height: 300px;
-    background-image: url("../images/main/main01.jpg");
+    height: 293px;
+    background-image: url("../images/main/cook.jpg");   
 }
 
 .mt02_image { 
@@ -172,8 +191,14 @@
 
 .mt02_text a {
 	text-decoration: none;
-	color: #121212;
+	color: #0C0000;
 	font-size: 80px;
+	font-weight: bolder;
+}
+
+.mt02_text p {
+	color: #0C0000;
+	font-size: 25px;
 }
     
 /* 3 */
@@ -182,8 +207,8 @@
     background-repeat: no-repeat;
     background-size: cover;
 	width: 50%;
-    height: 300px;
-    background-image: url("../images/comming.jpg");
+    height: 293px;
+    background-image: url("../images/main/newspaper.jpg");
 }
 
 .mt03_image { 
@@ -216,17 +241,53 @@
 
 .mt03_text a {
 	text-decoration: none;
-	color: #121212;
+	color: #0C0000;
 	font-size: 80px;
+	font-weight: bolder;	
 }
 
-/* .text01 { border: 1px solid green;
-	text-decoration: none;
-	font-size: 30px;
-	padding-top: 35%;
-	margin: auto;	
-	width: 700px;
-	height: 500px;
-	color: white;
-	font-weight: bold;
-} */  
+
+.mt03_text p {
+	color: #0C0000;
+	font-size: 25px;
+}
+
+
+#instafeed { /* border: 1px solid black; */
+	padding-top: 400px;
+	padding-left: 200px;
+}
+
+.instaimg{width: 300px; height: 300px;
+	padding: 10px 10px;
+	/* border: 1px solid yellow; */
+}
+
+.instaimg:HOVER {
+	/* background-color: rgba(255,0,201,0.5); */
+	
+	
+	background-image: url("../images/main/star03.jpg");
+}
+
+.instaText {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -180%);
+  color: #121212;
+}    
+
+.instaText p {
+	font-size: 20px;
+}
+
+
+
+
+
+
+
+
+ 
