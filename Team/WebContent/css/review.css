@@ -9,7 +9,7 @@ font-size: 14px; }
 	width: 100%;
 	text-align: center; 
 	 	padding-left:80px;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/backg1.jpg");
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/review/review2.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;	
 }	
@@ -30,7 +30,8 @@ body {
 .review_wrap img { width: 500px; height: 300px;
 	margin: auto; }
 
-button {
+
+#comment_sub, #heart1{
 	border: 1px solid #969696;
 	border-style: outset;
 	box-sizing: border-box;

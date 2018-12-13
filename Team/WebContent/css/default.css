@@ -35,10 +35,12 @@ body{margin: 0px; padding: 0px;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("../images/logo.png");
-    width: 230px; height: 50px;
+    width: 300px; height: 70px;
 	float: left;
+	margin-left:40px;
 	margin-right:50px;
-	margin-top: 10px;
+	margin-top: 5px;
+	
 }
 
 .logoC { 
@@ -49,19 +51,20 @@ body{margin: 0px; padding: 0px;
   
 }
 /* 로고랑 메인메뉴 묶어주는 div */
-#topArea{ /* border: 1px solid red; */
-		width: 1500px;
+#topArea{  /* border: 1px solid red; */
+		width: 100%;
 		height:70px;
 		margin-left:auto;
 		margin-right: auto;
 		 }
 		
 /* 메인메뉴 ul */
-#main_menu { /* border: 1px solid yellow; */
-		width: 1200px;
+#main_menu {  /* border: 1px solid yellow; */ 
+		width: 1300px;
 		height:70px;
+		
 	margin: auto;
-	margin-left:300px;
+	margin-left:510px;
 	/* padding: 30px 0 0 450px; */
 	position: relative;  
 }
@@ -72,16 +75,15 @@ body{margin: 0px; padding: 0px;
 	text-decoration: none;
 	display: inline-block;
     color: #eee;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500px;
-    margin:17px 15px;
+    margin:17px 20px;
     padding: 10px 20px;
     /* margin-right: 10%; */}
 
 .MM:HOVER {
 	border-bottom : 3px solid #670000;
 	cursor: pointer;cursor: hand;
-	color: #990000;
 	transition:color 0.2s;
 }
 /* book 영역 */
@@ -91,7 +93,7 @@ body{margin: 0px; padding: 0px;
 	text-decoration: none;
 	display: inline-block;
 	width:120px; 
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 500;
 	cursor: pointer;
 /* 	border: 1px solid; */
@@ -113,9 +115,8 @@ body{margin: 0px; padding: 0px;
 .logArea{height:70px;margin-top: 30px;
 		color: #eee;
 		}   
-.logArea i{margin-right: 5px;}
-
-.logArea>a, .logArea>span {color: #eee;padding: 8px 18px 6px 18px; }
+.logArea i{margin-right: 7px;}
+.logArea>a, .logArea>span {color: #eee;padding: 0 18px;}
 #login > .material-icons{
 	font-size: 30px;
 	position: absolute;
@@ -502,13 +503,19 @@ footer{
 /* 반응형 main manu */
  @media screen and (max-width: 1100px) {
  	#main_menu { margin-left:60px;}
-	#logo { margin-right:40px;}
-	#minwin_btn{display:block ;}
-}
+	#logo { margin-right:5px;
+			margin-left: 5px; }
+	.MM{ margin:17px 2px; }
+	#book{margin-left: 5px;}
+ }
+  @media screen and (min-width: 1101px) and (max-width: 1300px) {
+ 	#main_menu { margin-left:250px;}
+	.MM{ margin:17px 15px; }
+	#book{margin-left: 20px;}
+ }
 /* 반응형 login버튼 구역 */
-@media screen and (max-width: 1300px) {
-	
-	#login{margin-left: 60px;}
+@media screen and (max-width: 1550px) {
+	#minwin_btn{display:block ;}
 }
 
 

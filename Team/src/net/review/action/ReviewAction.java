@@ -25,11 +25,13 @@ public class ReviewAction implements Action{
 				
 		String location = request.getParameter("location");
 		
-		if(location==null){
+		if(location==null)
+		{
 			
 			location="전체";
 			
 		}
+		
 		List reviewlocation=rd.getLocation(location);
 		
 		
@@ -66,6 +68,7 @@ public class ReviewAction implements Action{
 		CommentDAO cd= new CommentDAO();
 		CommentBean cb= new CommentBean();
 		int review_num1 = cb.getReview_num();
+		
 		int mem_num=cb.getMem_num();
 		List<CommentBean> cobe=null;
 		
@@ -77,9 +80,10 @@ public class ReviewAction implements Action{
 		}
 		
 		LoveDAO ld= new LoveDAO();
-		LoveBean lb=new LoveBean();
-		int review_num2 = lb.getReview_num();
-		int mem_num2=lb.getMem_num();
+		LoveBean lb= new LoveBean();
+		int review_num2=lb.getReview_num();
+		System.out.println(lb.getReview_num()); 
+		int mem_num2;
 		List<LoveBean> lobe=null;
 		
 		
@@ -87,7 +91,6 @@ public class ReviewAction implements Action{
 
 		if(Lcount!=0){
 			lobe=ld.getLoveList1();
-			System.out.println(lb.getLove_num());
 		}
 		
 		
@@ -109,9 +112,9 @@ public class ReviewAction implements Action{
 		
 		ActionForward forward= new ActionForward();
 		forward.setRedirect(false);
-			forward.setPath("/review/review.jsp");
+		forward.setPath("/review/review.jsp");
 			
-			return forward;
+		return forward;
 	}
 
 }

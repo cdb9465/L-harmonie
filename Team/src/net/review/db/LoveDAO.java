@@ -7,19 +7,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 public class LoveDAO {
-	private Connection getConnection()  throws Exception{
-		Connection con= null;//드라이버 불러오기
-		Class.forName("com.mysql.jdbc.Driver");
-		//DB 연결
-		String dbUrl = "jdbc:mysql://localhost:3306/lhdb";
-		String dbId = "jspid";
-		String dbPass = "jsppass";
-		con = DriverManager.getConnection(dbUrl,dbId,dbPass);
-		return con;	
-	}	
+	private Connection getConnection() throws Exception{
+	      
+	      Connection con = null;
+	      // Context 객체 생성
+	      Context init = new InitialContext();
+	      // DateSource = 디비연동 이름 불러오기
+	      DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/MysqlDB");
+	      // con = DataSource
+	      con = ds.getConnection();
 
+	      return con;
+	   }
 	public void insertLove(LoveBean lb)
 	{
 		Connection con = null;
@@ -135,7 +138,7 @@ public class LoveDAO {
 		
 	}
 
-	public List<LoveBean> getLoveList(int review_num, int mem_num){
+	public List<LoveBean> getLoveList(int review_num){
 		
 		
 		Connection con=null;
@@ -147,10 +150,9 @@ public class LoveDAO {
 			con=getConnection();
 			//3 sql
 			
-			 String sql="select * from love where review_num=? mem_num=? order by love_num desc limit 1;";
+			 String sql="select * from love where mem_num=?  order by love_num desc limit 1;";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, review_num);
-			pstmt.setInt(2, mem_num);
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()){
@@ -185,7 +187,7 @@ public List<LoveBean> getLoveList1(){
 			con=getConnection();
 			//3 sql
 			
-			 String sql="select * from love order by love_num desc limit 1;";
+			 String sql="select * from love ";
 			pstmt=con.prepareStatement(sql);
 			//pstmt.setInt(2, review_num);
 			rs=pstmt.executeQuery();
