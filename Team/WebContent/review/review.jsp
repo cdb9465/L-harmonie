@@ -165,7 +165,7 @@ for(int i=0;i<ReviewList.size();i++)
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
 <input type="hidden" name="love_num" value="1">
  <div class="like">
-  <Button type="submit" onclick="style='background-color:pink'">
+  <Button type="submit" onclick="style='background-color:pink'" id="heart1">
   <i class="fa fa-heart" id=heart style="color:red"></i>
   <p>좋아요</p>
   </Button>
@@ -177,30 +177,35 @@ for(int i=0;i<ReviewList.size();i++)
 <td>
 
 <%
- if(Lcount!=0){
+
 	 
-	 
+if(Lcount!=0){	 
  
 
 for(int z=0;z<lobe.size();z++){
 	
 	
     	LoveBean lb=lobe.get(z);
+    	
     	if(rb.getReview_num()==lb.getReview_num()){
-    	System.out.println(lb.getMem_num());
+    	
+    		//System.out.println(lb.getReview_num()); 
     	 	
     	//System.out.println(rb.getFile().split(",")[0]);
     	%>
 
 
 
-<%=lb.getLove_num() %>명이 좋아합니다.</td>
+<%=lb.getLove_num() %>
 <%
     	}
 	}
- }
+ } 
 
 %>
+명이 좋아합니다.
+
+</td>
 <td><div class="content">
   <input type="button"value="글삭제"  onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" id="ddate">
     <br> 
@@ -229,7 +234,7 @@ if(email.equals("admin@team.com")){%>
 <input type="hidden" name="mem_num" value=<%=rb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
    <input type="text" name="content" id="content">
- <button type="submit"><p>댓글등록</p></button>
+ <button type="submit" id="comment_sub"><p>댓글등록</p></button>
 </div>
 </form>
 </td>
