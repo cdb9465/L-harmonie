@@ -2,7 +2,9 @@
 <%@page import="net.member.db.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
 <link href="./css/login.css" rel="stylesheet">
+
 <header>
 <!-- 헤더 들어가는곳 -->
 <% 
@@ -16,76 +18,68 @@ MemberBean mb=mdao.getMember(sess);
 
 <!-- 로고들어가는 곳 시작 -->
 <!-- <div id="logo"><a href ="./Main.ma"><img src="./images/logo.png"></a></div> -->
+<div id="topArea">
 <a href="./Main.ma" id="logo" class="logoC"></a>
 <!-- 로고들어가는 곳 끝 -->
 
 <!-- 메인메뉴 -->
 
-<nav id="main_menu">
-	<a href="./AboutUs.ad" id="MM">ABOUT US</a>
-	<a href="./MenuList.nu" id="MM">MENU</a>
-	<a href="./NewsList.nw" id="MM">NEWS</a>
-	<a href="./ReviewList.re" id="MM">REVIEW</a>
-	<a href="./Book.bk" id="book">BOOK</a>
-</nav>
+<ul id="main_menu">
+	<li><a href="./AboutUs.ad" class = "MM">ABOUT US</a></li>
+	<li><a href="./MenuList.nu" class = "MM">MENU</a></li>
+	<li><a href="./NewsList.nw" class = "MM">NEWS</a></li>
+	<li><a href="./ReviewList.re" class = "MM">REVIEW</a></li>
+	<li><a href="./Book.bk" id = "book">BOOK</a></li>
+
+
 <!-- 예약 버튼 -->
 <!-- <a href="./Book.bk" id="book"></a> -->
 
 <!-- 로그인버튼 -->
 <%//세션값이 없으면 로그인버튼보이기
 if(sess==null){%>
-<span id="login" style="cursor:pointer"onclick="document.getElementById('id01').style.display='block'"><i class="material-icons" >lock_outline</i></span>
-<!-- <input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">	 -->
-<% } else { %>
-	<div id="loginPage">
-		<%=mb.getName()%>님 
-		<%--
-		<%if(sess.equals("admin@team.com"))%><a href="./BookList.ad" id="PageName">AdminPage</a>
-		<%else%>							 <a href="./Mypage.me" id="PageName">MyPage</a>
-		--%>	
-		</div>	
+
+<!-- <input type="button" value="Login" onclick="document.getElementById('id01').style.display='block'">
+	<i class="material-icons" >lock_outline</i>	 -->
+
+	<li class="logArea"><span id="login" style="cursor:pointer" onclick="document.getElementById('id01').style.display='block'">
+							<i class='fas fa-key' style='font-size:18px;'></i> 로그인  </span></li> 
+	<li class="logArea"><a href="./MemberJoin.me"><i class='fas fa-user-plus' style='font-size:18px;'></i> 회원가입  </a></li>
+ 	
+
+
+<% //세션값이 있으면 마이페이지, 로그아웃 보이기
+} else { %>
+
 		<!-- 마이페이지 -->
-		<div class="MPDown">
-  			<button onclick="myFunction()" class="MPDbtn"></button>
-  			
-  			<div id="myMPDown" class="MPDown-content">
-    			<%if(sess.equals("admin@team.com")) {%> <a href="./BookList.ad" id="PageName">AdminPage</a>
-    			<%} else {%>							<a href="./Mypage.me" id="PageName">MyPage</a> <%} %>
-    			<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
-  			</div>
-		</div>
 
-		<script>
-			function myFunction() {
-  				document.getElementById("myMPDown").classList.toggle("Myshow");
-			}
-
-			window.onclick = function(event) {
-  				if (!event.target.matches('.MPDbtn')) {
-    				var MPDowns = document.getElementsByClassName("MPDown-content");
-    				var i;
-    				
-    				for (i = 0; i < MPDowns.length; i++) {
-      					var openMPDown = MPDowns[i];
-      					
-      					if (openMPDown.classList.contains('Myshow')) {
-        					openMPDown.classList.remove('Myshow');
-      					}    				
-    				}  				
-  				}			
-			}
-		</script>
-
-<!-- 		<div class="mypageImg">
-  			<button class="Mydropbtn"></button>
-  			<div class="mypageImg-content">
-    			<a href="./Mypage.me" id="PageName">MyPage</a>
-    			<input type="button" value="Logout" onclick="location.href='./MemberLogout.me'">
-  			</div>
-		</div>	 -->	
-		<!-- <input type="button" onclick="chatBtn()" class="mypageImg"> -->
-		<!-- <input type="button" value="Logout" onclick="location.href='./MemberLogout.me'"> -->
+    			<%if(sess.equals("admin@team.com")) {%> <li class="logArea" id="login"><a href="./BookList.ad" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> AdminPage </a></li>
+    			<%} else {%>							<li class="logArea" id="login"><a href="./Mypage.me" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> MyPage </a></li> 
+    			<%} %>
+    			<li class="logArea"><a href="./MemberLogout.me"><i class='fas fa-power-off' style='font-size:18px;'></i>  로그아웃  </a></li>
+  				
 <% } %>
+		</ul>
+
+
+		
+		<div id="minwin_all">
+			<div id="minwin_btn">
+					<%//세션값이 없으면 로그인버튼보이기
+						if(sess==null){%>
+							<span style="cursor:pointer" onclick="document.getElementById('id01').style.display='block'"><i class='fas fa-key' style='font-size:20px;'></i>Login</span>
+							<a href="./MemberJoin.me"><i class='fas fa-user-plus' style='font-size:20px;'></i>Join</a>
+					<%	} else { %>
+							<%if(sess.equals("admin@team.com")) {%>
+										<a href="./BookList.ad"><i class='fas fa-user-cog' style='font-size:20px;'></i>Admin</a>
+								<%} else {%>	
+										<a href="./Mypage.me"><i class='fas fa-user-cog' style='font-size:20px;'></i>My</a>
+								<%} %>
+										<a href="./MemberLogout.me"><i class='fas fa-power-off' style='font-size:20px;'></i>Out</a>
+						<% } %>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
 

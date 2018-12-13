@@ -31,10 +31,16 @@
   <div class="overlay-content">
    <div class="sm_about">
     <a href="./AboutUs.ad" id="sm_title">ABOUT US</a>
-    <a href="./AboutUs.ad#main3">오시는길</a>
+    <a href="./AboutUs.ad#main3">Find Us</a>
    </div>
    <div class="sm_menu">
     <a href="./MenuList.nu" id="sm_title">MENU</a>
+     <a href="./MenuList.nu">Appetizer</a>
+     <a href="./MenuList.nu">Salad</a>
+     <a href="./MenuList.nu">Steak</a>
+     <a href="./MenuList.nu">Pasta</a>
+     <a href="./MenuList.nu">Dessert</a>
+     <a href="./MenuList.nu">Beverage</a>
    </div>
    <div class="sm_news">
     <a href="./NewsList.nw" id="sm_title">NEWS</a>   
@@ -47,9 +53,9 @@
    </div>
    <div class="sm_mypage">
     <a href="./Mypage.me" id="sm_title">MY PAGE</a>
-    <a href="./Mypage.me#modify">Modify</a>
-    <a href="./Mypage.me#mybook">My Book</a>
-    <a href="./Mypage.me#myreview">My Review</a>
+     <a href="./Mypage.me#main01">Modify</a>
+     <a href="./Mypage.me#main02">My Book</a>
+     <a href="./Mypage.me#main03">My Review</a>
    </div>
   </div>
 </div>
