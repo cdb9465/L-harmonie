@@ -206,11 +206,24 @@ for(int z=0;z<lobe.size();z++){
 명이 좋아합니다.
 
 </td>
-<td><div class="content">
+<td>
+
+<div class="content">
+<%
+MemberDAO mdao1= new MemberDAO();
+MemberBean mbb= mdao1.getMember(email);
+if(rb.getMem_num()==mbb.getMem_num())
+{
+%>
   <input type="button"value="글삭제"  onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" id="ddate">
     <br> 
      <br>
+     <%
+}
+ %>
  </div>
+ 
+ 
 </td>
 </tr>
 
