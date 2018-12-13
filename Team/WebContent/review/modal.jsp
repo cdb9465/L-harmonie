@@ -1,3 +1,7 @@
+<%@page import="net.review.db.ReviewBean"%>
+<%@page import="net.review.db.ReviewDAO"%>
+<%@page import="net.member.db.MemberBean"%>
+<%@page import="net.member.db.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,13 +20,18 @@
 <body>
 
 <%
-Integer mem_num = (Integer)session.getAttribute("mem_num");
+String email=(String)session.getAttribute("email");
+MemberDAO mdao = new MemberDAO();
+MemberBean mb = mdao.getMember(email);
+
+ReviewDAO rdao= new ReviewDAO();
+ReviewBean rb= rdao.getReview1();
 %>
 <div class="container">
   <h2>Modal Example</h2>
   <!-- Button to Open the Modal -->
   
-  <button type="button" class="mm" data-toggle="modal" data-target="#myModal">
+  <button type="button" class="mm" data-toggle="modal" data-target="#myModal" <%-- onclick="location.href='./ReviewList.re?review_num=<%=rb.getReview_num()%>'" --%>>
    리뷰작성
   </button>
 
@@ -57,7 +66,7 @@ Integer mem_num = (Integer)session.getAttribute("mem_num");
  <tr><th>  <div class="title">별점</div></th>
  <td colspan="3">
  <span class="star-input">
-	<span class="input" >
+	<span class="input" required>
     	<input type="radio" class="star-input" value="1" id="p1" name="rating">
     	<label for="p1">1</label>
     	<input type="radio" class="star-input" value="2" id="p2" name="rating">
