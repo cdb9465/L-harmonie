@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 /* 공통 */
-/* input[type=button]:HOVER{cursor: pointer;} */
+input[type=button]:HOVER,
+input[type=submit]:HOVER {cursor: pointer;} 
 /* 상단제목 */
 h1{ margin:0;
 	padding-top:110px;
@@ -10,29 +11,30 @@ h1{ margin:0;
 	
 /* 3구역 배경이미지 지정 */
 .mpbox{
-	height:100%;
+	height:950px;
 	width:100%;
 	position:relative; 
 	background-repeat: no-repeat;
 	background-attachment:fixed;
 	background-size: cover;
   }
-#main0{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");}
-#main1{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback2.jpg");}
-#main2{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback3.jpg");}
+#main0{background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url("../images/mypage/mpback1.jpg");}
+#main1{background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url("../images/mypage/mpback2.jpg");}
+#main2{background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url("../images/mypage/mpback3.jpg");}
 
 
 /* 하얀배경 메인내용 */
-#modify{background-color:rgba(255, 255, 255, 0.4);
+#modify{background-color:rgba(255, 255, 255, 0.5);
 		height:700px; width:800px;
 		margin: 20px auto 0 auto ;
 		position: relative;	}
 #mybook,#myreview{
-		background-color:rgba(255, 255, 255, 0.4);
+		background-color:rgba(255, 255, 255, 0.5);
 		height:700px; width:1300px;
 		margin: 20px auto 0 auto ;
 		position: relative;	
 		}
+/* ---------------------------------1페이지 myInfo--------------------------------------------- */
 /* 테이블영역 */
 #info_update{padding-top: 50px; }/* 전체를 내림 */
 #modify table{margin: 20px auto 0 auto ;}
@@ -40,15 +42,15 @@ h1{ margin:0;
 #modify th{padding: 0;}
 #button_area{padding-top: 50px;}
 #modify input[type=text],#modify input[type=password]{
-		color: #000;
-		background-color: transparent;
+		background-color:rgba(0, 0, 0, 0);
 		border:none;
-		border-bottom:1px solid #000;	
+		border-bottom:1px solid #000;
+		color: #000;
 		font-weight: bold;
 		font-size: 15px;
 		padding: 5px;
 }
-
+#modify input[type=text].on {border: 1px solid red;}
 #modify table p{font-size: 13px; color: #800000;}
 /* 아이콘 */
 #modify i{
@@ -63,7 +65,6 @@ h1{ margin:0;
 	border: none;
 	border-radius:5px;
 	margin-left: 80px;
-	cursor:pointer;
 	}
 #mem_update{
 	/* background-color:#000; */
@@ -73,12 +74,11 @@ h1{ margin:0;
 	border: none;
 	border-radius:5px;
 	margin-left: 60px;
-	cursor:pointer;
 }
 /* #mem_update:HOVER{color:#000;background-color:rgba(0, 0, 0, 0);}
 #mem_delete:HOVER{border: 2px solid #800000;} */
 
-/* ---------------------------------mybook--------------------------------------------- */
+/* ---------------------------------2페이지 mybook--------------------------------------------- */
 /* 예약기간지정 */
 .term{float: left; margin:70px 0 0 90px;}
 .searchDate{overflow:hidden;\*zoom:1;float: left;margin-right:10px;}
@@ -113,7 +113,7 @@ h1{ margin:0;
 /* [조회]버튼 */
 .termSearch{border: 1px solid #000;margin:13px 0 0 20px; padding: 5px 10px;
 			background-color:rgba(0, 0, 0, 0);
-			color: #000; cursor:pointer;}
+			color: #000; }
 /* 총갯수보여주는영역 count */
 .mpcount{ font-size:15px;font-weight: bold; width: 200px;
 		float: right; margin:90px 130px 0 0;}
@@ -160,22 +160,6 @@ h1{ margin:0;
 
 /* ---------------------------------myreview--------------------------------------------- */
 
-
-/* #myreview table th{width: 120px; padding: 20px 0; font-size: 16px;
-				background-color:rgba(0, 0, 0, 0.9); color: #eee; }
-#myreview table th.ps{width: 500px; border: none;}
-#myreview table.mybook_tbl{
-	margin:10px auto;
-	border-collapse:collapse;
-	border-top: 2.5px solid #000;
-	border-bottom: 2.5px solid #000;
-	}
-#myreview table tr.ttl{border-bottom: 1px solid #000;}
-#myreview table td{text-align: center; padding:12px 0;
-				border-bottom: 1px solid #000;}
- */
- 
- 
  /* 리뷰조회 테이블 위치/사이즈 */
 #myreview table th.ps{width: 450px; border: none;}
 
@@ -211,23 +195,6 @@ h1{ margin:0;
 .page2{text-decoration: none;
 		padding:3px; margin-right:5px;
 		color: #000;font-size: 12px;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
