@@ -91,17 +91,19 @@ public class MenuDAO {
 		return count;
 	} //getMenuCount
 	
-	public List<MenuBean> getMenuList() {
+	public List<MenuBean> getMenuList(String category) {
+		List menuList = new ArrayList();
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		List<MenuBean> menulist = new ArrayList<>();
+		String sql = "";
 
 		try{
 			con=getConnection();
-			String sql = "select * from menu";
+			sql = "select * from menu where category=?";
 			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, category);
 			
 			rs=pstmt.executeQuery();
 			
@@ -112,7 +114,7 @@ public class MenuDAO {
 				nu.setName(rs.getString("name"));
 				nu.setFile(rs.getString("file"));
 				nu.setContent(rs.getString("content"));
-				menulist.add(nu);
+				menuList.add(nu);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -121,7 +123,7 @@ public class MenuDAO {
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
-		return menulist;
+		return menuList;
 	}//getBoardList
 	public MenuBean getMenu(int a) {
 		Connection con=null;

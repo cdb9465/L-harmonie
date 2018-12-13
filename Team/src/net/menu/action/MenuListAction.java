@@ -20,8 +20,13 @@ public class MenuListAction implements Action{
 		//NewsDAO ndao 객체생성
 		MenuDAO mdao = new MenuDAO();
 		
-
-		List menuList = mdao.getMenuList();
+		String category = request.getParameter("category");
+		
+		if(category==null) {
+			category="Starter";
+		}
+		
+		List menuList = mdao.getMenuList(category);
 
 		request.setAttribute("menuList", menuList);
 		
