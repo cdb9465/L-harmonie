@@ -6,7 +6,6 @@
     <h1 style="font-size:65px">Create a person's story</h1>
     <p>사람과 공간이 함께 어울릴 수 있도록</p>
   </div>
-
 <div class="mt01">
 
 <!-- <a href="../store/aboutUs.jsp">
