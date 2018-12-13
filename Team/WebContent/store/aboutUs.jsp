@@ -240,6 +240,9 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 
 <!-- 서브메뉴 들어가는 곳 -->
 <jsp:include page="../inc/submenu.jsp"></jsp:include>
+	<!-- 서브메뉴 후버시 나타나는 메뉴 -->
+	<div id="findUs">오시는길</div>  
+		
 <!-- 서브메뉴 들어가는 곳 -->
 
 <!-- 푸터 들어가는 곳 -->
@@ -478,6 +481,14 @@ function zoomIn(mapIndex) {
 }
 function zoomOut(mapIndex) {
     map[mapIndex].setLevel(map[mapIndex].getLevel() + 1);
+}
+
+//서브메뉴 나타내기
+function findUsIn(){
+	document.getElementById('findUs').style.display = "block";
+}
+function findUsOut(){
+	document.getElementById('findUs').style.display = "none";
 }
 
 </script>
