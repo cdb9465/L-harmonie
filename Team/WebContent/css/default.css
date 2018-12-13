@@ -113,7 +113,9 @@ body{margin: 0px; padding: 0px;
 .logArea{height:70px;margin-top: 30px;
 		color: #eee;
 		}   
-.logArea>a, .logArea>span {color: #eee;padding: 0 18px;}
+.logArea i{margin-right: 5px;}
+
+.logArea>a, .logArea>span {color: #eee;padding: 8px 18px 6px 18px; }
 #login > .material-icons{
 	font-size: 30px;
 	position: absolute;
