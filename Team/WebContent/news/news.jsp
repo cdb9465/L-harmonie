@@ -34,7 +34,7 @@ for(int i=0; i<newsList.size(); i++) {
 %>
 <div class="news_column">
     	<div class="news_content">
-    	<img id="myImg" s rc="./upload/<%=nb.getFile()%>" width="100%" height="150px" alt="<%=nb.getTitle()%>" onclick="onClick(this)">
+    	<img id="myImg" src="./upload/<%=nb.getFile()%>" width="100%" height="150px" alt="<%=nb.getTitle()%>" onclick="onClick(this)">
     	<div id="myModal">
     	<span class="news_close">&times;</span>
     	<img id="img01">
