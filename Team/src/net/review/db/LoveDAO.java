@@ -135,7 +135,7 @@ public class LoveDAO {
 		
 	}
 
-	public List<LoveBean> getLoveList(int review_num, int mem_num){
+	public List<LoveBean> getLoveList(int review_num){
 		
 		
 		Connection con=null;
@@ -147,10 +147,9 @@ public class LoveDAO {
 			con=getConnection();
 			//3 sql
 			
-			 String sql="select * from love where review_num=? mem_num=? order by love_num desc limit 1;";
+			 String sql="select * from love where mem_num=?  order by love_num desc limit 1;";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, review_num);
-			pstmt.setInt(2, mem_num);
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()){
@@ -185,7 +184,7 @@ public List<LoveBean> getLoveList1(){
 			con=getConnection();
 			//3 sql
 			
-			 String sql="select * from love order by love_num desc limit 1;";
+			 String sql="select * from love ";
 			pstmt=con.prepareStatement(sql);
 			//pstmt.setInt(2, review_num);
 			rs=pstmt.executeQuery();
