@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 /* 배경영역 */
 #article_fi{font-family: 나눔스퀘어OTF, sans-serif;
-			width: 100%; height: 100%;
+			width: 100%; height: 940px;
 			background-color: #eee;
 			/* 위 메인menu랑 안겹치게 padding값 줌 */
 			background-image:  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url("../images/findback4.png");
