@@ -12,9 +12,9 @@ public class chatDAO {
 	
 	public chatDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/achat";
-			String dbID = "root";
-			String dbPassword = "1234";
+			String dbURL = "jdbc:mysql://localhost:3306/lhdb";
+			String dbID = "jspid";
+			String dbPassword = "jsppass";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
