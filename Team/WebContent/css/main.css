@@ -54,14 +54,14 @@
 	/* The image used */
 	/* background-image: url("../images/main/main01.jpg"); */
 	/* background-color: #fff; */
-	background-color: rgba(0,0,0,0.1);
+	background-color: rgba(12,0,0,0.7);
 	}
 #main2 {
     /* The image used */
 /*     background-image: url("../images/main/star03.jpg");
     background-size: cover;
     background-repeat: no-repeat;	 */
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(12,0,0,0.7);
     
 }
     
@@ -73,7 +73,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -180%);
-  color: #121212;
+  color: #EAEAEA;
 }    
 
 .main2_text p {
