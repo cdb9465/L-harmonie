@@ -20,7 +20,6 @@ public class LoveCountAction implements Action{
 		lb.setReview_num(Integer.parseInt(request.getParameter("review_num")));
 		lb.setLove_num(Integer.parseInt(request.getParameter("love_num")));
 		
-		
 		LoveDAO ld=new LoveDAO(); 
   		ld.insertLove(lb); 
 		ActionForward forward=new ActionForward(); 
