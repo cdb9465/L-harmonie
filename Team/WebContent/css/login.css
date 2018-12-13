@@ -82,8 +82,8 @@
 /* The Close Button (x) */
 .close {
     position: absolute;
-    right: 700px;
-    top: 200px;
+    right: 10%;
+    top: 20%;
     font-size: 30px;
     color: #f1f1f1;
 }

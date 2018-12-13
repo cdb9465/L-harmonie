@@ -53,8 +53,8 @@ if(sess==null){%>
 
 		<!-- 마이페이지 -->
 
-    			<%if(sess.equals("admin@team.com")) {%> <li class="logArea" id="login"><a href="./BookList.ad" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> AdminPage </a></li>
-    			<%} else {%>							<li class="logArea" id="login"><a href="./Mypage.me" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> MyPage </a></li> 
+    			<%if(sess.equals("admin@team.com")) {%> <li class="logArea" id="login"><a href="./BookList.ad" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> 관리자페이지 </a></li>
+    			<%} else {%>							<li class="logArea" id="login"><a href="./Mypage.me" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> 마이페이지 </a></li> 
     			<%} %>
     			<li class="logArea"><a href="./MemberLogout.me"><i class='fas fa-power-off' style='font-size:18px;'></i>  로그아웃  </a></li>
   				
