@@ -88,14 +88,14 @@ if(startPage > pageBlock){
 <%}
 
 for(int i=startPage;i<=endPage;i++){
-	if(currentPage!=i){%><a id="page1" href="/MemberList.ad?pageNum=<%=i%>">
+	if(currentPage!=i){%><a id="page1" href="./MemberList.ad?pageNum=<%=i%>">
 	<%}%>
 	[<%=i %>]</a>
 	<%}
 
 //다음
 if(endPage < pageCount){
-	%><a class="page2" href="./BookList.ad?pageNum=<%=startPage+pageBlock%>">▶</a>
+	%><a class="page2" href="./MemberList.ad?pageNum=<%=startPage+pageBlock%>">▶</a>
 	<%
 }
 %>

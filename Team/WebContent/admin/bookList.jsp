@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="net.admin.db.PageBean"%>
 <%@page import="java.sql.Date"%>
 <%@page import="net.book.db.BookBean"%>
@@ -143,18 +144,18 @@ int currentPage = Integer.parseInt(pageNum);
 <%
 //이전
 if(startPage > pageBlock){
- %><a class="page2" href="./BookList.ad?location=<%=location %>&date=<%=date %>&pageNum=<%=startPage-pageBlock%>">◀</a>
+ %><a class="page2" href="./BookList.ad?location=<%=URLEncoder.encode(location,"utf-8")%>&date=<%=date %>&pageNum=<%=startPage-pageBlock%>">◀</a>
 <%}
 
 for(int i=startPage;i<=endPage;i++){
-	if(currentPage!=i){%><a id="page1" href="/BookList.ad?location=<%=location %>&date=<%=date %>&pageNum=<%=i%>">
+	if(currentPage!=i){%><a id="page1" href="./BookList.ad?location=<%=URLEncoder.encode(location,"utf-8")%>&date=<%=date %>&pageNum=<%=i%>">
 	<%}%>
 	[<%=i %>]</a>
 	<%}
 
 //다음
 if(endPage < pageCount){
-	%><a class="page2" href="./BookList.ad?location=<%=location %>&date=<%=date %>&pageNum=<%=startPage+pageBlock%>">▶</a>
+	%><a class="page2" href="./BookList.ad?location=<%=URLEncoder.encode(location,"utf-8")%>&date=<%=date %>&pageNum=<%=startPage+pageBlock%>">▶</a>
 	<%
 }
 %>
