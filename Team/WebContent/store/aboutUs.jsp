@@ -59,6 +59,12 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
 
+<!-- 서브메뉴 들어가는 곳 -->
+<jsp:include page="../inc/submenu.jsp"></jsp:include>
+	<!-- 서브메뉴 후버시 나타나는 메뉴 -->
+	<div id="subon">Find Us</div>  
+<!-- 서브메뉴 들어가는 곳 -->
+
 <!-- 본문 -->
 <div class="main_box" id="main0">
  <div class="main0_txt">
@@ -237,13 +243,6 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 </div>
 
 <!-- 본문 -->
-
-<!-- 서브메뉴 들어가는 곳 -->
-<jsp:include page="../inc/submenu.jsp"></jsp:include>
-	<!-- 서브메뉴 후버시 나타나는 메뉴 -->
-	<div id="findUs">오시는길</div>  
-		
-<!-- 서브메뉴 들어가는 곳 -->
 
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
@@ -484,11 +483,11 @@ function zoomOut(mapIndex) {
 }
 
 //서브메뉴 나타내기
-function findUsIn(){
-	document.getElementById('findUs').style.display = "block";
+function subOn(){
+	document.getElementById('subon').style.display = "block";
 }
-function findUsOut(){
-	document.getElementById('findUs').style.display = "none";
+function subOff(){
+	document.getElementById('subon').style.display = "none";
 }
 
 </script>

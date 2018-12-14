@@ -22,8 +22,12 @@
 				document.fr1.content.focus();
 				return;
 			}
-			
 	    	document.fr1.submit();
+	    	
+	    	alert("메일 전송완료");
+			window.close();
+			
+			
 		} 
 	</script>
 </head>
@@ -45,7 +49,7 @@ if(id == null){
 <body>
     <div id="mailtable">
         <form action="sendMail.jsp" method="post" name="fr1">
-    		<h1>E-mail 문의</h1>
+    		<h1>메일 문의</h1>
             <table id="t1">
                 <!-- <tr><th colspan="2">E-mail 문의</th></tr> -->
                 <tr><td>
