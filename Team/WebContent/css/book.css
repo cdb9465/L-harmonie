@@ -93,8 +93,16 @@ article#bookck_art {width: 1300px; height: 600px;
 
 .slotAct{
 	background-color: #424a52;
-	color: #d3e0f1;
-}
+	color: #d3e0f1; }
+
+.slotDisable{
+	background-color: #8a8a8a;
+	color: #424a52;	}
+
+.slotDisable:HOVER{
+	background-color: #8a8a8a !important;
+	color: #424a52 !important;	}
+
 .slot:HOVER{
 	background-color: #424a52;
     color: #ffffff; }

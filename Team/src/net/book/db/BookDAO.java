@@ -122,7 +122,44 @@ public class BookDAO {
 		return bb;
 	}
 
-	public List<BookBean> testBook(BookBean bb)
+	public int getTableCount(BookBean bb, String time)
+	{
+		int count = 0;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			//1,2단계 메서드 호출
+			con = getConnection();
+			
+			//3 sql
+			String sql = "select count(*) from book where location=? and date=? and time=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bb.getLocation());
+			pstmt.setDate(2, bb.getDate());
+			pstmt.setString(3, time);
+			
+			//4 저장 <=결과 실행
+			rs=pstmt.executeQuery();
+
+			//5 첫행에 데이터 있으면 글개수 count
+			if(rs.next())
+				count = rs.getInt("count(*)");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(pstmt!=null)	try {pstmt.close();} catch (SQLException ex){}
+			if(con!=null) try {con.close();} catch (SQLException ex){}
+			if(rs!=null) try{rs.close();} catch(SQLException ex){}	
+		}		
+		
+		return count;
+	}
+	
+	public List<BookBean> getDisableTable(BookBean bb)
 
 	{
 		List<BookBean> list = new ArrayList<BookBean>();
@@ -133,7 +170,7 @@ public class BookDAO {
 		
 		try{
 			con = getConnection();
-			
+
 			//sql 생성
 			String sql = "select * from book where location=? and date=? and time=?";
 			pstmt = con.prepareStatement(sql);
