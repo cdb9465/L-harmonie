@@ -146,15 +146,21 @@ history.back();
 <div class="panel">
  <div class="request">
   <label class="label">요청사항</label><br>
-  <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label>
-  <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br>
-  <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없습니다<br>
-  <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있습니다<br>
-  <input type="text" id="detail" placeholder="구체적으로" size="30"><br>
-  <label>특별 요청</label>
-  <textarea cols="80" rows="10" name="special"></textarea>
+  <!-- <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label><br>
+  <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br> -->
+  <div id="alergy">
+   <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없음
+   <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있음<br>
+   <input type="text" id="detail" placeholder="알러지 정보를 구체적으로 작성해주세요." size="70"><br>
+  </div>
+  
+  <div id="req">
+   <label>특별 요청</label>
+   <textarea cols="80" rows="10" name="special"></textarea>
+  </div>
+  
    <input type="hidden" name="request">
- </div> 
+ </div>
 </div>
 </div>
 <!-- 4단계 (요청사항)-->
@@ -282,7 +288,6 @@ $(document).ready(function(){
 				$.each(res, function(index, item){
 					disableTime(item);
 				});
-
 			}
 
 		});		
@@ -294,8 +299,6 @@ $(document).ready(function(){
 		var l = document.bf.location.value;
 		var t = document.bf.time.value;
 		var d = document.bf.date.value;
-		
-		//initTable(); //시간변경시 테이블선택 초기화
 		
 		$.ajax({
 	 		data : {location:l, date:d, time:t},

@@ -64,6 +64,7 @@ h1 {
 	width: 100px;
 	/* background-color: rgba(204, 204, 204, 0.7); */
 	background-color: rgba(234, 234, 234, 0.5);
+	cursor: pointer;
 }
 
 #mailtable td input[type=reset] {
@@ -75,6 +76,7 @@ h1 {
 	padding: 7px 10px;
 	width: 100px;
 	background-color: rgba(234, 234, 234, 0.5);
+	cursor: pointer;
 }
 
 
