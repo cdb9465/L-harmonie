@@ -13,7 +13,6 @@ h1#title{ margin:0;
 	width:100%;
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-attachment:fixed; 
 	padding-bottom: 20px; }
 
 #sec1_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");}
@@ -100,26 +99,19 @@ h1#title{ margin:0;
 .write table p{font-size: 13px; color: #800000;}
 
 /* submit, reset 버튼 */
-#btnSubmit{
+#btnSubmit, #btnReset{
 	background-color:#000;
 	padding:10px 20px;
 	color: #eee;
 	font-weight:bold;
-	border: 2px solid #000;
+	border: none;
 	border-radius:5px;
-	margin-left: 60px; }
-	
-#btnReset {
-	background-color:rgba(0, 0, 0, 0);
-	padding:10px 20px;
-	color: #000;
-	font-weight:bold;
-	border: 2px solid #000;
-	border-radius:5px;
-	margin-left: 80px; }
+}
+#btnSubmit{ margin-left: 60px; }
+#btnReset {	margin-left: 80px; }
 
-#btnSubmit:HOVER{color:#000;background-color:rgba(0, 0, 0, 0);}
-#btnReset:HOVER{border: 2px solid #800000;}
+#btnSubmit:HOVER, #btnReset:HOVER{color:#000;
+	background-color:#800000; }
 
 /************************************************************/
 /* 예약조회테이블 */
