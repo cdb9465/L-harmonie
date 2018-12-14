@@ -118,7 +118,7 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 
 <!-- 4번째 메인 -->
 <div class="main_box" id="main3">
- <h1 id="title">오시는길 </h1>
+ <h1 id="title">FIND US</h1>
 <!-- 지도 -->
 <div class="map_wrap">
  <div class="mapdiv" id="mapSeomyeon">
