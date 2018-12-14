@@ -21,11 +21,6 @@ article#book_art {width: 1300px; height: 700px;
 	position: relative;
 	background-color:rgba(255,255,255,0.7);}
 	
-article#bookck_art {width: 1300px; height: 600px;
-	margin: 20px auto;
-	position: relative;
-	background-color:rgba(255,255,255,0.7); }
-
 /* 예약 네비게이션 메뉴바  */
 .book_nav{ width: 100%; height: 120px;
 	background-color: #000; }
@@ -125,9 +120,6 @@ article#bookck_art {width: 1300px; height: 600px;
 
 #nextBtn { right: 10px; bottom: 10px;}
 
-#bookCheckbtn{ left: 45%; bottom: 5%;
-	width: 140px; !important}
-	
 /* 2단계 날짜설명 */
 #dateDesc { position: absolute;
 	top: 200px; right: 50px;
@@ -215,7 +207,7 @@ article#bookck_art {width: 1300px; height: 600px;
 
 
 /* 5단계 확인 완료 */
-table#confirm{
+/* table#confirm{
 	margin: 20px auto 0 auto;
 }
 
@@ -225,20 +217,44 @@ table#confirm th{
 
 table#confirm td{
 	padding: 15px 0;
-}
+} */
 
 	
 /* BookCheck */
+article#bookck_art {width: 900px; height: 600px;
+	margin: 20px auto;
+	position: relative;
+	background-color:rgba(255,255,255,0.7); }
 
 .bookCk .chTitle{text-align: center;}
-.bookCk p{
-	font-size: 20px;
-	display: inline-block;
-	margin-left: 50px; }
 
-.bookCk table{margin: 20px 0 0 50px; }
-.bookCk td{padding: 15px 20px;}
+.bookCk p {
+	text-align: center;
+	margin: 0 ;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	font-size: 30px;
+	font-weight: bold; }
 
+.bookCk table, table#confirm{margin: 10px auto;
+	border-collapse: collapse;}
+
+.bookCk td, .bookCk th,table#confirm th,table#confirm td{padding: 13px 20px 13px 15px;
+	font-size: 15px;
+	font-weight: bold;
+	border: 1px solid;
+	}
+
+.bookCk td, table#confirm td{
+	font-weight: bolder;
+	width: 400px;
+	text-align: left;}
+	
+.bookCk td#booknote{
+	border: none; !important;}
+
+#bookCheckbtn{ left: 40%; bottom: 5%;
+	width: 140px; !important}
 
 
 

@@ -13,7 +13,6 @@ h1#title{ margin:0;
 	width:100%;
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-attachment:fixed; 
 	padding-bottom: 20px; }
 
 #sec1_mypage{background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/mpback1.jpg");}
