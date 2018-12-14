@@ -52,6 +52,8 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 String email=(String)session.getAttribute("email");
 String location=(String)session.getAttribute("location");
 List<ReviewBean> reviewlocation=(List)request.getAttribute("reviewlocation");
+MemberDAO mdao1= new MemberDAO();
+MemberBean mbb= mdao1.getMember(email);
 %>
 
 
@@ -100,7 +102,7 @@ for(int i=0;i<ReviewList.size();i++)
 </tr>
 
 
-<tr><th colspan='2'>
+<tr><th colspan='3'>
  
  <div class="rating">
  <%	
@@ -110,7 +112,7 @@ for(int i=0;i<ReviewList.size();i++)
 	%>
 </div>
 </th>
-<td>정말 놀라웠어요~!</td>
+
 </tr>
 
 
@@ -124,15 +126,33 @@ for(int i=0;i<ReviewList.size();i++)
 <div class="container">
 <!-- 썸네일 이미지 목록 -->
  <div class="row">
+ <%
+ if(rb.getFile().split(",")[0]!=null){
+ %>
   <div class="column">
   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(<%=i%>,1)" alt="">
   </div>
+  <%
+ }
+  %>
+   <%
+ if(rb.getFile().split(",")[1]!=null){
+ %>
   <div class="column">
    <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[1] %>" style= "width:100%" onclick="currentSlide(<%=i%>,2)" alt="">
-  </div>  
+  </div> 
+    <%
+ }
+  %> 
+   <%
+ if(rb.getFile().split(",")[2]!=null){
+ %>
   <div class="column">
    <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[2] %>" style="width:100%" onclick="currentSlide(<%=i%>,3)" alt="">
   </div>
+   <%
+ }
+  %>
  </div>
  <!-- 썸네일 이미지 목록 끝 --> 
 
@@ -140,16 +160,35 @@ for(int i=0;i<ReviewList.size();i++)
  <div class="review_pic">
   <a class="prev" onclick="plusSlides(<%=i%>,-1)">❮</a>
   <a class="next" onclick="plusSlides(<%=i%>,1)">❯</a>
+   <%
+ if(rb.getFile().split(",")[0]!=null){
+ %>
   <div class="mySlides">
    <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(<%=i%>,1)"> 
 
   </div>
+     <%
+ }
+  %>
+    <%
+ if(rb.getFile().split(",")[1]!=null){
+ %>
   <div class="mySlides">
    <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[1] %>" onclick="currentSlide(<%=i%>,2)">
   </div>
+     <%
+ }
+  %>
+    <%
+ if(rb.getFile().split(",")[2]!=null){
+ %>
+  
   <div class="mySlides">
    <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[2] %>" onclick="currentSlide(<%=i%>,3)">
   </div>
+     <%
+ }
+  %>
  </div>
  <!-- 사진펼침 끝 -->
 </div>
@@ -161,7 +200,7 @@ for(int i=0;i<ReviewList.size();i++)
 <tr><td> 
 <form action="./LoveCountAction.re"  method="post">
 <div class="content">
-<input type="hidden" name="mem_num" value=<%=rb.getMem_num()%>>
+<input type="hidden" name="mem_num" value=<%=mbb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
 <input type="hidden" name="love_num" value="1">
  <div class="like">
@@ -178,7 +217,7 @@ for(int i=0;i<ReviewList.size();i++)
 
 <%
 
-	 
+	int lovecount = 0; 
 if(Lcount!=0){	 
  
 
@@ -187,22 +226,22 @@ for(int z=0;z<lobe.size();z++){
 	
     	LoveBean lb=lobe.get(z);
     	
-    	if(rb.getReview_num()==lb.getReview_num()){
-    	
-    		//System.out.println(lb.getReview_num()); 
-    	 	
-    	//System.out.println(rb.getFile().split(",")[0]);
+   	if(rb.getReview_num()==lb.getReview_num()){
+    	System.out.println("review게시판 번호" + rb.getReview_num());
+    	System.out.println("좋아요 게시판 번호" + lb.getReview_num());
+    	lovecount+=1;
     	%>
 
 
 
-<%=lb.getLove_num() %>
+
 <%
     	}
 	}
  } 
 
 %>
+<%=lovecount %>
 명이 좋아합니다.
 
 </td>
@@ -210,8 +249,7 @@ for(int z=0;z<lobe.size();z++){
 
 <div class="content">
 <%
-MemberDAO mdao1= new MemberDAO();
-MemberBean mbb= mdao1.getMember(email);
+
 if(rb.getMem_num()==mbb.getMem_num())
 {
 %>
@@ -246,7 +284,7 @@ if(email.equals("admin@team.com")){%>
 <div class="comment">
 <input type="hidden" name="mem_num" value=<%=rb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
-   <input type="text" name="content" id="content">
+   <input type="text" name="content" id="content"> 
  <button type="submit" id="comment_sub"><p>댓글등록</p></button>
 </div>
 </form>

@@ -39,7 +39,7 @@ h1 {
 	padding: 10px 10px;
 	margin-left: 20px;
 	width: 400px;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(234, 234, 234, 0.5);
 	border: 1px solid #191919; 
 	border-radius: 3px 3px;
 }
@@ -48,7 +48,8 @@ h1 {
 	padding: 10px 10px;
 	margin-left: 20px;
 	width: 400px;
-	background-color: rgba(0, 0, 0, 0.3);
+	/* background-color: rgba(0, 0, 0, 0.1); */
+	background-color: rgba(234, 234, 234, 0.5);
 	border: 1px solid #191919; 
 	border-radius: 3px 3px;
 }
@@ -61,7 +62,9 @@ h1 {
 	margin-left: 300px;
 	padding: 7px 10px;
 	width: 100px;
-	background-color: rgba(204, 204, 204, 0.7);
+	/* background-color: rgba(204, 204, 204, 0.7); */
+	background-color: rgba(234, 234, 234, 0.5);
+	cursor: pointer;
 }
 
 #mailtable td input[type=reset] {
@@ -72,7 +75,8 @@ h1 {
 	margin-left: 20px;
 	padding: 7px 10px;
 	width: 100px;
-	background-color: rgba(204, 204, 204, 0.7);
+	background-color: rgba(234, 234, 234, 0.5);
+	cursor: pointer;
 }
 
 

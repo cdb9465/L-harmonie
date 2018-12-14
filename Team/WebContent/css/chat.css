@@ -1,18 +1,25 @@
 @CHARSET "UTF-8";
 
+body {
+	background-image: url("../images/main/woodbackground.jpg");	
+}
 
-img { width: 30px; height: 30px; }
+/* .row {
+	color: #fff;
+}
+ */
 
+ 
  .portlet {
     margin-bottom: 15px;
 }
 
-.btn-white {
+/* .btn-white {
     border-color: #cccccc;
     color: #333333;
     background-color: #ffffff;
 }
-
+ */
 .portlet {
     border: 1px solid;
 }
@@ -78,7 +85,7 @@ img { width: 30px; height: 30px; }
 .portlet .portlet-footer ul {
     margin: 0;
 }
-
+/* 
 .portlet-green,
 .portlet-green>.portlet-heading {
     border-color: #16a085;
@@ -128,12 +135,13 @@ img { width: 30px; height: 30px; }
     color: #fff;
     background-color: #8e44ad;
 }
-
+ */
 .portlet-default,
 .portlet-dark-blue,
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {
     border-color: #34495e;
+    background-image: url("../images/main/woodbackground.jpg");
 }
 
 .portlet-default>.portlet-heading,

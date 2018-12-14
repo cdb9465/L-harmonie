@@ -114,7 +114,8 @@ if(sess==null){%>
   <div class="overlay-content">
    <div class="sm_about">
     <a href="./AboutUs.ad" id="sm_title">ABOUT US</a>
-    <a href="./AboutUs.ad#main3">Find Us</a>
+     <a href="./AboutUs.ad">About Us</a>
+     <a href="./AboutUs.ad#main3">Find Us</a>
    </div>
    <div class="sm_menu">
     <a href="./MenuList.nu" id="sm_title">MENU</a>
@@ -126,19 +127,22 @@ if(sess==null){%>
      <a href="./MenuList.nu">Beverage</a>
    </div>
    <div class="sm_news">
-    <a href="./NewsList.nw" id="sm_title">NEWS</a>   
+    <a href="./NewsList.nw" id="sm_title">NEWS</a>
+      <a href="./NewsList.nw">News</a>
    </div>
    <div class="sm_review">
     <a href="./ReviewList.re" id="sm_title">REVIEW</a>
+     <a href="./ReviewList.re" >Review</a>
    </div>
    <div class="sm_book">
     <a href="./Book.bk" id="sm_title">BOOK</a>
+     <a href="./Book.bk" >Book</a>
    </div>
    <div class="sm_mypage">
     <a href="./Mypage.me" id="sm_title">MY PAGE</a>
-     <a href="./Mypage.me#main1">My Page</a>
-     <a href="./Mypage.me#main2">My Book</a>
-     <a href="./Mypage.me#main3">My Review</a>
+     <a href="./Mypage.me#main0">My Page</a>
+     <a href="./Mypage.me#main1">My Book</a>
+     <a href="./Mypage.me#main2">My Review</a>
    </div>
   </div>
 </div>

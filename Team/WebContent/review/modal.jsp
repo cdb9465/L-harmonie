@@ -54,28 +54,29 @@ ReviewBean rb= rdao.getReview1();
  <div class="write_location"  >
  <tr><th><div class="title">지점선택</div></th>
  <td colspan="3">
-  <select name="sel_location">
-  <option value="선택">선택</option>
+  <select name="sel_location" required>
+  <option selected disabled value="">선택</option>
    <option value="서울강남점">서울강남점</option>
    <option value="부산서면점">부산서면점</option>
   </select></td></tr>
  </div>
  <div class="clear"></div>
-<tr><th><div class="title">작성자</div></th><td><input type="text" name="mem_num" value="<%=1%>" readonly></td></tr>
+<tr><th><div class="title">작성자</div></th><td><%=mb.getName() %>
+<input type="hidden" name="mem_num" value="<%=rb.getMem_num()%>" readonly></td></tr>
  <div class="write_rating" >
  <tr><th>  <div class="title">별점</div></th>
  <td colspan="3">
  <span class="star-input">
-	<span class="input" required>
-    	<input type="radio" class="star-input" value="1" id="p1" name="rating">
+	<span class="input" >
+    	<input type="radio" class="star-input" value="1" id="p1" name="rating"required>
     	<label for="p1">1</label>
-    	<input type="radio" class="star-input" value="2" id="p2" name="rating">
+    	<input type="radio" class="star-input" value="2" id="p2" name="rating"required>
     	<label for="p2">2</label>
-    	<input type="radio" class="star-input" value="3" id="p3" name="rating">
+    	<input type="radio" class="star-input" value="3" id="p3" name="rating"required>
     	<label for="p3">3</label>
-    	<input type="radio" class="star-input" value="4" id="p4" name="rating">
+    	<input type="radio" class="star-input" value="4" id="p4" name="rating"required>
     	<label for="p4">4</label>
-    	<input type="radio" class="star-input" value="5" id="p5" name="rating">
+    	<input type="radio" class="star-input" value="5" id="p5" name="rating"required>
     	<label for="p5">5</label>
     	</span>
     	<output for="star-input"><b>0</b>점</output>	
@@ -107,7 +108,8 @@ ReviewBean rb= rdao.getReview1();
         <!-- Modal footer -->
         <div class="modal-footer">
 
-         <button type="submit">리뷰등록</button>
+         <button type="submit" style="margin-left:100px; margin-right:auto;">리뷰등록</button>
+         <button type="reset">다시작성</button>
         </div>
         </form>
         </div>

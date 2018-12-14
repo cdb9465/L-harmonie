@@ -146,15 +146,24 @@ history.back();
 <div class="panel">
  <div class="request">
   <label class="label">요청사항</label><br>
-  <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label>
-  <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br>
-  <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없습니다<br>
-  <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있습니다<br>
-  <input type="text" id="detail" placeholder="구체적으로" size="30"><br>
-  <label>특별 요청</label>
-  <textarea cols="80" rows="10" name="special"></textarea>
+  <!-- <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label><br>
+  <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br> -->
+  <div id="alergy">
+   <label>알러지 여부</label>
+   <span id="rad">
+    <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없습니다.
+    <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있습니다.
+    <input type="text" id="detail" placeholder="ex) 갑각류 알러지" size="20"><br>
+   </span>
+  </div>
+  
+  <div id="req">
+   <label>특별 요청사항</label>
+   <textarea cols="50" rows="10" name="special"></textarea>
+  </div>
+  
    <input type="hidden" name="request">
- </div> 
+ </div>
 </div>
 </div>
 <!-- 4단계 (요청사항)-->
@@ -247,6 +256,9 @@ $(document).ready(function(){
 				{
 					$('#dateval').val(date);				
 				}
+				
+				initTime();//날짜변경시 시간선택 초기화
+				getDisableTime();
  			}
 		});
 
@@ -259,34 +271,60 @@ $(document).ready(function(){
 	});
 	
 	//테이블 중복제어
-	 $("#time").click(function(){
-		 
+ 	$("#time").click(function(){
+ 		initTable(); 	//시간변경시 테이블선택 초기화	 
+ 		getDisableTable();
+ 	});
+
+	function getDisableTime()
+	{
+		var l = document.bf.location.value;
+		var d = document.bf.date.value;
+		
+		$.ajax({
+	 		data : {location:l, date:d},
+	 		type : 'POST',
+	 		url : './BookDisableTime.bk',
+			success : function(data){
+				var res = data.split(',');
+				
+				$.each(res, function(index, item){
+					disableTime(item);
+				});
+			}
+
+		});		
+	}
+	
+
+	function getDisableTable()
+	{
 		var l = document.bf.location.value;
 		var t = document.bf.time.value;
 		var d = document.bf.date.value;
 		
-		initTable(); //시간변경시 테이블선택 초기화
-	
 		$.ajax({
 	 		data : {location:l, date:d, time:t},
 	 		type : 'POST',
-	 		url : './BookTest.bk',
+	 		url : './BookDisableTable.bk',
 	 		//dataType : 'html',
 			success : function(data){
 				var res = data.split(',');
-				
+
 				$.each(res, function(index, item){
 					disableTable(item-1);
 				});
 
 				//$('#t1').attr('class','tabl tfor2Act');
 			
-// 				$('#t1').css({
-// 					"background-image":"url('./images/book/table2_g.png');"
+ 				//$('#t1').css({
+ 				//	"background-image":"url('./images/book/table2_g.png');"
 			}
 
-		}); 
-	}); 
+		});
+	}
+	
+		
 		
 });
 </script>

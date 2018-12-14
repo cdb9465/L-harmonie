@@ -32,11 +32,13 @@ public class FindPassAction implements Action{
 		
 		if(findPass==null){		
 			//자바에서 JSP구문 쓸때 ↓ 아래 형식으로 사용
+			int a = 2;
+			request.setAttribute("a",a);
 			response.setContentType("text/html; charset=UTF-8");	
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('조회된 회원정보가 없습니다. 입력 정보를 다시 확인해주세요.');");
-			out.println("location.href='./FindIdPass.me'");
+			out.println("location.href='./FindIdPass.me?a=passOpen'");		
 			out.println("</script>");
 			out.close();		
 			return null;

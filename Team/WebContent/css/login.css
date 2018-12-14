@@ -38,15 +38,16 @@
 .cancelbtn, .signupbtn {
 	padding: 14px 20px;
 	border:none;
+	color:#eee;
 	font-weight: bold;
 	float: left;
 	width: 50%; }
 /* 로그인버튼 */
-.signupbtn{background-color: #3b3b3b;}
-.signupbtn:HOVER{background-color: #000;color:#eee;}
+.signupbtn{background-color: #000;}
+.signupbtn:HOVER{background-color: #111111;cursor: pointer;}
 /* 취소버튼 */
-.cancelbtn {background-color: #f44336;}
-.cancelbtn:HOVER{background-color: #c1180b;color:#eee;}
+.cancelbtn {background-color: #971309;color: #000}
+.cancelbtn:HOVER{background-color: #b9170b;cursor: pointer;}
 
 /* Add padding to container elements */
 .container {

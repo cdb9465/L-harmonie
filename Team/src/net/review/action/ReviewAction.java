@@ -82,7 +82,6 @@ public class ReviewAction implements Action{
 		LoveDAO ld= new LoveDAO();
 		ReviewBean lb= new ReviewBean();
 		int review_num2=lb.getReview_num();
-		System.out.println(lb.getReview_num()); 
 		int mem_num2;
 		List<LoveBean> lobe=null;
 		
@@ -90,7 +89,7 @@ public class ReviewAction implements Action{
 		int Lcount = ld.getLoveCount();
 
 		if(Lcount!=0){
-			lobe=ld.getLoveList(review_num1);
+			lobe=ld.getLoveList(reviewList);
 		}
 		
 		

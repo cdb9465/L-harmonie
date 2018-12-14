@@ -80,7 +80,7 @@ body{margin: 0px; padding: 0px;
     /* margin-right: 10%; */}
 
 .MM:HOVER {
-	border-bottom : 3px solid #670000;
+	border-bottom : 3px solid #fff;
 	cursor: pointer;cursor: hand;
 	transition:color 0.2s;
 }
@@ -468,16 +468,17 @@ footer{
     padding: 8px;
     text-decoration: none;
     color: #818181;
-    font-size: 20px;
+    font-size: 25px;
     transition: 0.3s;
     vertical-align: top;}
 
 .overlay a#sm_title{
 	font-size: 36px;
 	font-weight: 500;
-	color: #fff;}
+	color: #fff;
+	padding-bottom: 2px;}
 
-.overlay a#sm_title:HOVER{text-decoration: underline;}
+.overlay a#sm_title:HOVER{border-bottom: 2px solid #fff;}
 
 .sm_about>a, .sm_menu>a, .sm_news>a, .sm_review>a, .sm_book>a, .sm_mypage>a{
 	display: block;}
