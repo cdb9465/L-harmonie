@@ -24,7 +24,7 @@
 			}
 	    	document.fr1.submit();
 	    	
-	    	alert("메일 전송완료");
+	    	alert("전송완료");
 			window.close();
 			
 			
