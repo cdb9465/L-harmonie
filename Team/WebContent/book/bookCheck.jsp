@@ -27,87 +27,65 @@
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
 
-<!-- <img src="../images/comming.jpg" alt="준비중입니다." width="100%" id="img2"> -->
-
 <!-- 본문 -->
 <div id="wrap">
-<article>
 <div id="book_form">
 <%
 request.setCharacterEncoding("utf-8");
 BookBean bb = (BookBean)request.getAttribute("bb");
-
-/*
-String location = request.getParameter("location");
-//String date = request.getParameter("date");
-Date date = Date.valueOf(request.getParameter("date"));
-String time = request.getParameter("time");
-String guest = request.getParameter("guest");
-String tablenum = request.getParameter("tablenum");
-String req = request.getParameter("request");
-
-//날짜파싱
-DateFormat df = new SimpleDateFormat("yyyyMMdd");
-//String sDate = df.format(date);
-*/
-
 %>
 <div class="bookCk">
-
 <div class="chTitle">
 <img src="./images/logo.png"><br>
 <h1 id="title">예약이 완료되었습니다.</h1>
 </div>
 <article id="bookck_art">
-<p>예약정보> </p>
-<hr>
+<p>BOOK INFO </p>
 
 <table>
  <tr>
-  <td>예약 번호</td>
+  <th>예약 번호 </th>
   <td><%=bb.getBook_num() %></td>
  </tr>
  <tr>
-  <td>예약 지점</td>
+  <th>예약 지점 </th>
   <td><%=bb.getLocation() %></td>
  </tr>
  <tr>
-  <td>예약 인원</td>
+  <th>예약 인원 </th>
   <td><%=bb.getGuest() %></td>
  </tr>
  <tr>
-  <td>예약 날짜</td>
+  <th>예약 날짜 </th>
   <td><%=bb.getDate() %></td>
  </tr>
  <tr>
-  <td>예약 시간</td>
+  <th>예약 시간 </th>
   <td><%=bb.getTime() %></td>
  </tr>
  <tr>
-  <td>예약 테이블</td>
+  <th>예약 테이블 </th>
   <td><%=bb.getTablenum() %></td>
   </tr>
  <tr>
-  <td>그 외 요청사항</td>
+  <th>그 외 요청사항 </th>
   <td><%=bb.getRequest() %></td>
  </tr>
-
+ <tr>
+  <td id="booknote" colspan="2"><i class="fa fa-check"></i> 마이페이지에서 예약취소가 가능합니다.<br>
+  	<i class="fa fa-check"></i> 당일예약취소는 <b style="text-decoration: underline;">불가능</b>합니다.<br>
+  	<i class="fa fa-check"></i> 버튼을 누르시면 마이페이지로 이동합니다.</td>
+ </tr>
 </table>
+
 <input type="button" id="bookCheckbtn" onclick="location.href='./Mypage.me#main1'" value="예약현황보기">
+
 </article>
-</div>
-<%-- 예약 지점 :<%=location %><br>
-예약 날짜 :<%=date %><br>
-날짜2 <%=sDate %><br>
-예약 시간 : <%=time %><br>
-예약 인원 : <%=guest %><br>
-예약 테이블 : <%=tablenum %><br>
-예약 요청 : <%=req %> --%> 
-
-
 
 </div>
-</article>
+
+</div>
+
 </div>
 
 <!-- 푸터 들어가는 곳 -->

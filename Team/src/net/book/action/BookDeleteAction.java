@@ -15,14 +15,14 @@ public class BookDeleteAction implements Action{
 		request.setCharacterEncoding("utf-8");
 		
 		//book_num 받아오기
-		String book_num = request.getParameter("num");
+		String book_num = request.getParameter("book_num");
 		
 		//BookDAO 객체 생성
 		BookDAO bdao = new BookDAO();
 		
 		//bookDelete()함수호출
 		bdao.bookDelete(book_num);
-		
+
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("Mypage.me?#main1");
