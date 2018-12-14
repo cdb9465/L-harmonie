@@ -56,6 +56,6 @@ try{
     return;
 }
  
-out.println("<script>alert('메일전송완료');location.href='mailForm.jsp';</script>");
+/* out.println("<script>alert('메일전송완료');location.href='mailForm.jsp';</script>"); */
 // 성공 시
 %>

@@ -73,7 +73,7 @@ function closeNav() {
 
 /* 메일 */
 function mailSend(){    	
-	window.open('./mail/mailForm.jsp','메일문의','width=650,height=430,left=630,top=270');
+	window.open('./mail/mailForm.jsp','메일문의','width=650,height=430,left=630,top=200');
 }
 </script>
 
