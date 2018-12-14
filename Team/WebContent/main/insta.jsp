@@ -23,4 +23,4 @@ userFeed.run();
 	<div id="instafeed"></div>
 
 	
-	<input type="button" value="VIEW MORE" id="MainsBtn" onClick="location.href='https://www.instagram.com/l_harmonie2018/'">
+	<input type="button" value="VIEW MORE" id="MainsBtn" onClick="location.href='https://www.instagram.com/harmonie_2018/'">

@@ -138,7 +138,7 @@ public class LoveDAO {
 		
 	}
 
-	public List<LoveBean> getLoveList(int review_num){
+	public List<LoveBean> getLoveList(List<ReviewBean> reviewList){
 		
 		
 		Connection con=null;
@@ -150,21 +150,32 @@ public class LoveDAO {
 			con=getConnection();
 			//3 sql
 			
-			 String sql="select * from love where mem_num=?  order by love_num desc limit 1;";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, review_num);
-			rs=pstmt.executeQuery();
+			for(int i=0; i<reviewList.size(); i++){
+			 ReviewBean review=reviewList.get(i);
+				System.out.println(review.getReview_num());
 			
-			while(rs.next()){
-				LoveBean lb=new LoveBean();
-				lb.setMem_num(rs.getInt("mem_num"));
-				 lb.setReview_num(rs.getInt("review_num"));
-				 lb.setLove_num(rs.getInt("love_num"));
-				 lb.setLove(rs.getBoolean("love"));
-				 loveList.add(lb);
-				//자바빈 => 배열 한칸 저장
+				
+				String sql="select * from love where review_num=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, review.getReview_num());
+				rs=pstmt.executeQuery();
+				
+				while(rs.next()){
+					LoveBean lb=new LoveBean();
+					lb.setMem_num(rs.getInt("mem_num"));
+					 lb.setReview_num(rs.getInt("review_num"));
+					 lb.setLove_num(rs.getInt("love_num"));
+					 lb.setLove(rs.getBoolean("love"));
+					 loveList.add(lb);
+					//자바빈 => 배열 한칸 저장
+					
+				}
+				
+				
 				
 			}
+			
+			 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
