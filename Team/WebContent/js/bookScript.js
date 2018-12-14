@@ -1,8 +1,7 @@
 //해당 페이지로 이동
 function moveTab(n)
 {
-	nextPrev(n-currentTab);
-	
+	nextPrev(n-currentTab);	
 }
 
 function showTab(n) {
@@ -103,44 +102,75 @@ function selectGuest(n){
 	guest[n].className += " slotAct";
 	
 	document.bf.guest.value= n+1;
-	
 }
 
 //시간선택
 function selectTime(n){
-	var div = document.getElementById("time");
-	var time =div.getElementsByClassName("slot");
+	var timeArr = ["11:00","13:00","17:00","19:00"];
 	
-	for(i = 0; i < time.length; i++){
-		time[i].className = "slot";
+	var div = document.getElementById("time");
+	var time =div.getElementsByClassName("slot");	
+
+	//선택 초기화
+	var selected = document.bf.time.value; //선택했던 시간 받아오기
+
+	if(selected !="") //selected 있을때만 초기화
+	{	
+		for(var i=0; i<timeArr.length; i++)
+		{
+			if(selected == timeArr[i])
+			{
+				time[i].className = "slot";
+			}
+		}
 	}
 	
-	time[n].className += " slotAct";
+	//disable 선택시 알림
+	if(time[n].className == "slot slotDisable" 
+		|| time[n].className == "slot slotDisable")
+	{
+		alert("선택 불가능한 시간입니다.\n다른 시간을 선택해 주세요.");
+		return;
+	}	
 	
-	var timeArr = ["11:00","13:00","17:00","19:00"];
+	//선택 표시
+	time[n].className = "slot slotAct";
+	
+	//값 저장
 	for(i=0; i<time.length; i++){
 		if(n == i)
 			document.bf.time.value = timeArr[i];
 	}
+}
 
-	//var l = document.bf.location.value;
-	//var t = document.bf.time.value;
-	//var d = document.bf.date.value;
+//시간 선택 초기화
+function initTime()
+{
+	var div = document.getElementById("time");
+	var time =div.getElementsByClassName("slot");
 	
-	//location.href="./BookTest.bk?location="+"ddd"+"&time="+t+"&date="+d;
+	for(i = 0; i < time.length; i++)
+	{
+		time[i].className = "slot";
+	}
+	
+	document.bf.time.value = "";	
+}
+
+//예약이 다 찬 시간 표시
+function disableTime(n)
+{
+	var div = document.getElementById("time");
+	var time =div.getElementsByClassName("slot");
+	
+	//예약 다 찬 시간 표시
+	time[parseInt(n)].className += " slotDisable";
 }
 
 //테이블선택
 function selectTable(n){
 	var div = document.getElementById("table");
 	var table = div.getElementsByClassName("tabl");
-	
-/*	for(i = 0; i < table.length; i++){
-		if(i<=3)
-			table[i].className = "tabl tfor2";
-		else
-			table[i].className = "tabl tfor4";
-	}*/
 	
 	//테이블선택 초기화
 	var selected = parseInt(document.bf.tablenum.value)-1; //선택했던 테이블 받아오기
@@ -174,7 +204,6 @@ function selectTable(n){
 	}
 
 	document.bf.tablenum.value= n+1;
-
 }
 
 //테이블선택 초기화
@@ -195,7 +224,8 @@ function initTable()
 			table[i].className = "tabl tfor4";
 		}
 	}
-
+	
+	document.bf.tablenum.value = ""; 	//혹시 몰라서 넣어둠
 }
 
 //예약된 테이블 표시

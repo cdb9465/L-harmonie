@@ -57,12 +57,11 @@ if(sess==null){%>
     			<%} else {%>							<li class="logArea" id="login"><a href="./Mypage.me" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> 마이페이지 </a></li> 
     			<%} %>
     			<li class="logArea"><a href="./MemberLogout.me"><i class='fas fa-power-off' style='font-size:18px;'></i>  로그아웃  </a></li>
-  				
+    			
 <% } %>
-		</ul>
+	
+</ul>
 
-
-		
 		<div id="minwin_all">
 			<div id="minwin_btn">
 					<%//세션값이 없으면 로그인버튼보이기
@@ -79,6 +78,8 @@ if(sess==null){%>
 						<% } %>
 			</div>
 		</div>
+		<!-- 사이트맵 --> 
+	 <span id="smapbtn" onclick="openNav()">&#9776;</span>
 	</div>
 </div>
 <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
@@ -99,15 +100,60 @@ if(sess==null){%>
      <div class="clearfix">
      	<button type="submit" class="signupbtn">로그인</button>
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">취소</button>
-      </div>
-      
-      
+     </div>
+     
+     
     </div>
     
   </form>
 </div>
 
+<!-- 사이트맵 --> 
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+   <div class="sm_about">
+    <a href="./AboutUs.ad" id="sm_title">ABOUT US</a>
+    <a href="./AboutUs.ad#main3">Find Us</a>
+   </div>
+   <div class="sm_menu">
+    <a href="./MenuList.nu" id="sm_title">MENU</a>
+     <a href="./MenuList.nu">Starter</a>
+     <a href="./MenuList.nu">Salad</a>
+     <a href="./MenuList.nu">Steak</a>
+     <a href="./MenuList.nu">Pasta</a>
+     <a href="./MenuList.nu">Dessert</a>
+     <a href="./MenuList.nu">Beverage</a>
+   </div>
+   <div class="sm_news">
+    <a href="./NewsList.nw" id="sm_title">NEWS</a>   
+   </div>
+   <div class="sm_review">
+    <a href="./ReviewList.re" id="sm_title">REVIEW</a>
+   </div>
+   <div class="sm_book">
+    <a href="./Book.bk" id="sm_title">BOOK</a>
+   </div>
+   <div class="sm_mypage">
+    <a href="./Mypage.me" id="sm_title">MY PAGE</a>
+     <a href="./Mypage.me#main1">My Page</a>
+     <a href="./Mypage.me#main2">My Book</a>
+     <a href="./Mypage.me#main3">My Review</a>
+   </div>
+  </div>
+</div>
+<!-- 사이트맵 -->
+
 <script>
+//사이트맵
+function openNav() {
+	  document.getElementById("myNav").style.display = "block";
+	}
+
+	function closeNav() {
+	  document.getElementById("myNav").style.display = "none";
+	}
+	
 // Get the modal
 var modal = document.getElementById('id01');
 

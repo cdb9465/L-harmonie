@@ -60,9 +60,7 @@ body{margin: 0px; padding: 0px;
 		
 /* 메인메뉴 ul */
 #main_menu {  /* border: 1px solid yellow; */ 
-		width: 1300px;
-		height:70px;
-		
+	height:70px;
 	margin: auto;
 	margin-left:510px;
 	/* padding: 30px 0 0 450px; */
@@ -82,7 +80,7 @@ body{margin: 0px; padding: 0px;
     /* margin-right: 10%; */}
 
 .MM:HOVER {
-	border-bottom : 3px solid #670000;
+	border-bottom : 3px solid #fff;
 	cursor: pointer;cursor: hand;
 	transition:color 0.2s;
 }
@@ -435,7 +433,14 @@ footer{
      */
     
 /* 사이트맵 */
- 
+#smapbtn{
+	display: inline-block;
+	position: absolute;
+	top: 5px; right: 30px;
+	font-size: 50px;
+	cursor:pointer;
+	color: #fff;
+}
  .overlay {
     height: 100%;
     width: 100%;
@@ -481,8 +486,8 @@ footer{
 
 .overlay .closebtn {
     position: absolute;
-    top: 20px;
-    right: 45px;
+    top: 0;
+    right: 20px;
     font-size: 60px;}
     
  /* --- 반응형 css --*/   

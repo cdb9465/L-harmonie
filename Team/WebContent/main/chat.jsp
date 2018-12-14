@@ -7,11 +7,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/chat.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/chat.css">
 	<title>1:1 문의</title>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
+	<script src="../js/bootstrap.js"></script>
 	<script type="text/javascript">
 		var lastID = 0;
 		function submitFunction() {
@@ -20,7 +20,7 @@
 			var chatContent = $('#chatContent').val();
 			$.ajax({
 				type: "POST",
-				url: "./chatSubmitServlet",
+				url: "../chatSubmitServlet",
 				data: {
 					chatName: encodeURIComponent(chatName),
 					chatContent: encodeURIComponent(chatContent)
@@ -53,7 +53,7 @@
 		function chatListFunction(type) {
 			$.ajax({
 				type: "POST",
-				url: "./chatListServlet",
+				url: "../chatListServlet",
 				data: {
 					listType: type,
 				},
@@ -76,7 +76,7 @@
 						'<div class="col-lg-12">' + 
 						'<div class="media">' + 
 						'<a class="pull-left" href="#">' + 
-						'<img class="media-object img-circle" src="images/icon.png" alt="">' + 
+						'<img class="media-object img-circle" src="../images/icon.png" alt="">' + 
 						'</a>' + 
 						'<div class="media-body">' + 
 						'<h4 class="media-heading">' + 
@@ -129,7 +129,7 @@ if(id == null){
 					<div class="portlet portlet-default">
 						<div class="portlet-heading">
 							<div class="portlet-title">
-								<h4><i class="fa fa-circle text-green"></i>실시간 채팅방</h4>
+								<h4><i class="fa fa-circle text-green"></i><!-- 1:1 문의 --></h4>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -143,7 +143,7 @@ if(id == null){
 								</div>
 								<div class="row" style="height: 90px;">
 									<div class="form-group col-xs-10">
-										<textarea style="height: 80px;" id="chatContent" class="form-control" placeholder="메세지를 입력하세요." maxlength="100"></textarea>
+										<textarea style="height: 40px;" id="chatContent" class="form-control" placeholder="메세지를 입력하세요." maxlength="100"></textarea>
 									</div>
 									<div class="form-group col-xs-2">
 										<button type="button" class="btn btn-default pull-right" onclick="submitFunction();">전송</button>
