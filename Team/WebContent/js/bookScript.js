@@ -111,12 +111,30 @@ function selectTime(n){
 	var div = document.getElementById("time");
 	var time =div.getElementsByClassName("slot");
 	
-	for(i = 0; i < time.length; i++){
-		time[i].className = "slot";
+//	for(i = 0; i < time.length; i++){
+//		time[i].className = "slot";
+//	}
+
+	//선택 초기화
+	var selected = parseInt(document.bf.time.value)-1; //선택했던 시간 받아오기
+
+	if(!isNaN(selected)) //selected 있을때만 초기화
+	{	
+		time[selected].className = "slot";
 	}
 	
+	//disable 선택시 알림
+	if(time[n].className == "slot slotDisable" 
+		|| time[n].className == "slot slotDisable")
+	{
+		alert("선택 불가능한 시간입니다.\n다른 시간을 선택해 주세요.");
+		return;
+	}	
+	
+	//선택 표시
 	time[n].className += " slotAct";
 	
+	//값 저장
 	var timeArr = ["11:00","13:00","17:00","19:00"];
 	for(i=0; i<time.length; i++){
 		if(n == i)
@@ -128,6 +146,28 @@ function selectTime(n){
 	//var d = document.bf.date.value;
 	
 	//location.href="./BookTest.bk?location="+"ddd"+"&time="+t+"&date="+d;
+}
+
+//시간 선택 초기화
+function initTime()
+{
+	var div = document.getElementById("time");
+	var time =div.getElementsByClassName("slot");
+	
+	for(i = 0; i < time.length; i++)
+	{
+		time[i].className = "slot";
+	}
+}
+
+//예약이 다 찬 시간 표시
+function disableTime(n)
+{
+	var div = document.getElementById("time");
+	var time =div.getElementsByClassName("slot");
+	
+	//예약 다 찬 시간 표시
+	time[n].className += " slotDisable";
 }
 
 //테이블선택
