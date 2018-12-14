@@ -51,8 +51,10 @@
 		var email = document.fr1.email.value;
 		var email2 = document.fr1.email2.value;
 		var emailAll = email+"@"+email2;
+		var exptext2 = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; //특수문자제어
 	    var exptext = /^[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-	    if(email.length!=0){
+	    
+	    if(email.length>=4 && exptext2.test(email)==false){
 	        if(exptext.test(email2)==false){
 	        //이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우         
 	        	document.getElementById('checkEmail').style.color = "#800000";
@@ -82,7 +84,7 @@
 	        }
 	    }else{
 	    document.getElementById('checkEmail').style.color = "#800000";
-		document.getElementById('checkEmail').innerHTML = "<p>아이디로 사용할 이메일을 입력해주세요.</p>";
+		document.getElementById('checkEmail').innerHTML = "<p>올바른 이메일 형식이 아닙니다.</p>";
 		emailck = false;
 		checkJoin();
 	    }

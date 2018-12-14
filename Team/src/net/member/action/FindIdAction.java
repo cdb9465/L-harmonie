@@ -20,22 +20,21 @@ public class FindIdAction implements Action{
 		//sql구문 실행
 		MemberDAO mdao = new MemberDAO();
 		String findEmail = mdao.findId(name, phone);
-		
-		
+
+
 		if(findEmail==null){		
 			//자바에서 JSP구문 쓸때 ↓ 아래 형식으로 사용
 			response.setContentType("text/html; charset=UTF-8");	
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('조회된 회원정보가 없습니다. 입력 정보를 다시 확인해주세요.');");
-			out.println("history.back();");
+			out.println("location.href='./FindIdPass.me'");
 			out.println("</script>");
 			out.close();		
 			return null;
 		}else{
 			//결과값 내보내기
 			request.setAttribute("findEmail",findEmail);
-			System.out.println(findEmail);
 			//forward 객체생성
 			ActionForward forward=new ActionForward();
 			forward.setRedirect(false); //jsp로 가면 false, 가상주소로 가면 true 이다.
