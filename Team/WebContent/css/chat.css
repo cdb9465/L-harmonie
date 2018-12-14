@@ -3,6 +3,7 @@
 
 img { width: 30px; height: 30px; }
 
+
  .portlet {
     margin-bottom: 15px;
 }
@@ -134,7 +135,7 @@ img { width: 30px; height: 30px; }
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {
     border-color: #34495e;
-}
+} /* 채팅상단바 */
 
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {

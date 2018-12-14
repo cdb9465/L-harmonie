@@ -80,6 +80,7 @@
 	<url-pattern>*.re</url-pattern>
   </servlet-mapping>
 
+
   <servlet>
   	<servlet-name>ChatSubmitServlet</servlet-name>
   	<servlet-class>chat.ChatSubmitServlet</servlet-class>
