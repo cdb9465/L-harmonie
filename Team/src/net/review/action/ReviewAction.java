@@ -89,7 +89,7 @@ public class ReviewAction implements Action{
 		int Lcount = ld.getLoveCount();
 
 		if(Lcount!=0){
-			lobe=ld.getLoveList1();
+			lobe=ld.getLoveList(reviewList);
 		}
 		
 		

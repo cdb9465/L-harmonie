@@ -40,6 +40,8 @@ public class ReviewDAO {
 		{
 			con = getConnection();
 			
+			
+			
 			String sql = "select max(review_num) from review" ;
 			psm = con.prepareStatement(sql);
 			rs = psm.executeQuery();
@@ -199,6 +201,15 @@ public class ReviewDAO {
 		try
 		{
 			con = getConnection();
+			
+			String sql1 = "delete from comment where review_num=?" ;
+			psm = con.prepareStatement(sql1);
+			psm.setInt(1, review_num);
+			psm.executeUpdate();
+			String sql2 = "delete from love where review_num=?" ;
+			psm = con.prepareStatement(sql2);
+			psm.setInt(1, review_num);
+			psm.executeUpdate();
 			String sql = "delete from review where review_num=?";
 			psm = con.prepareStatement(sql);
 			psm.setInt(1, review_num);
