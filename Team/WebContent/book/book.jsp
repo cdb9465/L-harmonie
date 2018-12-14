@@ -249,7 +249,7 @@ $(document).ready(function(){
 				}
 				
 				initTime();//날짜변경시 시간선택 초기화
-				getReserved();
+				getDisableTime();
  			}
 		});
 
@@ -264,11 +264,32 @@ $(document).ready(function(){
 	//테이블 중복제어
  	$("#time").click(function(){
  		initTable(); 	//시간변경시 테이블선택 초기화	 
- 		getReserved();
+ 		getDisableTable();
  	});
 
+	function getDisableTime()
+	{
+		var l = document.bf.location.value;
+		var d = document.bf.date.value;
+		
+		$.ajax({
+	 		data : {location:l, date:d},
+	 		type : 'POST',
+	 		url : './BookDisableTime.bk',
+			success : function(data){
+				var res = data.split(',');
+				
+				$.each(res, function(index, item){
+					disableTime(item);
+				});
 
-	function getReserved()
+			}
+
+		});		
+	}
+	
+
+	function getDisableTable()
 	{
 		var l = document.bf.location.value;
 		var t = document.bf.time.value;
@@ -279,14 +300,11 @@ $(document).ready(function(){
 		$.ajax({
 	 		data : {location:l, date:d, time:t},
 	 		type : 'POST',
-	 		url : './BookTest.bk',
+	 		url : './BookDisableTable.bk',
 	 		//dataType : 'html',
 			success : function(data){
 				var res = data.split(',');
-				
-				//if(res=="full")
-					//시간제어
-					
+
 				$.each(res, function(index, item){
 					disableTable(item-1);
 				});
