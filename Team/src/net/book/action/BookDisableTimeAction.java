@@ -39,12 +39,8 @@ public class BookDisableTimeAction implements Action
 		{
 			cnt = bdao.getTableCount(bb, time[i]);
 			
-			System.out.println("cnt : "+cnt);
-			
 			if(cnt == 10)
 			 strTime += i;
-			
-			System.out.println("strTime : "+strTime);
 		}
 		
 		//ajax로 값 리턴
