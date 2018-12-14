@@ -103,7 +103,6 @@ function selectGuest(n){
 	guest[n].className += " slotAct";
 	
 	document.bf.guest.value= n+1;
-	
 }
 
 //시간선택

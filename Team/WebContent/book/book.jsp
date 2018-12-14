@@ -282,7 +282,6 @@ $(document).ready(function(){
 				$.each(res, function(index, item){
 					disableTime(item);
 				});
-
 			}
 
 		});		
@@ -294,8 +293,6 @@ $(document).ready(function(){
 		var l = document.bf.location.value;
 		var t = document.bf.time.value;
 		var d = document.bf.date.value;
-		
-		//initTable(); //시간변경시 테이블선택 초기화
 		
 		$.ajax({
 	 		data : {location:l, date:d, time:t},

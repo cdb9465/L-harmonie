@@ -81,7 +81,7 @@ article#bookck_art {width: 1300px; height: 600px;
 	font-weight: bold;
 	display: inline-block; }
 	
-.slot, .slotDisable{
+.slot{
 	border-radius: 3px;
 	width:155px; height:55px;
 	text-align: center;

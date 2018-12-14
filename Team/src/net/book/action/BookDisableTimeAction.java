@@ -39,8 +39,9 @@ public class BookDisableTimeAction implements Action
 		{
 			cnt = bdao.getTableCount(bb, time[i]);
 			
-			if(cnt == 10)
+			if(cnt == 10){
 			 strTime += i;
+			System.out.println("예약 다 찬 시간"+time[i]);}
 		}
 		
 		//ajax로 값 리턴
