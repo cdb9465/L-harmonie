@@ -196,7 +196,23 @@ article#bookck_art {width: 1300px; height: 600px;
 #t10{ left: 380px; bottom: 190px; }
 
 /* 4단계 요청사항 */
+.request { border: 1px solid red;
+	width: 100%; height: 100%;
+}
+
+.request> #alergy { border: 1px solid blue;
+	
+
+}
+
+#alergy> input { }
+
+.request> #req { border: 1px solid orange;
+	
+}
+
 #detail { display: none; }
+
 
 /* 5단계 확인 완료 */
 table#confirm{
