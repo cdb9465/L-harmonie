@@ -29,25 +29,29 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
 <script type="text/javascript" src="./js/mypage.js"></script>
 
-<!-- 모달 창 -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <link href="./css/review_write.css" rel="stylesheet" type="text/css">
 <title>L'harmonie|My page</title>
 </head>
 <body>
+
+<%
+// session 없으면 -> 로그인
+String email = (String)session.getAttribute("email");
+if(email == null){
+%>
+<script>
+alert("로그인이 필요합니다.");
+history.back();
+</script>	
+<%
+}
+%>
+
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
 
-<div class="clear"></div>
 <%
 MemberBean mb = (MemberBean)request.getAttribute("mb");
-//리뷰작성을 위해 추가
-Integer mem_num = (Integer)session.getAttribute("mem_num");
 %>
 <div class="mpbox" id="main0"><!-- 배경들어가는 영역 -->
  <h1>MODIFY</h1>
@@ -96,6 +100,11 @@ Integer mem_num = (Integer)session.getAttribute("mem_num");
 		
 		
 	 </div>
+	 
+	 <a href="#" class="arrow">
+   <img src="./images/arrow.png">
+   <img src="./images/dot.png" class="dot">
+</a>
 </div>
 
 <!-- 2번째 메인 -->
@@ -171,8 +180,8 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 			<input type="submit" value="조회" class="termSearch">
 	</div>
 
-</form>
-<div class="mpcount"> 조회 <span class="countRed"><%=myBookCount%></span>건 / 전체 예약 <span class="countRed"><%=myBookCountAll%></span>건 </div>
+
+<div class="mpcount"> 조회 <span class="countRed"><%=myBookCount%></span>건 / 전체 예약 <span class="countRed"><%= myBookCountAll%></span>건 </div>
 	<div class="clear"></div>
 <table class="mybook_tbl">
 <tr class="ttl"><th>예약번호</th><th>지점</th><th>예약일자<br>[시간]</th><th>테이블번호</th><th class="guest">인원</th>
@@ -210,112 +219,11 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 	<td><%=bb.getRequest() %></td><td>
 	
 		<%if ( Result >= 1 ){ // 예약일 이전 %>
-			<input type="button" value="예약취소" class="bookcancel" id="bcancel" onclick="BookDelete(<%=bb.getBook_num() %>)">
+			<input type="button" value="예약취소" class="bookcancel" id="bcancel" >
 		<%} else if(Result == 0){ //예약당일 %>
 			<span class="bookday">당일취소불가</span>
 		<%} else{  // 예약일 이후  %> 
-			
-			<!--모달창 시작  -->
-			<button type="button" class="bookcancel" data-toggle="modal" data-target="#myModal"> 리뷰작성</button>
- 			 <!-- The Modal -->
- 			 <div class="modal" id="myModal" style="z-index: 99999 !important;">
-   			 <div class="modal-dialog">
-      		 <div class="modal-content review-w">
-      
-       		 <!--모달 머리부분 -->
-        	 <div class="modal-header">
-             <h4 class="modal-title">리뷰작성</h4>
-          	 <button type="button" class="close review-w-close" data-dismiss="modal">&times;</button>
-             </div>
-        
-        	<!-- 모달 몸부분 -->
-        
-        	<div class="modal-body">
-	<form action="./ReviewAddAction.re" method="post" enctype="multipart/form-data">
-			
-			<table border="1">
- 			<div class="write_location"  >
- 			<tr>
- 			<th><div class="title_review">지점선택</div></th>
- 			<td colspan="3">
-  			<select name="sel_location">
-  			<option value="선택">선택</option>
-   			<option value="서울강남점">서울강남점</option>
-   			<option value="부산서면점">부산서면점</option>
-  			</select></td>
-  			</tr>
- 			</div>
- 
- 			<div class="clear"></div>
- 			
-			<tr>
-			<th><div class="title_review">작성자</div></th>
-			
-			<td><%=mb.getEmail()%>
-			<input type="hidden" name="mem_num" value="<%=mb.getMem_num()%>" readonly></td>
-			</tr>
-			
- 			<div class="write_rating" >
- 			
- 			<tr>
- 			<th>  <div class="title_review">별점</div></th>
- 			<td colspan="3">
- 			<span class="star-input">
-			<span class="inputss" >
-    			<input type="radio" class="star-input" value="1" id="p1" name="rating">
-    			<label for="p1">1</label>
-    			<input type="radio" class="star-input" value="2" id="p2" name="rating">
-    			<label for="p2">2</label>
-    			<input type="radio" class="star-input" value="3" id="p3" name="rating">
-    			<label for="p3">3</label>
-    			<input type="radio" class="star-input" value="4" id="p4" name="rating">
-    			<label for="p4">4</label>
-    			<input type="radio" class="star-input" value="5" id="p5" name="rating">
-    			<label for="p5">5</label>
-    		</span>
-    		<output for="star-input"><b>0</b>점</output>	
-    		</span></td>
-    		</tr>
-			<!--별점 스크립트  -->
-			<script src="./js/jquery-1.11.3.min.js"></script>
-			<script src="./js/star.js"></script>
- 			</div> 
-
-			<div class="clear"></div>
- 
- 			<tr>
- 			<th>사진선택</th>
- 			<td colspan="3">
-			 <input type="file" name="file1"  />
- 			 <input type="file" name="file2"  />
-			 <input type="file" name="file3"  />
-			 </td>
-			</tr>
-			 <div class="write_content">
- 			<tr>
- 			<th> <div class="title_review">리뷰</div></th>
- 			<td> <input type="text" name="content"  autofocus > </td>
- 			</tr>
- 
-		  <div class="clear"></div>
- 			</div>
-			</table>
-        <!-- 모달 바닥부분 -->
-        <div class="modal-footer">
-
-         <button type="submit" id="review_sub">리뷰등록</button>
-       
-	        </div>
-	          </form>
-	    
-    	        
-       	 </div>
-     	 </div>
-   	 </div>
-  </div>
-  
-  <!-- 모달창 끝 -->
-  
+			<input type="button" value="리뷰작성" class="writeReview" id="wreview" >
 <%			}
 		}%>
 	</td></tr>
@@ -339,8 +247,13 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 			%>
 				
 		</div>
-	
+	</form>
 </div>
+
+	 <a href="#" class="arrow">
+   <img src="./images/arrow.png">
+   <img src="./images/dot.png" class="dot">
+</a>
 </div>
 
 <!-- 3번째 메인 -->
