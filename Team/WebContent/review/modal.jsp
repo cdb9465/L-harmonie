@@ -107,7 +107,8 @@ ReviewBean rb= rdao.getReview1();
         <!-- Modal footer -->
         <div class="modal-footer">
 
-         <button type="submit">리뷰등록</button>
+         <button type="submit" style="margin-left:100px; margin-right:auto;">리뷰등록</button>
+         <button type="reset">다시작성</button>
         </div>
         </form>
         </div>

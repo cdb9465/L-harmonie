@@ -52,6 +52,8 @@ int endPage=((Integer)request.getAttribute("endPage")).intValue();
 String email=(String)session.getAttribute("email");
 String location=(String)session.getAttribute("location");
 List<ReviewBean> reviewlocation=(List)request.getAttribute("reviewlocation");
+MemberDAO mdao1= new MemberDAO();
+MemberBean mbb= mdao1.getMember(email);
 %>
 
 
@@ -100,7 +102,7 @@ for(int i=0;i<ReviewList.size();i++)
 </tr>
 
 
-<tr><th colspan='2'>
+<tr><th colspan='3'>
  
  <div class="rating">
  <%	
@@ -110,7 +112,7 @@ for(int i=0;i<ReviewList.size();i++)
 	%>
 </div>
 </th>
-<td>정말 놀라웠어요~!</td>
+
 </tr>
 
 
@@ -210,8 +212,7 @@ for(int z=0;z<lobe.size();z++){
 
 <div class="content">
 <%
-MemberDAO mdao1= new MemberDAO();
-MemberBean mbb= mdao1.getMember(email);
+
 if(rb.getMem_num()==mbb.getMem_num())
 {
 %>
@@ -246,7 +247,7 @@ if(email.equals("admin@team.com")){%>
 <div class="comment">
 <input type="hidden" name="mem_num" value=<%=rb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
-   <input type="text" name="content" id="content">
+   <input type="text" name="content" id="content"> 
  <button type="submit" id="comment_sub"><p>댓글등록</p></button>
 </div>
 </form>

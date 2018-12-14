@@ -41,6 +41,7 @@ public class CommentDAO {
 			String sql = "select max(comment_num) from comment where review_num=?" ;
 			psm = con.prepareStatement(sql);
 			psm.setInt(1,cb.getReview_num());
+			System.out.println(cb.getReview_num());
 			rs = psm.executeQuery();
 			
 			if(rs.next())
