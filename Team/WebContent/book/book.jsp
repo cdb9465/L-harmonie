@@ -149,14 +149,17 @@ history.back();
   <!-- <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label><br>
   <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br> -->
   <div id="alergy">
-   <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없음
-   <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있음<br>
-   <input type="text" id="detail" placeholder="알러지 정보를 구체적으로 작성해주세요." size="70"><br>
+   <label>알러지 여부</label>
+   <span id="rad">
+    <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없습니다.
+    <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있습니다.
+    <input type="text" id="detail" placeholder="ex) 갑각류 알러지" size="20"><br>
+   </span>
   </div>
   
   <div id="req">
-   <label>특별 요청</label>
-   <textarea cols="80" rows="10" name="special"></textarea>
+   <label>특별 요청사항</label>
+   <textarea cols="50" rows="10" name="special"></textarea>
   </div>
   
    <input type="hidden" name="request">
