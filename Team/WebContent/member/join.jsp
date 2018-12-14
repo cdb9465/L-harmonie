@@ -32,13 +32,14 @@ input:read-only{background-color:#dedede}
 		</div>
 		<div id="sec2_join">
 			<form action="./MemberJoinAction.me" id="form_join" method="post" name="fr1">
+
 				<table>
 				<tr>
 					<th>
 						<i class='far fa-envelope' style='font-size: 24px'></i><br>이메일
 						</th>
 						<td>	
-						<input type="text" name="email" id="email" placeholder="이메일 " onkeyup="checkEmail()">
+						<input type="text" name="email" id="email" style='ime-mode:disabled' placeholder="이메일 4자리이상 " onkeyup="checkEmail()">
 						<span id="at">@</span>
 						<input type="text" name="email2" id="email2" disabled value="naver.com" onkeyup="checkEmail()" >						
 							<select name="selectEmail" id="selectEmail" onclick="checkEmail()">

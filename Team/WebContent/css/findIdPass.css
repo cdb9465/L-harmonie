@@ -81,20 +81,20 @@
 		color:#adabab; font-weight:bold;
 		 cursor: pointer; }
 /* .submitBtn:HOVER , */
-#resultbtn:HOVER{
-	background-color: #000;
-}
-
+#resultbtn:HOVER{	background-color: #000; }
+#resultbtn1:HOVER{background-color: #b41616; }
 /* 결과 페이지 */
 	/* 아이디 표시 영역 */
 #resultId{font-size: 18px; line-height: 32px; }
 #resultId span{color: #808000;font-weight:bold;}
 	/* 홈으로 버튼 */
-#resultbtn{border: none; height:50px;width:50%;background-color:#b41616;
+#resultbtn{border: none; height:50px;width:25%;background-color:#b41616;
 		color:#eee; font-weight:bold; margin-top:50px;
 		 cursor: pointer;}
 
-
+#resultbtn1{border: none; height:50px;width:25%;background-color:#000;
+		color:#eee; font-weight:bold; margin-top:50px;
+		 cursor: pointer;}
 
 
 

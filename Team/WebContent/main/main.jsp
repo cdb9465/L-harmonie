@@ -76,7 +76,7 @@ window.onload = function () {
 
 <!-- 3번째 메인 -->
 <div class="main_box" id="main2">
-	<jsp:include page="../insta.jsp"></jsp:include>
+	<jsp:include page="insta.jsp"></jsp:include>
 </div>
 <!-- 메인 들어가는 곳 -->
 

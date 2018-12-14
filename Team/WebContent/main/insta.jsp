@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script type="text/javascript" src="js/instafeed.min.js"></script> <!-- js 파일 로드 -->
+<script type="text/javascript" src="./js/instafeed.min.js"></script> <!-- js 파일 로드 -->
 <script type="text/javascript">    
 var userFeed = new Instafeed({
     get: 'user',

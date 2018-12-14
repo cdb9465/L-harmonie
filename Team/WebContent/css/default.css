@@ -80,7 +80,7 @@ body{margin: 0px; padding: 0px;
     /* margin-right: 10%; */}
 
 .MM:HOVER {
-	border-bottom : 3px solid #670000;
+	border-bottom : 3px solid #fff;
 	cursor: pointer;cursor: hand;
 	transition:color 0.2s;
 }
