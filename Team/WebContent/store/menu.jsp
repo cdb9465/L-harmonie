@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" async src="https://www.google-analytics.com/analytics.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="./css/menu.css" rel="stylesheet">
 <link href="./css/default.css" rel="stylesheet">
@@ -57,53 +58,121 @@
 <div class="clear"></div>
 <%
 List menuList=(List)request.getAttribute("menuList");
+String category=(String)request.getAttribute("category");
+int count=0;
 %>
-
 <article class="menu_article">
 
-<div id="article_sec1" class="main_box">
-<ul class="sec1_menu">
-	<li><a href="./MenuList.nu?catigory=Starter" onclick="moveStarter()">STARTER</a></li>
-	<li><a href="./MenuList.nu?catigory=Salad" onclick="moveSalad()">SALAD</a></li>
-	<li><a href="./MenuList.nu?catigory=Steak" onclick="moveSteak()">STEAK</a></li>
-	<li><a href="./MenuList.nu?catigory=Pasta" onclick="movePasta()">PASTA</a></li>
-	<li><a href="./MenuList.nu?catigory=Dessert" onclick="moveDessert()">DESSERT</a></li>
-	<li><a href="./MenuList.nu?catigory=Beverage" onclick="moveBeverage()">BEVERAGE</a></li>
+<div id="menu_sec1" class="main_box">
+<div class="menu_cover">
+<ul class="menu_info">
+	<li><a href="#article_sec2" onclick="moveStarter()">STARTER</a></li>
+	<li><a href="#article_sec2" onclick="moveSalad()">SALAD</a></li>
+	<li><a href="#article_sec2" onclick="moveSteak()">STEAK</a></li>
+	<li><a href="#article_sec2" onclick="movePasta()">PASTA</a></li>
+	<li><a href="#article_sec2" onclick="moveDessert()">DESSERT</a></li>
+	<li><a href="#article_sec2" onclick="moveBeverage()">BEVERAGE</a></li>
 </ul>
 <a href="#main1" class="arrow">
    <img src="./images/arrow.png">
    <img src="./images/dot.png" class="dot">
 </a>
 </div>
-
-<div id="article_sec2" class="main_box">
-<div class="tab">
-  <button id="defaultOpen" class="tablinks" onclick="openMenu(event, 'Appetizer', 'caption_Appetizer')">STARTER</button>
-  <button id="button_Salad" class="tablinks" onclick="openMenu(event, 'Salad', 'caption_Salad')">SALAD</button>
-  <button id="button_Steak" class="tablinks" onclick="openMenu(event, 'Steak', 'caption_Steak')">STEAK</button>
-  <button id="button_Pasta" class="tablinks" onclick="openMenu(event, 'Pasta', 'caption_Pasta')">PASTA</button>
-  <button id="button_Dessert" class="tablinks" onclick="openMenu(event, 'Dessert', 'caption_Dessert')">DESSERT</button>
-  <button id="button_Beverage" class="tablinks" onclick="openMenu(event, 'Beverage', 'caption_Beverage')">BEVERAGE</button>
 </div>
 
-<div class="tabcontent">
-
-
+<div id="menu_sec2" class="main_box">
+<div class="menu_cover">
+<div class="tab">
+  <p><a href="./MenuList.nu?category=Starter" id="defaultOpen" class="tablinks" onclick="openMenu(event, 'Appetizer', 'caption_Appetizer')">STARTER</a></p>
+  <p><a href="./MenuList.nu?category=Salad" id="button_Salad" class="tablinks" onclick="openMenu(event, 'Salad', 'caption_Salad')">SALAD</a></p>
+  <p><a href="./MenuList.nu?category=Steak" id="button_Steak" class="tablinks" onclick="openMenu(event, 'Steak', 'caption_Steak')">STEAK</a></p>
+  <p><a href="./MenuList.nu?category=Pasta" id="button_Pasta" class="tablinks" onclick="openMenu(event, 'Pasta', 'caption_Pasta')">PASTA</a></p>
+  <p><a href="./MenuList.nu?category=Dessert" id="button_Dessert" class="tablinks" onclick="openMenu(event, 'Dessert', 'caption_Dessert')">DESSERT</a></p>
+  <p><a href="./MenuList.nu?category=Beverage" id="button_Beverage" class="tablinks" onclick="openMenu(event, 'Beverage', 'caption_Beverage')">BEVERAGE</a></p>
+</div>
+<div class="menu_top">
+<% 
+	if(category.equals("Starter")) {
+	%>
+		<img src="./images/menu/icon_Starter.png" class="menu_topicon">
+		<span>Starter</span>
+	<%
+	} else if(category.equals("Salad")) {
+	%>
+		<img src="./images/menu/icon_Salad.png" class="menu_topicon">
+		<span>Salad</span>
+	<%
+	} else if(category.equals("Steak")) {
+	%>
+		<img src="./images/menu/icon_Steak.png" class="menu_topicon">
+		<span>Steak</span>
+	<%
+	} else if(category.equals("Steak")) {
+	%>
+		<img src="./images/menu/icon_Pasta.png" class="menu_topicon">
+		<span>Pasta</span>
+	<%
+	} else if(category.equals("Dessert")) {
+	%>
+		<img src="./images/menu/icon_Dessert.png" class="menu_topicon">
+		<span>Dessert</span>
+	<%
+	} else {
+	%>
+		<img src="./images/menu/icon_Beverage.png" class="menu_topicon">
+		<span>Beverage</span>
+	<%
+	}
+%>
+</div>
+<div class="menu_row">
 <%
 for(int i=0; i<menuList.size(); i++) {
 	MenuBean nu = (MenuBean)menuList.get(i);
-		%>
-		<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px"  class="Appetizer" >
-	  	<p class="caption_Appetizer" title="<%=nu.getCategory()%>"><%=nu.getName()%></p></td>
-		<%
+	
+%>
+<div class="menu_column">
+	<div class="menu_content">
+	<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px">
+	<span class="caption_Appetizer"><%=nu.getName()%></span>
+	</div>
+</div> 
+<%
+count+=1;
+
+if(count==3) {
+	count=0;
+}
 }
 %>
-
+</div>
 </div>
 </div>
 </article>
+
 <script>
-function openMenu(evt, menuName, )
+function moveAppetizer() {
+	document.getElementById("defaultOpen").click();
+}
+function moveSalad() {
+	document.getElementById("button_Salad").click();
+}
+function moveSteak() {
+	document.getElementById("button_Steak").click();
+}
+function movePasta() {
+	document.getElementById("button_Pasta").click();
+}
+function moveSaDessert() {
+	document.getElementById("button_Dessert").click();
+}
+function moveBeverage() {
+	document.getElementById("button_Beverage").click();
+}
+function openMenu() {
+	
+}
+
 </script>
 <div class="clear"></div>
 

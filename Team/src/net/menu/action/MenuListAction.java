@@ -29,6 +29,7 @@ public class MenuListAction implements Action{
 		List menuList = mdao.getMenuList(category);
 
 		request.setAttribute("menuList", menuList);
+		request.setAttribute("category", category);
 		
 		//이동 ./board/list.jsp
 		ActionForward forward=new ActionForward();

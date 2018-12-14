@@ -26,6 +26,7 @@ int count2=0;
 %>
 <!-- 본문 -->
 <div class="wrap">
+<div class="news_cover">
 <div class="news_main">
 <h1>News & Event</h1>
 <div class="news_row">
@@ -35,14 +36,16 @@ for(int i=0; i<newsList.size(); i++) {
 %>
 <div class="news_column">
     	<div class="news_content">
-    	<img id="myImg" src="./upload/<%=nb.getFile()%>" width="100%" height="150px" alt="<%=nb.getTitle()%>" onclick="onClick(this)">
+    	<img id="myImg" src="./upload/<%=nb.getFile()%>" width="100%" height="150px" title="<%=nb.getTitle()%>" alt="<%=(nb.getContent()).replace("\r\n", "<br>")%>" onclick="onClick(this)">
     	<div id="myModal">
     	<span class="news_close">&times;</span>
     	<img id="img01">
-    	<div id="caption"></div>
+    	<div class="news_detail">
+    	<div id="title"></div>
+    	<div id="content"></div>
+    	</div>
     	</div>
 		<h4><%=nb.getTitle() %></h4>
-		<h5><%=nb.getContent() %></h5>
 		</div>
 </div>
 <%
@@ -50,13 +53,12 @@ count2 +=1;
 %>
 <%
 if(count2==4) {
-%>
-  
-<%
+
 count2=0;
 }
 }
 %>
+</div>
 </div>
 </div>
 </div>
@@ -67,7 +69,8 @@ count2=0;
 function onClick(element) {
 	document.getElementById("img01").src = element.src;
 	var modal = document.getElementById("myModal");
-	document.getElementById("caption").innerHTML = element.alt;
+	document.getElementById("title").innerHTML = element.title;
+	document.getElementById("content").innerHTML = element.alt;
 	modal.style.display = "block";
 	
 	var span = document.getElementsByClassName("news_close")[0];
