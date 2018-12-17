@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 #article_join{
-height: 1050px; border:1px solid;
+height: 950px; border:1px solid;
 width: 100%;
 background-image:  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("../images/mypage/backg1.jpg");
  background-position: center;

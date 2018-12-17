@@ -66,12 +66,12 @@ int count=0;
 <div id="menu_sec1" class="main_box">
 <div class="menu_cover">
 <ul class="menu_info">
-	<li><a href="#article_sec2" onclick="moveStarter()">STARTER</a></li>
-	<li><a href="#article_sec2" onclick="moveSalad()">SALAD</a></li>
-	<li><a href="#article_sec2" onclick="moveSteak()">STEAK</a></li>
-	<li><a href="#article_sec2" onclick="movePasta()">PASTA</a></li>
-	<li><a href="#article_sec2" onclick="moveDessert()">DESSERT</a></li>
-	<li><a href="#article_sec2" onclick="moveBeverage()">BEVERAGE</a></li>
+	<li><a href="#menu_sec2" onclick="moveStarter()">STARTER</a></li>
+	<li><a href="#menu_sec2" onclick="moveSalad()">SALAD</a></li>
+	<li><a href="#menu_sec2" onclick="moveSteak()">STEAK</a></li>
+	<li><a href="#menu_sec2" onclick="movePasta()">PASTA</a></li>
+	<li><a href="#menu_sec2" onclick="moveDessert()">DESSERT</a></li>
+	<li><a href="#menu_sec2" onclick="moveBeverage()">BEVERAGE</a></li>
 </ul>
 <a href="#main1" class="arrow">
    <img src="./images/arrow.png">
@@ -83,12 +83,12 @@ int count=0;
 <div id="menu_sec2" class="main_box">
 <div class="menu_cover">
 <div class="tab">
-  <p><a href="./MenuList.nu?category=Starter" id="defaultOpen" class="tablinks" onclick="openMenu(event, 'Appetizer', 'caption_Appetizer')">STARTER</a></p>
-  <p><a href="./MenuList.nu?category=Salad" id="button_Salad" class="tablinks" onclick="openMenu(event, 'Salad', 'caption_Salad')">SALAD</a></p>
-  <p><a href="./MenuList.nu?category=Steak" id="button_Steak" class="tablinks" onclick="openMenu(event, 'Steak', 'caption_Steak')">STEAK</a></p>
-  <p><a href="./MenuList.nu?category=Pasta" id="button_Pasta" class="tablinks" onclick="openMenu(event, 'Pasta', 'caption_Pasta')">PASTA</a></p>
-  <p><a href="./MenuList.nu?category=Dessert" id="button_Dessert" class="tablinks" onclick="openMenu(event, 'Dessert', 'caption_Dessert')">DESSERT</a></p>
-  <p><a href="./MenuList.nu?category=Beverage" id="button_Beverage" class="tablinks" onclick="openMenu(event, 'Beverage', 'caption_Beverage')">BEVERAGE</a></p>
+  <p><a href="./MenuList.nu?category=Starter#menu_sec2" id="defaultOpen" class="tablinks">STARTER</a></p>
+  <p><a href="./MenuList.nu?category=Salad#menu_sec2" id="button_Salad" class="tablinks">SALAD</a></p>
+  <p><a href="./MenuList.nu?category=Steak#menu_sec2" id="button_Steak" class="tablinks">STEAK</a></p>
+  <p><a href="./MenuList.nu?category=Pasta#menu_sec2" id="button_Pasta" class="tablinks">PASTA</a></p>
+  <p><a href="./MenuList.nu?category=Dessert#menu_sec2" id="button_Dessert" class="tablinks">DESSERT</a></p>
+  <p><a href="./MenuList.nu?category=Beverage#menu_sec2" id="button_Beverage" class="tablinks">BEVERAGE</a></p>
 </div>
 <div class="menu_top">
 <% 
@@ -107,7 +107,7 @@ int count=0;
 		<img src="./images/menu/icon_Steak.png" class="menu_topicon">
 		<span>Steak</span>
 	<%
-	} else if(category.equals("Steak")) {
+	} else if(category.equals("Pasta")) {
 	%>
 		<img src="./images/menu/icon_Pasta.png" class="menu_topicon">
 		<span>Pasta</span>
@@ -130,11 +130,13 @@ int count=0;
 for(int i=0; i<menuList.size(); i++) {
 	MenuBean nu = (MenuBean)menuList.get(i);
 	
+	
 %>
-<div class="menu_column">
+
+<div id="<%=category%>"class="menu_column">
 	<div class="menu_content">
-	<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px">
-	<span class="caption_Appetizer"><%=nu.getName()%></span>
+	<img id="myImg" src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="100%" height="150px">
+	<h4 class="menu_caption"><%=nu.getName()%></h4>
 	</div>
 </div> 
 <%
@@ -151,6 +153,7 @@ if(count==3) {
 </article>
 
 <script>
+
 function moveAppetizer() {
 	document.getElementById("defaultOpen").click();
 }
@@ -163,16 +166,32 @@ function moveSteak() {
 function movePasta() {
 	document.getElementById("button_Pasta").click();
 }
-function moveSaDessert() {
+function moveDessert() {
 	document.getElementById("button_Dessert").click();
 }
 function moveBeverage() {
 	document.getElementById("button_Beverage").click();
 }
-function openMenu() {
-	
-}
 
+function onClick(element) {
+	document.getElementById("img01").src = element.src;
+	var modal = document.getElementById("myModal");
+	document.getElementById("title").innerHTML = element.title;
+	document.getElementById("content").innerHTML = element.alt;
+	modal.style.display = "block";
+	
+	var span = document.getElementsByClassName("news_close")[0];
+	
+	//x표 누르면 팝업창 사라지기
+	span.onclick = function() { 
+	  modal.style.display = "none";
+	}
+	
+	//검은 바탕 누르면 팝업창 사라지기
+	modal.onclick = function() {   
+	  modal.style.display = "none";
+	}
+}
 </script>
 <div class="clear"></div>
 
