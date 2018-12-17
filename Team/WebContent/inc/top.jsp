@@ -119,12 +119,12 @@ if(sess==null){%>
    </div>
    <div class="sm_menu">
     <a href="./MenuList.nu" id="sm_title">MENU</a>
-     <a href="./MenuList.nu">Starter</a>
-     <a href="./MenuList.nu">Salad</a>
-     <a href="./MenuList.nu">Steak</a>
-     <a href="./MenuList.nu">Pasta</a>
-     <a href="./MenuList.nu">Dessert</a>
-     <a href="./MenuList.nu">Beverage</a>
+     <a href="./MenuList.nu?category=Starter#menu_sec2">Starter</a>
+     <a href="./MenuList.nu?category=Salad#menu_sec2">Salad</a>
+     <a href="./MenuList.nu?category=Steak#menu_sec2">Steak</a>
+     <a href="./MenuList.nu?category=Pasta#menu_sec2">Pasta</a>
+     <a href="./MenuList.nu?category=Dessert#menu_sec2">Dessert</a>
+     <a href="./MenuList.nu?category=Beverage#menu_sec2">Beverage</a>
    </div>
    <div class="sm_news">
     <a href="./NewsList.nw" id="sm_title">NEWS</a>
