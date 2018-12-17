@@ -176,33 +176,27 @@ history.back();
  <label class="label">예약내역 확인</label>
  <table id="confirm" >
  <tr>
-  <td><i class="fa fa-home"></i></td>
-  <th>지점</th>
+  <th><i class="fa fa-home"> </i> 지점 : </th>
   <!-- <td>00점</td> -->
  </tr>
  <tr>
-  <td><i class="fa fa-user"></i></td>
-  <th>인원</th>
+  <th><i class="fa fa-user"> </i> 인원 : </th>
   <!-- <td>00명</td> -->
   </tr>
   <tr>
-   <td><i class="fa fa-calendar-check-o"></i></td>
-   <th>예약 날짜</th>
+   <th><i class="fa fa-calendar-check-o"> </i> 예약 날짜 : </th>
    <!-- <td>2018년 12월 1일</td> -->
   </tr>
   <tr>
-   <td><i class="fa fa-clock-o"></i></td>
-   <th>예약 시간</th>
+   <th><i class="fa fa-clock-o"> </i> 예약 시간 : </th>
    <!-- <td>13:00시</td> -->
   </tr>
   <tr>
-   <td><i class="fas fa-utensils"></i></td>
-   <th> 예약 테이블</th>
+   <th><i class="fas fa-utensils"> </i> 예약 테이블 : </th>
    <!-- <td>t7번</td> -->
   </tr>
   <tr>
-   <td><i class="fa fa-edit"></i></td>
-   <th>요청 사항</th>
+   <th><i class="fa fa-edit"> </i> 요청 사항 : </th>
    <!-- <td>없음</td> -->
   </tr>
 
