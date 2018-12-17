@@ -98,7 +98,7 @@
 
 .tab a:hover {
     font-size: 1.5em;
-    border-bottom : 3px solid #670000;
+    border-bottom : 3px solid white;
     cursor: pointer;
     cursor: hand;
 	transition:color 0.2s;
@@ -106,7 +106,7 @@
 
 .tab a:active {
     font-size: 1.5em;
-    border-bottom : 3px solid #670000;
+    border-bottom : 3px soli white;
 }
 
 .menu_top {
@@ -119,20 +119,34 @@
 
 .menu_row {
 	border: 1px solid red;
+	margin: 8px -16px;
 }
-
+.menu_row,
+.menu_row>.menu_column {
+    padding: 8px;
+}
+.menu_row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
 .menu_column {
 	border: 1px solid green;
-	display: block;'
+	display: block;
+	float: left;
+    width: 25%;
+    margin: 10px 10px;
 }
 
-.menu_content {
-	border: 1px solid white;
 
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-
-
+#myImg:hover {opacity: 0.7;}
 
 
 
@@ -140,7 +154,7 @@
 
 
 /* 메뉴 보여주는 영역 전체*/
-.tabcontent {
+.menu_content {
 	padding-top: 180px;
 	background-color:rgba(255,255,255,0.3);
     border: 1px solid blue;
@@ -163,11 +177,6 @@ p {
 	margin: 20px 0 70px 15px;
 	padding : 10px 30px 10px 30px;
 	text-align: center;
-}
-
-.Appetizer, .Salad, .Steak, .Pasta, .Dessert, .Beverage, .caption {
-	display: none;
-	float: left;
 }
 
 h4{
