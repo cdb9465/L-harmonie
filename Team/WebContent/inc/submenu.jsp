@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="./js/jquery.scrollify.js"></script>
 <div class="submenu">
 <div class="submenu_in" onmouseover="subOn()" onmouseout="subOff()">
  <a href="#main0"></a>
@@ -17,4 +18,23 @@ function chatBtn(){
 	window.open('./main/chat.jsp','1:1 문의','width=500,height=770');
 	   											/* scrollbars=yes */
 	}
+
+/* 마우스휠 & 페이지 바뀔때마다 서브메뉴 색 바뀜 */
+$(function() {
+	  $.scrollify({
+		section:"section",
+	    scrollbars:false,
+	    easing: "easeOutExpo",
+	    scrollSpeed: 800,
+	    before:function(i,panels) {
+
+	      var ref = panels[i].attr("data-section-name");
+
+	      $(".submenu_in .subact").removeClass("subact");
+
+	      $(".submenu_in").find("a[href=\"#" + ref + "\"]").addClass("subact");
+	   		  },
+	});
+});
+
 </script>

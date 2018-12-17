@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/login.css" rel="stylesheet">
 <link href="../css/default.css" rel="stylesheet">
-<title>L'harmonie|Login</title>
+<title>L'harmonie</title>
 </head>
 <body>
 
