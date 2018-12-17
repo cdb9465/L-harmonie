@@ -32,18 +32,17 @@ public class ReviewAction implements Action{
 			
 		}
 		
-		List reviewlocation=rd.getLocation(location);
-		
+		List<ReviewBean> reviewlocation=rd.getLocation(location);
 		
 		int count = rd.getReviewCount();
 		//pageSize 10설정
 		int pageSize=3;
 		//pageNum 파라미터 가져오기 없으면 "1" 설정
 		String pageNum=request.getParameter("pageNum");
+		
 		if(pageNum==null){
 			pageNum="1";
 		}
-	
 		int currentPage=Integer.parseInt(pageNum);
 		//startRow 시작페이지 계산식 endRow 끝페이지 계산식
 		int startRow=(currentPage-1)*pageSize+1;
