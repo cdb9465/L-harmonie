@@ -242,22 +242,25 @@ $(document).ready(function(){
  			maxDate: '+14d',
  			defaultDate: '+1d',	//초기값
 			onSelect: function (date) { //date:선택된날짜 inst:인스턴스
-				/* var day = new Date();
+				//내일날짜구하기
+				var day = new Date();
 				day.setDate(day.getDate()+1);
 				var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
-				alert(nextDay); */ //내일날짜구하기
+				//alert(nextDay); 
 				
 				if(date == today)
 				{
 					alert("예약은 익일날짜부터 가능합니다.");
-					$("#datepicker").datepicker("option", "defaultDate", selected);
+					//$("#datepicker").datepicker("option", "defaultDate", selected);
+					//$("#datepicker").datepicker("refresh"); //refresh
+					$("#datepicker").datepicker('setDate', nextDay);					
 				}
 				else
 				{
 					$('#dateval').val(date);				
 				}
 				
-				initTime();//날짜변경시 시간선택 초기화
+				initTime(); //날짜선택시 시간선택 초기화
 				getDisableTime();
  			}
 		});
@@ -270,61 +273,21 @@ $(document).ready(function(){
 		});
 	});
 	
+	//지점, 인원 변경시  시간, 테이블 선택값 초기화
+	$("#location, #guest").click(function(){
+		//initDate();
+		initTime();
+		initTable();
+		
+		getDisableTime();
+	});
+	
 	//테이블 중복제어
  	$("#time").click(function(){
- 		initTable(); 	//시간변경시 테이블선택 초기화	 
+ 		initTable(); 	//시간변경시 테이블선택 초기화
  		getDisableTable();
  	});
 
-	function getDisableTime()
-	{
-		var l = document.bf.location.value;
-		var d = document.bf.date.value;
-		
-		$.ajax({
-	 		data : {location:l, date:d},
-	 		type : 'POST',
-	 		url : './BookDisableTime.bk',
-			success : function(data){
-				var res = data.split(',');
-				
-				$.each(res, function(index, item){
-					disableTime(item);
-				});
-			}
-
-		});		
-	}
-	
-
-	function getDisableTable()
-	{
-		var l = document.bf.location.value;
-		var t = document.bf.time.value;
-		var d = document.bf.date.value;
-		
-		$.ajax({
-	 		data : {location:l, date:d, time:t},
-	 		type : 'POST',
-	 		url : './BookDisableTable.bk',
-	 		//dataType : 'html',
-			success : function(data){
-				var res = data.split(',');
-
-				$.each(res, function(index, item){
-					disableTable(item-1);
-				});
-
-				//$('#t1').attr('class','tabl tfor2Act');
-			
- 				//$('#t1').css({
- 				//	"background-image":"url('./images/book/table2_g.png');"
-			}
-
-		});
-	}
-	
-		
 		
 });
 </script>
