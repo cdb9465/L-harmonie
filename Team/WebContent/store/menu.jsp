@@ -6,13 +6,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" async src="https://www.google-analytics.com/analytics.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="./css/menu.css" rel="stylesheet">
 <link href="./css/default.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title>L'marmonie| MENU</title>
+<title>L'marmonie</title>
 </head>
 <body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -57,15 +57,16 @@
 <!-- 헤더파일들어가는 곳 -->
 <div class="clear"></div>
 <%
-List<MenuBean> menuList=(List<MenuBean>)request.getAttribute("menuList");
-int count2=0;
+List menuList=(List)request.getAttribute("menuList");
+String category=(String)request.getAttribute("category");
+int count=0;
 %>
-
 <article class="menu_article">
 
-<div id="article_sec1" class="main_box">
-<ul class="sec1_menu">
-	<li><a href="#article_sec2" onclick="moveAppetizer()">APPETIZER</a></li>
+<div id="menu_sec1" class="main_box">
+<div class="menu_cover">
+<ul class="menu_info">
+	<li><a href="#article_sec2" onclick="moveStarter()">STARTER</a></li>
 	<li><a href="#article_sec2" onclick="moveSalad()">SALAD</a></li>
 	<li><a href="#article_sec2" onclick="moveSteak()">STEAK</a></li>
 	<li><a href="#article_sec2" onclick="movePasta()">PASTA</a></li>
@@ -77,87 +78,78 @@ int count2=0;
    <img src="./images/dot.png" class="dot">
 </a>
 </div>
-
-<div id="article_sec2" class="main_box">
-<div class="tab">
-  <button id="defaultOpen" class="tablinks" onclick="openMenu(event, 'Appetizer', 'caption_Appetizer')">APPETIZER</button>
-  <button id="button_Salad" class="tablinks" onclick="openMenu(event, 'Salad', 'caption_Salad')">SALAD</button>
-  <button id="button_Steak" class="tablinks" onclick="openMenu(event, 'Steak', 'caption_Steak')">STEAK</button>
-  <button id="button_Pasta" class="tablinks" onclick="openMenu(event, 'Pasta', 'caption_Pasta')">PASTA</button>
-  <button id="button_Dessert" class="tablinks" onclick="openMenu(event, 'Dessert', 'caption_Dessert')">DESSERT</button>
-  <button id="button_Beverage" class="tablinks" onclick="openMenu(event, 'Beverage', 'caption_Beverage')">BEVERAGE</button>
 </div>
 
-<div class="tabcontent">
-
-<table id="menu_table">
-	<tr>
-
+<div id="menu_sec2" class="main_box">
+<div class="menu_cover">
+<div class="tab">
+  <p><a href="./MenuList.nu?category=Starter" id="defaultOpen" class="tablinks" onclick="openMenu(event, 'Appetizer', 'caption_Appetizer')">STARTER</a></p>
+  <p><a href="./MenuList.nu?category=Salad" id="button_Salad" class="tablinks" onclick="openMenu(event, 'Salad', 'caption_Salad')">SALAD</a></p>
+  <p><a href="./MenuList.nu?category=Steak" id="button_Steak" class="tablinks" onclick="openMenu(event, 'Steak', 'caption_Steak')">STEAK</a></p>
+  <p><a href="./MenuList.nu?category=Pasta" id="button_Pasta" class="tablinks" onclick="openMenu(event, 'Pasta', 'caption_Pasta')">PASTA</a></p>
+  <p><a href="./MenuList.nu?category=Dessert" id="button_Dessert" class="tablinks" onclick="openMenu(event, 'Dessert', 'caption_Dessert')">DESSERT</a></p>
+  <p><a href="./MenuList.nu?category=Beverage" id="button_Beverage" class="tablinks" onclick="openMenu(event, 'Beverage', 'caption_Beverage')">BEVERAGE</a></p>
+</div>
+<div class="menu_top">
+<% 
+	if(category.equals("Starter")) {
+	%>
+		<img src="./images/menu/icon_Starter.png" class="menu_topicon">
+		<span>Starter</span>
+	<%
+	} else if(category.equals("Salad")) {
+	%>
+		<img src="./images/menu/icon_Salad.png" class="menu_topicon">
+		<span>Salad</span>
+	<%
+	} else if(category.equals("Steak")) {
+	%>
+		<img src="./images/menu/icon_Steak.png" class="menu_topicon">
+		<span>Steak</span>
+	<%
+	} else if(category.equals("Steak")) {
+	%>
+		<img src="./images/menu/icon_Pasta.png" class="menu_topicon">
+		<span>Pasta</span>
+	<%
+	} else if(category.equals("Dessert")) {
+	%>
+		<img src="./images/menu/icon_Dessert.png" class="menu_topicon">
+		<span>Dessert</span>
+	<%
+	} else {
+	%>
+		<img src="./images/menu/icon_Beverage.png" class="menu_topicon">
+		<span>Beverage</span>
+	<%
+	}
+%>
+</div>
+<div class="menu_row">
 <%
 for(int i=0; i<menuList.size(); i++) {
-	
 	MenuBean nu = (MenuBean)menuList.get(i);
-	%>
 	
-	<%
-	if(nu.getCategory().equals("Appetizer")) {
-		System.out.println(count2);
-	%>	
-		
-		<td><img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px"  class="Appetizer" >
-	  	<p class="caption_Appetizer" title="<%=nu.getCategory()%>"><%=nu.getName()%></p></td>
-	  	<%
-	  	count2 +=1;
-		
-		if(count2 == 4) {
-			System.out.println(count2);
-			count2 =0;
-			%>
-			</tr>
-			<%
-		}
-	}
-	else if(nu.getCategory().equals("Salad")) {
-	%>
-	
-  		<td><img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Salad" >
-  		<p class="caption_Salad" title="<%=nu.getCategory()%>"><%=nu.getName()%></p></td>
-  		
-  	<% 
-	}
-	else if(nu.getCategory().equals("Steak")) {
-	%>
-  		<td><img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Steak" >
-  		<p class="caption_Steak" title="<%=nu.getCategory()%>"><%=nu.getName()%></p></td>
-  	<%
-	}
-	else if(nu.getCategory().equals("Pasta")) {
-  	%>
-  		<td><img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Pasta" >
-  		<p class="caption_Pasta" title="<%=nu.getCategory()%>"><%=nu.getName()%></p></td>
-  	<%
-	}
-	else if(nu.getCategory().equals("Dessert")) {
-  	%>
-  		<td><img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Dessert" >
- 		<p class="caption_Dessert" title="<%=nu.getCategory()%>"><%=nu.getName()%></p></td>
+%>
+<div class="menu_column">
+	<div class="menu_content">
+	<img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px">
+	<span class="caption_Appetizer"><%=nu.getName()%></span>
+	</div>
+</div> 
+<%
+count+=1;
 
-  	<%
-	}
-	else {
-  	%>
-  		<td><img src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="300px" height="200px" class="Beverage" >
-  		<p class="caption_Beverage" title="<%=nu.getCategory()%>"><%=nu.getName()%></p></td>
-	<%
-	}
-	
+if(count==3) {
+	count=0;
+}
 }
 %>
-</tr>
-</table>
+</div>
 </div>
 </div>
 </article>
+
 <script>
 function moveAppetizer() {
 	document.getElementById("defaultOpen").click();
@@ -177,41 +169,8 @@ function moveSaDessert() {
 function moveBeverage() {
 	document.getElementById("button_Beverage").click();
 }
-document.getElementById("defaultOpen").click();
-
-function openMenu(evt, menuName, capName) {
-    var i, tablinks, n, menu, img, cap;
-    img = document.getElementsByTagName("img"); //이미지 파일 전체 다
-    show = document.getElementsByClassName(menuName); //에피타이져3개 (샐러드 제외)
-    menu = document.getElementsByClassName(menuName)[0].getAttribute("class"); //분류 (Appetizer)
-    
-    cap = document.getElementsByTagName("p");//캡션 전체 다
-    caption = document.getElementsByClassName(capName);
-    allcaption = document.getElementsByClassName(capName)[0].getAttribute("title"); //p 타이틀 분류 (Appetizer)
-
-    for(i = 0; i<cap.length; i++) {
-    	cap[i].style.display = "none";
-    }
-    for(i = 0; i<img.length; i++) {
-    	img[i].style.display = "none";
-    	
-    }
-    if(menuName==menu) {
-    	for(i =0; i<show.length; i++) {
-    		show[i].style.display = "block";
-    	}
-    	if(menuName==allcaption){
-    		for(i = 0; i<caption.length; i++) {
-				caption[i].style.display="block";
-			}
-    	}
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    evt.currentTarget.className += " active";
-
+function openMenu() {
+	
 }
 
 </script>

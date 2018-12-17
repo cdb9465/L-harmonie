@@ -196,6 +196,24 @@ h1{ margin:0;
 		padding:3px; margin-right:5px;
 		color: #000;font-size: 12px;}
 
+/* 서브메뉴 */
+#subon {/*  border: 1px solid #fff; */
+	color: #fff;
+	font-size: 20px;
+	display: none;
+	text-align: center;
+	position: fixed;
+	text-transform: uppercase;
+	top: 42.5%; right: 53px;
+	z-index: 100;}
+
+#subon ul{list-style: none;}
+
+#subon ul li{
+	width: 120px;
+	border-bottom: 2px solid #fff;
+	padding-bottom: 1px;
+	margin-bottom: 2px;}
 
 
 

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div class="main_box" id="main1">
+<section class="main_box" id="main1" data-section-name="main1" >
   <div class="main2_text">
     <h1 style="font-size:65px">Create a person's story</h1>
     <p>사람과 공간이 함께 어울릴 수 있도록 노력하겠습니다</p>
@@ -44,4 +44,4 @@
 </div>
 
 
-</div>
+</section>

@@ -53,7 +53,7 @@ history.back();
 <%
 MemberBean mb = (MemberBean)request.getAttribute("mb");
 %>
-<div class="mpbox" id="main0"><!-- 배경들어가는 영역 -->
+<section class="mpbox" id="main0" data-section-name="main0"><!-- 배경들어가는 영역 -->
  <h1>MODIFY</h1>
  	<div id="modify"> 	
  		<form id="info_update" method="post" name="fr1">
@@ -105,7 +105,7 @@ MemberBean mb = (MemberBean)request.getAttribute("mb");
    <img src="./images/arrow.png">
    <img src="./images/dot.png" class="dot">
 </a>
-</div>
+</section>
 
 <!-- 2번째 메인 -->
 <%
@@ -122,7 +122,7 @@ int bookpageBlock=((Integer)request.getAttribute("bookpageBlock")).intValue();
 int bookstartPage=((Integer)request.getAttribute("bookstartPage")).intValue();
 int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 %>
-<div class="mpbox" id="main1"><!-- 배경들어가는 영역 -->
+<section class="mpbox" id="main1" data-section-name="main1"><!-- 배경들어가는 영역 -->
  <h1>MY BOOK</h1>
 <div id="mybook">
 <form action="./Mypage.me?searchStartDate=<%=startDate %>&searchEndDate=<%=endDate%>#main1" name="fr2" method="get">
@@ -254,7 +254,7 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
    <img src="./images/arrow.png">
    <img src="./images/dot.png" class="dot">
 </a>
-</div>
+</section>
 
 <!-- 3번째 메인 -->
 <%
@@ -272,7 +272,7 @@ int reviewpageBlock=((Integer)request.getAttribute("reviewpageBlock")).intValue(
 int reviewstartPage=((Integer)request.getAttribute("reviewstartPage")).intValue();
 int reviewendPage=((Integer)request.getAttribute("reviewendPage")).intValue();
 %>
-<div class="mpbox" id="main2">
+<section class="mpbox" id="main2" data-section-name="main2">
  <h1>MY REVIEW</h1>
 <div id="myreview">
 <form action="./Mypage.me#main2" name="fr3" method="get">
@@ -379,7 +379,7 @@ int reviewendPage=((Integer)request.getAttribute("reviewendPage")).intValue();
 		</div>
 </form>
 </div>
-</div>
+</section>
 
 
    
@@ -388,6 +388,14 @@ int reviewendPage=((Integer)request.getAttribute("reviewendPage")).intValue();
 
 <!-- 서브메뉴 들어가는 곳 -->
 <jsp:include page="../inc/submenu.jsp"></jsp:include>
+	<!-- 서브메뉴 후버시 나타나는 메뉴 -->
+	<div id="subon">
+	 <ul>
+	  <li>my info</li>
+	  <li>my book</li>
+	  <li>my review</li>
+	 </ul>
+	</div>  
 <!-- 서브메뉴 들어가는 곳 -->
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>

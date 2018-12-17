@@ -334,6 +334,8 @@ body{margin: 0px; padding: 0px;
     margin-bottom: 20px;
     background-color: #fff;}
     
+.subact{background-color: #b51717 !important;}
+    
 #sub_about { display: none; }
 
 /* 1:1채팅 */

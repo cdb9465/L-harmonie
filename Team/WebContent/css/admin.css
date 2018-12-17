@@ -111,7 +111,8 @@ h1#title{ margin:0;
 #btnReset {	margin-left: 80px; }
 
 #btnSubmit:HOVER, #btnReset:HOVER{color:#000;
-	background-color:#800000; }
+	background-color:#800000;
+	cursor: pointer; }
 
 /************************************************************/
 /* 예약조회테이블 */
