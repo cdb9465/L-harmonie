@@ -199,28 +199,35 @@ article#book_art {width: 1300px; height: 700px;
 	font-weight: bold;
 }
 
-#alergy {border:1px solid green;
-	height: 50px;
-	line-height: 50px; }
+#alergy {
+	margin-top: 40px;
+	height: 30px;
+	line-height: 30px; }
 
 #alergy>label { margin-left: 5px; }
 	
-#alergy #rad {border:1px solid blue;
+#alergy #rad {
 	display: inline-block;
 	margin-left: 40px;}
 
-#req {border:1px solid red;
+#alergy span{
+	display: inline-block;
+	margin-left: 155px;
+	font-weight: 500;
+}
+#req {
 	position: relative;
+	top: 30px;
 	height: 200px; }
 
 #req>label { 
 	position: absolute;
-	top: 80px; left: 5px;
+	top: 25px; left: 5px;
 	height: 50px; }
 
 #req>textarea { 
 	position: absolute;
-	top: 20px; left: 130px; }
+	top: 20px; left: 155px; }
 
 #detail { display: none;
 	/* background-color: rgba(255,255,255,0.7); */
@@ -232,17 +239,18 @@ article#book_art {width: 1300px; height: 700px;
 
 
 /* 5단계 확인 완료 */
-/* table#confirm{
-	margin: 20px auto 0 auto;
-}
+table#confirm{margin: 10px auto;
+	}
 
-table#confirm th{
-	width: 150px;
-}
+table#confirm th,table#confirm td{padding: 13px 20px 13px 15px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;	}	
 
-table#confirm td{
-	padding: 15px 0;
-} */
+table#confirm th{width:150px;}
+
+table#confirm td{font-weight: bolder;
+	width: 400px;}
 
 	
 /* BookCheck */
@@ -261,16 +269,15 @@ article#bookck_art {width: 900px; height: 600px;
 	font-size: 30px;
 	font-weight: bold; }
 
-.bookCk table, table#confirm{margin: 10px auto;
+.bookCk table{margin: 10px auto;
 	border-collapse: collapse;}
 
-.bookCk td, .bookCk th,table#confirm th,table#confirm td{padding: 13px 20px 13px 15px;
+.bookCk td, .bookCk th{padding: 13px 20px 13px 15px;
 	font-size: 15px;
 	font-weight: bold;
-	border: 1px solid;
-	}
+	border: 1px solid;	}
 
-.bookCk td, table#confirm td{
+.bookCk td{
 	font-weight: bolder;
 	width: 400px;
 	text-align: left;}

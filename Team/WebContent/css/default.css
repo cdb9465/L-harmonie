@@ -80,10 +80,34 @@ body{margin: 0px; padding: 0px;
     /* margin-right: 10%; */}
 
 .MM:HOVER {
-	border-bottom : 3px solid #fff;
+ 	border-bottom : 3px solid #fff; 
 	cursor: pointer;cursor: hand;
 	transition:color 0.2s;
 }
+.MM:ACTIVE {
+ 	border-bottom : 3px solid #fff; 
+	cursor: pointer;cursor: hand;
+	transition:color 0.2s;
+}
+.onMM{border-bottom : 3px solid #fff; }
+
+/* .Mover { border-bottom : 3px solid #fff;text-decoration: none;
+	display: inline-block;
+    color: #eee;
+    font-size: 22px;
+    font-weight: 500px;
+    margin:17px 20px;
+    padding: 10px 20px; }
+.Mout { text-decoration: none;
+	display: inline-block;
+    color: #eee;
+    font-size: 22px;
+    font-weight: 500px;
+    margin:17px 20px;
+    padding: 10px 20px; }
+.act { background : green; color : white; }
+
+ */
 /* book 영역 */
 
 #book{list-style: none;
@@ -514,11 +538,13 @@ footer{
 	#logo { margin-right:5px;
 			margin-left: 5px; }
 	.MM{ margin:17px 2px; }
+	.onMM{ margin:17px 2px; }
 	#book{margin-left: 5px;}
  }
   @media screen and (min-width: 1101px) and (max-width: 1300px) {
  	#main_menu { margin-left:250px;}
 	.MM{ margin:17px 15px; }
+	.onMM{ margin:17px 15px;}
 	#book{margin-left: 20px;}
  }
 /* 반응형 login버튼 구역 */

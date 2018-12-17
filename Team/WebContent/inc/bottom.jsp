@@ -13,6 +13,7 @@
 		<a href="#">이용약관</a>
 		<a href="#">개인정보취급방침</a>
 		<a href="#">채용정보</a>
+		<a onclick="openNav()" style="cursor: pointer">사이트맵</a>
 	</div>
 	
 	<div class="fbottom">
