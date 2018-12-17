@@ -122,9 +122,12 @@ article#book_art {width: 1300px; height: 700px;
 
 #nextBtn { right: 10px; bottom: 10px;}
 
+/* datepicker */
+#datepicker {margin-top: 20px;}
+
 /* 2단계 날짜설명 */
 #dateDesc { position: absolute;
-	top: 200px; right: 50px;
+	top: 220px; right: 30px;
 	width: 120px; height: 80px;
 	text-align: left; }
 

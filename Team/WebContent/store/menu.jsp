@@ -55,16 +55,22 @@
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <!-- 헤더파일들어가는 곳 -->
+
 <div class="clear"></div>
+
 <%
 List menuList=(List)request.getAttribute("menuList");
 String category=(String)request.getAttribute("category");
 int count=0;
 %>
+<!-- 전체 메인 -->
 <article class="menu_article">
 
+<!-- 첫번째 메뉴페이지-->
 <div id="menu_sec1" class="main_box">
 <div class="menu_cover">
+
+<!-- 메뉴판 -->
 <ul class="menu_info">
 	<li><a href="#menu_sec2" onclick="moveStarter()">STARTER</a></li>
 	<li><a href="#menu_sec2" onclick="moveSalad()">SALAD</a></li>
@@ -73,6 +79,8 @@ int count=0;
 	<li><a href="#menu_sec2" onclick="moveDessert()">DESSERT</a></li>
 	<li><a href="#menu_sec2" onclick="moveBeverage()">BEVERAGE</a></li>
 </ul>
+
+<!-- 마우스 이미지 스크롤 -->
 <a href="#main1" class="arrow">
    <img src="./images/arrow.png">
    <img src="./images/dot.png" class="dot">
@@ -80,8 +88,11 @@ int count=0;
 </div>
 </div>
 
+<!-- 두번째 메뉴페이지 -->
 <div id="menu_sec2" class="main_box">
 <div class="menu_cover">
+
+<!-- 탭메뉴 -->
 <div class="tab">
   <p><a href="./MenuList.nu?category=Starter#menu_sec2" id="defaultOpen" class="tablinks">STARTER</a></p>
   <p><a href="./MenuList.nu?category=Salad#menu_sec2" id="button_Salad" class="tablinks">SALAD</a></p>
@@ -90,6 +101,8 @@ int count=0;
   <p><a href="./MenuList.nu?category=Dessert#menu_sec2" id="button_Dessert" class="tablinks">DESSERT</a></p>
   <p><a href="./MenuList.nu?category=Beverage#menu_sec2" id="button_Beverage" class="tablinks">BEVERAGE</a></p>
 </div>
+
+<!-- 상세메뉴 탑 -->
 <div class="menu_top">
 <% 
 	if(category.equals("Starter")) {
@@ -125,18 +138,25 @@ int count=0;
 	}
 %>
 </div>
+
+<!--상세메뉴 -->
 <div class="menu_row">
 <%
 for(int i=0; i<menuList.size(); i++) {
 	MenuBean nu = (MenuBean)menuList.get(i);
-	
-	
 %>
 
+<!-- 메뉴 한개 -->
 <div id="<%=category%>"class="menu_column">
+
+	<!-- 메뉴 감싸는 배경 -->
 	<div class="menu_content">
-	<img id="myImg" src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="100%" height="150px">
-	<h4 class="menu_caption"><%=nu.getName()%></h4>
+	
+	<!-- 메뉴 사진 -->
+	<img id="myImg" src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="100%" height="250px"><br>
+	
+	<!-- 메뉴 이름 -->
+	<div class="menu_caption"><%=nu.getName()%></div>
 	</div>
 </div> 
 <%
@@ -153,7 +173,6 @@ if(count==3) {
 </article>
 
 <script>
-
 function moveAppetizer() {
 	document.getElementById("defaultOpen").click();
 }
@@ -173,27 +192,10 @@ function moveBeverage() {
 	document.getElementById("button_Beverage").click();
 }
 
-function onClick(element) {
-	document.getElementById("img01").src = element.src;
-	var modal = document.getElementById("myModal");
-	document.getElementById("title").innerHTML = element.title;
-	document.getElementById("content").innerHTML = element.alt;
-	modal.style.display = "block";
-	
-	var span = document.getElementsByClassName("news_close")[0];
-	
-	//x표 누르면 팝업창 사라지기
-	span.onclick = function() { 
-	  modal.style.display = "none";
-	}
-	
-	//검은 바탕 누르면 팝업창 사라지기
-	modal.onclick = function() {   
-	  modal.style.display = "none";
-	}
+function click(category) {
+	document.getElementById()
 }
 </script>
-<div class="clear"></div>
 
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
