@@ -43,13 +43,13 @@ history.back();
 <!-- 예약 네비게이션 메뉴바 -->
 <div class="book_nav">
  <div class="steps">
-  <div class="step2" onclick="moveTab(0)"><i class="fa fa-fw fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</div>
+  <div class="step2" onclick="moveTab(0)"><i class="far fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</div>
  </div>
  <div class="steps">
-  <div class="step2" onclick="moveTab(1)"><i class="fa fa-calendar" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</div> 
+  <div class="step2" onclick="moveTab(1)"><i class="fas fa-calendar-alt" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</div> 
  </div>
  <div class="steps">
-  <div class="step2" onclick="moveTab(2)"><i class="fa fa-cutlery" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</div>
+  <div class="step2" onclick="moveTab(2)"><i class="fas fa-utensils" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</div>
  </div>
  <div class="steps">
   <div class="step2" onclick="moveTab(3)"><i class="fa fa-edit" style="font-size:15px"></i> STEP 4 <br> 요청사항 입력 </div>
@@ -153,15 +153,15 @@ history.back();
    <div id="rad">
     <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없음
     <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있음
-    <input type="text" id="detail" placeholder="ex)땅콩 알러지" size="20"><br>
-    <span></span>
+    <input type="text" id="detail" placeholder="ex) 땅콩 알러지" size="20"><br>
    </div>
+   <br>
+   <span><i class="fa fa-exclamation"></i> 음식 알러지가 있을경우 있음을 선택하고 그 종류를 써주세요.</span>
   </div>
-  
   
   <div id="req">
    <label><i class="fa fa-check"></i> 특별 요청사항</label>
-   <textarea cols="50" rows="10" name="special"></textarea>
+   <textarea cols="62" rows="10" name="special"></textarea>
   </div>
   
    <input type="hidden" name="request">
@@ -176,26 +176,32 @@ history.back();
  <label class="label">예약내역 확인</label>
  <table id="confirm" >
  <tr>
-  <th>지 점</th>
+  <td><i class="fa fa-home"></i></td>
+  <th>지점</th>
   <!-- <td>00점</td> -->
  </tr>
  <tr>
-  <th>인 원</th>
+  <td><i class="fa fa-user"></i></td>
+  <th>인원</th>
   <!-- <td>00명</td> -->
   </tr>
   <tr>
+   <td><i class="fa fa-calendar-check-o"></i></td>
    <th>예약 날짜</th>
    <!-- <td>2018년 12월 1일</td> -->
   </tr>
   <tr>
+   <td><i class="fa fa-clock-o"></i></td>
    <th>예약 시간</th>
    <!-- <td>13:00시</td> -->
   </tr>
   <tr>
-   <th>예약 테이블</th>
+   <td><i class="fas fa-utensils"></i></td>
+   <th> 예약 테이블</th>
    <!-- <td>t7번</td> -->
   </tr>
   <tr>
+   <td><i class="fa fa-edit"></i></td>
    <th>요청 사항</th>
    <!-- <td>없음</td> -->
   </tr>

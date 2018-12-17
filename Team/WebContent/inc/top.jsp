@@ -2,7 +2,7 @@
 <%@page import="net.member.db.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
 <link href="./css/login.css" rel="stylesheet">
 
 <header>
@@ -29,7 +29,7 @@ MemberBean mb=mdao.getMember(sess);
 	<li><a href="./MenuList.nu" class = "MM">MENU</a></li>
 	<li><a href="./NewsList.nw" class = "MM">NEWS</a></li>
 	<li><a href="./ReviewList.re" class = "MM">REVIEW</a></li>
-	<li><a href="./Book.bk" id = "book">BOOK</a></li>
+	<li><a href="./Book.bk" id = "book" >BOOK</a></li>
 
 
 <!-- 예약 버튼 -->
@@ -167,6 +167,15 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+//메뉴 눌렀을 때 유지
+<script>
+ $(function(){
+  var sBtn = $("ul > li");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
+  sBtn.find("a").click(function(){   // sBtn에 속해 있는  a 찾아 클릭 하면.
+   sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+   $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
+  })
+ })
 
 </script>
 <!-- 헤더 들어가는곳 -->
