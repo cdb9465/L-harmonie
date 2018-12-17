@@ -41,6 +41,13 @@ public class ReviewFrontController extends HttpServlet {
   				e.printStackTrace(); 
   			}
   		}
+  		else if(command.equals("/ReviewListTest.re"))
+  		{
+  			action = new ReviewListAction();
+ 			try { 
+ 				forward = action.execute(request, response); 
+  			} catch (Exception e) { e.printStackTrace(); }			
+  		}
   		
   			else if (command.equals("/ReviewDelete.re")) { 
   	  		
@@ -74,6 +81,22 @@ public class ReviewFrontController extends HttpServlet {
   	  			} catch (Exception e) { 
   	  				e.printStackTrace(); 
   	  			}
+  	  		}else if (command.equals("/LocationAction.re")) { 
+  	  
+  	  			action = new LocationAction(); 
+  	  			try { 
+  	  				forward = action.execute(request, response); 
+  	  			} catch (Exception e) { 
+  	  				e.printStackTrace(); 
+  	  			}
+  	  		}else if (command.equals("/LoveDeleteAction.re")) { 
+  	  		
+  	  			action = new LoveDeleteAction(); 
+  	  			try { 
+  	  				forward = action.execute(request, response); 
+  	  			} catch (Exception e) { 
+  	  				e.printStackTrace(); 
+  	  			} 
   	  		}
 	
 	   
