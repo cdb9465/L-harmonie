@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-
+/* 
 body {
 	background-image: url("../images/main/star03.jpg");	
 }
@@ -7,9 +7,9 @@ body {
 .row {
 	color: #fff;
 }
+ */
 
-
- /* 
+ 
  .portlet {
     margin-bottom: 15px;
 }
@@ -183,4 +183,3 @@ height:40px;
 .text-red {
     color: #e74c3c;
 }                
- */
