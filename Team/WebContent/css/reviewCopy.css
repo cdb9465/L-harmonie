@@ -62,6 +62,54 @@ span#date{float: right;font-weight: normal;font-size: 15px;}
 /* td 사진 */
 .td_pic{ }
 
+/* 사진 펼침 영역 */
+.container {
+  position: relative;	/* < > 버튼 위치 잡기 위해 필요 */ }
+
+.mySlides { width: 500px; height: 300px;
+	display: none; }
+
+/* < > 버튼 */
+.review_pic a {
+	cursor: pointer;
+	position: absolute;
+	top: 60%;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	user-select: none;
+	-webkit-user-select: none; }
+
+.prev{ border-radius: 0 3px 3px 0;
+  display: none; }
+
+.next { border-radius: 3px 0 0 3px;
+ 	right: 150px;
+ 	display: none; }
+
+.prev:hover,
+.next:hover { background-color: rgba(0, 0, 0, 0.8); }
+
+/* 썸네일 목록 */
+.row { width: 500px; height: 70px;
+	margin: 0 auto;
+	margin-top: 10px; }
+
+.column {  width: 33%;	/* 최대 첨부사진 수에 맞춰 조정필요 */
+  float: left; 
+  padding-left:10px;}
+
+.column img { height: 70px;
+	margin: 0 auto; }
+
+/* 썸네일 이미지 불투명하게 */
+.demo { opacity: 0.6; }
+
+.active,
+.demo:hover { opacity: 1; }
+
+
 /* td 좋아요 */
 .td_like {}
 #heart1{background-color: rgba(0,0,0,0); border: none; cursor: pointer; float: left;}

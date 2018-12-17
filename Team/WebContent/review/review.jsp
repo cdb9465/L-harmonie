@@ -42,6 +42,7 @@ int Lcount=((Integer)request.getAttribute("Lcount")).intValue();
 
 String pageNum=(String)request.getAttribute("pageNum");
 List<ReviewBean> ReviewList = (List<ReviewBean>)request.getAttribute("reviewList");
+
 int pageCount=((Integer)request.getAttribute("pageCount")).intValue();
 int count=((Integer)request.getAttribute("count")).intValue();
 int Ccount=((Integer)request.getAttribute("Ccount")).intValue();
@@ -54,6 +55,8 @@ String location=(String)session.getAttribute("location");
 List<ReviewBean> reviewlocation=(List)request.getAttribute("reviewlocation");
 MemberDAO mdao1= new MemberDAO();
 MemberBean mbb= mdao1.getMember(email);
+System.out.println("review에서 확인"+ reviewlocation);
+
 %>
 
 
@@ -71,15 +74,23 @@ MemberBean mbb= mdao1.getMember(email);
 
 <!-- 리뷰쓰기 영역 끝 -->
 <hr>
-
-<form action="./ReviewList.re" name="location" method="get">
+<script>
+function  etcjob(){ 
+var kk = document.fwrite.ca_name.options.selectedIndex; 
+var kv = document.fwrite.ca_name.options[document.fwrite.ca_name.options.selectedIndex].value; 
+if( kv == '전체' ) document.getElementById('etcetc').style.display=""; 
+else document.getElementById('etcetc').style.display="none"; 
+} 
+</script>
+<form action="./LocationAction.re" name="location" method="get">
  <div class="write_find">
   <div class="title">*간편검색*</div><br>
-  <select name="sel_location">
+  <select name="sel_location" onchange="this.form.submit();">
     <option value="전체" >전체</option>
-   <option value="서울강남점" ><a href="./LocationAction.re">서울강남점</a></option>
+   <option value="서울강남점">서울강남점</a></option>
    <option value="부산서면점">부산서면점</option>
   </select>
+ 
  </div>
  </form>
 <!-- review_wrap 시작 -->
@@ -92,10 +103,15 @@ if(count!=0)
 for(int i=0;i<ReviewList.size();i++)
 {
     ReviewBean rb=ReviewList.get(i);
+   
    %>
    
 <table border="1" class="tbimg" width="100%" cellspacing="0" cellpadding="0">
 <tr style="background-color:black; color:white; height:20px;">
+<%
+MemberDAO mdo= new MemberDAO();
+
+%>
 <th><%=rb.getMem_num()%></th>
 <th><%=rb.getLocation() %></th>
 <th><%=rb.getDate() %></th>
@@ -198,21 +214,26 @@ for(int i=0;i<ReviewList.size();i++)
 </th></tr>
 
 <tr><td> 
+ 
 <form action="./LoveCountAction.re"  method="post">
+
 <div class="content">
 <input type="hidden" name="mem_num" value=<%=mbb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
 <input type="hidden" name="love_num" value="1">
  <div class="like">
+
   <Button type="submit" onclick="style='background-color:pink'" id="heart1">
   <i class="fa fa-heart" id=heart style="color:red"></i>
   <p>좋아요</p>
   </Button>
+ 
  </div>
  </div>
+
  </form>
 </td>
- 
+  
 <td>
 
 <%
@@ -227,8 +248,6 @@ for(int z=0;z<lobe.size();z++){
     	LoveBean lb=lobe.get(z);
     	
    	if(rb.getReview_num()==lb.getReview_num()){
-    	System.out.println("review게시판 번호" + rb.getReview_num());
-    	System.out.println("좋아요 게시판 번호" + lb.getReview_num());
     	lovecount+=1;
     	%>
 

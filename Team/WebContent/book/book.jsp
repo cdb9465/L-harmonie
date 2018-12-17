@@ -43,13 +43,13 @@ history.back();
 <!-- 예약 네비게이션 메뉴바 -->
 <div class="book_nav">
  <div class="steps">
-  <div class="step2" onclick="moveTab(0)"><i class="fa fa-fw fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</div>
+  <div class="step2" onclick="moveTab(0)"><i class="far fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</div>
  </div>
  <div class="steps">
-  <div class="step2" onclick="moveTab(1)"><i class="fa fa-calendar" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</div> 
+  <div class="step2" onclick="moveTab(1)"><i class="fas fa-calendar-alt" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</div> 
  </div>
  <div class="steps">
-  <div class="step2" onclick="moveTab(2)"><i class="fa fa-cutlery" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</div>
+  <div class="step2" onclick="moveTab(2)"><i class="fas fa-utensils" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</div>
  </div>
  <div class="steps">
   <div class="step2" onclick="moveTab(3)"><i class="fa fa-edit" style="font-size:15px"></i> STEP 4 <br> 요청사항 입력 </div>
@@ -68,14 +68,14 @@ history.back();
 <div class="panel">
 
  <div id="location">
-  <label class="label">지점</label>
+  <label class="label">지점 선택</label>
   <div class="slot" onclick ="selectLocation(0)">서울강남점</div>
   <div class="slot" onclick ="selectLocation(1)">부산서면점</div>
   <input type="hidden" name="location" value="">
  </div>
  
  <div id="guest">
-  <label class="label">인원</label>
+  <label class="label">인원수 선택</label>
   <div class="slot" onclick = "selectGuest(0)">1</div>
   <div class="slot" onclick = "selectGuest(1)">2</div>
   <div class="slot" onclick = "selectGuest(2)">3</div>
@@ -93,7 +93,7 @@ history.back();
 <div class="panel">
 
  <div id="date">
-  <label class="label">날짜</label>
+  <label class="label">날짜 선택</label>
   <div id="datepicker"><input type="hidden" name="date" id="dateval"></div>
   
   <div id="dateDesc">
@@ -104,7 +104,7 @@ history.back();
  </div>
   
  <div id="time">
-  <label class="label">시간</label>
+  <label class="label">시간 선택</label>
   <div class="slot" onclick = "selectTime(0)">11:00</div>
   <div class="slot" onclick = "selectTime(1)">13:00</div>
   <div class="slot" onclick = "selectTime(2)">17:00</div>
@@ -120,7 +120,7 @@ history.back();
 <div class="tab">
 <div class="panel">
 
-<label class="label">테이블</label>
+<label class="label">테이블 선택</label>
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
@@ -145,21 +145,23 @@ history.back();
 <div class="tab">
 <div class="panel">
  <div class="request">
-  <label class="label">요청사항</label><br>
+  <label class="label">그 외 요청사항</label>
   <!-- <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label><br>
   <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br> -->
   <div id="alergy">
-   <label>알러지 여부</label>
-   <span id="rad">
-    <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없습니다.
-    <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있습니다.
-    <input type="text" id="detail" placeholder="ex) 갑각류 알러지" size="20"><br>
-   </span>
+   <label><i class="fa fa-check"></i> 알러지 여부</label>
+   <div id="rad">
+    <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없음
+    <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있음
+    <input type="text" id="detail" placeholder="ex) 땅콩 알러지" size="20"><br>
+   </div>
+   <br>
+   <span><i class="fa fa-exclamation"></i> 음식 알러지가 있을경우 있음을 선택하고 그 종류를 써주세요.</span>
   </div>
   
   <div id="req">
-   <label>특별 요청사항</label>
-   <textarea cols="50" rows="10" name="special"></textarea>
+   <label><i class="fa fa-check"></i> 특별 요청사항</label>
+   <textarea cols="62" rows="10" name="special"></textarea>
   </div>
   
    <input type="hidden" name="request">
@@ -171,30 +173,30 @@ history.back();
 <!-- 5단계 (확인 & 완료)-->
 <div class="tab">
 <div class="panel">
- <label class="label">확인</label>
+ <label class="label">예약내역 확인</label>
  <table id="confirm" >
  <tr>
-  <th>지 점</th>
+  <th><i class="fa fa-home"> </i> 지점 : </th>
   <!-- <td>00점</td> -->
  </tr>
  <tr>
-  <th>인 원</th>
+  <th><i class="fa fa-user"> </i> 인원 : </th>
   <!-- <td>00명</td> -->
   </tr>
   <tr>
-   <th>예약 날짜</th>
+   <th><i class="fa fa-calendar-check-o"> </i> 예약 날짜 : </th>
    <!-- <td>2018년 12월 1일</td> -->
   </tr>
   <tr>
-   <th>예약 시간</th>
+   <th><i class="fa fa-clock-o"> </i> 예약 시간 : </th>
    <!-- <td>13:00시</td> -->
   </tr>
   <tr>
-   <th>예약 테이블</th>
+   <th><i class="fas fa-utensils"> </i> 예약 테이블 : </th>
    <!-- <td>t7번</td> -->
   </tr>
   <tr>
-   <th>요청 사항</th>
+   <th><i class="fa fa-edit"> </i> 요청 사항 : </th>
    <!-- <td>없음</td> -->
   </tr>
 
@@ -206,8 +208,8 @@ history.back();
 <!-- 버튼 -->
 <div style="overflow:auto;">
  <div>
-  <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-  <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  <button type="button" id="prevBtn" onclick="nextPrev(-1)">이전</button>
+  <button type="button" id="nextBtn" onclick="nextPrev(1)">다음</button>
  </div>
 </div>
 <!-- 버튼 -->

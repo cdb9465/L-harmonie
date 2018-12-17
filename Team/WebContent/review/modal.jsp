@@ -62,7 +62,7 @@ ReviewBean rb= rdao.getReview1();
  </div>
  <div class="clear"></div>
 <tr><th><div class="title">작성자</div></th><td><%=mb.getName() %>
-<input type="hidden" name="mem_num" value="<%=rb.getMem_num()%>" readonly></td></tr>
+<input type="hidden" name="mem_num" value="<%=mb.getMem_num()%>" readonly></td></tr>
  <div class="write_rating" >
  <tr><th>  <div class="title">별점</div></th>
  <td colspan="3">
@@ -90,6 +90,7 @@ ReviewBean rb= rdao.getReview1();
  <div class="clear"></div>
  <tr><th>사진선택</th><td colspan="3">
  <input type="file" name="file1" required/>
+
  <input type="file" name="file2" />
  <input type="file" name="file3" /></td></tr>
  <div class="write_content">
@@ -109,7 +110,7 @@ ReviewBean rb= rdao.getReview1();
         <div class="modal-footer">
 
          <button type="submit" style="margin-left:100px; margin-right:auto;">리뷰등록</button>
-         <button type="reset">다시작성</button>
+         <button type="reset" class="reset_button">다시작성</button>
         </div>
         </form>
         </div>

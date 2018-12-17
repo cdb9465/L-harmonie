@@ -14,7 +14,7 @@
 <!-- 1:1채팅 -->
 <script>
 function chatBtn(){
-	      
+	/* window.open('./boardcast.jsp','1:1 문의','width=500,height=770'); */	      
 	window.open('./main/chat.jsp','1:1 문의','width=500,height=770');
 	   											/* scrollbars=yes */
 	}
@@ -23,15 +23,12 @@ function chatBtn(){
 $(function() {
 	  $.scrollify({
 		section:"section",
-	    scrollbars:false,
 	    easing: "easeOutExpo",
 	    scrollSpeed: 800,
+	    interstitialSection: "header,footer",
 	    before:function(i,panels) {
-
 	      var ref = panels[i].attr("data-section-name");
-
 	      $(".submenu_in .subact").removeClass("subact");
-
 	      $(".submenu_in").find("a[href=\"#" + ref + "\"]").addClass("subact");
 	   		  },
 	});
