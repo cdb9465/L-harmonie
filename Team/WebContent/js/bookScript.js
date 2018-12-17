@@ -16,9 +16,9 @@ function showTab(n) {
 	  document.getElementById("prevBtn").style.display = "inline";
 	}
 	if (n == (x.length - 1)) {
-	  document.getElementById("nextBtn").innerHTML = "Submit";
+	  document.getElementById("nextBtn").innerHTML = "예약";
 	} else {
-	  document.getElementById("nextBtn").innerHTML = "Next";
+	  document.getElementById("nextBtn").innerHTML = "다음";
 	}
 	
 	fixStepIndicator(n);
@@ -28,10 +28,27 @@ function showTab(n) {
 		confirmForm();
 }
 
+function initDate()	//안써도될듯
+{
+	$(document).ready(function(){
+		$(function () {
+			var day = new Date();
+			day.setDate(day.getDate()+1);
+			var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
+			$("#datepicker").datepicker('setDate', nextDay);
+			
+		});
+	});
+}
+
 function nextPrev(n) {
 	var x = document.getElementsByClassName("tab");
 	
-	//if (n == 1 && !validateForm()) return false;
+//	if (n == 1 && !validateForm())
+//	{
+//		alert("선택안됨");
+//		return false;
+//	}
 
 	// Hide the current tab:
 	x[currentTab].style.display = "none";
@@ -129,7 +146,7 @@ function selectTime(n){
 	if(time[n].className == "slot slotDisable" 
 		|| time[n].className == "slot slotDisable")
 	{
-		alert("선택 불가능한 시간입니다.\n다른 시간을 선택해 주세요.");
+		alert("선택 할 수 없는 시간입니다.\n다른 시간을 선택해 주세요.");
 		return;
 	}	
 	
@@ -158,13 +175,33 @@ function initTime()
 }
 
 //예약이 다 찬 시간 표시
-function disableTime(n)
+function setDisableTime(n)
 {
 	var div = document.getElementById("time");
 	var time =div.getElementsByClassName("slot");
 	
 	//예약 다 찬 시간 표시
 	time[parseInt(n)].className += " slotDisable";
+}
+
+function getDisableTime()
+{
+	var l = document.bf.location.value;
+	var d = document.bf.date.value;
+	
+	$.ajax({
+ 		data : {location:l, date:d},
+ 		type : 'POST',
+ 		url : './BookDisableTime.bk',
+		success : function(data){
+			var res = data.split(',');
+			
+			$.each(res, function(index, item){
+				setDisableTime(item);
+			});
+		}
+
+	});		
 }
 
 //테이블선택
@@ -191,7 +228,7 @@ function selectTable(n){
 	if(table[n].className == "tabl tfor2Disable" 
 		|| table[n].className == "tabl tfor4Disable")
 	{
-		alert("선택 불가능한 테이블입니다.\n다른 테이블을 선택해 주세요.");
+		alert("선택할 수 없는 테이블입니다.\n다른 테이블을 선택해 주세요.");
 		return;
 	}
 	
@@ -224,12 +261,21 @@ function initTable()
 			table[i].className = "tabl tfor4";
 		}
 	}
+
+	//인원수 3명이상이면 2인 테이블 선택불가 (db랑 관계없이)
+	if(document.bf.guest.value >= 3) 
+	{
+		for(var i = 0; i < 4; i++)
+		{
+			table[i].className = table[i].className.replace("tfor2","tfor2Disable");
+		}
+	}
 	
 	document.bf.tablenum.value = ""; 	//혹시 몰라서 넣어둠
 }
 
 //예약된 테이블 표시
-function disableTable(n)
+function setDisableTable(n)
 {
 	var div = document.getElementById("table");
 	var table = div.getElementsByClassName("tabl");
@@ -237,13 +283,45 @@ function disableTable(n)
 	// 예약된 테이블 표시
 	if(n <= 3)
 	{
-		table[n].className = table[n].className.replace("tfor2","tfor2Disable");
+		if(table[n].className != "tabl tfor2Disable") //이미 비활성화 아니면
+		{
+			table[n].className = table[n].className.replace("tfor2","tfor2Disable");
+		}
 	}
 	else
 	{
 		table[n].className = table[n].className.replace("tfor4","tfor4Disable");
 	}
+		
 }
+
+function getDisableTable()
+{
+	var l = document.bf.location.value;
+	var t = document.bf.time.value;
+	var d = document.bf.date.value;
+	
+	$.ajax({
+ 		data : {location:l, date:d, time:t},
+ 		type : 'POST',
+ 		url : './BookDisableTable.bk',
+ 		//dataType : 'html',
+		success : function(data){
+			var res = data.split(',');
+
+			$.each(res, function(index, item){
+				setDisableTable(item-1);
+			});
+
+			//$('#t1').attr('class','tabl tfor2Act');
+		
+			//$('#t1').css({
+			//	"background-image":"url('./images/book/table2_g.png');"
+		}
+
+	});
+}
+
 
 //show Request Detail input
 function showDetail(chk) {

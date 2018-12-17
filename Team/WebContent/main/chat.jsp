@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../css/bootstrap.css">
 	<link rel="stylesheet" href="../css/chat.css">
-	<title>1:1 문의</title>
+	<title>실시간 채팅</title>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script type="text/javascript">
@@ -76,7 +76,7 @@
 						'<div class="col-lg-12">' + 
 						'<div class="media">' + 
 						'<a class="pull-left" href="#">' + 
-						'<img class="media-object img-circle" src="../images/icon.png" alt="">' + 
+						'<img class="media-object img-circle" src="../images/icon.png" width="30px" height="30px" alt="">' + 
 						'</a>' + 
 						'<div class="media-body">' + 
 						'<h4 class="media-heading">' + 
@@ -149,22 +149,23 @@ if(id == null){
 										<button type="button" class="btn btn-default pull-right" onclick="submitFunction();">전송</button>
 										<div class="clearfix"></div>
 									</div>
+		<div class="alert alert-success" id="successMessage" style="display: none;">
+			<strong>전송완료</strong>
+		</div>
+		<div class="alert alert-danger" id="dangerMessage" style="display: none;">
+			<strong>내용을 입력해주세요.</strong>
+		</div>
+		<div class="alert alert-warning" id="warningMessage" style="display: none;">
+			<strong>오류</strong>
+		</div>	
 								</div>
-							</div>	
+							</div>						
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="alert alert-success" id="successMessage" style="display: none;">
-			<strong>전송완료</strong>
-		</div>
-		<div class="alert alert-danger" id="dangerMessage" style="display: none;">
-			<strong>이름과 내용을 모두 입력해주세요.</strong>
-		</div>
-		<div class="alert alert-warning" id="warningMessage" style="display: none;">
-			<strong>오류</strong>
-		</div>
+<!--  -->
 	</div>			
 	<!-- <button type="button" class="btn btn-default pull-right" onclick="chatListFunction('today');">추가</button> -->
 	<!-- <button type="button" class="btn btn-default pull-right" onclick="chatListFunction('ten');">추가</button> -->

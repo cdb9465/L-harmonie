@@ -72,19 +72,21 @@ article#book_art {width: 1300px; height: 700px;
 
 .label{
 	margin: 10px;
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: bold;
 	display: inline-block; }
 	
-.slot{
-	border-radius: 3px;
-	width:155px; height:55px;
+.slot{border:2px solid #424a52;
+	border-radius: 10px;
+	width:170px; height: 70px;
 	text-align: center;
-	margin: 5px auto 5px auto;
-	line-height: 55px;
+	margin: 10px auto;
+	line-height: 70px;
 	cursor: pointer;
 	color: #424a52;
-	background-color: #d3e0f1; }
+	background-color: rgba(255,255,255,0.7);
+	font-weight: bold;
+	font-size: 18px; }
 
 .slotAct{
 	background-color: #424a52;
@@ -103,14 +105,14 @@ article#book_art {width: 1300px; height: 700px;
     color: #ffffff; }
 
 /* 버튼 */
-#prevBtn, #nextBtn, #bookCheckbtn{ width: 120px;
+#prevBtn, #nextBtn, #bookCheckbtn{ width: 140px; height: 50px;
   background-color: #333;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
-  margin: 5px 10px;
-  font-size: 17px;
-  font-family: Raleway;
+  margin: 10px 10px;
+  font-size: 20px;
+  font-weight: 500;
   cursor: pointer;
   position: absolute;}
 
@@ -131,25 +133,26 @@ article#book_art {width: 1300px; height: 700px;
 
 /* table */
 #table{border: 1px solid;
-  width: 500px; height: 300px;
-  margin: 0 auto;
+  width: 550px; height: 330px;
+  margin: 20px auto 0 auto;
   position: relative; }
  
 #table>div{ position: absolute; }
 
 #kitchen{border: 2px solid;
   box-sizing: border-box;
-  width: 300px; height: 30px;
-  top: 2px; left: 100px;
+  width: 300px; height: 35px;
+  top: 2px; left: 110px;
   padding: 2px 120px;
   font-weight: bold;
   font-size: 18px; }
 
 #door{border: 2px solid;
  	box-sizing: border-box;
-	width: 70px; height: 50px;
+	width: 80px; height: 60px;
 	border-radius: 0 100% 0 0;
-	padding: 14px 8px;
+	padding-top: 20px;
+	padding-right: 10px;
 	font-weight: bold;
 	font-size: 18px;
 	left: 2px; bottom: 2px; }
@@ -176,34 +179,56 @@ article#book_art {width: 1300px; height: 700px;
 .tfor2:HOVER { background-image: url("../images/book/table2_r.png"); }
 .tfor4:HOVER { background-image: url("../images/book/table4_r.png"); }
 
-#t1{ left: 100px; bottom: 2px; }
-#t2{ left: 210px; bottom: 2px; }
-#t3{ left: 320px; bottom: 2px; }
-#t4{ left: 430px; bottom: 2px; }
-#t5{ left: 380px; bottom: 100px; }
-#t6{ left: 260px; bottom: 100px; }
-#t7{ left: 140px; bottom: 100px; }
-#t8{ left: 140px; bottom: 190px; }
-#t9{ left: 260px; bottom: 190px; }
-#t10{ left: 380px; bottom: 190px; }
+#t1{ left: 115px; bottom: 4px; }
+#t2{ left: 225px; bottom: 4px; }
+#t3{ left: 335px; bottom: 4px; }
+#t4{ left: 445px; bottom: 4px; }
+#t5{ left: 400px; bottom: 108px; }
+#t6{ left: 270px; bottom: 108px; }
+#t7{ left: 140px; bottom: 108px; }
+#t8{ left: 190px; bottom: 208px; }
+#t9{ left: 320px; bottom: 208px; }
+#t10{ left: 450px; bottom: 208px; }
 
 /* 4단계 요청사항 */
-.request { border: 1px solid red;
-	width: 100%; height: 100%;
+
+#alergy, #req{
+	width: 600px; 
+	margin: 5px auto;
+	text-align: left;
+	font-weight: bold;
 }
 
-.request> #alergy { border: 1px solid blue;
+#alergy {border:1px solid green;
+	height: 50px;
+	line-height: 50px; }
+
+#alergy>label { margin-left: 5px; }
 	
+#alergy #rad {border:1px solid blue;
+	display: inline-block;
+	margin-left: 40px;}
 
-}
+#req {border:1px solid red;
+	position: relative;
+	height: 200px; }
 
-#alergy> input { }
+#req>label { 
+	position: absolute;
+	top: 80px; left: 5px;
+	height: 50px; }
 
-.request> #req { border: 1px solid orange;
-	
-}
+#req>textarea { 
+	position: absolute;
+	top: 20px; left: 130px; }
 
-#detail { display: none; }
+#detail { display: none;
+	/* background-color: rgba(255,255,255,0.7); */
+	border: none;
+	border-bottom: 1px solid #000;
+	/* color: #000; */
+	padding: 5px;
+	margin-left: 10px; }
 
 
 /* 5단계 확인 완료 */

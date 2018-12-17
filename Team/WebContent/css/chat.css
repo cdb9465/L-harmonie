@@ -1,9 +1,15 @@
 @CHARSET "UTF-8";
 
+body {
+	background-image: url("../images/main/star03.jpg");	
+}
 
-img { width: 30px; height: 30px; }
+.row {
+	color: #fff;
+}
 
 
+ /* 
  .portlet {
     margin-bottom: 15px;
 }
@@ -135,7 +141,8 @@ img { width: 30px; height: 30px; }
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {
     border-color: #34495e;
-} /* 채팅상단바 */
+    background-image: url("../images/main/woodbackground.jpg");
+}
 
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {
@@ -176,3 +183,4 @@ height:40px;
 .text-red {
     color: #e74c3c;
 }                
+ */

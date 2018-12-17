@@ -10,7 +10,7 @@
 }
 
 /* sec1 영역 전체 */
-#article_sec1{
+#menu_sec1{
 	min-height: 950px;
 	border: 1px solid red;
 	background-image: url("../images/menu/menu_bg.jpg");
@@ -18,7 +18,13 @@
 	background-size: cover;
 	background-attachment: scroll; /*스크롤 내려도 그림이 안 따라오게끔*/
 }
-.sec1_menu{
+.menu_cover{
+	border: 1px solid yellow;
+	background-color: rgba(0,0,0,0.4);
+	min-height: 950px;
+	width: inherit;
+}
+.menu_info{
 	/*border: 1px solid #fff;*/
 	width: 1000px;
 	margin: auto;
@@ -26,9 +32,9 @@
 	padding: 10px;
 	height: 600px;
 }
-.sec1_menu ul{ margin-top: 30px;}	
+.menu_info ul{ margin-top: 30px;}	
 
-.sec1_menu li{
+.menu_info li{
 	/*border: 1px solid #fff;*/
 	list-style: none;
 	margin: 15px;
@@ -37,66 +43,119 @@
 	line-height: 3em;
 	font-size: 1.2em;		
 }
-.sec1_menu a{
+.menu_info a{
 	font-size: 2.5em;
 	color: #fff;
 	text-decoration: none;
 }
-.sec1_menu a:HOVER {
+.menu_info a:HOVER {
 	color: #800000;	
-}
-.sec1_menu a:HOVER #mmenu_img{
-	background-image: url("../images/menu/steak/sec1_steak.jpg");
-	background-size: 100%;
+	
 }
 
 /* sec2 영역 전체 */
-#article_sec2{
-	height: 1600px;
+#menu_sec2{
 	color:  #fff;
 	border: 1px solid blue;
-	background-image: url("../images/menu/menu_bg2.jpg");
+	background-image: url("../images/menu/menu_bg2.jpg");]
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: cover;
+	background-attachment: scroll;
 }
 
 .tab {
 	float: left;
 	background-color: rgba(0,0,0,0.8);
 	width: 20%;
-	height: 100%;
+	min-height: 950px;
     border: 1px solid #ccc;
-    padding-top: 150px;
+    padding-top: 170px;
+    text-align: center;
 }
 
-.tab button {
+.tab p{
+	margin: 15px auto;
+	border: 1px solid blue;
+	width: 200px;
+	
+}
+
+.tab a {
 	background-color: transparent;
 	display: block;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 22px 16px;
+    padding: 10px 10px;
     transition: 0.3s;
     font-size: 20px; 
     color: #fff;
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     text-align: center;
+    text-decoration: none;
 }
 
-/* 텝페이지 마우스올렸을때 글자색변경 */
-.tab button:hover {
+.tab a:hover {
     font-size: 1.5em;
+    border-bottom : 3px solid white;
+    cursor: pointer;
+    cursor: hand;
+	transition:color 0.2s;
 }
 
-/* 텝페이지 메뉴 눌렀을때 글자색변경 */
-.tab button.active {
+.tab a:active {
     font-size: 1.5em;
+    border-bottom : 3px soli white;
 }
+
+.menu_top {
+	border: 1px solid yellow;
+	display: block;
+	margin-top: 130px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.menu_row {
+	border: 1px solid red;
+	margin: 8px -16px;
+}
+.menu_row,
+.menu_row>.menu_column {
+    padding: 8px;
+}
+.menu_row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.menu_column {
+	border: 1px solid green;
+	display: block;
+	float: left;
+    width: 25%;
+    margin: 10px 10px;
+}
+
+
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+
+
+
+
 
 /* 메뉴 보여주는 영역 전체*/
-.tabcontent {
-	padding-top: 150px;
+.menu_content {
+	padding-top: 180px;
 	background-color:rgba(255,255,255,0.3);
     border: 1px solid blue;
     border-top: none;
@@ -118,11 +177,6 @@ p {
 	margin: 20px 0 70px 15px;
 	padding : 10px 30px 10px 30px;
 	text-align: center;
-}
-
-.Appetizer, .Salad, .Steak, .Pasta, .Dessert, .Beverage, .caption {
-	display: none;
-	float: left;
 }
 
 h4{

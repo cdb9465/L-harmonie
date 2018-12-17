@@ -11,46 +11,8 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
 integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30e4f19e3412a3a75d0669f0d77273ba"></script>
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript">
-    window.onload = function () {
-        $(".main_box").each(function () {
-            // 개별적으로 Wheel 이벤트 적용
-            $(this).on("mousewheel DOMMouseScroll", function (e) {
-                e.preventDefault();
-                var delta = 0;
-                if (!event) event = window.event;
-                if (event.wheelDelta) {
-                    delta = event.wheelDelta / 120;
-                    if (window.opera) delta = -delta;
-                } else if (event.detail) delta = -event.detail / 3;
-                var moveTop = null;
-                // 마우스휠을 위에서 아래로
-                if (delta < 0) {
-                    if ($(this).next() != undefined) {
-                        moveTop = $(this).next().offset().top;
-                    }
-                // 마우스휠을 아래에서 위로
-                } else {
-                    if ($(this).prev() != undefined) {
-                        moveTop = $(this).prev().offset().top;
-                    }
-                }
-                // 화면 이동 0.8초(800)
-                $("html,body").stop().animate({
-                    scrollTop: moveTop + 'px'
-                }, {
-                    duration: 800, complete: function () {
-                    }
-                });
-            });
-        });
-    }
-</script>
-
+<script src="./js/jquery-3.3.1.js"></script>
 <title>L'harmonie</title>
 </head>
 <body>
@@ -66,7 +28,7 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 <!-- 서브메뉴 들어가는 곳 -->
 
 <!-- 본문 -->
-<div class="main_box" id="main0">
+<section class="main_box" id="main0" data-section-name="main0">
  <div class="main0_txt">
   더하고, 채우고, 나누는
   <br>
@@ -78,12 +40,12 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
    <img src="./images/dot.png" class="dot">
 </a>
 
-</div>
+</section>
 <!-- 첫번째 메인 끝 -->
 
 
 <!-- 2번째 메인 -->
-<div class="main_box" id="main1">
+<section class="main_box" id="main1" data-section-name="main1">
 <div class="text_area left_area">
  <div class="tit">EXPERIENCE</div>
  <div class="st_tx1">
@@ -97,10 +59,10 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
   맛있는 음식과 다양한 문화를 전합니다.
  </div>
 </div>
-</div>
+</section>
 
 <!-- 3번째 메인 -->
-<div class="main_box" id="main2">
+<section class="main_box" id="main2" data-section-name="main2">
 <div class="text_area right_area">
  <div class="tit">PASSION</div>
  <div class="st_tx1">
@@ -114,10 +76,10 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
   한 곳에 머물지 않고 끊임없이 도전합니다.
  </div>
 </div>
-</div>
+</section>
 
 <!-- 4번째 메인 -->
-<div class="main_box" id="main3">
+<section class="main_box" id="main3" data-section-name="main3">
  <h1 id="title">FIND US</h1>
 <!-- 지도 -->
 <div class="map_wrap">
@@ -240,7 +202,7 @@ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeV
 
 </div>
 
-</div>
+</section>
 
 <!-- 본문 -->
 
@@ -480,14 +442,6 @@ function zoomIn(mapIndex) {
 }
 function zoomOut(mapIndex) {
     map[mapIndex].setLevel(map[mapIndex].getLevel() + 1);
-}
-
-//서브메뉴 나타내기
-function subOn(){
-	document.getElementById('subon').style.display = "block";
-}
-function subOff(){
-	document.getElementById('subon').style.display = "none";
 }
 
 </script>

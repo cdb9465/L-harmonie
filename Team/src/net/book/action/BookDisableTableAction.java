@@ -45,13 +45,13 @@ public class BookDisableTableAction implements Action
 		
 			//System.out.println("예약된테이블번호: "+bb.getTablenum());
 
-			if(i==0)	//???
+			if(i==0)
 				strTable = Integer.toString(bb.getTablenum());
 			else
 				strTable += "," + Integer.toString(bb.getTablenum());			
 		}
 	
-		System.out.println(strTable);
+		System.out.println("예약된 테이블 번호: "+strTable);
 
 		//ajax로 값 리턴
 		response.setContentType("text/html; charset=UTF-8");

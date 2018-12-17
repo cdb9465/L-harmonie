@@ -68,14 +68,14 @@ history.back();
 <div class="panel">
 
  <div id="location">
-  <label class="label">지점</label>
+  <label class="label">지점 선택</label>
   <div class="slot" onclick ="selectLocation(0)">서울강남점</div>
   <div class="slot" onclick ="selectLocation(1)">부산서면점</div>
   <input type="hidden" name="location" value="">
  </div>
  
  <div id="guest">
-  <label class="label">인원</label>
+  <label class="label">인원수 선택</label>
   <div class="slot" onclick = "selectGuest(0)">1</div>
   <div class="slot" onclick = "selectGuest(1)">2</div>
   <div class="slot" onclick = "selectGuest(2)">3</div>
@@ -93,7 +93,7 @@ history.back();
 <div class="panel">
 
  <div id="date">
-  <label class="label">날짜</label>
+  <label class="label">날짜 선택</label>
   <div id="datepicker"><input type="hidden" name="date" id="dateval"></div>
   
   <div id="dateDesc">
@@ -104,7 +104,7 @@ history.back();
  </div>
   
  <div id="time">
-  <label class="label">시간</label>
+  <label class="label">시간 선택</label>
   <div class="slot" onclick = "selectTime(0)">11:00</div>
   <div class="slot" onclick = "selectTime(1)">13:00</div>
   <div class="slot" onclick = "selectTime(2)">17:00</div>
@@ -120,7 +120,7 @@ history.back();
 <div class="tab">
 <div class="panel">
 
-<label class="label">테이블</label>
+<label class="label">테이블 선택</label>
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
@@ -145,18 +145,23 @@ history.back();
 <div class="tab">
 <div class="panel">
  <div class="request">
-  <label class="label">요청사항</label><br>
+  <label class="label">그 외 요청사항</label>
   <!-- <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label><br>
   <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br> -->
   <div id="alergy">
-   <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없음
-   <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있음<br>
-   <input type="text" id="detail" placeholder="알러지 정보를 구체적으로 작성해주세요." size="70"><br>
+   <label><i class="fa fa-check"></i> 알러지 여부</label>
+   <div id="rad">
+    <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없음
+    <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있음
+    <input type="text" id="detail" placeholder="ex)땅콩 알러지" size="20"><br>
+    <span></span>
+   </div>
   </div>
   
+  
   <div id="req">
-   <label>특별 요청</label>
-   <textarea cols="80" rows="10" name="special"></textarea>
+   <label><i class="fa fa-check"></i> 특별 요청사항</label>
+   <textarea cols="50" rows="10" name="special"></textarea>
   </div>
   
    <input type="hidden" name="request">
@@ -168,7 +173,7 @@ history.back();
 <!-- 5단계 (확인 & 완료)-->
 <div class="tab">
 <div class="panel">
- <label class="label">확인</label>
+ <label class="label">예약내역 확인</label>
  <table id="confirm" >
  <tr>
   <th>지 점</th>
@@ -203,8 +208,8 @@ history.back();
 <!-- 버튼 -->
 <div style="overflow:auto;">
  <div>
-  <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-  <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  <button type="button" id="prevBtn" onclick="nextPrev(-1)">이전</button>
+  <button type="button" id="nextBtn" onclick="nextPrev(1)">다음</button>
  </div>
 </div>
 <!-- 버튼 -->
@@ -239,22 +244,25 @@ $(document).ready(function(){
  			maxDate: '+14d',
  			defaultDate: '+1d',	//초기값
 			onSelect: function (date) { //date:선택된날짜 inst:인스턴스
-				/* var day = new Date();
+				//내일날짜구하기
+				var day = new Date();
 				day.setDate(day.getDate()+1);
 				var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
-				alert(nextDay); */ //내일날짜구하기
+				//alert(nextDay); 
 				
 				if(date == today)
 				{
 					alert("예약은 익일날짜부터 가능합니다.");
-					$("#datepicker").datepicker("option", "defaultDate", selected);
+					//$("#datepicker").datepicker("option", "defaultDate", selected);
+					//$("#datepicker").datepicker("refresh"); //refresh
+					$("#datepicker").datepicker('setDate', nextDay);					
 				}
 				else
 				{
 					$('#dateval').val(date);				
 				}
 				
-				initTime();//날짜변경시 시간선택 초기화
+				initTime(); //날짜선택시 시간선택 초기화
 				getDisableTime();
  			}
 		});
@@ -267,61 +275,21 @@ $(document).ready(function(){
 		});
 	});
 	
+	//지점, 인원 변경시  시간, 테이블 선택값 초기화
+	$("#location, #guest").click(function(){
+		//initDate();
+		initTime();
+		initTable();
+		
+		getDisableTime();
+	});
+	
 	//테이블 중복제어
  	$("#time").click(function(){
- 		initTable(); 	//시간변경시 테이블선택 초기화	 
+ 		initTable(); 	//시간변경시 테이블선택 초기화
  		getDisableTable();
  	});
 
-	function getDisableTime()
-	{
-		var l = document.bf.location.value;
-		var d = document.bf.date.value;
-		
-		$.ajax({
-	 		data : {location:l, date:d},
-	 		type : 'POST',
-	 		url : './BookDisableTime.bk',
-			success : function(data){
-				var res = data.split(',');
-				
-				$.each(res, function(index, item){
-					disableTime(item);
-				});
-			}
-
-		});		
-	}
-	
-
-	function getDisableTable()
-	{
-		var l = document.bf.location.value;
-		var t = document.bf.time.value;
-		var d = document.bf.date.value;
-		
-		$.ajax({
-	 		data : {location:l, date:d, time:t},
-	 		type : 'POST',
-	 		url : './BookDisableTable.bk',
-	 		//dataType : 'html',
-			success : function(data){
-				var res = data.split(',');
-
-				$.each(res, function(index, item){
-					disableTable(item-1);
-				});
-
-				//$('#t1').attr('class','tabl tfor2Act');
-			
- 				//$('#t1').css({
- 				//	"background-image":"url('./images/book/table2_g.png');"
-			}
-
-		});
-	}
-	
-		
 		
 });
 </script>

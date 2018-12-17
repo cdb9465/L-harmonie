@@ -27,7 +27,8 @@ public class MenuAddAction implements Action
 //		String category = multi.getParameter("category");
 //		String name = multi.getParameter("name");
 //		String file = multi.getParameter("file");
-//		String content = multi.getParameter("content");
+		String content = multi.getParameter("content");
+		content=content.replace("\r\n", "<br>");
 		
 		// MenuBean mnb 자바빈 객체생성
 		MenuBean mnb = new MenuBean();
@@ -35,7 +36,7 @@ public class MenuAddAction implements Action
 		// set 메서드 호출 <= 파라미터 가져오기
 		mnb.setCategory(multi.getParameter("category"));
 		mnb.setName(multi.getParameter("name"));
-		mnb.setContent(multi.getParameter("content"));	
+		mnb.setContent(content);
 
 		//updload폴더에 업로드된 파일 이름 가져오기
 		mnb.setFile(multi.getFilesystemName("file"));

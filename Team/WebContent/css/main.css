@@ -3,7 +3,7 @@
 /* 마우스 휠 기능 */
 .main_box{ 
 	width:100%; 
-	height:100%; 
+	height:100% !important; 
 	position:relative; 
 	color:#ffffff; 
 	font-size:24pt;
@@ -289,7 +289,7 @@
 #MainsBtn {
 	/* border: 1px solid red; */
 	margin-left: 47%;
-	margin-top: 10%;
+	margin-top: 8%;
 	padding: 10px 30px 10px 30px;
 	font-size: 15px;
 	border: none;
