@@ -74,6 +74,22 @@ public class ReviewFrontController extends HttpServlet {
   	  			} catch (Exception e) { 
   	  				e.printStackTrace(); 
   	  			}
+  	  		}else if (command.equals("/LocationAction.re")) { 
+  	  
+  	  			action = new LocationAction(); 
+  	  			try { 
+  	  				forward = action.execute(request, response); 
+  	  			} catch (Exception e) { 
+  	  				e.printStackTrace(); 
+  	  			}
+  	  		}else if (command.equals("/LoveDeleteAction.re")) { 
+  	  		
+  	  			action = new LoveDeleteAction(); 
+  	  			try { 
+  	  				forward = action.execute(request, response); 
+  	  			} catch (Exception e) { 
+  	  				e.printStackTrace(); 
+  	  			} 
   	  		}
 	
 	   
