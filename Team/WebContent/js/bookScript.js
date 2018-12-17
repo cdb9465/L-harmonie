@@ -16,9 +16,9 @@ function showTab(n) {
 	  document.getElementById("prevBtn").style.display = "inline";
 	}
 	if (n == (x.length - 1)) {
-	  document.getElementById("nextBtn").innerHTML = "Submit";
+	  document.getElementById("nextBtn").innerHTML = "예약";
 	} else {
-	  document.getElementById("nextBtn").innerHTML = "Next";
+	  document.getElementById("nextBtn").innerHTML = "다음";
 	}
 	
 	fixStepIndicator(n);

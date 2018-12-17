@@ -388,6 +388,14 @@ int reviewendPage=((Integer)request.getAttribute("reviewendPage")).intValue();
 
 <!-- 서브메뉴 들어가는 곳 -->
 <jsp:include page="../inc/submenu.jsp"></jsp:include>
+	<!-- 서브메뉴 후버시 나타나는 메뉴 -->
+	<div id="subon">
+	 <ul>
+	  <li>my info</li>
+	  <li>my book</li>
+	  <li>my review</li>
+	 </ul>
+	</div>  
 <!-- 서브메뉴 들어가는 곳 -->
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
