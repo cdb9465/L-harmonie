@@ -68,14 +68,14 @@ history.back();
 <div class="panel">
 
  <div id="location">
-  <label class="label">지점</label>
+  <label class="label">지점 선택</label>
   <div class="slot" onclick ="selectLocation(0)">서울강남점</div>
   <div class="slot" onclick ="selectLocation(1)">부산서면점</div>
   <input type="hidden" name="location" value="">
  </div>
  
  <div id="guest">
-  <label class="label">인원</label>
+  <label class="label">인원수 선택</label>
   <div class="slot" onclick = "selectGuest(0)">1</div>
   <div class="slot" onclick = "selectGuest(1)">2</div>
   <div class="slot" onclick = "selectGuest(2)">3</div>
@@ -93,7 +93,7 @@ history.back();
 <div class="panel">
 
  <div id="date">
-  <label class="label">날짜</label>
+  <label class="label">날짜 선택</label>
   <div id="datepicker"><input type="hidden" name="date" id="dateval"></div>
   
   <div id="dateDesc">
@@ -104,7 +104,7 @@ history.back();
  </div>
   
  <div id="time">
-  <label class="label">시간</label>
+  <label class="label">시간 선택</label>
   <div class="slot" onclick = "selectTime(0)">11:00</div>
   <div class="slot" onclick = "selectTime(1)">13:00</div>
   <div class="slot" onclick = "selectTime(2)">17:00</div>
@@ -120,7 +120,7 @@ history.back();
 <div class="tab">
 <div class="panel">
 
-<label class="label">테이블</label>
+<label class="label">테이블 선택</label>
 <div id="table">
  <div id="door">입구</div>
  <div id="kitchen">주방</div>
@@ -145,20 +145,22 @@ history.back();
 <div class="tab">
 <div class="panel">
  <div class="request">
-  <label class="label">요청사항</label><br>
+  <label class="label">그 외 요청사항</label>
   <!-- <label>고객님께 드리는 질문<b style="color:red;">[필수]</b> </label><br>
   <span>음식 관련 알레르기나 특별 요청사항이 있으면 말씀해주시기 바랍니다</span><br> -->
   <div id="alergy">
-   <label>알러지 여부</label>
-   <span id="rad">
-    <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없습니다.
-    <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있습니다.
-    <input type="text" id="detail" placeholder="ex) 갑각류 알러지" size="20"><br>
-   </span>
+   <label><i class="fa fa-check"></i> 알러지 여부</label>
+   <div id="rad">
+    <input type="radio" name="alergy" value="false" onclick="showDetail(false)" checked>없음
+    <input type="radio" name="alergy" value="true" onclick="showDetail(true)" >있음
+    <input type="text" id="detail" placeholder="ex)땅콩 알러지" size="20"><br>
+    <span></span>
+   </div>
   </div>
   
+  
   <div id="req">
-   <label>특별 요청사항</label>
+   <label><i class="fa fa-check"></i> 특별 요청사항</label>
    <textarea cols="50" rows="10" name="special"></textarea>
   </div>
   
@@ -171,7 +173,7 @@ history.back();
 <!-- 5단계 (확인 & 완료)-->
 <div class="tab">
 <div class="panel">
- <label class="label">확인</label>
+ <label class="label">예약내역 확인</label>
  <table id="confirm" >
  <tr>
   <th>지 점</th>
@@ -206,8 +208,8 @@ history.back();
 <!-- 버튼 -->
 <div style="overflow:auto;">
  <div>
-  <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-  <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  <button type="button" id="prevBtn" onclick="nextPrev(-1)">이전</button>
+  <button type="button" id="nextBtn" onclick="nextPrev(1)">다음</button>
  </div>
 </div>
 <!-- 버튼 -->

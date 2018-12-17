@@ -23,15 +23,12 @@ function chatBtn(){
 $(function() {
 	  $.scrollify({
 		section:"section",
-	    scrollbars:false,
 	    easing: "easeOutExpo",
 	    scrollSpeed: 800,
+	    interstitialSection: "header,footer",
 	    before:function(i,panels) {
-
 	      var ref = panels[i].attr("data-section-name");
-
 	      $(".submenu_in .subact").removeClass("subact");
-
 	      $(".submenu_in").find("a[href=\"#" + ref + "\"]").addClass("subact");
 	   		  },
 	});
