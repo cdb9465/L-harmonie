@@ -37,4 +37,11 @@ $(function() {
 	});
 });
 
+//서브메뉴 나타내기
+function subOn(){
+	document.getElementById('subon').style.display = "block";
+}
+function subOff(){
+	document.getElementById('subon').style.display = "none";
+}
 </script>
