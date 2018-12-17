@@ -15,6 +15,10 @@
 <script src="./js/jquery-ui.js"></script>
 <script src="./js/bookScript.js"></script>
 <link href="./js/jquery-ui.css" rel="stylesheet">
+<style>
+	.ui-datepicker{ font-size: 1.1em; width: 320px; padding: .3em .3em 0;}
+	
+</style>
 </head>
 <body>
 <%
@@ -289,7 +293,6 @@ $(document).ready(function(){
  		initTable(); 	//시간변경시 테이블선택 초기화
  		getDisableTable();
  	});
-
 		
 });
 </script>
