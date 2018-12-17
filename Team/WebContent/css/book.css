@@ -239,16 +239,18 @@ article#book_art {width: 1300px; height: 700px;
 
 
 /* 5단계 확인 완료 */
-table#confirm{margin: 10px auto;}
+table#confirm{margin: 10px auto;
+	}
 
 table#confirm th,table#confirm td{padding: 13px 20px 13px 15px;
-	font-size: 15px;
+	font-size: 16px;
 	font-weight: bold;
 	text-align: left;	}	
 
-table#confirm th{width: 150px;}
+table#confirm th{width:150px;}
 
-table#confirm td{font-weight: bolder;}
+table#confirm td{font-weight: bolder;
+	width: 400px;}
 
 	
 /* BookCheck */

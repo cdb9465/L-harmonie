@@ -216,17 +216,7 @@ MemberDAO mdo= new MemberDAO();
 <tr><td> 
  
 <form action="./LoveCountAction.re"  method="post">
-<%
-if(Lcount!=0){	 
-	 
 
-for(int z=0;z<lobe.size();z++){
-	
-	
-    	LoveBean lb=lobe.get(z);
-    	
-
-%>
 <div class="content">
 <input type="hidden" name="mem_num" value=<%=mbb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
@@ -238,15 +228,9 @@ for(int z=0;z<lobe.size();z++){
   <p>좋아요</p>
   </Button>
  
-  
- 
  </div>
  </div>
-<%
-}
-}
 
-%>
  </form>
 </td>
   

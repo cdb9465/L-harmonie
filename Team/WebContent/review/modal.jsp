@@ -90,6 +90,7 @@ ReviewBean rb= rdao.getReview1();
  <div class="clear"></div>
  <tr><th>사진선택</th><td colspan="3">
  <input type="file" name="file1" required/>
+
  <input type="file" name="file2" />
  <input type="file" name="file3" /></td></tr>
  <div class="write_content">
