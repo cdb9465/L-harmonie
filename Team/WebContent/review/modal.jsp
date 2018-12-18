@@ -1,3 +1,5 @@
+<%@page import="net.book.db.BookBean"%>
+<%@page import="net.book.db.BookDAO"%>
 <%@page import="net.review.db.ReviewBean"%>
 <%@page import="net.review.db.ReviewDAO"%>
 <%@page import="net.member.db.MemberBean"%>
@@ -26,6 +28,8 @@ MemberBean mb = mdao.getMember(email);
 
 ReviewDAO rdao= new ReviewDAO();
 ReviewBean rb= rdao.getReview1();
+BookDAO bdao= new BookDAO();
+int book_num = Integer.parseInt(request.getParameter("book_num"));
 %>
 <div class="container">
   <h2>Modal Example</h2>
@@ -36,14 +40,14 @@ ReviewBean rb= rdao.getReview1();
   </button>
 
   <!-- The Modal -->
-  <div class="modal" id="myModal">
+  <div class="mymodal" id="Modal">
     <div class="modal-dialog">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">리뷰작성</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" onclick="goBack()">&times;</button>
         </div>
         
         <!-- Modal body -->
@@ -63,6 +67,7 @@ ReviewBean rb= rdao.getReview1();
  <div class="clear"></div>
 <tr><th><div class="title">작성자</div></th><td><%=mb.getName() %>
 <input type="hidden" name="mem_num" value="<%=mb.getMem_num()%>" readonly></td></tr>
+<tr><th><div class="title">예약번호</div></th><td><%=book_num %></td></tr>
  <div class="write_rating" >
  <tr><th>  <div class="title">별점</div></th>
  <td colspan="3">
@@ -90,9 +95,8 @@ ReviewBean rb= rdao.getReview1();
  <div class="clear"></div>
  <tr><th>사진선택</th><td colspan="3">
  <input type="file" name="file1" required/>
-
- <input type="file" name="file2" />
- <input type="file" name="file3" /></td></tr>
+  <input type="file" name="file2" required/>
+   <input type="file" name="file3" required/></td></tr>
  <div class="write_content">
  <tr><th> <div class="title">리뷰</div></th><td>
   <input type="text" name="content"  autofocus required>

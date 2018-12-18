@@ -23,7 +23,7 @@ public class ReviewAction implements Action{
 		
 		ReviewDAO rd= new ReviewDAO();
 				
-		String location = request.getParameter("location");
+		String location = request.getParameter("sel_location");
 		
 		if(location==null)
 		{
@@ -32,7 +32,7 @@ public class ReviewAction implements Action{
 			
 		}
 		
-		List<ReviewBean> reviewlocation=rd.getLocation(location);
+	
 		
 		int count = rd.getReviewCount();
 		//pageSize 10설정
@@ -48,7 +48,11 @@ public class ReviewAction implements Action{
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow=currentPage*pageSize;
 		if(count!=0){
-			reviewList = rd.getReviewList(startRow, pageSize);		
+			if(location.equals("전체")){
+				reviewList = rd.getReviewList(startRow, pageSize);		
+			}else{
+				reviewList=rd.getLocation(location, startRow, pageSize);	
+			}
 		}
 		//pageCount 계산식
 		int pageCount = count/pageSize + (count%pageSize==0?0:1); 
@@ -98,7 +102,6 @@ public class ReviewAction implements Action{
 		request.setAttribute("review_num1", review_num1);
 		request.setAttribute("cobe", cobe);
 		request.setAttribute("Ccount", Ccount);
-		request.setAttribute("reviewlocation", reviewlocation);
 		request.setAttribute("location", location);
 		request.setAttribute("count", count);
 		request.setAttribute("pageNum", pageNum);

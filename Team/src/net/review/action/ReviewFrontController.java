@@ -83,7 +83,7 @@ public class ReviewFrontController extends HttpServlet {
   	  			}
   	  		}else if (command.equals("/LocationAction.re")) { 
   	  
-  	  			action = new LocationAction(); 
+  	  			action = new ReviewAction(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
   	  			} catch (Exception e) { 

@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import net.book.db.BookBean;
+import net.member.db.MemberBean;
 import net.review.db.ReviewBean;
 
 public class ReviewDAO {
@@ -312,7 +313,7 @@ public class ReviewDAO {
 	}
 
 		
-	public List<ReviewBean> getLocation(String location){
+	public List<ReviewBean> getLocation(String location,int startRow,int pageSize){
 		List<ReviewBean> ReviewList1 = new ArrayList<ReviewBean>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -325,14 +326,17 @@ public class ReviewDAO {
 			
 			//sql
 			if(location.equals("전체")){
-				sql = "select * from Review";
+				sql = "select * from review  order by review_num desc limit ?,? ";
 				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, startRow-1);
+				pstmt.setInt(2, pageSize);
 				
 			}else{
-				
-				sql = "select * from Review where location =?";
+				 sql="select * from review  where location =? order by review_num desc limit ?,? ";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, location);
+				pstmt.setInt(2, startRow-1);
+				pstmt.setInt(3, pageSize);
 			}
 
 			

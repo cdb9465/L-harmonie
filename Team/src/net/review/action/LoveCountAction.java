@@ -19,9 +19,15 @@ public class LoveCountAction implements Action{
 		lb.setMem_num(Integer.parseInt(request.getParameter("mem_num")));
 		lb.setReview_num(Integer.parseInt(request.getParameter("review_num")));
 		lb.setLove_num(Integer.parseInt(request.getParameter("love_num")));
-		
+		int love_num = Integer.parseInt(request.getParameter("love_num"));
+		System.out.println(love_num + "안녕");
 		LoveDAO ld=new LoveDAO(); 
-  		ld.insertLove(lb); 
+  		if(love_num==0){
+  			ld.deleteLove(love_num);
+  		}else{
+  			ld.insertLove(lb);
+  			
+  		}
 		ActionForward forward=new ActionForward(); 
   		forward.setRedirect(true); 
   		forward.setPath("./ReviewList.re"); 
