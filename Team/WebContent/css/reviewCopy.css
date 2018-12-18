@@ -6,21 +6,23 @@ body, html {height: auto;}
    padding-top:110px;
    font-size: 3em;
    color: #ffffff;
-   text-align: center;}
+   text-align: center;
+
+   }
    
 /* 배경이미지 지정 */
-#sec1_reviewlist{
+ #sec1_reviewlist{
    min-height:0;
    width:100%;
    position:relative; 
    background-color: #eee;
-   /* 위 메인menu랑 안겹치게 padding값 줌 */
+  /*  위 메인menu랑 안겹치게 padding값 줌 */
    background-image:  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url("../images/findback4.png");
    background-repeat: no-repeat;
-   background-size:/*  100% 362px ; */ 100% 200px ; 
+   background-size:  100% 200px ; 
    background-position: top;
-   
-  }
+
+  } 
 
 /* 하얀배경 */
 #reviewList{
@@ -60,26 +62,26 @@ span#date{float: right;font-weight: normal;font-size: 15px;}
 .td_cont{ }
 
 /* td 사진 */
-.td_pic{ }
+.td_pic{}
 
 /* 사진 펼침 영역 */
 .container {
   position: relative;	/* < > 버튼 위치 잡기 위해 필요 */ }
 
-.mySlides { width: 500px; height: 300px;
+.mySlides { width: 500px; height: auto;
 	display: none; }
 
 /* < > 버튼 */
 .review_pic a {
 	cursor: pointer;
 	position: absolute;
-	top: 60%;
+	top: 50%;
 	padding: 16px;
 	color: white;
 	font-weight: bold;
 	font-size: 20px;
 	user-select: none;
-	-webkit-user-select: none; }
+	-webkit-user-select: none;background-color: rgba(0, 0, 0, 0.6); }
 
 .prev{ border-radius: 0 3px 3px 0;
   display: none; }
@@ -88,8 +90,8 @@ span#date{float: right;font-weight: normal;font-size: 15px;}
  	right: 150px;
  	display: none; }
 
-.prev:hover,
-.next:hover { background-color: rgba(0, 0, 0, 0.8); }
+/* .prev:hover,
+.next:hover {  } */
 
 /* 썸네일 목록 */
 .row { width: 500px; height: 70px;
