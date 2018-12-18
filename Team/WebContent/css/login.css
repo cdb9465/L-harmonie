@@ -7,11 +7,11 @@
     }
 }
 
-#login_top{height: 50px;
+#login_top{height: 78px;
 /* 			border: 1px solid;  */
 			font-size: 2.2em;
 			font-weight: bold;
-			padding-top: 20px;
+			padding-top: 35px;
 			text-align: center;
 			color: #231f20;
 			}
@@ -23,9 +23,8 @@
     margin: 0;
     display: inline-block;
     border: 1px solid #e1e3e4;
-    padding:15px 5px;
+    padding:15px 5px 15px 15px;
     background: #fff;
-    font-weight: bold;
 }
 
 /* text창 눌렀을때 */
@@ -36,7 +35,7 @@
 }
 /* 버튼공통 */
 .cancelbtn, .signupbtn {
-	padding: 14px 20px;
+	padding: 19px 20px;
 	border:none;
 	color:#eee;
 	font-weight: bold;
@@ -56,7 +55,6 @@
 
 /* The Modal (background) */
 .modal {
-	font-family: 나눔스퀘어OTF, sans-serif;
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -73,21 +71,20 @@
 .modal-content {
     background-color: #e1e3e4;
     margin: 10% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    width: 400px; /* Could be more or less, depending on screen size */
+    width: 420px; /* Could be more or less, depending on screen size */
 	height: 400px;
 	border-radius: 5px;
 	
 }
 
- 
-/* The Close Button (x) */
-.close {
+ /* The Close Button (x) */
+/*.close {
     position: absolute;
     right: 10%;
     top: 20%;
     font-size: 30px;
     color: #f1f1f1;
-}
+} */
 
 .close:hover,
 .close:focus {
@@ -105,11 +102,18 @@
 /* 아이디비번 입력영역 */
 #login_btm{color: #231f20;
 			height: 30px;
-			margin-top: 10px;
-			text-align: right; }
+			margin-top: 110px;	
+			height: 80px;
+			
+			 }
+.btmmsg{ margin-top: 15px; }		
+span.msg{font-size: 12px; color:#808080;width:40px;margin: 0 7px;}
+span#msg2{margin-right: 39px;} 
 #login_btm a{color: #333; text-decoration: none;
-			padding: 5px;}
+			padding:5px 5px 5px 0; }
+			
 /* 회원가입 링크 두껍게 */
-#joinlink{font-weight: bold;}
+#joinlink{font-weight: bold; font-size: 14px;}
+#joinlink>span{font-weight: normal; font-size:12;}
 #joinlink:HOVER { color: #800000;}
 

@@ -85,7 +85,7 @@ if(sess==null){%>
 <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
 
 <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
   <form action="./MemberLogin.me" class="modal-content">
   <div id="login_top">LOGIN</div>
     <div class="container">
@@ -93,18 +93,18 @@ if(sess==null){%>
 		<input type="text" size="60" placeholder="이메일" name="email">
 		<input type="password" size="60" placeholder="비밀번호" name="pass">
 
-      <div id="login_btm">
-	      <a href="./FindIdPass.me">아이디/비밀번호찾기</a>|
-	      <a href="./MemberJoin.me" id="joinlink">회원가입</a>
-      </div>
+      
      <div class="clearfix">
      	<button type="submit" class="signupbtn">로그인</button>
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">취소</button>
      </div>
-     
+     <div id="login_btm">
+	     <div class="btmmsg"> <a href="./FindIdPass.me" id="joinlink"><span class="msg">> 아이디와 비밀번호를 잊어버리셨나요 ? </span> 아이디/비밀번호찾기</a></div>
+	     <div class="btmmsg"> <a href="./MemberJoin.me" id="joinlink"><span class="msg" id="msg2">> 회원가입 후 다양한 혜택을 누리실 수 있습니다. </span> 회원가입</a></div>
+      </div>
      
     </div>
-    
+    	
   </form>
 </div>
 

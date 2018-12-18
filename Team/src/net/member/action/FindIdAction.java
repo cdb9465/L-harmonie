@@ -18,7 +18,7 @@ public class FindIdAction implements Action{
 		//입력값 가져오기
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
-		System.out.println("적은 name="+name+", 적은 phone="+phone);
+
 		//sql구문 실행
 		MemberDAO mdao = new MemberDAO();
 		String findEmail = mdao.findId(name, phone);
@@ -38,21 +38,32 @@ public class FindIdAction implements Action{
 			return null;
 		}else{
 //값이 있으면 
-			//findEmail값을 하나씩 잘라서 email에 넣는다
-			String[] email = findEmail.split("");
-			//값의 0,1,2번째 자리를 제외한 나머지 *로 표시
-			for(int i=0;i<email.length;i++){
-				if(i>2){ email[i]="*"; }
+			//id를 @ 기준으로 나눈다
+			String[] emailurl = findEmail.split("@");
+			//나눈 두 변수를 다시 하나씩 잘라서 email 1,2에 넣는다
+			String[] email1 = emailurl[0].split("");
+			String[] email2 = emailurl[1].split("");
+			//email1은 0,1,2번째 자리를 제외한 나머지 *로 표시
+			for(int i=0;i<email1.length;i++){
+				if(i>1){ email1[i]="*"; }
 			}
-			System.out.println("결과1111!:"+Arrays.toString(email));
+			//email2는 전부다 *로 표시
+			for(int i=0;i<email2.length;i++){
+					email2[i]="*"; 
+			}
 			
-			//s1 값 안에 email배열 누적해서 넣기
+			//s1 값 안에 email1배열 누적해서 넣기
 			String s1 = "";
-			for(int i=0;i<email.length;i++){
-				s1 = s1+(String)email[i];
+			for(int i=0;i<email1.length;i++){
+				s1 = s1+(String)email1[i];
 			}
-			System.out.println("결과2222!:"+s1);
-			
+			//email1 + "@" + email2 형태를 보여주기 위해 잘랐던 @를 넣어준다
+			s1 = s1+"@";
+			//s1 값 안에 email2배열 누적해서 넣기
+			for(int i=0;i<email2.length;i++){
+				s1 = s1+(String)email2[i];
+			}
+
 			//최종 결과값 내보내기
 			request.setAttribute("s1",s1);
 			
