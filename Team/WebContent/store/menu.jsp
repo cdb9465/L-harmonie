@@ -11,7 +11,7 @@
 <link href="./css/menu.css" rel="stylesheet">
 <link href="./css/default.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <title>L'marmonie</title>
 </head>
 <body>

@@ -197,13 +197,13 @@ article#book_art {width: 1300px; height: 700px;
 
 #alergy, #req{
 	width: 600px; 
-	margin: 5px auto;
+	margin: 5px 300px 5px 300px;
 	text-align: left;
 	font-weight: bold;
 }
 
 #alergy {
-	margin-top: 40px;
+	margin-top: 60px;
 	height: 30px;
 	line-height: 30px; }
 
@@ -242,15 +242,14 @@ article#book_art {width: 1300px; height: 700px;
 
 
 /* 5단계 확인 완료 */
-table#confirm{margin: 10px auto;
-	}
+table#confirm{margin: 10px auto;}
 
 table#confirm th,table#confirm td{padding: 13px 20px 13px 15px;
-	font-size: 16px;
+	font-size: 17px;
 	font-weight: bold;
 	text-align: left;	}	
 
-table#confirm th{width:150px;}
+table#confirm th{width:170px;}
 
 table#confirm td{font-weight: bolder;
 	width: 400px;}
@@ -289,7 +288,7 @@ article#bookck_art {width: 900px; height: 600px;
 	border: none; !important;}
 
 #bookCheckbtn{ left: 40%; bottom: 5%;
-	width: 140px; !important}
+	width: 160px; !important}
 
 
 
