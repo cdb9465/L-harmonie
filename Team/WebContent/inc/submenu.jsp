@@ -7,8 +7,8 @@
  <a href="#main1"></a>
  <a href="#main2"></a>
  <a id="sub_about" href="#main3"></a>	 <!-- aboutUs페이지 4번째 서브메뉴 -->
-<input type="button" value="문의" onclick="chatBtn()" class="chat">
 </div>
+	<input type="button" value="문의" onclick="chatBtn()" class="chat">
 </div>
 
 <!-- 1:1채팅 -->
