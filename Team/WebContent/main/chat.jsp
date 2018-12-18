@@ -2,6 +2,10 @@
 <%@page import="net.member.db.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("utf-8");
+String id=(String)session.getAttribute("email");
+MemberDAO mdao=new MemberDAO();
+MemberBean mb=mdao.getMember(id); %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../css/bootstrap.css">
 	<link rel="stylesheet" href="../css/chat.css">
-	<title>실시간 채팅</title>
+	<title>L'harmonie</title>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script type="text/javascript">
@@ -72,11 +76,17 @@
 		
 		
 		function addChat(chatName, chatContent, chatTime) {
-			$('#chatList').append('<div class="row">' + 
+			var icon="";
+			if(chatName=="관리자"){
+				icon="../images/adminIcon.png";
+			} else {
+				icon="../images/myIcon.png";
+			}			
+			$('#chatList').append('<div class="row">' + 					
 						'<div class="col-lg-12">' + 
 						'<div class="media">' + 
-						'<a class="pull-left" href="#">' + 
-						'<img class="media-object img-circle" src="../images/icon.png" width="30px" height="30px" alt="">' + 
+						'<a class="pull-left" href="#">' +  						
+						'<img class="media-object img-circle" src="'+icon+'" width="30px" height="30px" alt="">' +					
 						'</a>' + 
 						'<div class="media-body">' + 
 						'<h4 class="media-heading">' + 
@@ -106,12 +116,6 @@
 </head>
 <body>
 <% 
-request.setCharacterEncoding("utf-8");
-String id=(String)session.getAttribute("email");
-MemberDAO mdao=new MemberDAO();
-//리턴값을 저장할 변수 = getMember(세션값) 메서드 호출
-MemberBean mb=mdao.getMember(id);
-
 if(id == null){
 	%>
 	<script>
@@ -129,21 +133,22 @@ if(id == null){
 					<div class="portlet portlet-default">
 						<div class="portlet-heading">
 							<div class="portlet-title">
-								<h4><i class="fa fa-circle text-green"></i><!-- 1:1 문의 --></h4>
+								<h4><i class="fa fa-circle text-green"></i>실시간 한 줄 문의</h4>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 						<div id="chat" class="panel-collapse collapse in">
-							<div id="chatList" class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 600px;"></div>
-							<div class="portlet-footer">
-								<div class="row">
+							<div id="chatList" class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 500px;"></div>								
+							<div class="portlet-footer">						
+								<div class="row">																	
 									<div class="form-group col-xs-4">
-										<input style="height: 40px;" type="hidden" id="chatName" class="form-control" placeholder="이름" maxlength="8" value="<%=mb.getName() %>">
+										<input style="height: 40px;" type="hidden" id="chatName" class="form-control" placeholder="이름" maxlength="8" value="<%=mb.getName() %>">																
 									</div>
 								</div>
 								<div class="row" style="height: 90px;">
 									<div class="form-group col-xs-10">
-										<textarea style="height: 40px;" id="chatContent" class="form-control" placeholder="메세지를 입력하세요." maxlength="100"></textarea>
+										<!-- <textarea style="height: 40px;" id="chatContent" class="form-control" placeholder="메세지를 입력하세요." maxlength="100"></textarea> -->
+										<input style="height: 40px;" type="text" id="chatContent" class="form-control" placeholder="메세지를 입력하세요." maxlength="100">
 									</div>
 									<div class="form-group col-xs-2">
 										<button type="button" class="btn btn-default pull-right" onclick="submitFunction();">전송</button>
@@ -157,9 +162,9 @@ if(id == null){
 		</div>
 		<div class="alert alert-warning" id="warningMessage" style="display: none;">
 			<strong>오류</strong>
-		</div>	
-								</div>
-							</div>						
+		</div>										
+								</div>																
+							</div>												
 						</div>
 					</div>
 				</div>

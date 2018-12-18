@@ -85,8 +85,8 @@
 #resultbtn1:HOVER{background-color: #b41616; }
 /* 결과 페이지 */
 	/* 아이디 표시 영역 */
-#resultId{font-size: 18px; line-height: 32px; }
-#resultId span{color: #808000;font-weight:bold;}
+#resultId{font-size: 22px; line-height: 32px; }
+#resultId span{color: #808000;font-weight:bold;font-size: 24px;}
 	/* 홈으로 버튼 */
 #resultbtn{border: none; height:50px;width:25%;background-color:#b41616;
 		color:#eee; font-weight:bold; margin-top:50px;

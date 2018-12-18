@@ -15,7 +15,7 @@
 <script>
 function chatBtn(){
 	/* window.open('./boardcast.jsp','1:1 문의','width=500,height=770'); */	      
-	window.open('./main/chat.jsp','1:1 문의','width=500,height=770');
+	window.open('./main/chat.jsp','1:1 문의','width=1000,height=650,top=250,left=470');
 	   											/* scrollbars=yes */
 	}
 
@@ -24,7 +24,7 @@ $(function() {
 	  $.scrollify({
 		section:"section",
 	    easing: "easeOutExpo",
-	    scrollSpeed: 100,
+	    scrollSpeed: 200, /* 스크롤속도 */
 	    interstitialSection: "header,footer",
 	    before:function(i,panels) {
 	      var ref = panels[i].attr("data-section-name");
