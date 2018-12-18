@@ -190,10 +190,10 @@ else
 
       </table>
 
-<hr>
+
    <%}
 }%>
-
+<hr>
 <!-- 페이지 ◀12345▶ 영역 -->
  <div class="pageArea">
 <%

@@ -19,13 +19,13 @@ MemberBean mb=mdao.getMember(sess);
 <!-- 로고들어가는 곳 시작 -->
 <!-- <div id="logo"><a href ="./Main.ma"><img src="./images/logo.png"></a></div> -->
 <div id="topArea">
-<a href="./Main.ma" id="logo" class="logoC"></a>
+<a href="./Main.ma#main0" id="logo" class="logoC"></a>
 <!-- 로고들어가는 곳 끝 -->
 
 <!-- 메인메뉴 -->
 
 <ul id="main_menu">
-	<li><a href="./AboutUs.ad" class = "MM">ABOUT US</a></li>
+	<li><a href="./AboutUs.ad#main0" class = "MM">ABOUT US</a></li>
 	<li><a href="./MenuList.nu" class = "MM">MENU</a></li>
 	<li><a href="./NewsList.nw" class = "MM">NEWS</a></li>
 	<li><a href="./ReviewList.re" class = "MM">REVIEW</a></li>
@@ -54,7 +54,7 @@ if(sess==null){%>
 		<!-- 마이페이지 -->
 
     			<%if(sess.equals("admin@team.com")) {%> <li class="logArea" id="login"><a href="./BookList.ad" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> 관리자페이지 </a></li>
-    			<%} else {%>							<li class="logArea" id="login"><a href="./Mypage.me" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> 마이페이지 </a></li> 
+    			<%} else {%>							<li class="logArea" id="login"><a href="./Mypage.me#main0" id="PageName"><i class='fas fa-user-cog' style='font-size:18px;'></i> 마이페이지 </a></li> 
     			<%} %>
     			<li class="logArea"><a href="./MemberLogout.me"><i class='fas fa-power-off' style='font-size:18px;'></i>  로그아웃  </a></li>
     			
@@ -113,8 +113,8 @@ if(sess==null){%>
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
    <div class="sm_about">
-    <a href="./AboutUs.ad" id="sm_title">ABOUT US</a>
-     <a href="./AboutUs.ad">About Us</a>
+    <a href="./AboutUs.ad#main0" id="sm_title">ABOUT US</a>
+     <a href="./AboutUs.ad#main0">About Us</a>
      <a href="./AboutUs.ad#main3">Find Us</a>
    </div>
    <div class="sm_menu">
@@ -139,7 +139,7 @@ if(sess==null){%>
      <a href="./Book.bk" >Book</a>
    </div>
    <div class="sm_mypage">
-    <a href="./Mypage.me" id="sm_title">MY PAGE</a>
+    <a href="./Mypage.me#main0" id="sm_title">MY PAGE</a>
      <a href="./Mypage.me#main0">My Page</a>
      <a href="./Mypage.me#main1">My Book</a>
      <a href="./Mypage.me#main2">My Review</a>
