@@ -17,7 +17,7 @@ public class MemberLogoutAction implements Action{
 		
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./Main.ma");
+		forward.setPath("./Main.ma#main0");
 		
 		return forward;
 	}
