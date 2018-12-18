@@ -278,6 +278,7 @@ public class ReviewDAO {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
+		ResultSet rs2=null;
 		ArrayList<ReviewBean> reviewList=new ArrayList<ReviewBean>();
 		try {
 			//1,2 디비연결
@@ -289,7 +290,7 @@ public class ReviewDAO {
 			pstmt.setInt(1, startRow-1);
 			pstmt.setInt(2, pageSize);
 			rs=pstmt.executeQuery();
-			
+		
 			while(rs.next()){
 				ReviewBean rb=new ReviewBean();
 				rb.setMem_num(rs.getInt("mem_num"));

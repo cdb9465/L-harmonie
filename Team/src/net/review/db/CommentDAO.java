@@ -194,6 +194,7 @@ public List<CommentBean> getCommentList(int mem_num){
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
+		ResultSet rs2=null;
 		List<CommentBean> commentList=new ArrayList<CommentBean>();
 		try {
 			//1,2 디비연결
@@ -206,8 +207,15 @@ public List<CommentBean> getCommentList(int mem_num){
 			//pstmt.setInt(2, review_num);
 			rs=pstmt.executeQuery();
 			
+			String sql2="select name from member where mem_num=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			//pstmt.setInt(2, review_num);
+			rs2=pstmt.executeQuery();
+			
 			while(rs.next()){
 				CommentBean cb=new CommentBean();
+				cb.setName(rs2.getString("name"));
 				cb.setMem_num(rs.getInt("mem_num"));
 				 cb.setReview_num(rs.getInt("review_num"));
 				 cb.setComment_num(rs.getInt("comment_num"));
@@ -221,6 +229,7 @@ public List<CommentBean> getCommentList(int mem_num){
 			e.printStackTrace();
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(rs2!=null)try{rs2.close();}catch(SQLException ex){}
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
