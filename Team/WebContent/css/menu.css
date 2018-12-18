@@ -6,12 +6,11 @@
 }
 * {box-sizing: border-box}
 .menu_article {
-	min-height: 100%;
+	height: 100%;
 }
 
 /* sec1 영역 전체 */
 #menu_sec1{
-	min-height: 950px;
 	background-image: url("../images/menu/menu_bg.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -19,10 +18,10 @@
 }
 
 /*menu_sec1 어둡게 */
-.menu_cover{ 
+ .menu_cover{ 
 	border: 1px solid black;
 	background-color: rgba(0,0,0,0.4);
-	min-height: 950px;
+	height: 100%;
 	width: inherit;
 }
 
@@ -63,7 +62,6 @@
 /* sec2 영역 전체 */
 #menu_sec2{
 	color: #fff;
-	min-height: 950px;
 	background-image: url("../images/menu/menu_bg2.jpg");]
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -75,9 +73,8 @@
 	float: left;
 	background-color: rgba(0,0,0,0.7);
 	width: 20%;
-	min-height: 950px;
 	margin: 80px 0 0 0;
-    padding: 50px 0 50px 0;
+    padding: 40px 0 40px 0;
     text-align: center;
 }
 
@@ -101,16 +98,26 @@
     transition: 0.3s;
     font-size: 30px; 
     color: #fff;
-    margin: 15px 0 15px 0;
+    margin: 25px 0 25px 0;
     text-decoration: none;
 }
 
 /* 상세메뉴 탑 */
 .menu_top {
-	display: block;
-	margin-top: 140px;
+	margin-left: 650px;
+	display: inline-block;
+	margin-top: 110px;
 	text-align: center;
 	font-size: 40px;
+	margin-bottom: 10px;
+}
+.menu_topicon{
+	float: left;
+	margin-top: 10px;
+	text-align: center;
+}
+.menu_top div {
+	margin-top: 10px;
 }
 
 /* 상세메뉴 */
@@ -144,4 +151,14 @@
 	font-size: 20px;
 	text-align: center;
 	background-color:rgba(0,0,0,0.6);
+}
+
+#menu_delete{
+	float: right;
+}
+
+.fa-trash{
+	color: white;
+	font-size: 20px;
+	margin: 0 5px 0 0;
 }

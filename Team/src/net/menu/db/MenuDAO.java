@@ -185,5 +185,28 @@ public class MenuDAO {
 		}
 		return;
 	} //deleteMenu
+
+
+	public void deleteMenu(int m_num) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql="";
+		try {
+			//1,2 디비연결
+			con=getConnection();
+			sql="delete from menu where menu_num=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, m_num);
+			//4 실행
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+	}
 	
 }

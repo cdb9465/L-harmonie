@@ -178,5 +178,41 @@ window.onclick = function(event) {
  })
 
 </script>
+
+<script>
+var menu = document.getElementsByClassName("MM");
+
+//문자열 뽑아내기
+var url = location.href;
+var point = url.indexOf(".");
+var pattern = url.substr(point+1, 2);
+
+//함수호출
+setUnderLine(pattern);
+
+function setUnderLine(pat)
+{
+	//초기화
+	for(var i =0; i < menu.length; i++)
+	{
+		menu[i].className = "MM";
+	}
+
+	//.onMM 클래스 추가
+	switch(pat)
+	{
+		case 'ad': menu[0].className += " onMM";	break;
+		case 'nu': menu[1].className += " onMM";	break;
+		case 'nw': menu[2].className += " onMM";	break;
+		case 're': menu[3].className += " onMM";	break;
+		default: break;
+	}
+}
+
+
+
+
+</script>
+
 <!-- 헤더 들어가는곳 -->
 </header>
