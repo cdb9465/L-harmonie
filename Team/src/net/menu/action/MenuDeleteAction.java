@@ -1,24 +1,29 @@
-package net.member.action;
+package net.menu.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class MemberLogoutAction implements Action{
+import net.menu.action.ActionForward;
+import net.menu.db.MenuDAO;
+
+public class MenuDeleteAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("MemberLogoutAction execute()");
+		System.out.println("MenuDeleteAction execute()");
 		
-		//session객체생성
 		HttpSession session=request.getSession();
-		//세션 초기화
-		session.invalidate();
+		
+		int m_num = Integer.parseInt(request.getParameter("num"));
+		
+		MenuDAO mdao = new MenuDAO();
+		
+		mdao.deleteMenu(m_num);
 		
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./Main.ma#main0");
-		
+		forward.setPath("./MenuList.nu");
 		return forward;
 	}
 

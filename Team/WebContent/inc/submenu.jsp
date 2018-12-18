@@ -7,15 +7,15 @@
  <a href="#main1"></a>
  <a href="#main2"></a>
  <a id="sub_about" href="#main3"></a>	 <!-- aboutUs페이지 4번째 서브메뉴 -->
-<input type="button" value="문의" onclick="chatBtn()" class="chat">
 </div>
+	<input type="button" value="문의" onclick="chatBtn()" class="chat">
 </div>
 
 <!-- 1:1채팅 -->
 <script>
 function chatBtn(){
 	/* window.open('./boardcast.jsp','1:1 문의','width=500,height=770'); */	      
-	window.open('./main/chat.jsp','1:1 문의','width=500,height=770');
+	window.open('./main/chat.jsp','1:1 문의','width=1000,height=650,top=250,left=470');
 	   											/* scrollbars=yes */
 	}
 
@@ -24,7 +24,7 @@ $(function() {
 	  $.scrollify({
 		section:"section",
 	    easing: "easeOutExpo",
-	    scrollSpeed: 800,
+	    scrollSpeed: 200, /* 스크롤속도 */
 	    interstitialSection: "header,footer",
 	    before:function(i,panels) {
 	      var ref = panels[i].attr("data-section-name");

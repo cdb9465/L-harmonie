@@ -132,7 +132,7 @@ else
 			 System.out.println(rb.getFile().split(",")[picIndex]);
 	%>
 	  <div class="mySlides">
-	   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)">
+	   <img alt="첨부사진"  width="700" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)">
 	  </div>
 
 	<%	}
@@ -150,7 +150,7 @@ else
             <input type="hidden" name="love_num" value="1">
             <!-- 누르기 전이라 하트아이콘 회색으로해둠. 누르면 빨강으로 style="color:#800000;" -->
                <Button type="submit" onclick="style='background-color:pink'" id="heart1">
-               <i class='fas fa-heart' style='color:gray; font-size:23px;'id=heart ></i></Button>
+               <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button>
          </form>
       <%//=lovecount %>20명이 좋아합니다.
 		<!-- 작성자일때만 글삭제 보여주기 -->
@@ -190,10 +190,10 @@ else
 
       </table>
 
-<hr>
+
    <%}
 }%>
-
+<hr>
 <!-- 페이지 ◀12345▶ 영역 -->
  <div class="pageArea">
 <%

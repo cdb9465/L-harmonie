@@ -10,8 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="./css/menu.css" rel="stylesheet">
 <link href="./css/default.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>L'marmonie</title>
 </head>
 <body>
@@ -94,7 +94,7 @@ int count=0;
 
 <!-- 탭메뉴 -->
 <div class="tab">
-  <p><a href="./MenuList.nu?category=Starter#menu_sec2" id="defaultOpen" class="tablinks">STARTER</a></p>
+  <p><a href="./MenuList.nu?category=Starter#menu_sec2" id="button_Starter" class="tablinks">STARTER</a></p>
   <p><a href="./MenuList.nu?category=Salad#menu_sec2" id="button_Salad" class="tablinks">SALAD</a></p>
   <p><a href="./MenuList.nu?category=Steak#menu_sec2" id="button_Steak" class="tablinks">STEAK</a></p>
   <p><a href="./MenuList.nu?category=Pasta#menu_sec2" id="button_Pasta" class="tablinks">PASTA</a></p>
@@ -107,33 +107,33 @@ int count=0;
 <% 
 	if(category.equals("Starter")) {
 	%>
-		<img src="./images/menu/icon_Starter.png" class="menu_topicon">
-		<span>Starter</span>
+		<img src="./images/menu/icon_Starter.png" height="50px" class="menu_topicon">
+		<div>Starter</div>
 	<%
 	} else if(category.equals("Salad")) {
 	%>
-		<img src="./images/menu/icon_Salad.png" class="menu_topicon">
-		<span>Salad</span>
+		<img src="./images/menu/icon_Salad.png" height="50px" class="menu_topicon">
+		<div>Salad</div>
 	<%
 	} else if(category.equals("Steak")) {
 	%>
-		<img src="./images/menu/icon_Steak.png" class="menu_topicon">
-		<span>Steak</span>
+		<img src="./images/menu/icon_Steak.png" height="50px" class="menu_topicon">
+		<div>Steak</div>
 	<%
 	} else if(category.equals("Pasta")) {
 	%>
-		<img src="./images/menu/icon_Pasta.png" class="menu_topicon">
-		<span>Pasta</span>
+		<img src="./images/menu/icon_Pasta.png" height="50px" class="menu_topicon">
+		<div>Pasta</div>
 	<%
 	} else if(category.equals("Dessert")) {
 	%>
-		<img src="./images/menu/icon_Dessert.png" class="menu_topicon">
-		<span>Dessert</span>
+		<img src="./images/menu/icon_Dessert.png" height="50px" class="menu_topicon">
+		<div>Dessert</div>
 	<%
 	} else {
 	%>
-		<img src="./images/menu/icon_Beverage.png" class="menu_topicon">
-		<span>Beverage</span>
+		<img src="./images/menu/icon_Beverage.png" height="50px" class="menu_topicon">
+		<div>Beverage</div>
 	<%
 	}
 %>
@@ -156,7 +156,27 @@ for(int i=0; i<menuList.size(); i++) {
 	<img id="myImg" src="./upload/<%=nu.getFile()%>" alt="<%=nu.getName() %>" width="100%" height="250px"><br>
 	
 	<!-- 메뉴 이름 -->
-	<div class="menu_caption"><%=nu.getName()%></div>
+	<div class="menu_caption"><%=nu.getName()%>
+	<%
+	String email = (String)session.getAttribute("email");
+	if(email==null) {
+		%>
+		</div>
+		<%
+	}
+	else if(email.equals("admin@team.com")) {
+		%>
+		<a href="./MenuDelete.nu?num=<%=nu.getMenu_num()%>" id="menu_delete"><i class="fa fa-trash"></i></a>
+		</div>
+		
+		<%
+	}
+	else {
+	%>
+	</div>
+	<%
+	}
+	%>
 	</div>
 </div> 
 <%
@@ -172,9 +192,15 @@ if(count==3) {
 </div>
 </article>
 
+<div class="clear"></div>
+
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
+<!-- 푸터 들어가는 곳 -->
+
 <script>
-function moveAppetizer() {
-	document.getElementById("defaultOpen").click();
+function moveStarter() {
+	document.getElementById("button_Starter").click();
 }
 function moveSalad() {
 	document.getElementById("button_Salad").click();
@@ -191,15 +217,6 @@ function moveDessert() {
 function moveBeverage() {
 	document.getElementById("button_Beverage").click();
 }
-
-function click(category) {
-	document.getElementById()
-}
 </script>
-
-<!-- 푸터 들어가는 곳 -->
-<jsp:include page="../inc/bottom.jsp"></jsp:include>
-<!-- 푸터 들어가는 곳 -->
-
 </body>
 </html>

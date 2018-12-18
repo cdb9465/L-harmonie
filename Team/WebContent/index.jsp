@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-response.sendRedirect("./Main.ma");
+response.sendRedirect("./Main.ma#main0");
 %>
 </body>
 </html>
