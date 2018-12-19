@@ -23,15 +23,38 @@ public class ReviewAddAction implements Action{
   		ReviewBean rb=new ReviewBean();
   		rb.setMem_num(Integer.parseInt(multi.getParameter("mem_num")));
   		rb.setContent(multi.getParameter("content")); 
+  		
+  		/*for(int i=0; i<  i++){
+  			if(request.getParameter("file1")!=null&&request.getParameter("file2")==null&&request.getParameter("file3")==null){
+  				String file=multi.getFilesystemName("file1");
+  				rb.setFile(file);
+  				System.out.println(file); 
+  			}else
+  			if(request.getParameter("file1")!=null&&request.getParameter("file2")!=null&&request.getParameter("file3")==null){
+  				String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file2");
+  				rb.setFile(file);
+  				System.out.println(file); 
+  			}else
+  			if(request.getParameter("file1")!=null&&request.getParameter("file2")!=null&&request.getParameter("file3")!=null){
+  				String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file2")+","+multi.getFilesystemName("file3"); 
+  				rb.setFile(file);
+  				System.out.println(file); 
+  			}
+  			
+  		}*/
+  		 
   		String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file2")+","+multi.getFilesystemName("file3"); 
-  		rb.setFile(file); 
+  		rb.setFile(file);
+			System.out.println(file); 
+  		
+  		
   		rb.setLocation(multi.getParameter("sel_location")); 
   		rb.setRating(Integer.parseInt(multi.getParameter("rating")));
   		
    		ReviewDAO rd=new ReviewDAO(); 
   		rd.insertReview(rb); 
   		System.out.println(realPath); 
-   		System.out.println(file); 
+   	
   		ActionForward forward=new ActionForward(); 
   		forward.setRedirect(true); 
   		forward.setPath("./ReviewList.re"); 

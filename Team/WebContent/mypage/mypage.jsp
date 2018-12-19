@@ -223,7 +223,7 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 		<%} else if(Result == 0){ //예약당일 %>
 			<span class="bookday">당일취소불가</span>
 		<%} else{  // 예약일 이후  %> 
-			<input type="button" value="리뷰작성" class="writeReview" id="wreview" >
+			<input type="button" value="리뷰작성" class="writeReview" id="wreview" onclick="location.href='./ReviewAdd.re?book_num=<%=bb.getBook_num() %>'">
 <%			}
 		}%>
 	</td></tr>
