@@ -25,7 +25,7 @@ public class LoveDAO {
 
 	      return con;
 	   }
-	public void insertLove(LoveBean lb)
+	public void insertLove(LoveBean lb, String email)
 	{
 		Connection con = null;
 		PreparedStatement psm = null;
@@ -35,10 +35,19 @@ public class LoveDAO {
 		try
 		{
 			con = getConnection();
-			
-			String sql = "select max(love_num) from love where review_num=?" ;
+			//mem_num구하기
+			String sql = "select mem_num from member where email=?";
 			psm = con.prepareStatement(sql);
-			psm.setInt(1,lb.getReview_num());
+			psm.setString(1,email);
+			rs = psm.executeQuery();
+			
+			if(rs.next())
+			{
+				lb.setMem_num(rs.getInt(1));
+			}
+			//love_num구하기		
+			sql = "select max(love_num) from love" ;
+			psm = con.prepareStatement(sql);
 			rs = psm.executeQuery();
 			
 			if(rs.next())
@@ -48,13 +57,13 @@ public class LoveDAO {
 				mnum=1;
 			}
 			
-
-			 sql="insert into love(love_num,review_num,mem_num,love) values (?,?,?,?)";
+			//insert하기
+			sql="insert into love(love_num,review_num,mem_num,love) values (?,?,?,?)";
 			psm = con.prepareStatement(sql);
 			psm.setInt(1, mnum);
 			psm.setInt(2, lb.getReview_num());
 			psm.setInt(3, lb.getMem_num());
-			psm.setBoolean(4, nnum);
+			psm.setBoolean(4, true); //==1
 	
 			psm.executeUpdate();
 
@@ -75,16 +84,30 @@ public class LoveDAO {
 		}
 	}
 
-	public void deleteLove(int love_num)
+	public void deleteLove(String email, int review_num)
 	{
 		Connection con = null;
 		PreparedStatement psm = null;
+		ResultSet rs = null;
 		try
 		{
 			con = getConnection();
-			String sql = "delete from love where love_num=?";
+			
+			//mem_num구하기
+			String sql = "select mem_num from member where email=?";
 			psm = con.prepareStatement(sql);
-			psm.setInt(1, love_num);
+			psm.setString(1,email);
+			rs = psm.executeQuery();
+			int mem_num = 0;
+			if(rs.next())
+			{
+				mem_num = rs.getInt(1);
+			}
+			//delete
+			sql = "delete from love where mem_num=? and review_num=?";
+			psm = con.prepareStatement(sql);
+			psm.setInt(1, mem_num);
+			psm.setInt(2, review_num);
 			psm.executeUpdate();
 			
 		}
@@ -102,7 +125,7 @@ public class LoveDAO {
 		
 	}
 	
-	public int getLoveCount()
+	public int getLoveCount(int review_num)
 
 	{
 		Connection con = null;
@@ -113,8 +136,9 @@ public class LoveDAO {
 		{
 			con = getConnection();
 			
-			String sql = "select count(*) from love";
+			String sql = "select count(*) from love where review_num=?";
 			psm= con.prepareStatement(sql);
+			psm.setInt(1, review_num);
 			rs = psm.executeQuery();
 			
 	
@@ -246,7 +270,7 @@ public int checkLove(String email, int review_num){
 				  mb.setMem_num(rs.getInt(1));
 			  }
 		
-          sql="select * from love where mem_num=? and review=?;";
+          sql="select * from love where mem_num=? and review_num=?;";
 		  pstmt = con.prepareStatement(sql); 
 		  pstmt.setInt(1,mb.getMem_num());
 		  pstmt.setInt(2,review_num);

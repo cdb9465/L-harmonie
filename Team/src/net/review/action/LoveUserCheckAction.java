@@ -1,6 +1,6 @@
 package net.review.action;
 
-import java.io.PrintWriter;
+import java.io.PrintWriter; 
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -10,24 +10,49 @@ import net.review.db.LoveBean;
 import net.review.db.LoveDAO;
 import net.review.db.ReviewDAO;
 
-public class LoveCountAction implements Action{
+public class LoveUserCheckAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("LoveCountAction execute() 도착---");
+		System.out.println("LoveUserCheckAction execute() 1도착---");
 		
 		String email = request.getParameter("email");
-		int review_num = Integer.parseInt(request.getParameter("review_num"));
-		System.out.print("맴넘 리넘 확인 : "+email+ review_num);
+		int review_num = Integer.parseInt(request.getParameter("reNum"));
+		System.out.println("맴넘 리넘 확인 : "+email+ review_num);
+
+		
 		
 		LoveDAO ld=new LoveDAO();
 		//등록된 love가 있는지 확인하러 가자( 있으면 1, 없으면0 리턴 )
 		int loveCheck = ld.checkLove(email, review_num);
- 
+		System.out.println("loveCheck = "+loveCheck);
+		
+		if(loveCheck==0){
+			LoveBean lb = new LoveBean();
+			//review_num 넣기
+			lb.setReview_num(review_num);
+				//insert호출
+			ld.insertLove(lb,email);
+				//count 호출
+			
+			
+		}
+		if(loveCheck==1){
+				//delete 호출
+			ld.deleteLove(email, review_num);		
+		}
+		
+		//해당하는 게시판에있는 리뷰만 Count한다
+		int reviewCount = ld.getLoveCount(review_num);
+		
+		System.out.println(reviewCount);
+		
+		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println(loveCheck);
+		out.println(reviewCount);
 		out.close();
+		
 		
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(false);

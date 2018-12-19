@@ -73,9 +73,9 @@ public class ReviewFrontController extends HttpServlet {
   	  			} catch (Exception e) { 
   	  				e.printStackTrace(); 
   	  			} 
-  	  		}else if (command.equals("/LoveCountAction.re")) { 
+  	  		}else if (command.equals("/LoveUserCheckAction.re")) { 
   	  			
-  	  			action = new LoveCountAction(); 
+  	  			action = new LoveUserCheckAction(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
   	  			} catch (Exception e) { 
@@ -89,14 +89,6 @@ public class ReviewFrontController extends HttpServlet {
   	  			} catch (Exception e) { 
   	  				e.printStackTrace(); 
   	  			}
-  	  		}else if (command.equals("/LoveDeleteAction.re")) { 
-  	  		
-  	  			action = new LoveDeleteAction(); 
-  	  			try { 
-  	  				forward = action.execute(request, response); 
-  	  			} catch (Exception e) { 
-  	  				e.printStackTrace(); 
-  	  			} 
   	  		}
 	
 	   

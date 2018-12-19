@@ -14,6 +14,9 @@
 <!-- css경로바꿔야함 -->
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/reviewCopy.css" rel="stylesheet">
+
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/httpRequest.js"></script>
 <script type="text/javascript" src="./js/love.js"></script>
 <title>L'harmonie</title>
 </head>
@@ -142,13 +145,12 @@ if(count==0)
 	 </div>
 	</div>
 	<!-- 사진펼침 끝 -->	 
-    </td></tr>
-                   <%%>   
+    </td></tr>  
     <tr><td colspan="2" class="td_like" >
             <!-- 누르기 전이라 하트아이콘 회색으로해둠. 누르면 빨강으로 style="color:#800000;" -->
-               <Button type="button" onclick="loveClick('<%=email %>,<%=rb.getReview_num()%>')" id="heart1">
+               <Button type="button"  id="heart1" onclick="loveClick('<%=email%>','<%=rb.getReview_num()%>')">
                <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button>
-      <%//=lovecount %>20명이 좋아합니다.
+      			<span id="reCountOne"></span>
 		<!-- 작성자일때만 글삭제 보여주기 -->
          <input type="button" value="글삭제" onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" class="delReview">
         <!-- 작성자일때만 글삭제 보여주기 -->
