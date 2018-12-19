@@ -173,12 +173,12 @@ history.back();
 </div>
 </div>
 <!-- 4단계 (요청사항)-->
-
+ 
 <!-- 5단계 (확인 & 완료)-->
 <div class="tab">
 <div class="panel">
  <label class="label">예약내역 확인</label>
- <table id="confirm" >
+ <table id="confirm" border="1">
  <tr>
   <th><i class="fa fa-home"> </i> 지점 : </th>
   <!-- <td>00점</td> -->
@@ -205,6 +205,7 @@ history.back();
   </tr>
 
  </table>
+
 </div>
 </div>
 <!-- 5단계 (확인 & 완료)-->
