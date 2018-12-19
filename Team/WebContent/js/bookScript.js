@@ -29,18 +29,18 @@ function showTab(n) {
 		confirmForm();
 }
 
-function initDate()	//안써도될듯
-{
-	$(document).ready(function(){
-		$(function () {
-			var day = new Date();
-			day.setDate(day.getDate()+1);
-			var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
-			$("#datepicker").datepicker('setDate', nextDay);
-			
-		});
-	});
-}
+//function initDate()	//안써도될듯
+//{
+//	$(document).ready(function(){
+//		$(function () {
+//			var day = new Date();
+//			day.setDate(day.getDate()+1);
+//			var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
+//			$("#datepicker").datepicker('setDate', nextDay);
+//			
+//		});
+//	});
+//}
 
 function nextPrev(n) {
 	var x = document.getElementsByClassName("tab");
