@@ -14,6 +14,9 @@ MemberDAO mdao=new MemberDAO();
 MemberBean mb=mdao.getMember(sess);
 %>
 
+<div>
+</div>
+
 <div class="top_menu">
 
 <!-- 로고들어가는 곳 시작 -->
@@ -147,6 +150,10 @@ if(sess==null){%>
   </div>
 </div>
 <!-- 사이트맵 -->
+
+
+
+
 
 <script>
 //사이트맵
