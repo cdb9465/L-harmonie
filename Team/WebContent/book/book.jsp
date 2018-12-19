@@ -274,8 +274,13 @@ $(document).ready(function(){
 		//초기값 받아오기
 		$("#dateval").val($("#datepicker").datepicker().val());
 		
+		//css
 		$('.ui-datepicker').css({
 			"margin":"0 auto"
+		});
+		
+		$('.ui-datepicker td span, .ui-datepicker td a').css({
+			"padding":".5em"
 		});
 	});
 	

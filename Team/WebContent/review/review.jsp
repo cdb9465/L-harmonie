@@ -55,7 +55,6 @@ String location=(String)session.getAttribute("location");
 List<ReviewBean> reviewlocation=(List)request.getAttribute("reviewlocation");
 MemberDAO mdao1= new MemberDAO();
 MemberBean mbb= mdao1.getMember(email);
-System.out.println("review에서 확인"+ reviewlocation);
 
 %>
 
@@ -103,6 +102,7 @@ if(count!=0)
 for(int i=0;i<ReviewList.size();i++)
 {
     ReviewBean rb=ReviewList.get(i);
+   
    
    %>
    
@@ -213,7 +213,10 @@ MemberDAO mdo= new MemberDAO();
 
 </th></tr>
 
-<tr><td> 
+<tr>
+
+
+<td> 
  
 <form action="./LoveCountAction.re"  method="post">
 
@@ -221,24 +224,26 @@ MemberDAO mdo= new MemberDAO();
 <input type="hidden" name="mem_num" value=<%=mbb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
 <input type="hidden" name="love_num" value="1">
+ 
  <div class="like">
 
   <Button type="submit" onclick="style='background-color:pink'" id="heart1">
   <i class="fa fa-heart" id=heart style="color:red"></i>
   <p>좋아요</p>
   </Button>
- 
+
  </div>
  </div>
 
  </form>
+ 
 </td>
-  
+
 <td>
 
 <%
 
-	int lovecount = 0; 
+int lovecount = 0; 
 if(Lcount!=0){	 
  
 
@@ -324,7 +329,7 @@ for(int j=0;j<cobe.size();j++){
 	
     	CommentBean cb=cobe.get(j);
 
-    	if(rb.getReview_num()==cb.getReview_num()){
+    	if(rb.getReview_num()==cb.getReview_num()&&rb.getMem_num()!=cb.getMem_num()){
     	 	
     	//System.out.println(rb.getFile().split(",")[0]);
     	%>

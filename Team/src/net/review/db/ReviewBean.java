@@ -10,6 +10,15 @@ public class ReviewBean {
 	  private Date date;
 	  private String file;
 	  private String location;
+	  private String name;
+	  
+	  public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+	  
 	  
 	  
 	  public int getMem_num() {
