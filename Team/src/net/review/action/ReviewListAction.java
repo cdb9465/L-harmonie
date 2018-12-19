@@ -41,6 +41,7 @@ public class ReviewListAction implements Action
 		//int endRow = currentPage * pageSize;
 		
 		// 데이터 있으면 reviewList getBoardList(시작행, 가져올글갯수)
+
 		List<ReviewBean> reviewList = rdao.getReviewList(startRow, pageSize);
 		
 		// 전체 페이지 수 pageCount 계산식
