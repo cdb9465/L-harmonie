@@ -14,7 +14,7 @@
 <!-- css경로바꿔야함 -->
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/reviewCopy.css" rel="stylesheet">
-<script type="text/javascript" src="./js/love.js"></script>
+<script src="./js/love.js"></script>
 <title>L'harmonie</title>
 </head>
 <body>
