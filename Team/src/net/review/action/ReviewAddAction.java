@@ -24,28 +24,33 @@ public class ReviewAddAction implements Action{
   		rb.setMem_num(Integer.parseInt(multi.getParameter("mem_num")));
   		rb.setContent(multi.getParameter("content")); 
   		
-  		/*for(int i=0; i<  i++){
-  			if(request.getParameter("file1")!=null&&request.getParameter("file2")==null&&request.getParameter("file3")==null){
+  		
+  			//파일  null값을 없애기
+  			/*if(request.getParameter("file2")==null&&request.getParameter("file3")==null){
   				String file=multi.getFilesystemName("file1");
   				rb.setFile(file);
   				System.out.println(file); 
   			}else
-  			if(request.getParameter("file1")!=null&&request.getParameter("file2")!=null&&request.getParameter("file3")==null){
+  			if(request.getParameter("file2")!=null&&request.getParameter("file3")==null){
   				String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file2");
   				rb.setFile(file);
   				System.out.println(file); 
   			}else
-  			if(request.getParameter("file1")!=null&&request.getParameter("file2")!=null&&request.getParameter("file3")!=null){
+  			if(request.getParameter("file2")==null&&request.getParameter("file3")!=null){
+  				String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file3");
+  				rb.setFile(file);
+  				System.out.println(file); 
+  			}else if(request.getParameter("file2")!=null&&request.getParameter("file3")!=null){
   				String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file2")+","+multi.getFilesystemName("file3"); 
   				rb.setFile(file);
   				System.out.println(file); 
-  			}
+  			}*/
   			
-  		}*/
+  		
   		 
   		String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file2")+","+multi.getFilesystemName("file3"); 
   		rb.setFile(file);
-			System.out.println(file); 
+		System.out.println(file); 
   		
   		
   		rb.setLocation(multi.getParameter("sel_location")); 

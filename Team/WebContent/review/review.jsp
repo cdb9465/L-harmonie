@@ -153,7 +153,7 @@ for(int i=0;i<ReviewList.size();i++)
 		 if(rb.getFile().split(",")[picIndex]!=null)	//수정필요
 		 {
 			 if(rb.getFile().split(",")[picIndex].equals("null")) break; //수정필요
-			 System.out.println(rb.getFile().split(",")[picIndex]);
+			
 	%>
 	  <div class="mySlides">
 	   <img alt="첨부사진"  width="700" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)">
@@ -256,7 +256,7 @@ if(email.equals("admin@team.com")){%>
  
  <%
  if(Ccount!=0){
-	 //System.out.println(rb.getReview_num());
+
 	 
  
 
