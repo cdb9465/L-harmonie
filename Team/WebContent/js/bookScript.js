@@ -5,6 +5,7 @@ function moveTab(n)
 }
 
 function showTab(n) {
+//	alert(document.bf.location.value);
 	var x = document.getElementsByClassName("tab");
 	
 	x[n].style.display = "block";
@@ -28,18 +29,18 @@ function showTab(n) {
 		confirmForm();
 }
 
-function initDate()	//안써도될듯
-{
-	$(document).ready(function(){
-		$(function () {
-			var day = new Date();
-			day.setDate(day.getDate()+1);
-			var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
-			$("#datepicker").datepicker('setDate', nextDay);
-			
-		});
-	});
-}
+//function initDate()	//안써도될듯
+//{
+//	$(document).ready(function(){
+//		$(function () {
+//			var day = new Date();
+//			day.setDate(day.getDate()+1);
+//			var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
+//			$("#datepicker").datepicker('setDate', nextDay);
+//			
+//		});
+//	});
+//}
 
 function nextPrev(n) {
 	var x = document.getElementsByClassName("tab");
@@ -104,6 +105,8 @@ function selectLocation(n){
 		document.bf.location.value = "서울강남점";
 	else if(n == 1)
 		document.bf.location.value = "부산서면점"; 
+	
+	alert(document.bf.location.value);
 }
 
 //인원수선택
@@ -337,12 +340,23 @@ function showDetail(chk) {
 
 //step5
 function confirmForm() {
+//	alert("confirmForm");
+//	alert(document.bf.location.value);
+	
 	var table, tr;
 	table = document.getElementById("confirm");
 	tr = table.getElementsByTagName("tr");
 
+/*	var location = document.bf.location.value;
+	var guest = document.bf.guest.value;
+	var date = document.bf.date.value;
+	var time = document.bf.time.value;
+	var tablenum = document.bf.tablenum.value;
+	var request;
+	alert(location);*/
+	
 	//기존 td삭제
-	for(i = 0; i < 6; i++)
+	for(var i = 0; i < 6; i++)
 	{	
 		if(tr[i].cells.length > 1)
 		{
@@ -350,7 +364,8 @@ function confirmForm() {
 			tr[i].removeChild(lastcol);
 		}
 	}
-	
+
+
 	//td생성
 	var newtd = new Array(6);
 	var text = new Array(6);
@@ -361,6 +376,7 @@ function confirmForm() {
 	text[4] = document.createTextNode(document.bf.tablenum.value);
 	
 	setRequest();
+//	request = document.bf.request.value;
 	text[5] = document.createTextNode(document.bf.request.value);
 	
 	for(i = 0; i < 6; i++)

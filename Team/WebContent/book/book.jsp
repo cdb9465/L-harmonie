@@ -273,10 +273,7 @@ $(document).ready(function(){
 
 		//초기값 받아오기
 		$("#dateval").val($("#datepicker").datepicker().val());
-		
-		$('.ui-datepicker').css({
-			"margin":"0 auto"
-		});
+
 	});
 	
 	//지점, 인원 변경시  시간, 테이블 선택값 초기화
@@ -296,6 +293,10 @@ $(document).ready(function(){
 		
 });
 </script>
+<style>
+ .ui-datepicker { margin: 0 auto; }
+ .ui-datepicker td span, .ui-datepicker td a { padding: .5em; }
+</style>
 
 </body>
 </html>

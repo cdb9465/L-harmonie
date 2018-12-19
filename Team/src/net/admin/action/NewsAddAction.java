@@ -49,7 +49,7 @@ public class NewsAddAction implements Action
 		// 이동
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./NewsList.nw");
+		forward.setPath("./NewsAdd.ad");
 		
 		return forward;
 	}

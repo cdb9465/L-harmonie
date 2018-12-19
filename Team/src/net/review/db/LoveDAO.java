@@ -10,6 +10,8 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import net.member.db.MemberBean;
 public class LoveDAO {
 	private Connection getConnection() throws Exception{
 	      
@@ -137,6 +139,7 @@ public class LoveDAO {
 		
 		
 	}
+	
 
 	public List<LoveBean> getLoveList(List<ReviewBean> reviewList){
 		
@@ -222,4 +225,50 @@ public List<LoveBean> getLoveList1(){
 		}
 		return loveList;
 	}
+
+public int checkLove(String email, int review_num){
+	Connection con=null;
+	PreparedStatement pstmt=null;
+	ResultSet rs=null;
+	//love가 없다 - 기본
+   int loveCheck = 0;
+   try{
+	   		//mem_num에 해당하는 review_num 찾기
+          con = getConnection();  
+          MemberBean mb = new MemberBean();
+          
+          String sql = "select mem_num from member where email=?";
+          pstmt = con.prepareStatement(sql); 
+		  pstmt.setString(1,email);
+		  rs=pstmt.executeQuery();
+			  if(rs.next()){
+				 
+				  mb.setMem_num(rs.getInt(1));
+			  }
+		
+          sql="select * from love where mem_num=? and review=?;";
+		  pstmt = con.prepareStatement(sql); 
+		  pstmt.setInt(1,mb.getMem_num());
+		  pstmt.setInt(2,review_num);
+		// 4단계  결과 저장 <= 실행
+		  rs=pstmt.executeQuery();
+
+			   if(rs.next()){
+				   //love가 있다
+				   loveCheck = 1;
+			   }
+    
+   }catch (Exception e) {
+         e.printStackTrace();
+    }finally{
+	   
+	   	if(rs!=null)	try{rs.close(); }catch(SQLException ex){}
+		if(pstmt!=null)	try{pstmt.close(); }catch(SQLException ex){}
+		if(con!=null)	try{con.close(); }catch(SQLException ex){}
+
+   }
+   return loveCheck;
+ }//end checkEmail()
+
+
 }
