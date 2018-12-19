@@ -136,7 +136,7 @@ if(count==0)
 			 System.out.println(rb.getFile().split(",")[picIndex]);
 	%>
 	  <div class="mySlides">
-	   <img alt="첨부사진"  width="700" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)">
+	   <img alt="첨부사진" width="700" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)">
 	  </div>
 
 	<%	}

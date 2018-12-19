@@ -31,27 +31,21 @@ ReviewBean rb= rdao.getReview1();
 BookDAO bdao= new BookDAO();
 int book_num = Integer.parseInt(request.getParameter("book_num"));
 %>
-<div class="container">
-  <h2>Modal Example</h2>
-  <!-- Button to Open the Modal -->
-  
-  <button type="button" class="mm" data-toggle="modal" data-target="#myModal" <%-- onclick="location.href='./ReviewList.re?review_num=<%=rb.getReview_num()%>'" --%>>
-   리뷰작성
-  </button>
 
-  <!-- The Modal -->
-  <div class="mymodal" id="Modal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">리뷰작성</h4>
-          <button type="button" class="close" data-dismiss="modal" onclick="goBack()">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
+<div class="maintext">
+<div class="jquery-script-ads">
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+</div>
+
+
+ <div id="sec1_reviewlist">
+<div id="boxes">
+<div style="top: 199.5px; left: 551.5px; display: none;" id="dialog" class="window">리뷰 작성
+  <a class="agree"style="color:red;" href="#" onclick="history.back();">x</a>
+  
+    <div id="lorem">
 <table border="1">
 
 <form action="./ReviewAddAction.re" method="post" enctype="multipart/form-data">
@@ -95,8 +89,8 @@ int book_num = Integer.parseInt(request.getParameter("book_num"));
  <div class="clear"></div>
  <tr><th>사진선택</th><td colspan="3">
  <input type="file" name="file1" required/>
-  <input type="file" name="file2" required/>
-   <input type="file" name="file3" required/></td></tr>
+  <input type="file" name="file2" />
+   <input type="file" name="file3"/></td></tr>
  <div class="write_content">
  <tr><th> <div class="title">리뷰</div></th><td>
   <input type="text" name="content"  autofocus required>
@@ -110,19 +104,35 @@ int book_num = Integer.parseInt(request.getParameter("book_num"));
 
 
 </table>
+</div>
         <!-- Modal footer -->
-        <div class="modal-footer">
+        <div id="popupfoot">
 
          <button type="submit" style="margin-left:100px; margin-right:auto;">리뷰등록</button>
          <button type="reset" class="reset_button">다시작성</button>
         </div>
+       
         </form>
-        </div>
+     
       </div>
     </div>
   </div>
-  
-</div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
+<script src="./js/main.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 </body>
 </html>
