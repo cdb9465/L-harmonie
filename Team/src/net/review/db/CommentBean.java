@@ -8,6 +8,16 @@ public class CommentBean {
 	private int comment_num;
 	private String content;
 	private Date date;
+	private String name;
+	  
+	  public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+	
+	
 	public int getMem_num() {
 		return mem_num;
 	}

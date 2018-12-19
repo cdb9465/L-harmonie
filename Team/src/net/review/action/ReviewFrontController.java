@@ -74,7 +74,7 @@ public class ReviewFrontController extends HttpServlet {
   	  				e.printStackTrace(); 
   	  			} 
   	  		}else if (command.equals("/LoveCountAction.re")) { 
-  	  
+  	  			
   	  			action = new LoveCountAction(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
@@ -83,7 +83,7 @@ public class ReviewFrontController extends HttpServlet {
   	  			}
   	  		}else if (command.equals("/LocationAction.re")) { 
   	  
-  	  			action = new LocationAction(); 
+  	  			action = new ReviewAction(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
   	  			} catch (Exception e) { 

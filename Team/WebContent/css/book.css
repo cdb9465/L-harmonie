@@ -98,7 +98,8 @@ article#book_art {width: 1300px; height: 700px;
 
 .slotDisable:HOVER{
 	background-color: #8a8a8a !important;
-	color: #424a52 !important;	}
+	color: #424a52 !important;
+	cursor: not-allowed; }
 
 .slot:HOVER{
 	background-color: #424a52;
@@ -123,11 +124,11 @@ article#book_art {width: 1300px; height: 700px;
 #nextBtn { right: 10px; bottom: 10px;}
 
 /* datepicker */
-#datepicker {margin-top: 20px;}
+#datepicker {margin-top: 5px;}
 
 /* 2단계 날짜설명 */
 #dateDesc { position: absolute;
-	top: 220px; right: 30px;
+	top: 250px; right: 20px;
 	width: 120px; height: 80px;
 	text-align: left; }
 
@@ -178,6 +179,9 @@ article#book_art {width: 1300px; height: 700px;
 
 .tfor2Disable { background-image: url("../images/book/table2_g.png"); }
 .tfor4Disable { background-image: url("../images/book/table4_g.png"); }
+
+.tfor2Disable:HOVER, .tfor4Disable:HOVER  { cursor: not-allowed; }
+ 
 
 .tfor2:HOVER { background-image: url("../images/book/table2_r.png"); }
 .tfor4:HOVER { background-image: url("../images/book/table4_r.png"); }
