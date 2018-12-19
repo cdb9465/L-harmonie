@@ -75,31 +75,33 @@
   left: 50%;
   transform: translate(-50%, -180%);
   color: #121212;
+  margin: 0;
 }    
 
 .main2_text p {
 	font-size: 25px;
+	margin: 0;
 }
 
 .mt01 { 
     position: relative;
     width: 50%;
     height: 587px; 
-	transform: translate(0%, 60.3%);	
+	transform: translate(0%, 65%);	
 }
 
 .mt02 {
     position: relative;
     width: 50%;  
     height: 293px;      
-	transform: translate(100%, -79.5%);
+	transform: translate(100%, -70%);
 }
 
 .mt03 {
     position: relative;
     width: 50%;  
     height: 293px;  
-	transform: translate(100%, -79.5%);
+	transform: translate(100%, -70%);
 }
 
 /* 1 */
@@ -128,7 +130,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -40%);
+  -ms-transform: translate(-50%, -50%);
   text-align: center;  
 }
 
@@ -257,7 +259,7 @@
 
 
 /* 인스타 */
-#instafeed { /* border: 1px solid black; */
+#instafeed { /* border: 1px solid red; */
 	padding-top: 350px;
 	padding-left: 200px;
 }
@@ -281,6 +283,7 @@
   left: 50%;
   transform: translate(-50%, -180%);
   color: #121212;
+  margin: 0;
 }    
 
 .instaText p {
@@ -297,6 +300,11 @@
 	background-color: #191919;
 	cursor: pointer;
 	color: #EAEAEA;
+}
+
+#MainsBtn:HOVER {
+	background-color: #BDBDBD;
+	color: #5D5D5D;
 }
 
 #insP {

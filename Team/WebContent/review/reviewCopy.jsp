@@ -1,3 +1,4 @@
+<%@page import="net.member.db.MemberBean"%>
 <%@page import="java.util.List"%>
 <%@page import="net.review.db.ReviewBean"%>
 <%@page import="net.admin.db.PageBean"%>
@@ -13,6 +14,7 @@
 <!-- css경로바꿔야함 -->
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/reviewCopy.css" rel="stylesheet">
+<script type="text/javascript" src="./js/love.js"></script>
 <title>L'harmonie</title>
 </head>
 <body>
@@ -78,9 +80,8 @@ if(count==0)
 	  <tr><td colspan="2">리뷰 없음</td></tr>
 	 </table>
 	 <%
-}
-else
-{
+
+}else{
 	for(int i = 0; i < reviewList.size(); i++)
 	{
 		ReviewBean rb = reviewList.get(i);
@@ -142,19 +143,14 @@ else
 	</div>
 	<!-- 사진펼침 끝 -->	 
     </td></tr>
-                      
+                   <%%>   
     <tr><td colspan="2" class="td_like" >
-         <form action="./LoveCountAction.re"  method="post">
-            <input type="hidden" name="mem_num" value=<%//=mbb.getMem_num()%>>
-            <input type="hidden" name="review_num" value=<%//=rb.getReview_num()%>>
-            <input type="hidden" name="love_num" value="1">
             <!-- 누르기 전이라 하트아이콘 회색으로해둠. 누르면 빨강으로 style="color:#800000;" -->
-               <Button type="submit" onclick="style='background-color:pink'" id="heart1">
+               <Button type="button" onclick="loveClick('<%=email %>,<%=rb.getReview_num()%>')" id="heart1">
                <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button>
-         </form>
       <%//=lovecount %>20명이 좋아합니다.
 		<!-- 작성자일때만 글삭제 보여주기 -->
-         <input type="button" value="글삭제" onclick="location.href='./ReviewDelete.re?review_num=<%//=rb.getReview_num()%>'" class="delReview">
+         <input type="button" value="글삭제" onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" class="delReview">
         <!-- 작성자일때만 글삭제 보여주기 -->
     </td></tr>
 
@@ -189,10 +185,11 @@ else
             </td></tr>
 
       </table>
+		
 
-
-   <%}
-}%>
+   <%} //for문 끝
+}//else문 끝
+%>
 <hr>
 <!-- 페이지 ◀12345▶ 영역 -->
  <div class="pageArea">
@@ -213,10 +210,10 @@ for(int i = startPage; i <= endPage; i++)
 <%}
 
 //다음
-if(endPage < pageCount){
-	%><a href="./ReviewListTest.re?pageNum=<%=startPage+pageBlock %>">다음▶</a><%
-}%>
-       
+if(endPage < pageCount){%>
+	<a href="./ReviewListTest.re?pageNum=<%=startPage+pageBlock %>">다음▶</a>
+<%}
+%>     
  </div>
    
 </div>
