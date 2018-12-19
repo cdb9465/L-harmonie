@@ -280,6 +280,7 @@ public class ReviewDAO {
 		ResultSet rs=null;
 		ResultSet rs2=null;
 		ArrayList<ReviewBean> reviewList=new ArrayList<ReviewBean>();
+		
 		try {
 			//1,2 디비연결
 			con=getConnection();
@@ -290,8 +291,12 @@ public class ReviewDAO {
 			pstmt.setInt(1, startRow-1);
 			pstmt.setInt(2, pageSize);
 			rs=pstmt.executeQuery();
+			
+			
+			 
 		
 			while(rs.next()){
+				System.out.println("mem_num : "+rs.getInt("mem_num"));
 				ReviewBean rb=new ReviewBean();
 				rb.setMem_num(rs.getInt("mem_num"));
 				 rb.setReview_num(rs.getInt("review_num"));
@@ -300,6 +305,15 @@ public class ReviewDAO {
 				 rb.setDate(rs.getDate("date"));
 				 rb.setFile(rs.getString("file"));
 				 rb.setLocation(rs.getString("location"));
+				 String sql2="select name from member where mem_num=? ";
+					pstmt=con.prepareStatement(sql2);
+					pstmt.setInt(1, rs.getInt("mem_num"));
+					rs2=pstmt.executeQuery();
+					rs2.next();
+					rb.setName(rs2.getString("name"));
+					
+					System.out.println(rs2.getString("name"));
+					
 				//자바빈 => 배열 한칸 저장
 				reviewList.add(rb);
 			}
@@ -307,6 +321,7 @@ public class ReviewDAO {
 			e.printStackTrace();
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(rs2!=null)try{rs2.close();}catch(SQLException ex){}
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
@@ -320,7 +335,7 @@ public class ReviewDAO {
 		PreparedStatement pstmt = null;
 		String sql="";
 		ResultSet rs= null;
-		
+		ResultSet rs2= null;
 		try{
 			//db 연결
 			con = getConnection();
@@ -353,6 +368,15 @@ public class ReviewDAO {
 				 rb.setDate(rs.getDate("date"));
 				 rb.setFile(rs.getString("file"));
 				 rb.setLocation(rs.getString("location"));
+				 String sql2="select name from member where mem_num=? ";
+					pstmt=con.prepareStatement(sql2);
+					pstmt.setInt(1, rs.getInt("mem_num"));
+					rs2=pstmt.executeQuery();
+					rs2.next();
+					rb.setName(rs2.getString("name"));
+					
+					System.out.println(rs2.getString("name"));
+				 
 				ReviewList1.add(rb);
 				
 			}
@@ -360,6 +384,7 @@ public class ReviewDAO {
 			e.printStackTrace();
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(rs2!=null)try{rs2.close();}catch(SQLException ex){}
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}

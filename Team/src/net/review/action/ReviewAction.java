@@ -36,9 +36,10 @@ public class ReviewAction implements Action{
 		
 		int count = rd.getReviewCount();
 		//pageSize 10설정
-		int pageSize=3;
+		int pageSize=10;
 		//pageNum 파라미터 가져오기 없으면 "1" 설정
 		String pageNum=request.getParameter("pageNum");
+		
 		
 		if(pageNum==null){
 			pageNum="1";
@@ -49,6 +50,7 @@ public class ReviewAction implements Action{
 		int endRow=currentPage*pageSize;
 		if(count!=0){
 			if(location.equals("전체")){
+				int mem_num = 0;
 				reviewList = rd.getReviewList(startRow, pageSize);		
 			}else{
 				reviewList=rd.getLocation(location, startRow, pageSize);	
@@ -79,7 +81,7 @@ public class ReviewAction implements Action{
 		int Ccount = cd.getCommentCount();
 
 		if(Ccount!=0){
-			cobe=cd.getCommentList(1);
+			cobe=cd.getCommentList(reviewList);
 		}
 		
 		LoveDAO ld= new LoveDAO();
@@ -89,7 +91,7 @@ public class ReviewAction implements Action{
 		List<LoveBean> lobe=null;
 		
 		
-		int Lcount = ld.getLoveCount();
+		int Lcount = ld.getLoveCount(1);
 
 		if(Lcount!=0){
 			lobe=ld.getLoveList(reviewList);

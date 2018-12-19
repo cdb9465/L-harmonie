@@ -5,7 +5,6 @@ function moveTab(n)
 }
 
 function showTab(n) {
-//	alert(document.bf.location.value);
 	var x = document.getElementsByClassName("tab");
 	
 	x[n].style.display = "block";
@@ -105,8 +104,7 @@ function selectLocation(n){
 		document.bf.location.value = "서울강남점";
 	else if(n == 1)
 		document.bf.location.value = "부산서면점"; 
-	
-	alert(document.bf.location.value);
+
 }
 
 //인원수선택
@@ -340,31 +338,20 @@ function showDetail(chk) {
 
 //step5
 function confirmForm() {
-//	alert("confirmForm");
-//	alert(document.bf.location.value);
-	
 	var table, tr;
 	table = document.getElementById("confirm");
 	tr = table.getElementsByTagName("tr");
-
-/*	var location = document.bf.location.value;
-	var guest = document.bf.guest.value;
-	var date = document.bf.date.value;
-	var time = document.bf.time.value;
-	var tablenum = document.bf.tablenum.value;
-	var request;
-	alert(location);*/
 	
 	//기존 td삭제
 	for(var i = 0; i < 6; i++)
 	{	
 		if(tr[i].cells.length > 1)
 		{
-			var lastcol = tr[i].cells(1);
-			tr[i].removeChild(lastcol);
+//			var lastcol = tr[i].cells(1);
+//			tr[i].removeChild(lastcol);
+			tr[i].deleteCell(tr[i].cells.length-1);
 		}
 	}
-
 
 	//td생성
 	var newtd = new Array(6);
@@ -376,7 +363,6 @@ function confirmForm() {
 	text[4] = document.createTextNode(document.bf.tablenum.value);
 	
 	setRequest();
-//	request = document.bf.request.value;
 	text[5] = document.createTextNode(document.bf.request.value);
 	
 	for(i = 0; i < 6; i++)
@@ -387,6 +373,49 @@ function confirmForm() {
 	}
 	
 }
+
+/* 추후 삭제 필요
+function createTd()
+{
+	var table, tr;
+	table = document.getElementById("confirm");
+	tr = table.getElementsByTagName("tr");
+	
+	//td생성
+	var newtd = new Array(6);
+	var text = new Array(6);
+	text[0] = document.createTextNode(document.bf.location.value);
+	text[1] = document.createTextNode(document.bf.guest.value);
+	text[2] = document.createTextNode(document.bf.date.value);
+	text[3] = document.createTextNode(document.bf.time.value);
+	text[4] = document.createTextNode(document.bf.tablenum.value);
+	
+	setRequest();
+	text[5] = document.createTextNode(document.bf.request.value);
+	
+	for(i = 0; i < 6; i++)
+	{
+		newtd[i] = document.createElement("td"); 
+		tr[i].appendChild(newtd[i]);
+		newtd[i].appendChild(text[i]);
+	}
+}
+
+function deleteTd()
+{
+	var table, tr;
+	table = document.getElementById("confirm");
+	tr = table.getElementsByTagName("tr");
+	
+	for(var i = 0; i < 6; i++)
+	{	
+		if(tr[i].cells.length > 1)
+		{
+			tr[i].deleteCell(tr[i].cells.length-1);
+		}
+	}	
+}
+*/
 
 //request
 function setRequest()

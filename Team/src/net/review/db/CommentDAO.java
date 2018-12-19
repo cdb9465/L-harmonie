@@ -188,7 +188,7 @@ public class CommentDAO {
 	}
 
 	
-public List<CommentBean> getCommentList(int mem_num){
+public List<CommentBean> getCommentList(List<ReviewBean> reviewList){
 		
 	
 		Connection con=null;
@@ -200,22 +200,18 @@ public List<CommentBean> getCommentList(int mem_num){
 			//1,2 디비연결
 			con=getConnection();
 			//3 sql
-			
-			 String sql="select * from comment where mem_num=?";
+			for(int i=0; i<reviewList.size(); i++){
+				 ReviewBean review=reviewList.get(i);
+					System.out.println(review.getReview_num());
+			 String sql="select * from comment where review_num=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
+			pstmt.setInt(1, review.getReview_num());
 			//pstmt.setInt(2, review_num);
 			rs=pstmt.executeQuery();
 			
-			String sql2="select name from member where mem_num=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
-			//pstmt.setInt(2, review_num);
-			rs2=pstmt.executeQuery();
 			
 			while(rs.next()){
 				CommentBean cb=new CommentBean();
-				cb.setName(rs2.getString("name"));
 				cb.setMem_num(rs.getInt("mem_num"));
 				 cb.setReview_num(rs.getInt("review_num"));
 				 cb.setComment_num(rs.getInt("comment_num"));
@@ -223,13 +219,12 @@ public List<CommentBean> getCommentList(int mem_num){
 				 cb.setDate(rs.getDate("date"));
 				 commentList.add(cb);
 				//자바빈 => 배열 한칸 저장
-				
+			}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
-			if(rs2!=null)try{rs2.close();}catch(SQLException ex){}
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
