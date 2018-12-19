@@ -535,7 +535,7 @@ footer{
 
 /* 반응형 main manu */
  @media screen and (max-width: 1100px) {
- 	#main_menu { margin-left:60px;}
+ 	#main_menu { margin-left:320px;}
 	#logo { margin-right:5px;
 			margin-left: 5px; }
 	.MM{ margin:17px 2px; }

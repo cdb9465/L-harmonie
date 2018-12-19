@@ -24,7 +24,7 @@ $(function() {
 	  $.scrollify({
 		section:"section",
 	    easing: "easeOutExpo",
-	    scrollSpeed: 800,
+	    scrollSpeed: 200,
 	    interstitialSection: "header,footer",
 	    before:function(i,panels) {
 	      var ref = panels[i].attr("data-section-name");
