@@ -36,7 +36,7 @@ public class ReviewAction implements Action{
 		
 		int count = rd.getReviewCount();
 		//pageSize 10설정
-		int pageSize=3;
+		int pageSize=10;
 		//pageNum 파라미터 가져오기 없으면 "1" 설정
 		String pageNum=request.getParameter("pageNum");
 		
@@ -91,15 +91,15 @@ public class ReviewAction implements Action{
 		List<LoveBean> lobe=null;
 		
 		
-		/*int Lcount = ld.getLoveCount();
+		int Lcount = ld.getLoveCount(1);
 
 		if(Lcount!=0){
 			lobe=ld.getLoveList(reviewList);
-		}*/
+		}
 		
 		
 		request.setAttribute("review_num2", review_num2);
-		/*request.setAttribute("Lcount", Lcount);*/
+		request.setAttribute("Lcount", Lcount);
 		request.setAttribute("lobe", lobe);
 		request.setAttribute("review_num1", review_num1);
 		request.setAttribute("cobe", cobe);
