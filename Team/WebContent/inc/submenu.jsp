@@ -15,7 +15,7 @@
 <script>
 function chatBtn(){
 	/* window.open('./boardcast.jsp','1:1 문의','width=500,height=770'); */	      
-	window.open('./main/chat.jsp','1:1 문의','width=1000,height=650,top=250,left=470');
+	window.open('./main/chat.jsp','1:1 문의','width=1020,height=700,top=250,left=470');
 	   											/* scrollbars=yes */
 	}
 

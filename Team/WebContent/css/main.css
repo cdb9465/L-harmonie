@@ -36,6 +36,10 @@
   font-size: 60px;
 }
 
+.main_text h1 {
+	margin: 30px;
+}
+
 .main_text p {
 	font-weight: lighter;
 	font-size: 40px;
@@ -73,10 +77,13 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -180%);
+  transform: translate(-50%, -220%);
   color: #121212;
-  margin: 0;
 }    
+
+.main2_text h1 {
+	margin: 30px;
+}
 
 .main2_text p {
 	font-size: 25px;
@@ -281,10 +288,13 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -180%);
+  transform: translate(-50%, -200%);
   color: #121212;
-  margin: 0;
 }    
+
+.instaText h1 {
+	margin: 30px;
+}
 
 .instaText p {
 	font-size: 25px;
