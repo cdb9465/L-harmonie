@@ -13,12 +13,10 @@
 
 <!-- 1:1채팅 -->
 <script>
-function chatBtn(){
-	/* window.open('./boardcast.jsp','1:1 문의','width=500,height=770'); */	      
+function chatBtn(){	      
 	window.open('./main/chat.jsp','1:1 문의','width=1020,height=700,top=250,left=470');
-	   											/* scrollbars=yes */
+	   				
 	}
-
 /* 마우스휠 & 페이지 바뀔때마다 서브메뉴 색 바뀜 */
 $(function() {
 	  $.scrollify({
