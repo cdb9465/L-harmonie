@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="net.member.db.MemberBean"%>
 <%@page import="java.util.List"%>
 <%@page import="net.review.db.ReviewBean"%>
@@ -146,11 +147,15 @@ if(count==0)
 	</div>
 	<!-- 사진펼침 끝 -->	 
     </td></tr>  
+    
     <tr><td colspan="2" class="td_like" >
             <!-- 누르기 전이라 하트아이콘 회색으로해둠. 누르면 빨강으로 style="color:#800000;" -->
-               <Button type="button"  id="heart1" onclick="loveClick('<%=email%>','<%=rb.getReview_num()%>')">
+            <%if(email != null ){%>
+               <Button type="button"  id="heart1" onclick="loveClick('<%=email%>','<%=rb.getReview_num()%>')"> 
+            
                <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button>
-      			<span id="reCountOne"></span>
+             <% }  %>           			
+      			<span id="reCountOne"><%//=rb.getLoveCount() %></span>명이 좋아합니다.
 		<!-- 작성자일때만 글삭제 보여주기 -->
          <input type="button" value="글삭제" onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" class="delReview">
         <!-- 작성자일때만 글삭제 보여주기 -->
@@ -168,6 +173,7 @@ if(count==0)
        </td></tr>      
 	<%} %>
 	<!-- admin일때만 댓글등록 보여주기 -->      
+    
     
     <tr><th class="th_admin"><i class="material-icons" style='font-size:16px'>subdirectory_arrow_right </i> L'harmonie
     
