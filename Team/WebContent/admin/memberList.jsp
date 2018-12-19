@@ -58,7 +58,7 @@ int currentPage = Integer.parseInt(pageNum);
 <div class="clear"></div>
 	
 <table class="bookList_tab">
- <tr>
+ <tr class="memberList_tr">
   <th>회원번호</th>
   <th>이메일</th>
   <th>이름</th>

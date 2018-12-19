@@ -24,13 +24,16 @@ $(function() {
 	  $.scrollify({
 		section:"section",
 	    easing: "easeOutExpo",
-	    scrollSpeed: 200, /* 스크롤속도 */
+	    scrollSpeed: 50, /* 스크롤속도 */
 	    interstitialSection: "header,footer",
 	    before:function(i,panels) {
 	      var ref = panels[i].attr("data-section-name");
 	      $(".submenu_in .subact").removeClass("subact");
 	      $(".submenu_in").find("a[href=\"#" + ref + "\"]").addClass("subact");
 	   		  },
+   	   afterRender:function() {
+   	      $(".submenu_in a").on("click",$.scrollify.move);
+   	    }
 	});
 });
 
