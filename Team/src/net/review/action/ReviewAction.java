@@ -91,15 +91,15 @@ public class ReviewAction implements Action{
 		List<LoveBean> lobe=null;
 		
 		
-		int Lcount = ld.getLoveCount();
+		/*int Lcount = ld.getLoveCount();
 
 		if(Lcount!=0){
 			lobe=ld.getLoveList(reviewList);
-		}
+		}*/
 		
 		
 		request.setAttribute("review_num2", review_num2);
-		request.setAttribute("Lcount", Lcount);
+		/*request.setAttribute("Lcount", Lcount);*/
 		request.setAttribute("lobe", lobe);
 		request.setAttribute("review_num1", review_num1);
 		request.setAttribute("cobe", cobe);
