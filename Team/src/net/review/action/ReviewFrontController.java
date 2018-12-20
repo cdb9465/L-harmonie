@@ -58,6 +58,7 @@ public class ReviewFrontController extends HttpServlet {
   	  				e.printStackTrace(); 
   	  			} 
   	  		}
+  		
   			else if (command.equals("/CommentWriteAction.re")) { 
   	  			action = new CommentWriteAction(); 
   	  			try { 
@@ -84,6 +85,15 @@ public class ReviewFrontController extends HttpServlet {
   	  		}else if (command.equals("/LocationAction.re")) { 
   	  
   	  			action = new ReviewAction(); 
+  	  			try { 
+  	  				forward = action.execute(request, response); 
+  	  			} catch (Exception e) { 
+  	  				e.printStackTrace(); 
+  	  			}
+  	    		//LoveCount.re
+  	  		}else if (command.equals("/LoveCount.re")) { 
+  	  			
+  	  			action = new LoveCount(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
   	  			} catch (Exception e) { 

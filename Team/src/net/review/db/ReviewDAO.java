@@ -292,12 +292,27 @@ public class ReviewDAO {
 			pstmt.setInt(2, pageSize);
 			rs=pstmt.executeQuery();
 			
-			
+//			 String sql2 = "select count(*) from love where review_num=?";
+//			pstmt = con.prepareStatement(sql2);
+//			pstmt.setInt(1, rs.getInt("review_num");	
 			 
 		
 			while(rs.next()){
 				System.out.println("mem_num : "+rs.getInt("mem_num"));
+				
+				
 				ReviewBean rb=new ReviewBean();
+				//setLoveCount = rs2
+				
+				//sql작성
+				sql = "select count(*) from love where review_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, rs.getInt("review_num"));
+				rs2 = pstmt.executeQuery();
+				rs2.next();
+				//rs2=넣기
+					rb.setLoveCount(rs2.getInt("count(*)"));
+				
 				rb.setMem_num(rs.getInt("mem_num"));
 				 rb.setReview_num(rs.getInt("review_num"));
 				 rb.setContent(rs.getString("content"));
@@ -305,8 +320,8 @@ public class ReviewDAO {
 				 rb.setDate(rs.getDate("date"));
 				 rb.setFile(rs.getString("file"));
 				 rb.setLocation(rs.getString("location"));
-				 String sql2="select name from member where mem_num=? ";
-					pstmt=con.prepareStatement(sql2);
+				 sql="select name from member where mem_num=? ";
+					pstmt=con.prepareStatement(sql);
 					pstmt.setInt(1, rs.getInt("mem_num"));
 					rs2=pstmt.executeQuery();
 					rs2.next();

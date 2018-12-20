@@ -1,5 +1,6 @@
 package net.review.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -84,19 +85,23 @@ public class ReviewAction implements Action{
 			cobe=cd.getCommentList(reviewList);
 		}
 		
+		
+		
 		LoveDAO ld= new LoveDAO();
 		ReviewBean lb= new ReviewBean();
 		int review_num2=lb.getReview_num();
 		int mem_num2;
+		
 		List<LoveBean> lobe=null;
-		
-		
+
 		int Lcount = ld.getLoveCount(1);
 
 		if(Lcount!=0){
 			lobe=ld.getLoveList(reviewList);
 		}
 		
+		
+
 		
 		request.setAttribute("review_num2", review_num2);
 		request.setAttribute("Lcount", Lcount);

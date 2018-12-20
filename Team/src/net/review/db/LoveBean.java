@@ -1,10 +1,13 @@
 package net.review.db;
 
+import java.util.ArrayList;
+
 public class LoveBean {
 	private int mem_num;
 	private int review_num;
 	private boolean love;
 	private int love_num;
+	
 	public int getMem_num() {
 		return mem_num;
 	}
