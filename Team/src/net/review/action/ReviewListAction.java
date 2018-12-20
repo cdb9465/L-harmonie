@@ -74,7 +74,7 @@ public class ReviewListAction implements Action
 		// 이동 ./review/review.jsp
 		ActionForward forward= new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/review/reviewCopy.jsp");
+		forward.setPath("./review/reviewCopy.jsp");
 			
 		return forward;
 	}

@@ -79,7 +79,6 @@ MemberBean mbb= mdao1.getMember(email);
  <div id="selectArea">
     <i class='fas fa-store' style='font-size:17px;'></i> <span>[간편검색] 지점을 선택해주세요</span>
      <select class="dateBox" name="sel_location" onchange="this.form.submit();">
-     		<option value="">선택해주세요</option>
          <option value="전체" >전체</option>
          <option value="서울강남점" >서울강남점</option>
          <option value="부산서면점" >부산서면점</option>
@@ -257,7 +256,7 @@ if(email.equals("admin@team.com")){%>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
    <!-- <input type="text" name="content" id="content"> 
  <button type="submit" id="comment_sub"><p>댓글등록</p></button> -->
-              <textarea  name="content" class="comm_content">댓글내용</textarea> 
+              <textarea  name="content" class="comm_content" placeholder="댓글내용"></textarea> 
              <button type="submit" class="comment_btn" >댓글등록</button>
  
 </form>
