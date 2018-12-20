@@ -58,6 +58,7 @@ public class ReviewFrontController extends HttpServlet {
   	  				e.printStackTrace(); 
   	  			} 
   	  		}
+  		
   			else if (command.equals("/CommentWriteAction.re")) { 
   	  			action = new CommentWriteAction(); 
   	  			try { 
@@ -73,9 +74,9 @@ public class ReviewFrontController extends HttpServlet {
   	  			} catch (Exception e) { 
   	  				e.printStackTrace(); 
   	  			} 
-  	  		}else if (command.equals("/LoveCountAction.re")) { 
-  	  
-  	  			action = new LoveCountAction(); 
+  	  		}else if (command.equals("/LoveUserCheckAction.re")) { 
+  	  			
+  	  			action = new LoveUserCheckAction(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
   	  			} catch (Exception e) { 
@@ -83,20 +84,21 @@ public class ReviewFrontController extends HttpServlet {
   	  			}
   	  		}else if (command.equals("/LocationAction.re")) { 
   	  
-  	  			action = new LocationAction(); 
+  	  			action = new ReviewAction(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
   	  			} catch (Exception e) { 
   	  				e.printStackTrace(); 
   	  			}
-  	  		}else if (command.equals("/LoveDeleteAction.re")) { 
-  	  		
-  	  			action = new LoveDeleteAction(); 
+  	    		//LoveCount.re
+  	  		}else if (command.equals("/LoveCount.re")) { 
+  	  			
+  	  			action = new LoveCount(); 
   	  			try { 
   	  				forward = action.execute(request, response); 
   	  			} catch (Exception e) { 
   	  				e.printStackTrace(); 
-  	  			} 
+  	  			}
   	  		}
 	
 	   

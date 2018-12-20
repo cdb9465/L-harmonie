@@ -16,8 +16,8 @@ userFeed.run();
 </script>
 
   <div class="instaText">
-    <h1 style="font-size:65px">TIMELINE</h1>
-    <p>인스타에서 하모니의 새로운 소식을 접해보세요</p>
+    <h1 style="font-size:65px">INSTAGRAM</h1>
+    <p>인스타그램에서 하모니의 새로운 소식을 접해보세요</p>
   </div>
       
 	<div id="instafeed"></div>

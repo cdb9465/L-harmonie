@@ -160,6 +160,9 @@ h1#title{ margin:0;
 	padding:10px 0;
 	border-bottom: 1px solid #000;}
 
+/* memberList */
+.memberList_tr th{width: 300px !important;}
+
 /* 페이지 */
 .pageArea{text-align: center; 
 		margin-top:30px;

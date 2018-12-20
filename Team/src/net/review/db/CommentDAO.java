@@ -188,23 +188,27 @@ public class CommentDAO {
 	}
 
 	
-public List<CommentBean> getCommentList(int mem_num){
+public List<CommentBean> getCommentList(List<ReviewBean> reviewList){
 		
 	
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
+		ResultSet rs2=null;
 		List<CommentBean> commentList=new ArrayList<CommentBean>();
 		try {
 			//1,2 디비연결
 			con=getConnection();
 			//3 sql
-			
-			 String sql="select * from comment where mem_num=?";
+			for(int i=0; i<reviewList.size(); i++){
+				 ReviewBean review=reviewList.get(i);
+					System.out.println(review.getReview_num());
+			 String sql="select * from comment where review_num=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
+			pstmt.setInt(1, review.getReview_num());
 			//pstmt.setInt(2, review_num);
 			rs=pstmt.executeQuery();
+			
 			
 			while(rs.next()){
 				CommentBean cb=new CommentBean();
@@ -215,7 +219,7 @@ public List<CommentBean> getCommentList(int mem_num){
 				 cb.setDate(rs.getDate("date"));
 				 commentList.add(cb);
 				//자바빈 => 배열 한칸 저장
-				
+			}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

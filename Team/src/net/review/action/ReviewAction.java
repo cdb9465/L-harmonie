@@ -1,5 +1,6 @@
 package net.review.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,7 +24,7 @@ public class ReviewAction implements Action{
 		
 		ReviewDAO rd= new ReviewDAO();
 				
-		String location = request.getParameter("location");
+		String location = request.getParameter("sel_location");
 		
 		if(location==null)
 		{
@@ -32,13 +33,14 @@ public class ReviewAction implements Action{
 			
 		}
 		
-		List<ReviewBean> reviewlocation=rd.getLocation(location);
+	
 		
 		int count = rd.getReviewCount();
 		//pageSize 10설정
-		int pageSize=3;
+		int pageSize=10;
 		//pageNum 파라미터 가져오기 없으면 "1" 설정
 		String pageNum=request.getParameter("pageNum");
+		
 		
 		if(pageNum==null){
 			pageNum="1";
@@ -48,7 +50,12 @@ public class ReviewAction implements Action{
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow=currentPage*pageSize;
 		if(count!=0){
-			reviewList = rd.getReviewList(startRow, pageSize);		
+			if(location.equals("전체")){
+				int mem_num = 0;
+				reviewList = rd.getReviewList(startRow, pageSize);		
+			}else{
+				reviewList=rd.getLocation(location, startRow, pageSize);	
+			}
 		}
 		//pageCount 계산식
 		int pageCount = count/pageSize + (count%pageSize==0?0:1); 
@@ -75,22 +82,26 @@ public class ReviewAction implements Action{
 		int Ccount = cd.getCommentCount();
 
 		if(Ccount!=0){
-			cobe=cd.getCommentList(1);
+			cobe=cd.getCommentList(reviewList);
 		}
+		
+		
 		
 		LoveDAO ld= new LoveDAO();
 		ReviewBean lb= new ReviewBean();
 		int review_num2=lb.getReview_num();
 		int mem_num2;
+		
 		List<LoveBean> lobe=null;
-		
-		
-		int Lcount = ld.getLoveCount();
+
+		int Lcount = ld.getLoveCount(1);
 
 		if(Lcount!=0){
 			lobe=ld.getLoveList(reviewList);
 		}
 		
+		
+
 		
 		request.setAttribute("review_num2", review_num2);
 		request.setAttribute("Lcount", Lcount);
@@ -98,7 +109,6 @@ public class ReviewAction implements Action{
 		request.setAttribute("review_num1", review_num1);
 		request.setAttribute("cobe", cobe);
 		request.setAttribute("Ccount", Ccount);
-		request.setAttribute("reviewlocation", reviewlocation);
 		request.setAttribute("location", location);
 		request.setAttribute("count", count);
 		request.setAttribute("pageNum", pageNum);

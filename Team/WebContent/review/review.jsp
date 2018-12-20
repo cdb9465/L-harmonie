@@ -55,7 +55,6 @@ String location=(String)session.getAttribute("location");
 List<ReviewBean> reviewlocation=(List)request.getAttribute("reviewlocation");
 MemberDAO mdao1= new MemberDAO();
 MemberBean mbb= mdao1.getMember(email);
-System.out.println("review에서 확인"+ reviewlocation);
 
 %>
 
@@ -65,180 +64,129 @@ System.out.println("review에서 확인"+ reviewlocation);
 
 <div class="clear"></div>
 <!-- 헤더파일들어가는 곳 -->
-<div id="wraap">
-<div class="clear"></div>
-<article>
-<!-- 메인 들어가는 곳 -->
-<div class="main">
-<!-- 리뷰쓰기 영역 시작 -->
+<div id="sec1_reviewlist">
+<!-- 배경이미지 들어가는 영역 -->
 
-<!-- 리뷰쓰기 영역 끝 -->
-<hr>
-<script>
-function  etcjob(){ 
-var kk = document.fwrite.ca_name.options.selectedIndex; 
-var kv = document.fwrite.ca_name.options[document.fwrite.ca_name.options.selectedIndex].value; 
-if( kv == '전체' ) document.getElementById('etcetc').style.display=""; 
-else document.getElementById('etcetc').style.display="none"; 
-} 
-</script>
+         <h1 id="title">REVIEW</h1>
+
+<!-- 메인 table있을곳 -->
+<div id="reviewList">
+
 <form action="./LocationAction.re" name="location" method="get">
- <div class="write_find">
-  <div class="title">*간편검색*</div><br>
-  <select name="sel_location" onchange="this.form.submit();">
-    <option value="전체" >전체</option>
-   <option value="서울강남점">서울강남점</a></option>
-   <option value="부산서면점">부산서면점</option>
-  </select>
- 
+ <div id="selectArea">
+    <i class='fas fa-store' style='font-size:17px;'></i> <span>[간편검색] 지점을 선택해주세요</span>
+     <select class="dateBox" name="sel_location" onchange="this.form.submit();">
+         <option value="전체" >전체</option>
+         <option value="서울강남점" >서울강남점</option>
+         <option value="부산서면점" >부산서면점</option>
+     </select>
  </div>
- </form>
-<!-- review_wrap 시작 -->
-<div class="review_wrap">	
+</form>
+
+
+<!-- 리뷰 전체개수 -->
+<div class="mpcount"> 리뷰 <span class="countRed"><%=count %></span>개 </div>
+   <div class="clear"></div>
+
 
 <!-- 사진영역 div-->
 <%
-if(count!=0)
+if(count==0)
+{
+	%>
+	 <table class="review_tbl">
+	  <tr><td colspan="2">리뷰 없음</td></tr>
+	 </table>
+	 <%
+}
+
+else if(count!=0)
 {  
 for(int i=0;i<ReviewList.size();i++)
 {
     ReviewBean rb=ReviewList.get(i);
+    String ii[]=rb.getFile().split(",");
+   System.out.println("이미지 개수 : "+ ii.length);
    
    %>
    
-<table border="1" class="tbimg" width="100%" cellspacing="0" cellpadding="0">
-<tr style="background-color:black; color:white; height:20px;">
+	<table class="review_tbl">
+    <tr><td colspan="2" class="td_start"><%=rb.getName() %><span id="loca"><%=rb.getLocation() %></span><span id="date"><%=rb.getDate() %></span></td></tr>
+    <tr><td colspan="2" class="td_rating">
+        <%
+          for(int s=0; s< rb.getRating(); s++){ 
+             %><i class="fa fa-star" style="color:#f04e00; font-size:15px;"></i><%             
+          }
+        %>
+    </td></tr>
+    <tr><td colspan="2" class="td_cont"> <%=rb.getContent() %> </td></tr>
+    <tr >
+    <td colspan="2" class="td_pic">
+
+	<div class="container" > 
+	<!-- 썸네일 이미지 목록 -->
+	 <div class="row" >
+  
+	<%
+	for(int picIndex = 0; picIndex < rb.getFile().split(",").length; picIndex++)
+	{
+		if(rb.getFile().split(",")[picIndex]!=null)	//수정필요
+		{
+		//if(rb.getFile().split(",")[picIndex].equals(null)) break; //수정필요
+	%>
+	  <div class="column">
+	   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" style="width:100%" onclick="currentSlide(<%=i %>, <%=picIndex+1 %>)" alt="<%=rb.getFile().split(",")[picIndex] %>" >
+	  </div>
+	  
+	<%	}
+	}%>
+	
+	 </div>
+	<!-- 썸네일 이미지 목록 끝 -->
+	
+	<!-- 사진펼침 시작 -->
+	 <div class="review_pic">
+	  <a class="prev" onclick="plusSlides(<%=i%>,-1)">❮</a>
+	  <a class="next" onclick="plusSlides(<%=i%>,1)">❯</a>
+	  
+	<%
+	 for(int picIndex = 0; picIndex < rb.getFile().split(",").length; picIndex++)
+	
+	 {
+		 if(rb.getFile().split(",")[picIndex]!=null)	//수정필요
+		 {
+		// if(rb.getFile().split(",")[picIndex].equals(null)) break; //수정필요
+	%>
+	
+	  <div class="mySlides">
+	   <img alt="첨부사진"  width="700" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)"/>
+	  </div>
 <%
-MemberDAO mdo= new MemberDAO();
+		 }
+	 }
 
 %>
-<th><%=rb.getMem_num()%></th>
-<th><%=rb.getLocation() %></th>
-<th><%=rb.getDate() %></th>
-</tr>
 
 
-<tr><th colspan='3'>
- 
- <div class="rating">
- <%	
-	for(int s=0; s< rb.getRating(); s++){
-		%><i class="fa fa-star" style="color:red; font-size:20px;"></i><%
-	}
-	%>
-</div>
-</th>
+	 </div>
+	</div>
+	<!-- 사진펼침 끝 -->	 
+    </td></tr>
+                      
+    <tr><td colspan="2" class="td_like" >
+         <form action="./LoveCountAction.re"  method="post">
+            <input type="hidden" name="mem_num" value=<%//=mbb.getMem_num()%>>
+            <input type="hidden" name="review_num" value=<%//=rb.getReview_num()%>>
+            <input type="hidden" name="love_num" value="1">
+            <!-- 누르기 전이라 하트아이콘 회색으로해둠. 누르면 빨강으로 style="color:#800000;" -->
+               <Button type="submit" onclick="style='background-color:pink'" id="heart1">
+               <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button>
+         </form>
 
-</tr>
-
-
-
-<tr><th colspan='3'><div class="content">
-  <%=rb.getContent()%><br>
-</div></th></tr>
-
-
-<tr><th colspan='3'> 
-<div class="container">
-<!-- 썸네일 이미지 목록 -->
- <div class="row">
- <%
- if(rb.getFile().split(",")[0]!=null){
- %>
-  <div class="column">
-  <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[0] %>" style="width:100%" onclick="currentSlide(<%=i%>,1)" alt="">
-  </div>
-  <%
- }
-  %>
-   <%
- if(rb.getFile().split(",")[1]!=null){
- %>
-  <div class="column">
-   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[1] %>" style= "width:100%" onclick="currentSlide(<%=i%>,2)" alt="">
-  </div> 
-    <%
- }
-  %> 
-   <%
- if(rb.getFile().split(",")[2]!=null){
- %>
-  <div class="column">
-   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[2] %>" style="width:100%" onclick="currentSlide(<%=i%>,3)" alt="">
-  </div>
-   <%
- }
-  %>
- </div>
- <!-- 썸네일 이미지 목록 끝 --> 
-
- <!-- 사진펼침 시작 -->
- <div class="review_pic">
-  <a class="prev" onclick="plusSlides(<%=i%>,-1)">❮</a>
-  <a class="next" onclick="plusSlides(<%=i%>,1)">❯</a>
-   <%
- if(rb.getFile().split(",")[0]!=null){
- %>
-  <div class="mySlides">
-   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[0] %>"  onclick="currentSlide(<%=i%>,1)"> 
-
-  </div>
-     <%
- }
-  %>
-    <%
- if(rb.getFile().split(",")[1]!=null){
- %>
-  <div class="mySlides">
-   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[1] %>" onclick="currentSlide(<%=i%>,2)">
-  </div>
-     <%
- }
-  %>
-    <%
- if(rb.getFile().split(",")[2]!=null){
- %>
-  
-  <div class="mySlides">
-   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[2] %>" onclick="currentSlide(<%=i%>,3)">
-  </div>
-     <%
- }
-  %>
- </div>
- <!-- 사진펼침 끝 -->
-</div>
-<!-- 사진영역 div 끝-->
-<div class="clear"></div>
-
-</th></tr>
-
-<tr><td> 
- 
-<form action="./LoveCountAction.re"  method="post">
-
-<div class="content">
-<input type="hidden" name="mem_num" value=<%=mbb.getMem_num()%>>
-<input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
-<input type="hidden" name="love_num" value="1">
- <div class="like">
-
-  <Button type="submit" onclick="style='background-color:pink'" id="heart1">
-  <i class="fa fa-heart" id=heart style="color:red"></i>
-  <p>좋아요</p>
-  </Button>
- 
- </div>
- </div>
-
- </form>
-</td>
-  
-<td>
 
 <%
 
-	int lovecount = 0; 
+int lovecount = 0; 
 if(Lcount!=0){	 
  
 
@@ -263,31 +211,24 @@ for(int z=0;z<lobe.size();z++){
 <%=lovecount %>
 명이 좋아합니다.
 
-</td>
-<td>
 
-<div class="content">
-<%
+ <%
 
 if(rb.getMem_num()==mbb.getMem_num())
 {
 %>
-  <input type="button"value="글삭제"  onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" id="ddate">
+  <input type="button"value="글삭제"  onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" class="delReview">
     <br> 
      <br>
      <%
 }
  %>
- </div>
+ 
  
  
 </td>
+
 </tr>
-
-
-<tr>
-
-
 <%
 
 MemberDAO mdao=new MemberDAO();
@@ -298,24 +239,30 @@ if(email!=null)
 {
 if(email.equals("admin@team.com")){%> 
 
-<td colspan='3'>
+<tr>
+
+
+
+
+<td colspan='2' class="insertComm">
  <form action="./CommentWriteAction.re"  method="post">
 <div class="comment">
 <input type="hidden" name="mem_num" value=<%=rb.getMem_num()%>>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
-   <input type="text" name="content" id="content"> 
- <button type="submit" id="comment_sub"><p>댓글등록</p></button>
-</div>
+   <!-- <input type="text" name="content" id="content"> 
+ <button type="submit" id="comment_sub"><p>댓글등록</p></button> -->
+              <textarea  name="content" class="comm_content">댓글내용</textarea> 
+             <button type="submit" class="comment_btn" >댓글등록</button>
+ 
 </form>
 </td>
-
-<%}%>
-<%}%>
-
  </tr>
+ <%}%>
+<%}%>
+ 
  <%
  if(Ccount!=0){
-	 //System.out.println(rb.getReview_num());
+
 	 
  
 
@@ -330,11 +277,11 @@ for(int j=0;j<cobe.size();j++){
     	%>
 <tr>
 
-<td colspan="3">
+<th class="th_admin"><i class="material-icons" style='font-size:16px'>subdirectory_arrow_right </i> L'harmonie
+    
+    </th>
 
-<div> 
-<i class="material-icons" >subdirectory_arrow_right </i>
-<b>[관리자]</b>
+<td class="td_comment">
 <%=cb.getContent() %>
 
 <%
@@ -346,8 +293,8 @@ if(email!=null)
 {
 if(email.equals("admin@team.com")){%> 
 
-<input type="button"value="댓글삭제"  onclick="location.href='./CommentDelete.re?comment_num=<%=cb.getComment_num()%>'" id="ddate">
-</div>
+<input type="button"value="댓글삭제"  onclick="location.href='./CommentDelete.re?comment_num=<%=cb.getComment_num()%>'" class="delComment">
+
 
 </td>
 
@@ -367,24 +314,24 @@ if(email.equals("admin@team.com")){%>
 %>
 
 
-</div>
-<!-- review_wrap 끝 -->
-<p class="pageSelect">
+<hr>
+<!-- 페이지 ◀12345▶ 영역 -->
+ <div class="pageArea">
 <%
 //이전
 if(startPage > pageBlock){
-	%><a href="./ReviewList.re?pageNum=<%=startPage-pageBlock%>" >[이전]</a><%
+	%><a href="./ReviewList.re?pageNum=<%=startPage-pageBlock%>" >◀이전</a><%
 }
 // 1~10 
 for(int i=startPage;i<=endPage;i++){
-	%><a href="./ReviewList.re?pageNum=<%=i%>" class="pp">[<%=i %>]</a><%
+	%><a href="./ReviewList.re?pageNum=<%=i%>">[<%=i %>]</a><%
 }
 //다음
 if(endPage < pageCount){
-	%><a href="./ReviewList.re?pageNum=<%=startPage+pageBlock%>">[다음]</a><%
+	%><a href="./ReviewList.re?pageNum=<%=startPage+pageBlock%>">다음▶</a><%
 }
 %>
-</p>
+</div>
 <script>
 var bClick = false;
 var activeIndex = 0;
@@ -393,19 +340,19 @@ var j=0;
 //showSlides(slideIndex);
 
 function plusSlides(j,n) { showSlides(j,slideIndex += n); }
-function currentSlide(j,n) {	showSlides(j,slideIndex = n); }
+function currentSlide(j,n) { showSlides(j,slideIndex = n); }
 
 function showSlides(j,n) {
 	
 	var i;
-	var tbimg=document.getElementsByClassName("tbimg");
+	var table = document.getElementsByClassName("review_tbl");
 	
 // 	for(i=0; i<tbimg.length; i++)
 // 		{
-		var slides = tbimg[j].getElementsByClassName("mySlides");
-		var dots = tbimg[j].getElementsByClassName("demo");
-		var prev = tbimg[j].getElementsByClassName("prev");
-		var next = tbimg[j].getElementsByClassName("next");
+		var slides = table[j].getElementsByClassName("mySlides");
+		var dots = table[j].getElementsByClassName("demo");
+		var prev = table[j].getElementsByClassName("prev");
+		var next = table[j].getElementsByClassName("next");
 // 		}
 	
 	
@@ -447,10 +394,8 @@ function showSlides(j,n) {
 	}
 }
 
-
 </script>
 </div>
-</article>
 </div>
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="./../inc/bottom.jsp"></jsp:include>

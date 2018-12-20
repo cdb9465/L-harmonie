@@ -360,18 +360,22 @@ body{margin: 0px; padding: 0px;
     
 .subact{background-color: #b51717 !important;}
     
-#sub_about { display: none; }
+#sub_about { display: none;}
 
 /* 1:1채팅 */
 .chat{	
-	width: 50px; height: 30px;
-	background-color: rgba(51,51,51,0.8);
-	
+	width: 50px; height: 30px;	
+	background-color: rgba(51,51,51,0.8);	
 	position: fixed;
 	top: 57%; right:10px;
 	color: #fff;
 	border: none;	
+	border-radius: 10px 10px;
+	margin-top: 10px;
+	cursor: pointer;
+	cursor: hand; 	
 	}
+
 
 /* 푸터전체 */
 footer{
@@ -534,7 +538,7 @@ footer{
 
 /* 반응형 main manu */
  @media screen and (max-width: 1100px) {
- 	#main_menu { margin-left:60px;}
+ 	#main_menu { margin-left:320px;}
 	#logo { margin-right:5px;
 			margin-left: 5px; }
 	.MM{ margin:17px 2px; }

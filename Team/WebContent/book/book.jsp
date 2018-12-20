@@ -173,12 +173,12 @@ history.back();
 </div>
 </div>
 <!-- 4단계 (요청사항)-->
-
+ 
 <!-- 5단계 (확인 & 완료)-->
 <div class="tab">
 <div class="panel">
  <label class="label">예약내역 확인</label>
- <table id="confirm" >
+ <table id="confirm" border="1">
  <tr>
   <th><i class="fa fa-home"> </i> 지점 : </th>
   <!-- <td>00점</td> -->
@@ -205,6 +205,7 @@ history.back();
   </tr>
 
  </table>
+
 </div>
 </div>
 <!-- 5단계 (확인 & 완료)-->
@@ -273,10 +274,7 @@ $(document).ready(function(){
 
 		//초기값 받아오기
 		$("#dateval").val($("#datepicker").datepicker().val());
-		
-		$('.ui-datepicker').css({
-			"margin":"0 auto"
-		});
+
 	});
 	
 	//지점, 인원 변경시  시간, 테이블 선택값 초기화
@@ -296,6 +294,10 @@ $(document).ready(function(){
 		
 });
 </script>
+<style>
+ .ui-datepicker { margin: 0 auto; }
+ .ui-datepicker td span, .ui-datepicker td a { padding: .5em; }
+</style>
 
 </body>
 </html>

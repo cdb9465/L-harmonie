@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="net.member.db.MemberBean"%>
 <%@page import="java.util.List"%>
 <%@page import="net.review.db.ReviewBean"%>
 <%@page import="net.admin.db.PageBean"%>
@@ -13,6 +15,10 @@
 <!-- css경로바꿔야함 -->
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/reviewCopy.css" rel="stylesheet">
+
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/httpRequest.js"></script>
+<script type="text/javascript" src="./js/love.js"></script>
 <title>L'harmonie</title>
 </head>
 <body>
@@ -78,9 +84,8 @@ if(count==0)
 	  <tr><td colspan="2">리뷰 없음</td></tr>
 	 </table>
 	 <%
-}
-else
-{
+
+}else{
 	for(int i = 0; i < reviewList.size(); i++)
 	{
 		ReviewBean rb = reviewList.get(i);
@@ -132,7 +137,7 @@ else
 			 System.out.println(rb.getFile().split(",")[picIndex]);
 	%>
 	  <div class="mySlides">
-	   <img alt="첨부사진" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)">
+	   <img alt="첨부사진" width="700" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)">
 	  </div>
 
 	<%	}
@@ -141,20 +146,18 @@ else
 	 </div>
 	</div>
 	<!-- 사진펼침 끝 -->	 
-    </td></tr>
-                      
+    </td></tr>  
+    
     <tr><td colspan="2" class="td_like" >
-         <form action="./LoveCountAction.re"  method="post">
-            <input type="hidden" name="mem_num" value=<%//=mbb.getMem_num()%>>
-            <input type="hidden" name="review_num" value=<%//=rb.getReview_num()%>>
-            <input type="hidden" name="love_num" value="1">
             <!-- 누르기 전이라 하트아이콘 회색으로해둠. 누르면 빨강으로 style="color:#800000;" -->
-               <Button type="submit" onclick="style='background-color:pink'" id="heart1">
-               <i class='fas fa-heart' style='color:gray; font-size:23px;'id=heart ></i></Button>
-         </form>
-      <%//=lovecount %>20명이 좋아합니다.
+            <%if(email != null ){%>
+               <Button type="button"  id="heart1" onclick="loveClick('<%=email%>','<%=rb.getReview_num()%>')"> 
+            
+               <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button>
+             <% }  %>           			
+      			<span id="reCountOne"><%//=rb.getLoveCount() %></span>명이 좋아합니다.
 		<!-- 작성자일때만 글삭제 보여주기 -->
-         <input type="button" value="글삭제" onclick="location.href='./ReviewDelete.re?review_num=<%//=rb.getReview_num()%>'" class="delReview">
+         <input type="button" value="글삭제" onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" class="delReview">
         <!-- 작성자일때만 글삭제 보여주기 -->
     </td></tr>
 
@@ -170,6 +173,7 @@ else
        </td></tr>      
 	<%} %>
 	<!-- admin일때만 댓글등록 보여주기 -->      
+    
     
     <tr><th class="th_admin"><i class="material-icons" style='font-size:16px'>subdirectory_arrow_right </i> L'harmonie
     
@@ -189,10 +193,11 @@ else
             </td></tr>
 
       </table>
+		
 
-
-   <%}
-}%>
+   <%} //for문 끝
+}//else문 끝
+%>
 <hr>
 <!-- 페이지 ◀12345▶ 영역 -->
  <div class="pageArea">
@@ -213,10 +218,10 @@ for(int i = startPage; i <= endPage; i++)
 <%}
 
 //다음
-if(endPage < pageCount){
-	%><a href="./ReviewListTest.re?pageNum=<%=startPage+pageBlock %>">다음▶</a><%
-}%>
-       
+if(endPage < pageCount){%>
+	<a href="./ReviewListTest.re?pageNum=<%=startPage+pageBlock %>">다음▶</a>
+<%}
+%>     
  </div>
    
 </div>

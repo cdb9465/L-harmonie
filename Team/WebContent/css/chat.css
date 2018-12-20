@@ -1,14 +1,9 @@
 @CHARSET "UTF-8";
-/* 
-body {
-	background-image: url("../images/main/star03.jpg");	
-}
 
-.row {
-	color: #fff;
-}
- */
 
+* {
+	
+}
  
  .portlet {
     margin-bottom: 15px;

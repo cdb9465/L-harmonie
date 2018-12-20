@@ -28,18 +28,18 @@ function showTab(n) {
 		confirmForm();
 }
 
-function initDate()	//안써도될듯
-{
-	$(document).ready(function(){
-		$(function () {
-			var day = new Date();
-			day.setDate(day.getDate()+1);
-			var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
-			$("#datepicker").datepicker('setDate', nextDay);
-			
-		});
-	});
-}
+//function initDate()	//안써도될듯
+//{
+//	$(document).ready(function(){
+//		$(function () {
+//			var day = new Date();
+//			day.setDate(day.getDate()+1);
+//			var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
+//			$("#datepicker").datepicker('setDate', nextDay);
+//			
+//		});
+//	});
+//}
 
 function nextPrev(n) {
 	var x = document.getElementsByClassName("tab");
@@ -104,6 +104,7 @@ function selectLocation(n){
 		document.bf.location.value = "서울강남점";
 	else if(n == 1)
 		document.bf.location.value = "부산서면점"; 
+
 }
 
 //인원수선택
@@ -340,17 +341,18 @@ function confirmForm() {
 	var table, tr;
 	table = document.getElementById("confirm");
 	tr = table.getElementsByTagName("tr");
-
+	
 	//기존 td삭제
-	for(i = 0; i < 6; i++)
+	for(var i = 0; i < 6; i++)
 	{	
 		if(tr[i].cells.length > 1)
 		{
-			var lastcol = tr[i].cells(1);
-			tr[i].removeChild(lastcol);
+//			var lastcol = tr[i].cells(1);
+//			tr[i].removeChild(lastcol);
+			tr[i].deleteCell(tr[i].cells.length-1);
 		}
 	}
-	
+
 	//td생성
 	var newtd = new Array(6);
 	var text = new Array(6);
@@ -371,6 +373,49 @@ function confirmForm() {
 	}
 	
 }
+
+/* 추후 삭제 필요
+function createTd()
+{
+	var table, tr;
+	table = document.getElementById("confirm");
+	tr = table.getElementsByTagName("tr");
+	
+	//td생성
+	var newtd = new Array(6);
+	var text = new Array(6);
+	text[0] = document.createTextNode(document.bf.location.value);
+	text[1] = document.createTextNode(document.bf.guest.value);
+	text[2] = document.createTextNode(document.bf.date.value);
+	text[3] = document.createTextNode(document.bf.time.value);
+	text[4] = document.createTextNode(document.bf.tablenum.value);
+	
+	setRequest();
+	text[5] = document.createTextNode(document.bf.request.value);
+	
+	for(i = 0; i < 6; i++)
+	{
+		newtd[i] = document.createElement("td"); 
+		tr[i].appendChild(newtd[i]);
+		newtd[i].appendChild(text[i]);
+	}
+}
+
+function deleteTd()
+{
+	var table, tr;
+	table = document.getElementById("confirm");
+	tr = table.getElementsByTagName("tr");
+	
+	for(var i = 0; i < 6; i++)
+	{	
+		if(tr[i].cells.length > 1)
+		{
+			tr[i].deleteCell(tr[i].cells.length-1);
+		}
+	}	
+}
+*/
 
 //request
 function setRequest()
