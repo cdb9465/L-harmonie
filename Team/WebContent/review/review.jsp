@@ -76,6 +76,7 @@ MemberBean mbb= mdao1.getMember(email);
  <div id="selectArea">
     <i class='fas fa-store' style='font-size:17px;'></i> <span>[간편검색] 지점을 선택해주세요</span>
      <select class="dateBox" name="sel_location" onchange="this.form.submit();">
+     		<option value="">선택해주세요</option>
          <option value="전체" >전체</option>
          <option value="서울강남점" >서울강남점</option>
          <option value="부산서면점" >부산서면점</option>

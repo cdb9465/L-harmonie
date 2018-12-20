@@ -222,23 +222,16 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 			<input type="button" value="예약취소" class="bookcancel" id="bcancel" onclick="location.href='./BookDelete.bk?book_num=<%=bb.getBook_num() %>'" >
 		<%} else if(Result == 0){ //예약당일 %>
 			<span class="bookday">당일취소불가</span>
-		<%} else 
-				/* for(int j=0; j<myReviewList2.size(); j++){
-					ReviewBean rb=myReviewList2.get(j);
-			if(mb.mem_num()!=rb.getMem_num()){ */
-				// 예약일 이후  %> 
+		<%} else {
+				  %> 
 			<input type="button" value="리뷰작성" class="writeReview" id="wreview" onclick="location.href='./ReviewAdd.re?location=<%=bb.getLocation() %>&date=<%=bb.getDate() %>'">
-			<%-- <% 
-			}
-			else
-				%> --%>
-			<!-- <input type="button" value="리뷰보기" class="writeReview" id="wreview" onclick="location.href='./ReviewList.re'"> -->
-<%			
+			<%			
 				}
-		/* 	} */
+		
 		%>
 	</td></tr>
-<%} 
+<%}
+}
 %>
 </tbody>
 </table>
