@@ -42,16 +42,16 @@ public class LoveUserCheckAction implements Action{
 			ld.deleteLove(email, review_num);		
 		}
 		
-		/*//해당하는 게시판에있는 리뷰만 Count한다
-		int reviewCount = ld.getLoveCount(review_num);
+		//해당하는 게시판에있는 리뷰만 Count한다
+		//int reviewCount = ld.getLoveCount(review_num);
 		
-		System.out.println(reviewCount);
+		//System.out.println(reviewCount);
 		
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println(reviewCount);
-		out.close();*/
+		out.println(loveCheck);
+		out.close();
 		
 		
 		ActionForward forward=new ActionForward();
