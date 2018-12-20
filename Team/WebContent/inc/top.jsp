@@ -14,8 +14,6 @@ MemberDAO mdao=new MemberDAO();
 MemberBean mb=mdao.getMember(sess);
 %>
 
-<div>
-</div>
 
 <div class="top_menu">
 
