@@ -37,7 +37,7 @@ public class MemberListAction implements Action{
 		
 		int count = adao.getMemberCount();
 		if(count != 0)
-			memberList = adao.getMemberList();
+			memberList = adao.getMemberList(startRow, pageSize);
 		
 		//pageCount
 		int pageCount = count/pageSize+(count%pageSize==0?0:1);

@@ -37,7 +37,6 @@ int pageBlock = pb.getPageBlock();
 int startPage = pb.getStartPage();
 int endPage = pb.getEndPage();
 int currentPage = Integer.parseInt(pageNum);
-
 %>
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/top.jsp"></jsp:include>
@@ -53,7 +52,7 @@ int currentPage = Integer.parseInt(pageNum);
  
 <div id="bookList">
 
-<div class="mpcount">전체 <%=memberList.size() %>명</div>
+<div class="mpcount">전체 <%=count%>명</div>
 
 <div class="clear"></div>
 	
@@ -67,19 +66,24 @@ int currentPage = Integer.parseInt(pageNum);
 	
 <!-- 회원목록 -->
 <%
-for(int i=0;i<memberList.size();i++){
-	MemberBean mb = (MemberBean)memberList.get(i);
-%>
- <tr>
-  <td><%=mb.getMem_num()%></td>
-  <td><%=mb.getEmail()%></td>
-  <td><%=mb.getName()%></td>
-  <td><%=mb.getPhone()%></td>
- </tr>
-  <%
+if(memberList==null){
+	%><tr><td colspan="7"><b>회원이 없습니다.</b></td></tr><%
+}else{
+	for(int i=0;i<memberList.size();i++){
+		MemberBean mb = (MemberBean)memberList.get(i);
+	%>
+	 <tr>
+	  <td><%=mb.getMem_num()%></td>
+	  <td><%=mb.getEmail()%></td>
+	  <td><%=mb.getName()%></td>
+	  <td><%=mb.getPhone()%></td>
+	 </tr>
+	  <%
+	}
 }
   %>
 </table>
+
 <div class="pageArea">
 <%
 //이전

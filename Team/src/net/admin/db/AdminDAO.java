@@ -153,7 +153,7 @@ public class AdminDAO {
 		return count;
 	}
 	
-	public List<MemberBean> getMemberList(){
+	public List<MemberBean> getMemberList(int startRow, int pageSize){
 		List<MemberBean> memberList = new ArrayList<MemberBean>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -165,8 +165,10 @@ public class AdminDAO {
 			con = getConnection();
 			
 			//sql
-			sql = "select * from member";
+			sql = "select * from member limit ?,?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, startRow-1);
+			pstmt.setInt(2, pageSize);
 			
 			//rs 실행 저장
 			rs = pstmt.executeQuery();
