@@ -280,15 +280,12 @@ for(int j=0;j<cobe.size();j++){
     	 	
     	//System.out.println(rb.getFile().split(",")[0]);
     	%>
-<tr>
+<tr colspan='2'>
 
-<th class="th_admin"><i class="material-icons" style='font-size:16px'>subdirectory_arrow_right </i> L'harmonie
-    
-    </th>
-
-<td class="td_comment">
+<td class="review_td"><i class="material-icons" style='font-size:16px'>subdirectory_arrow_right </i> <span class="th_admin">L'harmonie </span>
+   <span>
 <%=cb.getContent() %>
-
+</span>
 <%
 
 
