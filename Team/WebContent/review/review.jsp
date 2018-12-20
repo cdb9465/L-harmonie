@@ -26,9 +26,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script src="./js/jquery-3.3.1.js"></script>
-<script src="./js/httpRequest.js"></script>
-<script type="text/javascript" src="./js/love.js"></script>
 </head>
 
 <body>
@@ -103,7 +100,7 @@ if(count==0)
 	 <%
 }
 
-else //if(count!=0)
+else if(count!=0)
 {  
 for(int i=0;i<ReviewList.size();i++)
 {
@@ -175,47 +172,45 @@ for(int i=0;i<ReviewList.size();i++)
 	</div>
 	<!-- 사진펼침 끝 -->	 
     </td></tr>
-                      
-<!--     <tr><td colspan="2" class="td_like" > -->
-<!--          <form action="./LoveCountAction.re"  method="post"> -->
-<%--             <input type="hidden" name="mem_num" value=<%//=mbb.getMem_num()%>> --%>
-<%--             <input type="hidden" name="review_num" value=<%//=rb.getReview_num()%>> --%>
-<!--             <input type="hidden" name="love_num" value="1"> -->
-<!--             누르기 전이라 하트아이콘 회색으로해둠. 누르면 빨강으로 style="color:#800000;" -->
-<!--                <Button type="submit" onclick="style='background-color:pink'" id="heart1"> -->
-<!--                <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button> -->
-<!--          </form> -->
-
- <tr><td colspan="2" class="td_like" >
+  <%--                     
+    <tr><td colspan="2" class="td_like" >
+         <form action="./LoveCountAction.re"  method="post">
+            <input type="hidden" name="mem_num" value=<%//=mbb.getMem_num()%>>
+            <input type="hidden" name="review_num" value=<%//=rb.getReview_num()%>>
+            <input type="hidden" name="love_num" value="1">
             <!-- 누르기 전이라 하트아이콘 회색으로해둠. 누르면 빨강으로 style="color:#800000;" -->
-            <%if(email != null ){%>
-               <Button type="button"  id="heart1" onclick="loveClick('<%=email%>','<%=rb.getReview_num()%>')"> 
-               
+               <Button type="submit" onclick="style='background-color:pink'" id="heart1">
                <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button>
-             <% }  %>           			
-      			<span id="reCountOne"><%=rb.getLoveCount() %></span>명이 좋아합니다.
-    </td></tr>
-    <tr><td>
+         </form>
+
+
 <%
-// int lovecount = 0; 
-// if(Lcount!=0){	 
+
+int lovecount = 0; 
+if(Lcount!=0){	 
  
 
-// for(int z=0;z<lobe.size();z++){
+for(int z=0;z<lobe.size();z++){
 	
 	
-//     	LoveBean lb=lobe.get(z);
+    	LoveBean lb=lobe.get(z);
     	
-//    	if(rb.getReview_num()==lb.getReview_num()){
-//     	lovecount+=1;
-//     	}
-// 	}
-//  } 
+   	if(rb.getReview_num()==lb.getReview_num()){
+    	lovecount+=1;
+    	%>
+
+
+
+
+<%
+    	}
+	}
+ } 
 
 %>
-<%//=lovecount %>
-<!-- 명이 좋아합니다. -->
-
+<%=lovecount %>
+명이 좋아합니다.
+ --%>
 
  <%
 
