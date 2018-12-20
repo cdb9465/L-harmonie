@@ -37,7 +37,7 @@ h1 {
 .news_content {
 	float: left;
 	/*background-color: rgba(255,255,255,0.8);*/
-    margin: 20px;
+    margin: 15px;
     text-align: center;
     font-size: 1.5em;
 }
