@@ -124,14 +124,59 @@ public class LoveDAO {
 		}
 		
 	}
+
+	public List<ReviewBean> getLoveCountR(int review_num)
+
+	{
+		Connection con = null;
+		PreparedStatement psm = null;
+		ResultSet rs = null;
+		ResultSet rs2 = null;
+		ArrayList<ReviewBean> countList= new ArrayList<ReviewBean>();
+		try
+		{
+			con = getConnection();
+			
+
+			
+			String sql = "select count(*) from love where review_num=?";
+			psm= con.prepareStatement(sql);
+			psm.setInt(1, review_num);
+			rs = psm.executeQuery();
+			
 	
+			if(rs.next())
+			{
+				ReviewBean rbean = new ReviewBean();
+					rbean.setReview_num(review_num);
+					rbean.setLoveCount(rs.getInt("count(*)"));
+			}
+		
+		}
+		catch(Exception e)
+		{
+			
+		}
+		finally
+		{
+			if(psm!=null)		
+				try	{	psm.close();	}	catch(SQLException ex)	{}
+			if(con!=null)		
+				try	{	con.close();	}	catch(SQLException ex)	{}
+		}
+		return countList;
+		
+	}
+	
+//지울거야--------------------
 	public int getLoveCount(int review_num)
 
 	{
 		Connection con = null;
 		PreparedStatement psm = null;
 		ResultSet rs = null;
-		int count=0;
+
+		int count= 0;
 		try
 		{
 			con = getConnection();
@@ -144,7 +189,7 @@ public class LoveDAO {
 	
 			if(rs.next())
 			{
-			count =rs.getInt("count(*)");
+				count = rs.getInt("count(*)");
 			}
 		
 		}
@@ -161,9 +206,8 @@ public class LoveDAO {
 		}
 		return count;
 		
-		
 	}
-	
+	//지울거야--------------------
 
 	public List<LoveBean> getLoveList(List<ReviewBean> reviewList){
 		
@@ -182,7 +226,7 @@ public class LoveDAO {
 				System.out.println(review.getReview_num());
 			
 				
-				String sql="select * from love where review_num=?";
+				String sql="select count(*) from love where review_num=?";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1, review.getReview_num());
 				rs=pstmt.executeQuery();

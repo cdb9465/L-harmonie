@@ -125,7 +125,6 @@ if(id == null){
 	<% 
 }
 %>
-
 	<div class="container">
 		<div class="container bootstrap snippet">
 			<div class="row">

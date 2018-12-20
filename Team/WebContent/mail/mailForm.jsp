@@ -46,7 +46,7 @@ if(id == null){
 	<% 
 }
 %>
-<body>
+<body style="overflow-x:hidden; overflow-y:hidden;">
     <div id="mailtable">
         <form action="sendMail.jsp" method="post" name="fr1">
     		<h1>메일 문의</h1>

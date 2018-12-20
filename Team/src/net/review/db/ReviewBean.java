@@ -1,16 +1,19 @@
 package net.review.db;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class ReviewBean {
 	private int mem_num;
 	private int review_num;
 	  private String content;
 	  private int rating;
-	  private Date date;
+
+	private Date date;
 	  private String file;
 	  private String location;
 	  private String name;
+	  private int loveCount;
 	  
 	  public String getName() {
 			return name;
@@ -18,9 +21,6 @@ public class ReviewBean {
 		public void setName(String name) {
 			this.name = name;
 		}
-	  
-	  
-	  
 	  public int getMem_num() {
 			return mem_num;
 		}
@@ -62,6 +62,12 @@ public class ReviewBean {
 	}
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	public int getLoveCount() {
+		return loveCount;
+	}
+	public void setLoveCount(int loveCount) {
+		this.loveCount = loveCount;
 	}
 
 

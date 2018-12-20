@@ -6,15 +6,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+
+
 public class chatDAO {
 	
 	private Connection conn;
+	String dbURL = "jdbc:mysql://192.168.2.32:3306/lhdb";
+	String dbID = "jspid";
+	String dbPassword = "jsppass";			
 	
 	public chatDAO() {
 		try {
-			String dbURL = "jdbc:mysql://192.168.2.32:3306/lhdb";
-			String dbID = "jspid";
-			String dbPassword = "jsppass";
+			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
@@ -160,4 +163,30 @@ public class chatDAO {
 		}
 		return -1;
 	}
+	
+
+	public void deleteChat(Chat cc) {
+		try {
+			 //1단계 드라이버로더
+			 Class.forName("com.mysql.jdbc.Driver");
+/*			 //2단계 디비연결
+			 String dbUrl="jdbc:mysql://localhost:3306/jspdb2";
+			 String dbUser="jspid";
+			 String dbPass="jsppass";*/
+			 conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			 //3단계 sql 구문 실행할 객체 생성 insert
+			 String sql="delete from board where chatID=?";
+			 PreparedStatement pstmt=conn.prepareStatement(sql);
+			 pstmt.setInt(1, cc.getChatID());//물음표순서,값
+			 //4단계 실행
+			 pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			//예외 발생여부 상관없이 마무리 작업(필수)
+			// 객체생성해서 사용한 기억공간 정리  .close()
+		}
+		return;
+	}
+	
 }
