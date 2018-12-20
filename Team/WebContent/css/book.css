@@ -46,7 +46,7 @@ article#book_art {width: 1300px; height: 700px;
 	color: #fff;
 	font-size: 12px; }
 
-.step2:HOVER { cursor: pointer; }	
+/* .step2:HOVER { cursor: pointer; } */	
 
 /* 예약폼 공통요소 */
 #book_form{
