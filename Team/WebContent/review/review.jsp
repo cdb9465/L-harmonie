@@ -252,7 +252,7 @@ if(email.equals("admin@team.com")){%>
 <input type="hidden" name="review_num" value=<%=rb.getReview_num()%>>
    <!-- <input type="text" name="content" id="content"> 
  <button type="submit" id="comment_sub"><p>댓글등록</p></button> -->
-              <textarea  name="content" class="comm_content">댓글내용</textarea> 
+              <textarea  name="content" class="comm_content" placeholder="댓글내용"></textarea> 
              <button type="submit" class="comment_btn" >댓글등록</button>
  
 </form>
