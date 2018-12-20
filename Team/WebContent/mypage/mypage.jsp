@@ -193,7 +193,6 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 <%	}else{
 	for(int i=0; i < myBookList.size(); i++){
 		BookBean bb = (BookBean)myBookList.get(i);
-		
 		//오늘날짜구하기
 		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
 		Date currentTime = new Date();
@@ -207,7 +206,7 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 		// 24*60*60*1000(각 시간값에 따른 차이점) 을 나눠주면 일수가 나옴
 		long bbResult = bb.getDate().getTime()/ ( 24*60*60*1000);
 		long todayResult = nowDate.getTime()/ ( 24*60*60*1000);
-
+		
 		//예약일 - 오늘 값을 계산해준다 ( -1이상이면 예약취소가능)
 		long Result = bbResult - todayResult;
 		System.out.println(Result);//확인
@@ -224,14 +223,23 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 		<%} else if(Result == 0){ //예약당일 %>
 			<span class="bookday">당일취소불가</span>
 		<%} else 
-			
-			// 예약일 이후  %> 
-			<input type="button" value="리뷰작성" class="writeReview" id="wreview" onclick="location.href='./ReviewAdd.re?book_num=<%=bb.getBook_num() %>'">
+				/* for(int j=0; j<myReviewList2.size(); j++){
+					ReviewBean rb=myReviewList2.get(j);
+			if(mb.mem_num()!=rb.getMem_num()){ */
+				// 예약일 이후  %> 
+			<input type="button" value="리뷰작성" class="writeReview" id="wreview" onclick="location.href='./ReviewAdd.re?location=<%=bb.getLocation() %>&date=<%=bb.getDate() %>'">
+			<%-- <% 
+			}
+			else
+				%> --%>
+			<!-- <input type="button" value="리뷰보기" class="writeReview" id="wreview" onclick="location.href='./ReviewList.re'"> -->
 <%			
-			
-		}%>
+				}
+		/* 	} */
+		%>
 	</td></tr>
-<%} %>
+<%} 
+%>
 </tbody>
 </table>
 
