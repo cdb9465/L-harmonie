@@ -41,7 +41,7 @@ h1 {
     text-align: center;
     font-size: 1.5em;
 }
-#myImg {
+.myImg {
     border-radius: 5px;
     cursor: pointer;
     cursor: hand;
