@@ -10,8 +10,9 @@ public class CommentDeleteAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("CommentDeleteAction execute");
 		int comment_num = Integer.parseInt(request.getParameter("comment_num"));
+		int review_num = Integer.parseInt(request.getParameter("review_num"));
 		CommentDAO cd=new CommentDAO();
-		cd.deleteComment(comment_num);
+		cd.deleteComment(comment_num,review_num);
 		ActionForward forward= new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("./ReviewList.re");

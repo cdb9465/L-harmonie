@@ -129,12 +129,11 @@ span#date{float: right;font-weight: normal;font-size: 15px;}
 #heart1{background-color: rgba(0,0,0,0); border: none; cursor: pointer; float: left;}
 .delReview{background-color: #000; color: #eee;border: none;float: right;padding: 5px 10px;cursor: pointer;}
 /* td 댓글 */
-.th_admin{padding: 0px 20px 0px 60px; font-size: 18px; font-weight: bold;height: 80px; width: 250px;}
-.td_comment{}
+.material-icons{padding: 0 0 0 30px;}
+.th_admin{padding: 0px 10px 0px 5px; font-size: 18px; font-weight: bold;height: 80px; width: 250px;}
 .comm_content{width: 80%; height: 45px; float: left;}
 .comment_btn{background-color: #000; color: #eee; width: 19%; height: 50px; border: none;cursor: pointer;}
 .delComment{border: none;padding: 5px; cursor: pointer; font-weight: bold; color: #a20000; font-size: 16px;text-decoration: underline;}
-
 
 /* 페이지 */
 .pageArea{text-align: center; 
