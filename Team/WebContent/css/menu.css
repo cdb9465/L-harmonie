@@ -140,7 +140,6 @@
 	display: table;	
     border-radius: 5px;
     width: 100%;
-    cursor: pointer;
     transition: 0.4s;
     margin: 15px 0 5px 0;
 }
