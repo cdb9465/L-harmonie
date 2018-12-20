@@ -45,12 +45,34 @@ public class ReviewAddAction implements Action{
   				rb.setFile(file);
   				System.out.println(file); 
   			}*/
-  			
+  		
+  		String file=multi.getFilesystemName("file1");
+  		if(multi.getFilesystemName("file2")==null){
+				
+				System.out.println("file2null");
+				
+				if(multi.getFilesystemName("file3")==null){
+					
+				}
+				else{
+					file +=","+multi.getFilesystemName("file3");
+				}
+			}else{
+				System.out.println("file2");
+				if(multi.getFilesystemName("file3")==null){
+					file +=","+multi.getFilesystemName("file2");
+				}
+				else{
+					file +=","+multi.getFilesystemName("file2")+","+multi.getFilesystemName("file3");
+				}
+			}
+  		rb.setFile(file);
+  		System.out.println(file); 
   		
   		 
-  		String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file2")+","+multi.getFilesystemName("file3"); 
+  		/*String file=multi.getFilesystemName("file1")+","+multi.getFilesystemName("file2")+","+multi.getFilesystemName("file3"); 
   		rb.setFile(file);
-		System.out.println(file); 
+		System.out.println(file); */
   		
   		
   		rb.setLocation(multi.getParameter("sel_location")); 
