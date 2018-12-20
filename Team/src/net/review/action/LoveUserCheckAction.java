@@ -21,7 +21,7 @@ public class LoveUserCheckAction implements Action{
 		System.out.println("맴넘 리넘 확인 : "+email+ review_num);
 
 		
-		
+		int LoveCountTest = 0;
 		LoveDAO ld=new LoveDAO();
 		//등록된 love가 있는지 확인하러 가자( 있으면 1, 없으면0 리턴 )
 		int loveCheck = ld.checkLove(email, review_num);
@@ -33,14 +33,15 @@ public class LoveUserCheckAction implements Action{
 			lb.setReview_num(review_num);
 				//insert호출
 			ld.insertLove(lb,email);
-				//count 호출
-			
 			
 		}
 		if(loveCheck==1){
 				//delete 호출
 			ld.deleteLove(email, review_num);		
 		}
+
+		//count 호출
+		LoveCountTest = ld.getLoveCount(review_num);
 		
 		//해당하는 게시판에있는 리뷰만 Count한다
 		//int reviewCount = ld.getLoveCount(review_num);
@@ -50,14 +51,16 @@ public class LoveUserCheckAction implements Action{
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println(loveCheck);
+		out.println(LoveCountTest);
 		out.close();
 		
-		
-		ActionForward forward=new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("./ReviewListTest.re");
+		ActionForward forward = null;
+//		ActionForward forward=new ActionForward();
+//		forward.setRedirect(false);
+//		forward.setPath("./ReviewListTest.re");
+		//return forward;
 		return forward;
+
 		
 		/*System.out.println("LoveCountAction execute");
 		ServletContext context=request.getServletContext(); 
