@@ -13,7 +13,7 @@
 #menu_sec1{
 	background-image: url("../images/menu/menu_bg.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;
+	height: 100%;
 	background-attachment: scroll; /*스크롤 내려도 그림이 안 따라오게끔*/
 }
 
@@ -27,7 +27,6 @@
 
 /*메뉴정보*/
 .menu_info{ 
-	/*border: 1px solid #fff;*/
 	width: 1000px;
 	margin: auto;
 	margin-top: 180px;
@@ -40,7 +39,6 @@
 	margin-top: 30px;
 }	
 .menu_info li{
-	/*border: 1px solid #fff;*/
 	list-style: none;
 	margin: 15px;
 	padding: 10px;		
@@ -64,7 +62,8 @@
 	color: #fff;
 	background-image: url("../images/menu/menu_bg2.jpg");]
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100%;
+	height: 100%;
 	background-attachment: scroll;
 }
 
@@ -74,7 +73,7 @@
 	background-color: rgba(0,0,0,0.7);
 	width: 20%;
 	margin: 80px 0 0 0;
-    padding: 40px 0 40px 0;
+    padding: 63px 0 63px 0;
     text-align: center;
 }
 
@@ -104,20 +103,18 @@
 
 /* 상세메뉴 탑 */
 .menu_top {
-	margin-left: 650px;
-	display: inline-block;
-	margin-top: 110px;
+	display: block;
+	margin-top: 100px;
 	text-align: center;
 	font-size: 40px;
 	margin-bottom: 10px;
 }
 .menu_topicon{
-	float: left;
-	margin-top: 10px;
+	margin-top: 5px;
 	text-align: center;
 }
 .menu_top div {
-	margin-top: 10px;
+	margin-top: 5px;
 }
 
 /* 상세메뉴 */
@@ -137,6 +134,7 @@
     transition: 0.3s;
 }
 
+/* 메뉴 사진 */
 #myImg {
 	float: left;
 	display: table;	
@@ -146,6 +144,8 @@
     transition: 0.4s;
     margin: 15px 0 5px 0;
 }
+
+/* 메뉴 사진 */
 .menu_caption{
 	color : white;
 	font-size: 20px;
@@ -153,10 +153,14 @@
 	background-color:rgba(0,0,0,0.6);
 }
 
+/* 휴지통 */
 #menu_delete{
 	float: right;
+	background: transparent;
+	border: none;
 }
 
+/* 휴지통 아이콘 */
 .fa-trash{
 	color: white;
 	font-size: 20px;

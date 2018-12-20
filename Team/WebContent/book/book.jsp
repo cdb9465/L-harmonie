@@ -47,19 +47,24 @@ history.back();
 <!-- 예약 네비게이션 메뉴바 -->
 <div class="book_nav">
  <div class="steps">
-  <div class="step2" onclick="moveTab(0)"><i class="far fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</div>
+  <!-- <div class="step2" onclick="moveTab(0)"><i class="far fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</div> -->
+  <div class="step2"><i class="far fa-user" style="font-size:15px"></i> STEP 1 <br> 지점 및 인원 선택</div>
  </div>
  <div class="steps">
-  <div class="step2" onclick="moveTab(1)"><i class="fas fa-calendar-alt" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</div> 
+  <!-- <div class="step2" onclick="moveTab(1)"><i class="fas fa-calendar-alt" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</div> --> 
+  <div class="step2"><i class="fas fa-calendar-alt" style="font-size:15px"></i> STEP 2 <br> 날짜 및 시간 선택</div>
  </div>
  <div class="steps">
-  <div class="step2" onclick="moveTab(2)"><i class="fas fa-utensils" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</div>
+  <!-- <div class="step2" onclick="moveTab(2)"><i class="fas fa-utensils" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</div> -->
+  <div class="step2"><i class="fas fa-utensils" style="font-size:15px"></i> STEP 3 <br> 테이블 선택</div>
  </div>
  <div class="steps">
-  <div class="step2" onclick="moveTab(3)"><i class="fa fa-edit" style="font-size:15px"></i> STEP 4 <br> 요청사항 입력 </div>
+  <!-- <div class="step2" onclick="moveTab(3)"><i class="fa fa-edit" style="font-size:15px"></i> STEP 4 <br> 요청사항 입력 </div> -->
+  <div class="step2"><i class="fa fa-edit" style="font-size:15px"></i> STEP 4 <br> 요청사항 입력 </div>
  </div>
  <div class="steps">
-  <div class="step2" onclick="moveTab(4)"><i class="fa fa-check" style="font-size:15px"></i> STEP 5 <br> 확인 &amp; 완료 </div>
+  <!-- <div class="step2" onclick="moveTab(4)"><i class="fa fa-check" style="font-size:15px"></i> STEP 5 <br> 확인 &amp; 완료 </div> -->
+  <div class="step2"><i class="fa fa-check" style="font-size:15px"></i> STEP 5 <br> 확인 &amp; 완료 </div>
  </div>
 </div>
 <!-- 예약 네비게이션 메뉴바 -->
@@ -178,7 +183,7 @@ history.back();
 <div class="tab">
 <div class="panel">
  <label class="label">예약내역 확인</label>
- <table id="confirm" border="1">
+ <table id="confirm">
  <tr>
   <th><i class="fa fa-home"> </i> 지점 : </th>
   <!-- <td>00점</td> -->
@@ -232,6 +237,7 @@ history.back();
  
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
+var moveDiff = 0; //몇칸 이동하는지 계산(이전탭 보기위해)
 showTab(currentTab); // Display the crurrent tab
 
 $(document).ready(function(){

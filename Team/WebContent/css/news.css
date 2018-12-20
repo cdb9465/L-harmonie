@@ -11,17 +11,17 @@
 }
 .news_main {
 	padding-top: 80px;
-    max-width: 1000px;
-    margin: auto;
+    margin: 0 300px auto;
 }
 .news_cover{
 	border: 1px solid yellow;
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.6);
 	min-height: 950px;
 	width: inherit;
 	color: #eee;
 }
 h1 {
+	margin: 10px;
     font-size: 50px;
     word-break: break-all;
     text-align: center;
@@ -29,36 +29,18 @@ h1 {
 .news_row {
     margin: 8px -16px;
 }
-.news_row,
-.news_row>.news_column {
-    padding: 8px;
-}
+
 .news_row:after {
 	content: "";
 	display: table;
 	clear: both;
 }
-.news_column {
-    float: left;
-    width: 25%;
-}
 .news_content {
+	float: left;
 	/*background-color: rgba(255,255,255,0.8);*/
-    padding: 10px;
-}
-.news_content>h4 {
-	text-align: center;
-	color: #cacaca;
-}
-@media screen and (max-width: 900px) {
-    .news_column {
-        width: 50%;
-    }
-}
-@media screen and (max-width: 600px) {
-    .news_column {
-        width: 100%;
-    }
+    margin: 20px;
+    text-align: center;
+    font-size: 1.5em;
 }
 #myImg {
     border-radius: 5px;
@@ -66,6 +48,7 @@ h1 {
     transition: 0.3s;
 }
 #myImg:hover {opacity: 0.7;}
+
 #myModal {
     display: none;
     position: fixed;
@@ -79,62 +62,41 @@ h1 {
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 #img01 {
-	position: absolute;
-	left: 300px;
-	top: 200px;
-	margin-left: 100px;
     margin: auto;
     display: block;
-    width: 700px;
-    height: 500px;
+    width: 80%;
+  	height: 500px;
     max-width: 800px;
 }
-.news_detail {
-	border: 1px solid green;
-	/*background-color: #eee;*/
-	position: absolute;
-	width: 400px;
-	left: 1000px;
-	height: 500px;
-	color: #7a7a7a;
-	display: block;
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 800px;
 }
+
 #title {
-	position: absolute;
-	left: 1100px;
-	border: 1px solid yellow;
+	top: 1000px;
+	max-width: 800px;
+	width: 80%;
     margin: auto;
     display: block;
     text-align: center;
-    color: #7a7a7a;
-    padding: 10px 0;
+    color: #c9c9c9;
+    padding: 30px 0;
     font-size: 1.5em;
-    background-color: #eee;
+    height: 150px;
 }
-#content {
-	position: absolute;
-	left: 1100px;
-	top: 250px;
-	border: 1px solid yellow;
-    margin: auto;
-    display: block;
-    text-align: center;
-    color: #7a7a7a;
-    padding: 10px 0;
-    font-size: 1.2em;
-}
+
 #img01, #caption { 
     animation-name: zoom;
     animation-duration: 0.6s;
 }
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
 .news_close {
 	position: absolute;
     top: 185px;
-    right: 400px;
+    right: 500px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
@@ -146,8 +108,8 @@ h1 {
     text-decoration: none;
     cursor: pointer;
 }
-@media only screen and (max-width: 800px){
-    #img01 {
-        width: 100%;
-    }
+
+#subject {
+	margin: 5px;
 }
+

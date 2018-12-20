@@ -7,7 +7,7 @@
 <link href="./css/default.css" rel="stylesheet">
 <link href="./css/admin.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<title>Insert title here</title>
+<title>L'marmonie</title>
 <script type="text/javascript">
 // 카테고리 선택했는지 확인
 function categoryChk() {
