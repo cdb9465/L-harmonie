@@ -153,7 +153,7 @@ if(count==0)
             <%if(email != null ){%>
                <Button type="button"  id="heart1" onclick="loveClick('<%=email%>','<%=rb.getReview_num()%>')"> 
                
-               <i class='fas fa-heart' style='color:#ccc; font-size:23px;'id=heart ></i></Button>
+               <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button>
              <% }  %>           			
       			<span id="reCountOne"><%=rb.getLoveCount() %></span>명이 좋아합니다.
 		<!-- 작성자일때만 글삭제 보여주기 -->

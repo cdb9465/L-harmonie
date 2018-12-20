@@ -43,20 +43,20 @@ public class LoveUserCheckAction implements Action{
 		}
 		
 		//해당하는 게시판에있는 리뷰만 Count한다
-		//int reviewCount = ld.getLoveCount(review_num);
+		int reviewCount = ld.getLoveCount(review_num);
 		
 		//System.out.println(reviewCount);
 		
 		
-		response.setContentType("text/html; charset=UTF-8");
+		/*response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println(loveCheck);
-		out.close();
+		out.close();*/
 		
 		
-		ActionForward forward=new ActionForward();
+		ActionForward forward=null;
 		forward.setRedirect(false);
-		forward.setPath("./ReviewListTest.re");
+		forward.setPath("./ReviewList.re");
 		return forward;
 		
 		/*System.out.println("LoveCountAction execute");
