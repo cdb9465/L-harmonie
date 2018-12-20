@@ -1,7 +1,7 @@
 //해당 페이지로 이동
 function moveTab(n)
 {
-	nextPrev(n-currentTab);	
+	nextPrev(n-currentTab);
 }
 
 function showTab(n) {
@@ -28,27 +28,45 @@ function showTab(n) {
 		confirmForm();
 }
 
-//function initDate()	//안써도될듯
-//{
-//	$(document).ready(function(){
-//		$(function () {
-//			var day = new Date();
-//			day.setDate(day.getDate()+1);
-//			var nextDay = $.datepicker.formatDate('yy-mm-dd', day);
-//			$("#datepicker").datepicker('setDate', nextDay);
-//			
-//		});
-//	});
-//}
-
 function nextPrev(n) {
 	var x = document.getElementsByClassName("tab");
-	
-//	if (n == 1 && !validateForm())
-//	{
-//		alert("선택안됨");
-//		return false;
-//	}
+	//alert("n:"+n);
+
+	// 뒤로갈때(n==1) 선택했는지 확인
+	if (n == 1 && !validateForm())
+	{
+		switch(currentTab)
+		{
+		case 0:
+			alert("지점과 인원을 선택해 주세요.");
+			break;
+		case 1:
+			alert("날짜와 시간을 선택해 주세요.");
+			break;
+		case 2:
+			alert("테이블을 선택해 주세요.");
+			break;
+		}
+		
+		return false;		
+	}
+	/*//모든사항 선택했는지 확인	n>1:뒤로1칸이상이동불가&앞으로n칸이동가능
+	if (!validateForm())	//선택안했으면 경고메시지
+	{
+		if(n > 0)	//뒤로이동 불가능, 앞으로 이동은 가능
+		{
+			alert("선택이 완료되지 않았습니다.");
+			return false;
+		}
+	}
+	else
+	{
+		if(n > 1)	//선택 안한칸 뛰어넘을때 경고메시지
+		{
+			alert("모든 사항을 선택해주세요.");
+			return false;
+		}
+	}*/
 
 	// Hide the current tab:
 	x[currentTab].style.display = "none";
@@ -69,6 +87,9 @@ function validateForm() {
 	x = document.getElementsByClassName("tab");
 	y = x[currentTab].getElementsByTagName("input");
 
+	//요청사항 페이지는 validateForm 확인안함 (옵션이니까)
+	if(currentTab==3) return true;
+	
 	for (i = 0; i < y.length; i++) {
 		if (y[i].value == "") {
 	    	// add an "invalid" class to the field:
