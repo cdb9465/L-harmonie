@@ -51,6 +51,15 @@ public class MenuFrontController extends HttpServlet{
 			}	
 		}
 		
+		else if(command.equals("/MenuDetailList.nu")) {
+			action=new MenuDetailListAction();
+			try{
+				forward=action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		else if(command.equals("/MenuDelete.nu")) {
 			action=new MenuDeleteAction();
 			try{

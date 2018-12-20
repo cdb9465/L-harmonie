@@ -36,25 +36,24 @@ for(int i=0; i<newsList.size(); i++) {
 %>
 <div class="news_column">
     	<div class="news_content">
-    	<img id="myImg" src="./upload/<%=nb.getFile()%>" width="100%" height="150px" title="<%=nb.getTitle()%>" alt="<%=(nb.getContent()).replace("\r\n", "<br>")%>" onclick="onClick(this)">
+    	<img class="myImg" src="./upload/<%=nb.getFile()%>" width="400px" height="250px" alt="<%=nb.getTitle()%>" onclick="modal(this)">
     	
     	<!-- 모달 -->
     	<div id="myModal"> 
     		<span class="news_close">&times;</span>
-    		<img id="img01">
+    		<img class="modal-content" id="img01">
     		<div class="news_detail">
 	    	<div id="title"></div>
-	    	<div id="content"></div>
 	    	</div>
 	    </div>
-		<h4><%=nb.getTitle() %></h4>
+		<div id="subject"><%=nb.getTitle() %></div>
 		</div>
 </div>
 <%
 count2 +=1;
 %>
 <%
-if(count2==4) {
+if(count2==3) {
 
 count2=0;
 }
@@ -68,12 +67,19 @@ count2=0;
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
 <!-- 푸터 들어가는 곳 -->
 <script>
-function onClick(element) {
-	document.getElementById("img01").src = element.src;
-	var modal = document.getElementById("myModal");
-	document.getElementById("title").innerHTML = element.title;
-	document.getElementById("content").innerHTML = element.alt;
-	modal.style.display = "block";
+/* var modal = document.getElementById("myModal");
+
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var caption = document.getElementById("title");
+	
+
+
+img.onclick=function() {
+		modal.style.display="block";
+		modalImg.src = this.src;
+		caption.innerHTML = this.alt;
+	}
 	
 	var span = document.getElementsByClassName("news_close")[0];
 	
@@ -86,7 +92,31 @@ function onClick(element) {
 	modal.onclick = function() {   
 	  modal.style.display = "none";
 	}
-}
+ */
+ 
+function modal(element) {
+	var modal = document.getElementById("myModal");
+	var modalImg = document.getElementById("img01");
+	var caption = document.getElementById("title");
+	 
+	
+	document.getElementById("img01").src=element.src;
+	caption.innerHTML = element.alt;
+	modal.style.display = "block";
+	
+	
+		
+	var span = document.getElementsByClassName("news_close")[0];
+	
+	span.onclick = function() { 
+		modal.style.display = "none";
+	}
+		
+		//검은 바탕 누르면 팝업창 사라지기
+	modal.onclick = function() {   
+		modal.style.display = "none";
+	}
+ }
 </script>
 
 </body>

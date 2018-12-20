@@ -76,7 +76,8 @@ MemberBean mbb= mdao1.getMember(email);
  <div id="selectArea">
     <i class='fas fa-store' style='font-size:17px;'></i> <span>[간편검색] 지점을 선택해주세요</span>
      <select class="dateBox" name="sel_location" onchange="this.form.submit();">
-         <option value="" >전체</option>
+     		<option value="">선택해주세요</option>
+         <option value="전체" >전체</option>
          <option value="서울강남점" >서울강남점</option>
          <option value="부산서면점" >부산서면점</option>
      </select>
@@ -105,7 +106,8 @@ else if(count!=0)
 for(int i=0;i<ReviewList.size();i++)
 {
     ReviewBean rb=ReviewList.get(i);
-   
+    String ii[]=rb.getFile().split(",");
+   System.out.println("이미지 개수 : "+ ii.length);
    
    %>
    
@@ -119,18 +121,19 @@ for(int i=0;i<ReviewList.size();i++)
         %>
     </td></tr>
     <tr><td colspan="2" class="td_cont"> <%=rb.getContent() %> </td></tr>
-    <tr><td colspan="2" class="td_pic">
+    <tr >
+    <td colspan="2" class="td_pic">
 
-	<div class="container">
+	<div class="container" > 
 	<!-- 썸네일 이미지 목록 -->
-	 <div class="row">
+	 <div class="row" >
   
 	<%
-	for(int picIndex = 0; picIndex < 3; picIndex++)
+	for(int picIndex = 0; picIndex < rb.getFile().split(",").length; picIndex++)
 	{
 		if(rb.getFile().split(",")[picIndex]!=null)	//수정필요
 		{
-			if(rb.getFile().split(",")[picIndex].equals("null")) break; //수정필요
+		//if(rb.getFile().split(",")[picIndex].equals(null)) break; //수정필요
 	%>
 	  <div class="column">
 	   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" style="width:100%" onclick="currentSlide(<%=i %>, <%=picIndex+1 %>)" alt="<%=rb.getFile().split(",")[picIndex] %>" >
@@ -148,19 +151,23 @@ for(int i=0;i<ReviewList.size();i++)
 	  <a class="next" onclick="plusSlides(<%=i%>,1)">❯</a>
 	  
 	<%
-	 for(int picIndex = 0; picIndex < 3; picIndex++)
+	 for(int picIndex = 0; picIndex < rb.getFile().split(",").length; picIndex++)
+	
 	 {
 		 if(rb.getFile().split(",")[picIndex]!=null)	//수정필요
 		 {
-			 if(rb.getFile().split(",")[picIndex].equals("null")) break; //수정필요
-			
+		// if(rb.getFile().split(",")[picIndex].equals(null)) break; //수정필요
 	%>
+	
 	  <div class="mySlides">
-	   <img alt="첨부사진"  width="700" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)">
+	   <img alt="첨부사진"  width="700" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" onclick="currentSlide(<%=i%>,<%=picIndex+1%>)"/>
 	  </div>
+<%
+		 }
+	 }
 
-	<%	}
-	}%>
+%>
+
 
 	 </div>
 	</div>

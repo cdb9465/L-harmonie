@@ -106,19 +106,19 @@ if(count==0)
 	<!-- 썸네일 이미지 목록 -->
 	 <div class="row">
   
-	<%
+	<%-- <%
 	for(int picIndex = 0; picIndex < 3; picIndex++)
 	{
-		if(rb.getFile().split(",")[picIndex]!=null)	//수정필요
-		{
-			if(rb.getFile().split(",")[picIndex].equals("null")) break; //수정필요
+// 		if(rb.getFile().split(",")[picIndex]!=null)	//수정필요
+// 		{
+// 			if(rb.getFile().split(",")[picIndex].equals("null")) break; //수정필요
 	%>
 	  <div class="column">
-	   <img class="demo cursor active" src="./upload/<%=rb.getFile().split(",")[picIndex]%>" style="width:100%" onclick="currentSlide(<%=i %>, <%=picIndex+1 %>)" alt="<%=rb.getFile().split(",")[picIndex] %>" >
+	   <img class="demo cursor active" src="./upload/<%//=rb.getFile().split(",")[picIndex]%>" style="width:100%" onclick="currentSlide(<%=i %>, <%=picIndex+1 %>)" alt="<%//=rb.getFile().split(",")[picIndex] %>" >
 	  </div>
 	  
-	<%	}
-	}%>
+	<%	//}
+	}%> --%>
 	
 	 </div>
 	<!-- 썸네일 이미지 목록 끝 -->
@@ -128,7 +128,7 @@ if(count==0)
 	  <a class="prev" onclick="plusSlides(<%=i%>,-1)">❮</a>
 	  <a class="next" onclick="plusSlides(<%=i%>,1)">❯</a>
 	  
-	<%
+	<%-- <%
 	 for(int picIndex = 0; picIndex < 3; picIndex++)
 	 {
 		 if(rb.getFile().split(",")[picIndex]!=null)	//수정필요
@@ -142,7 +142,7 @@ if(count==0)
 
 	<%	}
 	}%>
-
+ --%>
 	 </div>
 	</div>
 	<!-- 사진펼침 끝 -->	 
@@ -152,10 +152,10 @@ if(count==0)
             <!-- 누르기 전이라 하트아이콘 회색으로해둠. 누르면 빨강으로 style="color:#800000;" -->
             <%if(email != null ){%>
                <Button type="button"  id="heart1" onclick="loveClick('<%=email%>','<%=rb.getReview_num()%>')"> 
-            
-               <i class='fas fa-heart' style='color:#800000; font-size:23px;'id=heart ></i></Button>
+               
+               <i class='fas fa-heart' style='color:#ccc; font-size:23px;'id=heart ></i></Button>
              <% }  %>           			
-      			<span id="reCountOne"><%//=rb.getLoveCount() %></span>명이 좋아합니다.
+      			<span id="reCountOne"><%=rb.getLoveCount() %></span>명이 좋아합니다.
 		<!-- 작성자일때만 글삭제 보여주기 -->
          <input type="button" value="글삭제" onclick="location.href='./ReviewDelete.re?review_num=<%=rb.getReview_num()%>'" class="delReview">
         <!-- 작성자일때만 글삭제 보여주기 -->
