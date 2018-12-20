@@ -15,7 +15,7 @@
  
 
   <div class="mt01_middle">
-    <div class="mt01_text"><a href="./AboutUs.ad">ABOUT US</a></div>
+    <div class="mt01_text"><a href="./AboutUs.ad#main0">ABOUT US</a></div>
   </div>
 </div>
 

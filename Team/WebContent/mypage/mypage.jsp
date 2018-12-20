@@ -255,10 +255,6 @@ int bookendPage=((Integer)request.getAttribute("bookendPage")).intValue();
 	</form>
 </div>
 
-	 <a href="#" class="arrow">
-   <img src="./images/arrow.png">
-   <img src="./images/dot.png" class="dot">
-</a>
 </section>
 
 <!-- 3번째 메인 -->

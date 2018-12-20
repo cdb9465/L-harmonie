@@ -22,7 +22,7 @@
 #inputForm{padding-top: 450px;text-align: center;}
 .txtbox{width:70%; margin: 5px 5px 0 5px;}
 .submitBtn{width:70%;}
-#PS{font-size: 14px; width:400px;padding-left:80px;}
+#PS{font-size: 14px; width:450px;padding-left:80px;}
 #checkPwd1,#checkPwd2{font-size: 12px;text-align: left; margin-bottom: 5px;}
 p{margin-left:100px;}
 </style>
