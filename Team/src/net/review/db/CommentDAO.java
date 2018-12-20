@@ -78,16 +78,17 @@ public class CommentDAO {
 		}
 	}
 
-	public void deleteComment(int comment_num)
+	public void deleteComment(int comment_num, int review_num)
 	{
 		Connection con = null;
 		PreparedStatement psm = null;
 		try
 		{
 			con = getConnection();
-			String sql = "delete from comment where comment_num=?";
+			String sql = "delete from comment where comment_num=? and review_num=?";
 			psm = con.prepareStatement(sql);
 			psm.setInt(1, comment_num);
+			psm.setInt(2, review_num);
 			psm.executeUpdate();
 			
 		}

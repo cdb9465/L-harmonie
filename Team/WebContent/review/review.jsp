@@ -293,7 +293,7 @@ if(email!=null)
 {
 if(email.equals("admin@team.com")){%> 
 
-<input type="button"value="댓글삭제"  onclick="location.href='./CommentDelete.re?comment_num=<%=cb.getComment_num()%>'" class="delComment">
+<input type="button"value="댓글삭제"  onclick="location.href='./CommentDelete.re?comment_num=<%=cb.getComment_num()%>&review_num=<%=rb.getReview_num() %>'" class="delComment">
 
 
 </td>
