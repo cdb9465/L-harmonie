@@ -3,8 +3,9 @@
 			  auth="Container"
 			  type="javax.sql.DataSource"
 			  driverClassName="com.mysql.jdbc.Driver"
-			  url="jdbc:mysql://192.168.2.32:3306/lhdb"
-			  username="jspid"
-			  password="jsppass"/>
+			  url="jdbc:mysql://localhost/itwillbs5"
+			  username="itwillbs5"
+			  password="itwillbs8030909"/>
 	
 </Context>
+
