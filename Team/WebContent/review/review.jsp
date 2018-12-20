@@ -270,11 +270,14 @@ if(email.equals("admin@team.com")){%>
 for(int j=0;j<cobe.size();j++){
 	
 	
+	
+	
     	CommentBean cb=cobe.get(j);
 
     	if(rb.getReview_num()==cb.getReview_num()){
     	 	
     	//System.out.println(rb.getFile().split(",")[0]);
+    	
     	%>
 <tr colspan='2'>
 
